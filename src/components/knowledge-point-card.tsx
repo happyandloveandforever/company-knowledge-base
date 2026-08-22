@@ -50,6 +50,14 @@ function splitCsv(value: string): string[] {
     .filter(Boolean);
 }
 
+/** 从正文提取一句话摘要（取首段，最多 120 字） */
+function generateSummaryFromBody(body: string, maxLen = 120): string {
+  const firstBlock = body.split(/\n{2,}/)[0]?.trim() || body.trim();
+  const line = firstBlock.split(/\n/)[0]?.trim() || firstBlock;
+  const cleaned = line.replace(/\s+/g, " ");
+  return cleaned.length > maxLen ? `${cleaned.slice(0, maxLen)}…` : cleaned;
+}
+
 export function KnowledgePointCard({
   kp,
   expanded,
@@ -63,6 +71,8 @@ export function KnowledgePointCard({
   const [form, setForm] = useState(kp);
   const [tagsInput, setTagsInput] = useState(kp.tags.join("、"));
   const [audienceInput, setAudienceInput] = useState(kp.audience.join("、"));
+  const [autoSyncSummary, setAutoSyncSummary] = useState(false);
+  const [summaryTouched, setSummaryTouched] = useState(false);
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
@@ -70,8 +80,21 @@ export function KnowledgePointCard({
       setForm(kp);
       setTagsInput(kp.tags.join("、"));
       setAudienceInput(kp.audience.join("、"));
+      setAutoSyncSummary(false);
+      setSummaryTouched(false);
     }
-  }, [editing, kp]);
+  }, [editing, kp.id]);
+
+  function updateBody(body: string) {
+    setForm((prev) => ({
+      ...prev,
+      body,
+      summary:
+        autoSyncSummary && !summaryTouched
+          ? generateSummaryFromBody(body)
+          : prev.summary,
+    }));
+  }
 
   async function handleSave(approve = false) {
     setSaving(true);
@@ -106,12 +129,54 @@ export function KnowledgePointCard({
             />
           </div>
           <div>
-            <label className="mb-1 block text-sm font-medium text-slate-700">摘要</label>
+            <div className="mb-1 flex flex-wrap items-center justify-between gap-2">
+              <label className="text-sm font-medium text-slate-700">摘要</label>
+              <div className="flex flex-wrap items-center gap-2">
+                <label className="flex cursor-pointer items-center gap-1.5 text-xs text-slate-500">
+                  <input
+                    type="checkbox"
+                    checked={autoSyncSummary}
+                    onChange={(e) => {
+                      const on = e.target.checked;
+                      setAutoSyncSummary(on);
+                      if (on && !summaryTouched) {
+                        setForm((prev) => ({
+                          ...prev,
+                          summary: generateSummaryFromBody(prev.body),
+                        }));
+                      }
+                    }}
+                    className="rounded border-slate-300"
+                  />
+                  随正文自动更新
+                </label>
+                <button
+                  type="button"
+                  className="text-xs text-blue-600 hover:underline"
+                  onClick={() => {
+                    setSummaryTouched(false);
+                    setForm((prev) => ({
+                      ...prev,
+                      summary: generateSummaryFromBody(prev.body),
+                    }));
+                  }}
+                >
+                  从正文生成
+                </button>
+              </div>
+            </div>
             <Textarea
               rows={2}
               value={form.summary}
-              onChange={(e) => setForm({ ...form, summary: e.target.value })}
+              onChange={(e) => {
+                setSummaryTouched(true);
+                setForm({ ...form, summary: e.target.value });
+              }}
+              placeholder="一句话概括；默认不随正文变化，可手动改或点「从正文生成」"
             />
+            <p className="mt-1 text-xs text-slate-400">
+              摘要独立保存，修改正文不会自动改摘要，除非勾选「随正文自动更新」
+            </p>
           </div>
           <div>
             <label className="mb-1 block text-sm font-medium text-slate-700">完整内容</label>
@@ -119,7 +184,7 @@ export function KnowledgePointCard({
               rows={8}
               className="min-h-[160px] font-mono text-sm"
               value={form.body}
-              onChange={(e) => setForm({ ...form, body: e.target.value })}
+              onChange={(e) => updateBody(e.target.value)}
             />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
