@@ -1,4 +1,4 @@
-export type AIProvider = "openai" | "gemini";
+export type AIProvider = "anthropic" | "openai" | "gemini";
 
 export interface AIConfig {
   provider: AIProvider;
@@ -8,21 +8,32 @@ export interface AIConfig {
 }
 
 const DEFAULT_MODELS: Record<AIProvider, string> = {
+  anthropic: "claude-sonnet-4-20250514",
   openai: "gpt-4o",
   gemini: "gemini-2.0-flash",
 };
 
 export function getAIConfig(): AIConfig {
-  const provider = (process.env.AI_PROVIDER || "openai") as AIProvider;
+  const anthropicKey = process.env.ANTHROPIC_API_KEY || "";
   const openaiKey = process.env.OPENAI_API_KEY || "";
   const geminiKey = process.env.GEMINI_API_KEY || "";
+  const preferred = (process.env.AI_PROVIDER || "anthropic") as AIProvider;
 
   let apiKey = "";
-  let activeProvider = provider;
+  let activeProvider: AIProvider = "anthropic";
 
-  if (provider === "gemini" && geminiKey) {
+  if (preferred === "anthropic" && anthropicKey) {
+    apiKey = anthropicKey;
+    activeProvider = "anthropic";
+  } else if (preferred === "openai" && openaiKey) {
+    apiKey = openaiKey;
+    activeProvider = "openai";
+  } else if (preferred === "gemini" && geminiKey) {
     apiKey = geminiKey;
     activeProvider = "gemini";
+  } else if (anthropicKey) {
+    apiKey = anthropicKey;
+    activeProvider = "anthropic";
   } else if (openaiKey) {
     apiKey = openaiKey;
     activeProvider = "openai";
@@ -31,9 +42,7 @@ export function getAIConfig(): AIConfig {
     activeProvider = "gemini";
   }
 
-  const model =
-    process.env.AI_MODEL ||
-    DEFAULT_MODELS[activeProvider];
+  const model = process.env.AI_MODEL || DEFAULT_MODELS[activeProvider];
 
   return {
     provider: activeProvider,
@@ -44,10 +53,15 @@ export function getAIConfig(): AIConfig {
 }
 
 export function getAIStatusLabel(config: AIConfig): string {
-  if (!config.enabled) return "未配置（使用基础拆分）";
+  if (!config.enabled) return "未配置 API Key（加入 Claude 待拆分队列）";
   const names: Record<AIProvider, string> = {
+    anthropic: "Claude",
     openai: "OpenAI",
     gemini: "Google Gemini",
   };
   return `${names[config.provider]} · ${config.model}`;
+}
+
+export function isClaudeProvider(config: AIConfig): boolean {
+  return config.provider === "anthropic";
 }

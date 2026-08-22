@@ -39,11 +39,13 @@ export interface KnowledgePoint {
 export interface SourceFile {
   id: string;
   filename: string;
-  fileType: "pptx" | "docx" | "other";
+  fileType: "pptx" | "docx" | "pdf" | "md" | "html" | "txt" | "image" | "other";
   uploadedAt: string;
   knowledgePointIds: string[];
-  status: "processing" | "done" | "error";
+  status: "processing" | "done" | "error" | "pending_claude";
   error?: string;
+  splitMode?: "claude-api" | "claude-agent" | "ai" | "basic" | "queued";
+  note?: string;
 }
 
 export interface PresentationLogic {

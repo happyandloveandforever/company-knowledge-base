@@ -37,6 +37,76 @@ const SYSTEM_PROMPT = `你是一位企业知识管理专家，负责把演示文
   "examples": ["案例或数据引用，无则空数组"]
 }`;
 
+async function callAnthropic(config: AIConfig, userPrompt: string): Promise<string> {
+  const res = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": config.apiKey,
+      "anthropic-version": "2023-06-01",
+    },
+    body: JSON.stringify({
+      model: config.model,
+      max_tokens: 8192,
+      temperature: 0.2,
+      system: SYSTEM_PROMPT + '\n\n返回 JSON 对象：{ "knowledgePoints": [...] }',
+      messages: [{ role: "user", content: userPrompt }],
+    }),
+  });
+
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`Claude API 错误 (${res.status}): ${err.slice(0, 200)}`);
+  }
+
+  const data = await res.json();
+  const block = data.content?.find((b: { type: string }) => b.type === "text");
+  return block?.text || "{}";
+}
+
+async function callAnthropicVision(
+  config: AIConfig,
+  imageBase64: string,
+  mediaType: string,
+  userPrompt: string
+): Promise<string> {
+  const res = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": config.apiKey,
+      "anthropic-version": "2023-06-01",
+    },
+    body: JSON.stringify({
+      model: config.model,
+      max_tokens: 8192,
+      temperature: 0.2,
+      system: SYSTEM_PROMPT + '\n\n返回 JSON 对象：{ "knowledgePoints": [...] }',
+      messages: [
+        {
+          role: "user",
+          content: [
+            {
+              type: "image",
+              source: { type: "base64", media_type: mediaType, data: imageBase64 },
+            },
+            { type: "text", text: userPrompt },
+          ],
+        },
+      ],
+    }),
+  });
+
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`Claude Vision 错误 (${res.status}): ${err.slice(0, 200)}`);
+  }
+
+  const data = await res.json();
+  const block = data.content?.find((b: { type: string }) => b.type === "text");
+  return block?.text || "{}";
+}
+
 async function callOpenAI(config: AIConfig, userPrompt: string): Promise<string> {
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
@@ -124,10 +194,24 @@ function parseAIResponse(raw: string, location: string): AISplitResult[] {
     }));
 }
 
+async function callModel(
+  config: AIConfig,
+  userPrompt: string,
+  vision?: { base64: string; mediaType: string }
+): Promise<string> {
+  if (vision && config.provider === "anthropic") {
+    return callAnthropicVision(config, vision.base64, vision.mediaType, userPrompt);
+  }
+  if (config.provider === "anthropic") return callAnthropic(config, userPrompt);
+  if (config.provider === "gemini") return callGemini(config, userPrompt);
+  return callOpenAI(config, userPrompt);
+}
+
 async function splitOneSlide(
   config: AIConfig,
   slide: RawSlide,
-  filename: string
+  filename: string,
+  vision?: { base64: string; mediaType: string }
 ): Promise<AISplitResult[]> {
   const userPrompt = `文件名：${filename}
 位置：${slide.location}
@@ -137,11 +221,7 @@ ${slide.body}
 
 请按拆分原则输出 knowledgePoints 数组。`;
 
-  const raw =
-    config.provider === "gemini"
-      ? await callGemini(config, userPrompt)
-      : await callOpenAI(config, userPrompt);
-
+  const raw = await callModel(config, userPrompt, vision);
   return parseAIResponse(raw, slide.location);
 }
 
@@ -150,7 +230,8 @@ export async function splitSlidesWithAI(
   config: AIConfig,
   slides: ParsedChunk[],
   filename: string,
-  onProgress?: (done: number, total: number) => void
+  onProgress?: (done: number, total: number) => void,
+  vision?: { base64: string; mediaType: string }
 ): Promise<AISplitResult[]> {
   const rawSlides: RawSlide[] = slides.map((s, i) => ({
     location: s.location || `第 ${i + 1} 页`,
@@ -160,7 +241,17 @@ export async function splitSlidesWithAI(
 
   const allResults: AISplitResult[] = [];
 
-  // Process slide-by-slide for maximum precision on dense content
+  // Image: single vision call for whole file
+  if (vision && rawSlides.length === 1) {
+    try {
+      const points = await splitOneSlide(config, rawSlides[0], filename, vision);
+      return points;
+    } catch (err) {
+      console.error("Claude vision split failed:", err);
+      throw err;
+    }
+  }
+
   for (let i = 0; i < rawSlides.length; i++) {
     const slide = rawSlides[i];
     if (slide.body.length < 15) continue;
@@ -198,8 +289,13 @@ export async function splitSlidesWithAI(
 export async function splitDenseContentWithAI(
   config: AIConfig,
   slides: ParsedChunk[],
-  filename: string
+  filename: string,
+  vision?: { base64: string; mediaType: string }
 ): Promise<AISplitResult[]> {
+  if (vision) {
+    return splitSlidesWithAI(config, slides, filename, undefined, vision);
+  }
+
   const expanded: ParsedChunk[] = [];
 
   for (const slide of slides) {

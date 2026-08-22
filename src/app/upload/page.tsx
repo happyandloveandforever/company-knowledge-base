@@ -1,22 +1,39 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Upload, FileText, CheckCircle, AlertCircle, Loader2, Sparkles, Cpu } from "lucide-react";
+import {
+  Upload,
+  FileText,
+  CheckCircle,
+  AlertCircle,
+  Loader2,
+  Sparkles,
+  Clock,
+  MessageSquare,
+} from "lucide-react";
 import type { KnowledgePoint } from "@/lib/types";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 
+const ACCEPT =
+  ".pptx,.docx,.doc,.pdf,.md,.markdown,.html,.htm,.txt,.png,.jpg,.jpeg,.webp";
+
+const FORMATS = "PPT · Word · PDF · Markdown · HTML · TXT · PNG · JPG · WebP";
+
 interface UploadResult {
   filename: string;
-  count: number;
+  count?: number;
   rawSlideCount?: number;
-  splitMode?: "ai" | "basic";
+  splitMode?: string;
   aiModel?: string;
   conflictCount?: number;
   contentConflictCount?: number;
-  knowledgePoints: KnowledgePoint[];
+  knowledgePoints?: KnowledgePoint[];
+  queued?: boolean;
+  queueId?: string;
+  message?: string;
 }
 
 interface AIStatus {
@@ -33,53 +50,64 @@ export default function UploadPage() {
   const [error, setError] = useState("");
   const [results, setResults] = useState<UploadResult[]>([]);
   const [aiStatus, setAiStatus] = useState<AIStatus | null>(null);
-  const [splitMode, setSplitMode] = useState<"auto" | "ai" | "basic">("auto");
+  const [pendingCount, setPendingCount] = useState(0);
+  const [splitMode, setSplitMode] = useState<"claude" | "basic">("claude");
 
   useEffect(() => {
     fetch("/api/ai/status")
       .then((r) => r.json())
       .then(setAiStatus)
       .catch(() => null);
-  }, []);
+    fetch("/api/split-queue?pending=1")
+      .then((r) => r.json())
+      .then((d) => setPendingCount(d.pendingCount || 0))
+      .catch(() => null);
+  }, [results]);
 
-  const handleFiles = useCallback(async (files: FileList | File[]) => {
-    setError("");
-    setUploading(true);
+  const handleFiles = useCallback(
+    async (files: FileList | File[]) => {
+      setError("");
+      setUploading(true);
 
-    for (const file of Array.from(files)) {
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("mode", splitMode);
+      for (const file of Array.from(files)) {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("mode", splitMode === "claude" ? "claude" : "basic");
 
-      try {
-        const res = await fetch("/api/upload", { method: "POST", body: formData });
-        const data = await res.json();
+        try {
+          const res = await fetch("/api/upload", { method: "POST", body: formData });
+          const data = await res.json();
 
-        if (!res.ok) {
-          setError(data.error || "上传失败");
-          continue;
+          if (!res.ok) {
+            setError(data.error || "上传失败");
+            continue;
+          }
+
+          setResults((prev) => [
+            {
+              filename: data.filename,
+              count: data.count,
+              rawSlideCount: data.rawSlideCount || data.rawChunkCount,
+              splitMode: data.splitMode,
+              aiModel: data.aiModel,
+              conflictCount: data.conflictCount,
+              contentConflictCount: data.contentConflictCount,
+              knowledgePoints: data.knowledgePoints,
+              queued: data.queued,
+              queueId: data.queueId,
+              message: data.message,
+            },
+            ...prev,
+          ]);
+        } catch {
+          setError("网络错误，请重试");
         }
-
-        setResults((prev) => [
-          {
-            filename: data.filename,
-            count: data.count,
-            rawSlideCount: data.rawSlideCount,
-            splitMode: data.splitMode,
-            aiModel: data.aiModel,
-            conflictCount: data.conflictCount,
-            contentConflictCount: data.contentConflictCount,
-            knowledgePoints: data.knowledgePoints,
-          },
-          ...prev,
-        ]);
-      } catch {
-        setError("网络错误，请重试");
       }
-    }
 
-    setUploading(false);
-  }, [splitMode]);
+      setUploading(false);
+    },
+    [splitMode]
+  );
 
   function onDrop(e: React.DragEvent) {
     e.preventDefault();
@@ -87,90 +115,97 @@ export default function UploadPage() {
     if (e.dataTransfer.files.length) handleFiles(e.dataTransfer.files);
   }
 
-  const effectiveMode =
-    splitMode === "auto"
-      ? aiStatus?.enabled
-        ? "AI 精细拆分"
-        : "基础拆分（未配置 API Key）"
-      : splitMode === "ai"
-        ? "AI 精细拆分"
-        : "基础拆分";
-
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-slate-900">导入文件</h1>
         <p className="text-sm text-slate-500">
-          上传 PPT (.pptx) 或 Word (.docx)，系统拆分为结构化知识点并存入总库
+          支持 {FORMATS}，默认使用 <strong>Claude 精细拆分</strong>
         </p>
       </div>
 
-      {/* AI status & mode selector */}
       <Card className="mb-6">
         <CardHeader className="pb-3">
           <CardTitle className="flex items-center gap-2 text-base">
             <Sparkles className="h-4 w-4 text-violet-600" />
-            拆分模式
+            Claude 精细拆分
           </CardTitle>
           <CardDescription>
-            信息密集的 PPT 建议使用 AI 精细拆分：一页可拆成多个独立知识点，保留数据和案例细节
+            密集材料一页拆多个知识点，保留数据与案例细节。图片（PNG/JPG）支持 Claude 视觉识别。
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-3">
           <div className="flex items-center gap-2 text-sm">
-            <Cpu className="h-4 w-4 text-slate-400" />
-            <span className="text-slate-600">当前模型：</span>
+            <span className="text-slate-600">Claude API：</span>
             <Badge variant={aiStatus?.enabled ? "success" : "warning"}>
               {aiStatus?.label || "检测中…"}
             </Badge>
           </div>
 
-          <div className="flex flex-wrap gap-2">
-            {(["auto", "ai", "basic"] as const).map((m) => (
-              <button
-                key={m}
-                onClick={() => setSplitMode(m)}
-                className={`rounded-lg border px-4 py-2 text-sm transition-colors ${
-                  splitMode === m
-                    ? "border-blue-500 bg-blue-50 text-blue-700"
-                    : "border-slate-200 hover:bg-slate-50"
-                }`}
-              >
-                {m === "auto" ? "自动（推荐）" : m === "ai" ? "AI 精细拆分" : "基础拆分"}
-              </button>
-            ))}
-          </div>
+          {!aiStatus?.enabled && (
+            <div className="rounded-lg bg-amber-50 p-3 text-sm text-amber-900">
+              <p className="font-medium">未配置 ANTHROPIC_API_KEY</p>
+              <p className="mt-1 text-amber-800">
+                上传后文件会进入 <strong>Claude 待拆分队列</strong>，在 Cursor 对话中说「处理拆分队列」或直接把文件发给我，由我精细拆分入库。
+              </p>
+              {pendingCount > 0 && (
+                <p className="mt-2 flex items-center gap-1 text-amber-700">
+                  <Clock className="h-4 w-4" />
+                  当前队列中有 {pendingCount} 个文件待拆分
+                </p>
+              )}
+            </div>
+          )}
 
-          <p className="text-xs text-slate-500">
-            将使用：<strong>{effectiveMode}</strong>
-            {!aiStatus?.enabled && splitMode !== "basic" && (
-              <span className="text-amber-600"> — 请在 .env 中配置 OPENAI_API_KEY 或 GEMINI_API_KEY</span>
-            )}
-          </p>
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setSplitMode("claude")}
+              className={`rounded-lg border px-4 py-2 text-sm transition-colors ${
+                splitMode === "claude"
+                  ? "border-violet-500 bg-violet-50 text-violet-700"
+                  : "border-slate-200 hover:bg-slate-50"
+              }`}
+            >
+              Claude 精细拆分（推荐）
+            </button>
+            <button
+              onClick={() => setSplitMode("basic")}
+              className={`rounded-lg border px-4 py-2 text-sm transition-colors ${
+                splitMode === "basic"
+                  ? "border-blue-500 bg-blue-50 text-blue-700"
+                  : "border-slate-200 hover:bg-slate-50"
+              }`}
+            >
+              基础机械拆分
+            </button>
+          </div>
         </CardContent>
       </Card>
 
       <div
         className={`mb-6 flex flex-col items-center justify-center rounded-xl border-2 border-dashed p-12 transition-colors ${
-          dragging ? "border-blue-500 bg-blue-50" : "border-slate-300 bg-white"
+          dragging ? "border-violet-500 bg-violet-50" : "border-slate-300 bg-white"
         }`}
-        onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
+        onDragOver={(e) => {
+          e.preventDefault();
+          setDragging(true);
+        }}
         onDragLeave={() => setDragging(false)}
         onDrop={onDrop}
       >
         {uploading ? (
-          <Loader2 className="mb-3 h-10 w-10 animate-spin text-blue-600" />
+          <Loader2 className="mb-3 h-10 w-10 animate-spin text-violet-600" />
         ) : (
           <Upload className="mb-3 h-10 w-10 text-slate-400" />
         )}
         <p className="mb-1 text-lg font-medium text-slate-700">
-          {uploading ? "正在拆分知识点，密集内容可能需要 1-3 分钟…" : "拖拽文件到此处"}
+          {uploading ? "正在处理，Claude 拆分可能需要 1-5 分钟…" : "拖拽文件到此处"}
         </p>
-        <p className="mb-4 text-sm text-slate-400">支持 .pptx 和 .docx 格式</p>
+        <p className="mb-4 text-center text-sm text-slate-400">{FORMATS}</p>
         <input
           ref={inputRef}
           type="file"
-          accept=".pptx,.docx,.doc"
+          accept={ACCEPT}
           multiple
           className="hidden"
           onChange={(e) => e.target.files && handleFiles(e.target.files)}
@@ -191,57 +226,81 @@ export default function UploadPage() {
         <Card key={idx} className="mb-4">
           <CardHeader>
             <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-emerald-600" />
+              {result.queued ? (
+                <Clock className="h-5 w-5 text-amber-600" />
+              ) : (
+                <CheckCircle className="h-5 w-5 text-emerald-600" />
+              )}
               <CardTitle className="text-base">{result.filename}</CardTitle>
             </div>
-            <CardDescription>
-              成功拆分 {result.count} 个知识点
-              {result.rawSlideCount != null && result.rawSlideCount !== result.count && (
-                <span>（原 {result.rawSlideCount} 页 → 拆为 {result.count} 个知识点）</span>
-              )}
-              {" · "}
-              {result.splitMode === "ai" ? (
-                <span className="text-violet-600">AI 精细拆分{result.aiModel ? ` · ${result.aiModel}` : ""}</span>
-              ) : (
-                <span>基础拆分</span>
-              )}
-            </CardDescription>
+            {result.queued ? (
+              <CardDescription className="text-amber-800">
+                {result.message}
+                {result.queueId && (
+                  <span className="mt-1 block text-xs text-amber-600">队列 ID：{result.queueId}</span>
+                )}
+              </CardDescription>
+            ) : (
+              <CardDescription>
+                成功拆分 {result.count} 个知识点
+                {result.rawSlideCount != null && result.rawSlideCount !== result.count && (
+                  <span>（原 {result.rawSlideCount} 段 → {result.count} 个知识点）</span>
+                )}
+                {" · "}
+                {result.splitMode === "claude-api" ? (
+                  <span className="text-violet-600">
+                    Claude 精细拆分{result.aiModel ? ` · ${result.aiModel}` : ""}
+                  </span>
+                ) : result.splitMode === "ai" ? (
+                  <span className="text-violet-600">AI 拆分 · {result.aiModel}</span>
+                ) : (
+                  <span>基础拆分</span>
+                )}
+              </CardDescription>
+            )}
             {(result.contentConflictCount ?? 0) > 0 && (
               <p className="mt-2 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-800">
-                ⚠ {result.contentConflictCount} 条存在内容冲突（如 5大功效 vs 3大功效），请在总库筛选「内容冲突」核对
-              </p>
-            )}
-            {(result.conflictCount ?? 0) > 0 && (
-              <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-800">
-                ⚠ {result.conflictCount} 条与现有知识点相似或重复，请在总库中核对（可筛选「高度重复」）
+                ⚠ {result.contentConflictCount} 条存在内容冲突，请在总库核对
               </p>
             )}
           </CardHeader>
-          <CardContent>
-            <div className="space-y-2">
-              {result.knowledgePoints.slice(0, 5).map((kp) => (
-                <div key={kp.id} className="flex items-start gap-2 text-sm">
-                  <FileText className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" />
-                  <div>
-                    <span className="font-medium">{kp.title}</span>
-                    <div className="mt-0.5 flex flex-wrap gap-1">
-                      <Badge variant="secondary">{kp.category}</Badge>
-                      {kp.source.location && (
-                        <span className="text-xs text-slate-400">{kp.source.location}</span>
-                      )}
+          {!result.queued && result.knowledgePoints && (
+            <CardContent>
+              <div className="space-y-2">
+                {result.knowledgePoints.slice(0, 5).map((kp) => (
+                  <div key={kp.id} className="flex items-start gap-2 text-sm">
+                    <FileText className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" />
+                    <div>
+                      <span className="font-medium">{kp.title}</span>
+                      <div className="mt-0.5 flex flex-wrap gap-1">
+                        <Badge variant="secondary">{kp.category}</Badge>
+                        {kp.source.location && (
+                          <span className="text-xs text-slate-400">{kp.source.location}</span>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-              {result.count > 5 && (
-                <p className="text-xs text-slate-400">还有 {result.count - 5} 个知识点…</p>
-              )}
-            </div>
-          </CardContent>
+                ))}
+                {(result.count ?? 0) > 5 && (
+                  <p className="text-xs text-slate-400">还有 {(result.count ?? 0) - 5} 个知识点…</p>
+                )}
+              </div>
+            </CardContent>
+          )}
+          {result.queued && (
+            <CardContent>
+              <div className="flex items-start gap-2 rounded-lg bg-slate-50 p-3 text-sm text-slate-600">
+                <MessageSquare className="mt-0.5 h-4 w-4 shrink-0" />
+                <p>
+                  在 Cursor 对话中说：<strong>「处理拆分队列」</strong> 或 <strong>「帮我 Claude 精细拆 xxx.pdf」</strong>
+                </p>
+              </div>
+            </CardContent>
+          )}
         </Card>
       ))}
 
-      {results.length > 0 && (
+      {(results.some((r) => !r.queued) || pendingCount > 0) && (
         <div className="text-center">
           <Link href="/library">
             <Button variant="outline">前往知识总库审核 →</Button>

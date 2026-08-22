@@ -2568,9 +2568,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:20:18.584Z"
   },
   {
     "id": "KP-B2B-018",
@@ -2602,9 +2602,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:18:54.560Z"
   },
   {
     "id": "KP-B2B-019",
@@ -2635,9 +2635,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:19:01.586Z"
   },
   {
     "id": "KP-B2B-020",
@@ -2670,9 +2670,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:18:58.466Z"
   },
   {
     "id": "KP-B2B-021",
@@ -2704,9 +2704,9 @@
     ],
     "durationMin": 10,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:20:00.524Z"
   },
   {
     "id": "KP-B2B-022",
@@ -2738,9 +2738,9 @@
     ],
     "durationMin": 8,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:20:02.942Z"
   },
   {
     "id": "KP-B2B-023",
@@ -2806,9 +2806,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:20:15.282Z"
   },
   {
     "id": "KP-B2B-025",
@@ -2840,9 +2840,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:20:21.561Z"
   },
   {
     "id": "KP-B2B-026",
@@ -2874,9 +2874,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:21:46.589Z"
   },
   {
     "id": "KP-B2B-027",
@@ -2908,9 +2908,9 @@
     ],
     "durationMin": 7,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:21:34.873Z"
   },
   {
     "id": "KP-B2B-028",
@@ -2941,9 +2941,9 @@
     ],
     "durationMin": 7,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:21:09.458Z"
   },
   {
     "id": "KP-B2B-029",
@@ -2975,9 +2975,9 @@
     ],
     "durationMin": 6,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:20:26.490Z"
   },
   {
     "id": "KP-B2B-030",
@@ -3009,9 +3009,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:21:47.437Z"
   },
   {
     "id": "KP-B2B-031",
@@ -3042,9 +3042,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:20:28.290Z"
   },
   {
     "id": "KP-B2B-032",
@@ -3075,9 +3075,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:22:36.841Z"
   },
   {
     "id": "KP-B2B-033",
@@ -3108,9 +3108,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:20:30.485Z"
   },
   {
     "id": "KP-B2B-034",
@@ -3141,9 +3141,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:21:45.288Z"
   },
   {
     "id": "KP-B2B-035",
@@ -3173,9 +3173,9 @@
     ],
     "durationMin": 8,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:20:31.824Z"
   },
   {
     "id": "KP-B2B-036",
@@ -3207,9 +3207,9 @@
     ],
     "durationMin": 7,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:22:25.965Z"
   },
   {
     "id": "KP-B2B-037",
@@ -3240,9 +3240,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:20:33.205Z"
   },
   {
     "id": "KP-B2B-038",
@@ -3274,9 +3274,9 @@
     ],
     "durationMin": 3,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:20:35.064Z"
   },
   {
     "id": "KP-B2B-039",
@@ -3306,9 +3306,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:20:39.154Z"
   },
   {
     "id": "KP-B2B-040",
@@ -3339,9 +3339,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:21:55.336Z"
   },
   {
     "id": "KP-B2B-041",
@@ -3371,9 +3371,9 @@
     ],
     "durationMin": 3,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:20:40.572Z"
   },
   {
     "id": "KP-B2B-042",
@@ -3404,9 +3404,9 @@
     ],
     "durationMin": 3,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:22:13.921Z"
   },
   {
     "id": "KP-B2B-043",
@@ -3437,9 +3437,9 @@
     ],
     "durationMin": 6,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:20:45.461Z"
   },
   {
     "id": "KP-B2B-044",
@@ -3471,9 +3471,9 @@
     ],
     "durationMin": 6,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:20:05.615Z"
   },
   {
     "id": "KP-B2B-045",
@@ -3505,9 +3505,9 @@
     ],
     "durationMin": 7,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:20:50.931Z"
   },
   {
     "id": "KP-B2B-046",
@@ -3539,9 +3539,9 @@
     ],
     "durationMin": 8,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:20:16.406Z"
   },
   {
     "id": "KP-B2B-047",
@@ -3573,9 +3573,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:20:47.056Z"
   },
   {
     "id": "KP-B2B-048",
@@ -3607,9 +3607,9 @@
     ],
     "durationMin": 7,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:22:17.228Z"
   },
   {
     "id": "KP-B2B-049",
@@ -3641,9 +3641,9 @@
     ],
     "durationMin": 6,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:20:48.884Z"
   },
   {
     "id": "KP-B2B-050",
@@ -3675,8 +3675,8 @@
     ],
     "durationMin": 3,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T12:20:12.677Z"
   }
 ]
