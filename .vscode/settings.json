@@ -1,0 +1,10 @@
+{
+  "remote.autoForwardPorts": true,
+  "remote.portsAttributes": {
+    "43123": {
+      "label": "公司知识库",
+      "onAutoForward": "openPreview",
+      "elevateIfNeeded": false
+    }
+  }
+}
