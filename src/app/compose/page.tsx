@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   Search,
   Download,
@@ -9,6 +9,7 @@ import {
   Square,
   FileText,
   Loader2,
+  ArrowDown,
 } from "lucide-react";
 import type { KnowledgePoint, Outline } from "@/lib/types";
 import { PRESENTATION_LOGICS } from "@/lib/presentation-logic";
@@ -16,6 +17,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input, Select } from "@/components/ui/input";
+import { TagFilter, collectTags, matchesTagFilter } from "@/components/tag-filter";
 
 export default function ComposePage() {
   const [points, setPoints] = useState<KnowledgePoint[]>([]);
@@ -30,6 +32,8 @@ export default function ComposePage() {
   const [generating, setGenerating] = useState(false);
   const [exporting, setExporting] = useState(false);
   const [error, setError] = useState("");
+  const [appliedTags, setAppliedTags] = useState<string[]>([]);
+  const settingsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     fetch("/api/knowledge")
@@ -40,16 +44,20 @@ export default function ComposePage() {
       });
   }, []);
 
+  const allTags = useMemo(() => collectTags(points), [points]);
+
   const filtered = useMemo(() => {
-    if (!search) return points;
-    const q = search.toLowerCase();
-    return points.filter(
-      (p) =>
+    return points.filter((p) => {
+      if (!matchesTagFilter(p.tags, appliedTags)) return false;
+      if (!search) return true;
+      const q = search.toLowerCase();
+      return (
         p.title.toLowerCase().includes(q) ||
         p.summary.toLowerCase().includes(q) ||
         p.tags.some((t) => t.toLowerCase().includes(q))
-    );
-  }, [points, search]);
+      );
+    });
+  }, [points, search, appliedTags]);
 
   const selectedPoints = useMemo(
     () => points.filter((p) => selected.has(p.id)),
@@ -77,6 +85,19 @@ export default function ComposePage() {
   const clearAll = useCallback(() => {
     setSelected(new Set());
   }, []);
+
+  const confirmTagsAndSelect = useCallback(
+    (tags: string[]) => {
+      setAppliedTags(tags);
+      const matching = points.filter((p) => matchesTagFilter(p.tags, tags));
+      setSelected(new Set(matching.map((p) => p.id)));
+    },
+    [points]
+  );
+
+  function scrollToSettings() {
+    settingsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
   async function generateOutline() {
     setError("");
@@ -180,7 +201,7 @@ export default function ComposePage() {
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
+    <div className={`mx-auto max-w-7xl px-4 py-8 sm:px-6 ${selected.size > 0 ? "pb-24" : ""}`}>
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-slate-900">编排演讲</h1>
         <p className="text-sm text-slate-500">
@@ -206,9 +227,17 @@ export default function ComposePage() {
                   onChange={(e) => setSearch(e.target.value)}
                 />
               </div>
+              <TagFilter
+                className="mt-3"
+                allTags={allTags}
+                appliedTags={appliedTags}
+                onApply={setAppliedTags}
+                onConfirm={confirmTagsAndSelect}
+                confirmLabel="确认并选中"
+              />
               <div className="mt-2 flex gap-2">
-                <Button size="sm" variant="ghost" onClick={selectAll}>全选</Button>
-                <Button size="sm" variant="ghost" onClick={clearAll}>清空</Button>
+                <Button size="sm" variant="ghost" onClick={selectAll}>全选当前列表</Button>
+                <Button size="sm" variant="ghost" onClick={clearAll}>清空选择</Button>
               </div>
             </CardHeader>
             <CardContent className="max-h-[500px] space-y-2 overflow-y-auto">
@@ -233,6 +262,9 @@ export default function ComposePage() {
                       <p className="text-sm font-medium text-slate-900">{kp.title}</p>
                       <div className="mt-1 flex flex-wrap gap-1">
                         <Badge variant="secondary">{kp.category}</Badge>
+                        {kp.tags.slice(0, 3).map((t) => (
+                          <Badge key={t} variant="outline">{t}</Badge>
+                        ))}
                         <span className="text-xs text-slate-400">{kp.durationMin}min</span>
                       </div>
                     </div>
@@ -244,10 +276,15 @@ export default function ComposePage() {
         </div>
 
         {/* Right: config + outline */}
-        <div className="space-y-4 lg:col-span-3">
+        <div className="space-y-4 lg:col-span-3" ref={settingsRef}>
           <Card>
             <CardHeader>
               <CardTitle className="text-base">演讲设置</CardTitle>
+              {selected.size > 0 && (
+                <CardDescription className="text-blue-600">
+                  已选 {selected.size} 个知识点 · 预计 {totalDuration} 分钟 · 填写标题后点「生成大纲」
+                </CardDescription>
+              )}
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
@@ -345,6 +382,29 @@ export default function ComposePage() {
           )}
         </div>
       </div>
+
+      {selected.size > 0 && (
+        <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-slate-200 bg-white/95 px-4 py-3 shadow-lg backdrop-blur sm:px-6">
+          <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3">
+            <p className="text-sm text-slate-700">
+              已选 <strong>{selected.size}</strong> 个知识点 · 预计 <strong>{totalDuration}</strong> 分钟
+              {appliedTags.length > 0 && (
+                <span className="text-slate-500"> · 标签：{appliedTags.join("、")}</span>
+              )}
+            </p>
+            <div className="flex gap-2">
+              <Button variant="outline" size="sm" onClick={scrollToSettings}>
+                <ArrowDown className="h-4 w-4" />
+                去生成大纲
+              </Button>
+              <Button size="sm" onClick={() => { scrollToSettings(); generateOutline(); }} disabled={generating}>
+                {generating ? <Loader2 className="h-4 w-4 animate-spin" /> : <FileText className="h-4 w-4" />}
+                确认并生成大纲
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

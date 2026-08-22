@@ -9,6 +9,7 @@ import type { ContentConflict } from "@/lib/conflict-detector";
 import { KnowledgePointCard } from "@/components/knowledge-point-card";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { TagFilter, collectTags, matchesTagFilter } from "@/components/tag-filter";
 import { Input, Select } from "@/components/ui/input";
 
 interface LibraryClientProps {
@@ -29,6 +30,7 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [refreshing, setRefreshing] = useState(false);
+  const [appliedTags, setAppliedTags] = useState<string[]>([]);
 
   const loadConflicts = useCallback(async () => {
     try {
@@ -83,6 +85,8 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
     [points]
   );
 
+  const allTags = useMemo(() => collectTags(points), [points]);
+
   const similarStats = useMemo(() => {
     const withSimilar = Object.keys(similarities).length;
     const duplicates = Object.values(similarities).filter((m) =>
@@ -97,6 +101,7 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
 
   const filtered = useMemo(() => {
     return points.filter((p) => {
+      if (!matchesTagFilter(p.tags, appliedTags)) return false;
       if (categoryFilter && p.category !== categoryFilter) return false;
       if (statusFilter && p.status !== statusFilter) return false;
       if (similarFilter === "similar" && !similarities[p.id]?.length) return false;
@@ -111,7 +116,7 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
       }
       return true;
     });
-  }, [points, search, categoryFilter, statusFilter, similarFilter, similarities, contentConflicts]);
+  }, [points, search, categoryFilter, statusFilter, similarFilter, similarities, contentConflicts, appliedTags]);
 
   const grouped = useMemo(() => {
     const map = new Map<string, KnowledgePoint[]>();
@@ -275,6 +280,14 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
           <option value="content">内容冲突</option>
         </Select>
       </div>
+
+      <TagFilter
+        className="mb-6"
+        allTags={allTags}
+        appliedTags={appliedTags}
+        onApply={setAppliedTags}
+        confirmLabel="确认筛选"
+      />
 
       {filtered.length === 0 ? (
         <Card className="py-12 text-center">
