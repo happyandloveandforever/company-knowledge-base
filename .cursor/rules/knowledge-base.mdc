@@ -1,15 +1,17 @@
 ---
-description: 公司知识库项目 — 新对话必须先读 PROJECT.md，禁止重建项目或覆盖已有数据
+description: 公司知识库 — 新对话必须先读 START-HERE.md，禁止 New Project，禁止重建
 alwaysApply: true
 ---
 
 # 公司知识库 — Agent 规则
 
-## 新对话第一件事
+## ⚠️ 第一件事
 
-1. **读取** 仓库根目录 `PROJECT.md`（完整项目状态、协作方式、当前库清单）
-2. **读取** `AGENTS.md` 中「项目协作规则」部分
-3. **检查** `data/knowledge-points.json`、`data/sources.json` 当前条数，不要假设为空
+1. **读取** `START-HERE.md` 和 `PROJECT.md`
+2. **确认** `data/knowledge-points.json` 有 ~109 条数据
+3. 若是**空仓库** → **停止**，告诉用户连错了仓库，给出正确地址：
+   `https://origin.cursor.com/git/clark-gonzalez/tmp-8ece63bc7e599628`
+4. **绝对不要**因空仓库而重建整个项目
 
 ## 硬性禁止
 
