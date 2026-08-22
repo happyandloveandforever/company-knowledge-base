@@ -171,8 +171,8 @@ Vercel 快速部署（GitHub 镜像完成后）：
 
 | 指标 | 数值 |
 |------|------|
-| 知识点总数 | **195**（166 `approved` + 29 v7 `draft`；机理 13 条已在网页批准） |
-| 已导入文件 | **5** |
+| 知识点总数 | **270**（195 `approved` + 75 增强背景 `draft`） |
+| 已导入文件 | **7** |
 | 待 Claude 拆分队列 | 0 |
 
 ### 已入库文件
@@ -183,13 +183,15 @@ Vercel 快速部署（GitHub 镜像完成后）：
 | B端定稿.pdf | SRC-B2B-YILING | KP-B2B-001 ~ 050 | 50 | done，已批准 | claude-agent |
 | （已压缩）漂浮方舟 · 品牌画册.pdf | SRC-BRAND-BROCHURE | KP-BRAND-*（缺002） | 44 | done，多数已批准 | claude-agent |
 | 方舟机理.pdf | SRC-MECH-JILI | KP-MECH-001 ~ 013 | 13 | done，已批准 | claude-agent |
-| 漂浮方舟_v7.pdf | SRC-FAF-V7 | KP-V7-001 ~ 029 | 29 | done，**draft 待审** | claude-agent |
+| 漂浮方舟_v7.pdf | SRC-FAF-V7 | KP-V7-001 ~ 029 | 29 | done，已批准 | claude-agent |
+| 增强背景 1–40.pdf | SRC-BG2-ENHANCE | KP-BG2-001 ~ 038 | 38 | done，**draft 待审** | claude-agent |
+| 增强背景 41–80.pdf | SRC-BG2-ENHANCE-B | KP-BG2-039 ~ 075 | 37 | done，**draft 待审** | claude-agent |
 
 ### 待办
 
-- [x] 品牌画册 / 方舟机理 / **漂浮方舟_v7** Claude 精细拆分
-- [x] 审核批准机理 `KP-MECH-*`（13）
-- [ ] 审核批准 v7 `KP-V7-*`（29）draft
+- [x] 品牌画册 / 方舟机理 / 漂浮方舟_v7 / **增强背景上下册** Claude 精细拆分
+- [x] 审核批准机理 `KP-MECH-*`、v7 `KP-V7-*`
+- [ ] 审核批准增强背景 `KP-BG2-*`（75）draft
 - [ ] 继续导入更多历史材料
 
 
@@ -317,6 +319,10 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-22 | 网页同步：品牌画册多条批准，删除 KP-BRAND-002（45→44） |
 | 2026-08-22 | Claude 精细拆分方舟机理.pdf：4页→13条（KP-MECH-001~013），库总量→166 |
 | 2026-08-22 | Claude 精细拆分漂浮方舟_v7.pdf：26页→29条（KP-V7-001~029），库总量→195 |
+| 2026-08-22 | Claude 精细拆分增强背景 1–40：40页→38条（KP-BG2-001~038），库总量→233 |
+| 2026-08-22 | Claude 精细拆分增强背景 41–80：40页→37条（KP-BG2-039~075），库总量→270 |
+| 2026-08-22 | 网页同步：批准 v7 全部 29 条 |
+
 
 ---
 
