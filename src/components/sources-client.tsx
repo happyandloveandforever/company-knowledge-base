@@ -88,13 +88,13 @@ export function SourcesClient({ sourceGroups, pendingQueue }: SourcesClientProps
                       </CardDescription>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     {statusBadge(source, pending, count)}
                     <SourceDeleteButton
                       sourceId={source.id}
                       filename={source.filename}
                       pointCount={count}
-                      variant="icon"
+                      variant={count === 0 || source.status === "processing" ? "prominent" : "button"}
                     />
                   </div>
                 </div>

@@ -8,5 +8,6 @@ export async function GET() {
     provider: config.provider,
     model: config.model,
     label: getAIStatusLabel(config),
+    mode: config.enabled ? "api" : "cursor",
   });
 }

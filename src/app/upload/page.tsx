@@ -136,24 +136,37 @@ export default function UploadPage() {
         </CardHeader>
         <CardContent className="space-y-3">
           <div className="flex items-center gap-2 text-sm">
-            <span className="text-slate-600">Claude API：</span>
-            <Badge variant={aiStatus?.enabled ? "success" : "warning"}>
+            <span className="text-slate-600">拆分方式：</span>
+            <Badge variant={aiStatus?.enabled ? "success" : "default"}>
               {aiStatus?.label || "检测中…"}
             </Badge>
           </div>
 
           {!aiStatus?.enabled && (
-            <div className="rounded-lg bg-amber-50 p-3 text-sm text-amber-900">
-              <p className="font-medium">未配置 ANTHROPIC_API_KEY</p>
-              <p className="mt-1 text-amber-800">
-                上传后文件会进入 <strong>Claude 待拆分队列</strong>，在 Cursor 对话中说「处理拆分队列」或直接把文件发给我，由我精细拆分入库。
+            <div className="rounded-lg border border-violet-200 bg-violet-50 p-4 text-sm text-violet-900">
+              <p className="font-medium">✓ 默认使用 Cursor 内置 Claude（无需 API Key）</p>
+              <p className="mt-2 text-violet-800">
+                上传后文件进入待拆分队列，在<strong>本对话</strong>中说：
+              </p>
+              <ul className="mt-2 list-inside list-disc space-y-1 text-violet-800">
+                <li>「处理拆分队列」</li>
+                <li>「帮我 Claude 精细拆 xxx.pdf」</li>
+              </ul>
+              <p className="mt-2 text-xs text-violet-600">
+                杨浦财务、B端定稿都是这样拆的 — 不是网页自动拆，是我在对话里帮你拆。
               </p>
               {pendingCount > 0 && (
-                <p className="mt-2 flex items-center gap-1 text-amber-700">
+                <p className="mt-3 flex items-center gap-1 font-medium text-violet-700">
                   <Clock className="h-4 w-4" />
                   当前队列中有 {pendingCount} 个文件待拆分
                 </p>
               )}
+            </div>
+          )}
+
+          {aiStatus?.enabled && (
+            <div className="rounded-lg bg-emerald-50 p-3 text-sm text-emerald-800">
+              已配置 API Key，上传后网页会自动调用 Claude 拆分（1–5 分钟）。
             </div>
           )}
 
@@ -166,7 +179,7 @@ export default function UploadPage() {
                   : "border-slate-200 hover:bg-slate-50"
               }`}
             >
-              Claude 精细拆分（推荐）
+              Cursor Claude 精细拆分（推荐）
             </button>
             <button
               onClick={() => setSplitMode("basic")}

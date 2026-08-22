@@ -53,9 +53,9 @@ export function getAIConfig(): AIConfig {
 }
 
 export function getAIStatusLabel(config: AIConfig): string {
-  if (!config.enabled) return "未配置 API Key（加入 Claude 待拆分队列）";
+  if (!config.enabled) return "Cursor Claude（对话拆分）";
   const names: Record<AIProvider, string> = {
-    anthropic: "Claude",
+    anthropic: "Claude API 自动拆分",
     openai: "OpenAI",
     gemini: "Google Gemini",
   };

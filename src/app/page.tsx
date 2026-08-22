@@ -8,7 +8,6 @@ import {
   AlertTriangle,
   Clock,
   CheckCircle2,
-  FolderOpen,
   Sparkles,
   Layers,
 } from "lucide-react";

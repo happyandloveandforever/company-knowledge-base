@@ -9,7 +9,7 @@ interface SourceDeleteButtonProps {
   sourceId: string;
   filename: string;
   pointCount: number;
-  variant?: "icon" | "button";
+  variant?: "button" | "icon" | "prominent";
   className?: string;
   onDeleted?: () => void;
 }
@@ -52,21 +52,34 @@ export function SourceDeleteButton({
     }
   }
 
+  if (variant === "prominent") {
+    return (
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={handleDelete}
+        disabled={loading}
+        className={`shrink-0 border-red-200 bg-red-50 text-red-700 hover:bg-red-100 hover:text-red-800 ${className ?? ""}`}
+      >
+        {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
+        删除
+      </Button>
+    );
+  }
+
   if (variant === "icon") {
     return (
-      <button
-        type="button"
-        onClick={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          handleDelete();
-        }}
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={handleDelete}
         disabled={loading}
-        className={`rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-red-50 hover:text-red-600 disabled:opacity-50 ${className ?? ""}`}
+        className={`shrink-0 text-red-600 hover:bg-red-50 ${className ?? ""}`}
         title="删除此来源"
       >
         {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
-      </button>
+        删除
+      </Button>
     );
   }
 

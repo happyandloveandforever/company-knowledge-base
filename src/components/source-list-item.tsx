@@ -23,11 +23,12 @@ function statusLabel(source: SourceFile, pending: number, count: number) {
 
 export function SourceListItem({ source, count, pending }: SourceListItemProps) {
   const badge = statusLabel(source, pending, count);
+  const canDelete = count === 0 || source.status === "processing" || source.status === "error";
 
   return (
-    <div className="flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-50">
+    <div className="flex items-center gap-2 px-4 py-3">
       <Link
-        href={`/library?source=${encodeURIComponent(source.filename)}`}
+        href={count > 0 ? `/library?source=${encodeURIComponent(source.filename)}` : "/sources"}
         className="flex min-w-0 flex-1 items-center gap-3"
       >
         <FolderOpen className="h-5 w-5 shrink-0 text-slate-400" />
@@ -36,7 +37,7 @@ export function SourceListItem({ source, count, pending }: SourceListItemProps) 
           <p className="text-xs text-slate-500">
             {count} 个知识点
             {pending > 0 && ` · ${pending} 待审核`}
-            {source.status === "processing" && count === 0 && " · 上传未完成，请删除后重新上传"}
+            {source.status === "processing" && count === 0 && " · 上传中断，请删除后重新上传"}
           </p>
         </div>
         <Badge variant={badge.variant}>{badge.text}</Badge>
@@ -45,7 +46,7 @@ export function SourceListItem({ source, count, pending }: SourceListItemProps) 
         sourceId={source.id}
         filename={source.filename}
         pointCount={count}
-        variant="icon"
+        variant={canDelete ? "prominent" : "button"}
       />
     </div>
   );
