@@ -171,10 +171,10 @@ Vercel 快速部署（GitHub 镜像完成后）：
 
 | 指标 | 数值 |
 |------|------|
-| 知识点总数 | **109**（全部 `approved`，无 pending） |
-| 已导入文件 | **2** |
-| 待 Claude 拆分队列 | 0（`node scripts/process-split-queue.mjs` 已确认为空） |
-| 冲突组 | 0（`/api/knowledge/conflict-groups` 已确认为空） |
+| 知识点总数 | **154**（109 `approved` + 45 品牌画册 `draft` 待审） |
+| 已导入文件 | **3** |
+| 待 Claude 拆分队列 | 0 |
+| 冲突组 | 0（导入后可在 `/library/conflicts` 再复核） |
 
 ### 已入库文件
 
@@ -182,27 +182,26 @@ Vercel 快速部署（GitHub 镜像完成后）：
 |------|---------|----------------|------|------|----------|
 | 漂浮方舟_杨浦区财务.pdf | SRC-FAF-YANGPU | KP-FAF-001 ~ 054 | 54 | done，已批准 | claude-agent |
 | B端定稿.pdf | SRC-B2B-YILING | KP-B2B-001 ~ 050 | 50 | done，已批准 | claude-agent |
+| （已压缩）漂浮方舟 · 品牌画册.pdf | SRC-BRAND-BROCHURE | KP-BRAND-001 ~ 045 | 45 | done，**draft 待审** | claude-agent |
 
 ### 待办
 
 - [x] 审核并批准杨浦 + B端 知识点 — 109 条全部 `approved`
 - [x] 核对冲突组（`/library/conflicts`）— 检测结果 0 组，无需并存处理
-- [ ] **品牌画册.pdf — 需要你重新上传**（`uploads/` 为空，仓库里没有这个文件，Agent 无法代劳）
-- [ ] 继续导入更多历史材料 — 同样需要你先上传文件
+- [x] **品牌画册.pdf — Claude 精细拆分完成**（38 页 → 45 条，状态 draft）
+- [ ] 在 `/library` 筛选状态=draft，审核并批准品牌画册 45 条
+- [ ] 继续导入更多历史材料 — 需先上传文件
 
-> ⚠️ 剩余两项都**卡在文件上传**：`uploads/` 不进 Git，换环境即清空。
-> 新对话要继续扩库，请先在 `/upload` 上传或直接把文件发到对话里，再说「帮我 Claude 精细拆 xxx」。
+> 品牌画册原始 PDF 仅在本机 `uploads/`（不进 Git）；知识点正文已写入 `data/knowledge-points.json`。
 
-### 数据体检（2026-08-22 复核）
+### 数据体检（2026-08-22 · 导入品牌画册后）
 
 | 检查项 | 结果 |
 |--------|------|
-| 重复标题 | 0 |
-| 缺 tags | 0 |
-| 分类分布 | 技术知识 35 / 产品知识 31 / 市场营销 13 / 战略规划 11 / 管理技能 10 / 财务分析 7 / 销售技巧 1 / 培训资料 1 |
-| 可优化 | 103 条无 `examples`、47 条正文偏短（<80 字），后续补充素材时可回填 |
+| 总数 | 154（109 approved + 45 draft） |
+| 品牌画册 ID | KP-BRAND-001 ~ KP-BRAND-045 |
+| 参考脚本 | `scripts/import-brand-brochure.mjs`（可幂等重跑，已存在则跳过） |
 
----
 
 ## 四、网页功能一览
 
@@ -324,6 +323,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-22 | PROJECT.md 补充 GitHub 无限制调取 + Vercel 在线浏览方案 |
 | 2026-08-22 | 修复 keep-alive 守护进程重复启动的 EADDRINUSE 空转（见下）；新增 `scripts/test-keep-alive.sh` 回归测试 |
 | 2026-08-22 | 复核库状态：109 条全部已批准、冲突组 0、拆分队列空；剩余待办均需用户上传文件 |
+| 2026-08-22 | Claude 精细拆分品牌画册：38页→45条（KP-BRAND-001~045），库总量 109→154 |
 
 ---
 
