@@ -326,6 +326,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-22 | 批准增强背景全部 75 条（KP-BG2-001~075）；库内 draft=0、全部 approved |
 | 2026-08-22 | Claude 精细拆分冠军系列产品配置说明.pdf：15页→23条（KP-CHAMP-001~023），库总量→293 |
 | 2026-08-22 | 批准冠军系列全部 23 条（KP-CHAMP-001~023）；库内 draft=0、全部 approved |
+| 2026-08-22 | 为北京化工集团初次交流编排 PPT（13页，知识库驱动，方向对齐口径） |
 
 
 ---
