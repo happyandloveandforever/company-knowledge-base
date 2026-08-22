@@ -21,9 +21,13 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
   const [similarities, setSimilarities] = useState<Record<string, SimilarMatch[]>>({});
   const [contentConflicts, setContentConflicts] = useState<Record<string, ContentConflict[]>>({});
   const [conflictGroups, setConflictGroups] = useState<ConflictGroup[]>([]);
+  const [searchInput, setSearchInput] = useState("");
   const [search, setSearch] = useState("");
+  const [categoryInput, setCategoryInput] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
+  const [statusInput, setStatusInput] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
+  const [similarInput, setSimilarInput] = useState("");
   const [similarFilter, setSimilarFilter] = useState("");
   const [expanded, setExpanded] = useState<string | null>(null);
   const [editing, setEditing] = useState<string | null>(null);
@@ -86,6 +90,31 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
   );
 
   const allTags = useMemo(() => collectTags(points), [points]);
+
+  const hasPendingFilters =
+    searchInput !== search ||
+    categoryInput !== categoryFilter ||
+    statusInput !== statusFilter ||
+    similarInput !== similarFilter;
+
+  function applyFilters() {
+    setSearch(searchInput.trim());
+    setCategoryFilter(categoryInput);
+    setStatusFilter(statusInput);
+    setSimilarFilter(similarInput);
+  }
+
+  function resetFilters() {
+    setSearchInput("");
+    setCategoryInput("");
+    setStatusInput("");
+    setSimilarInput("");
+    setSearch("");
+    setCategoryFilter("");
+    setStatusFilter("");
+    setSimilarFilter("");
+    setAppliedTags([]);
+  }
 
   const similarStats = useMemo(() => {
     const withSimilar = Object.keys(similarities).length;
@@ -239,46 +268,69 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
         </div>
       )}
 
-      <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <div className="relative min-w-[200px] flex-1">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-          <Input
-            className="pl-9"
-            placeholder="搜索标题、内容、标签…"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
+      <div className="mb-4 flex flex-col gap-3">
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <div className="relative min-w-[200px] flex-1">
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+            <Input
+              className="pl-9"
+              placeholder="搜索标题、内容、标签…"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && applyFilters()}
+            />
+          </div>
+          <Select
+            value={categoryInput}
+            onChange={(e) => setCategoryInput(e.target.value)}
+            className="sm:w-40"
+          >
+            <option value="">全部分类</option>
+            {categories.map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </Select>
+          <Select
+            value={statusInput}
+            onChange={(e) => setStatusInput(e.target.value)}
+            className="sm:w-36"
+          >
+            <option value="">全部状态</option>
+            <option value="draft">草稿</option>
+            <option value="review">待审核</option>
+            <option value="approved">已批准</option>
+          </Select>
+          <Select
+            value={similarInput}
+            onChange={(e) => setSimilarInput(e.target.value)}
+            className="sm:w-40"
+          >
+            <option value="">相似/冲突：全部</option>
+            <option value="similar">有相似项</option>
+            <option value="duplicate">高度重复</option>
+            <option value="content">内容冲突</option>
+          </Select>
         </div>
-        <Select
-          value={categoryFilter}
-          onChange={(e) => setCategoryFilter(e.target.value)}
-          className="sm:w-40"
-        >
-          <option value="">全部分类</option>
-          {categories.map((c) => (
-            <option key={c} value={c}>{c}</option>
-          ))}
-        </Select>
-        <Select
-          value={statusFilter}
-          onChange={(e) => setStatusFilter(e.target.value)}
-          className="sm:w-36"
-        >
-          <option value="">全部状态</option>
-          <option value="draft">草稿</option>
-          <option value="review">待审核</option>
-          <option value="approved">已批准</option>
-        </Select>
-        <Select
-          value={similarFilter}
-          onChange={(e) => setSimilarFilter(e.target.value)}
-          className="sm:w-40"
-        >
-          <option value="">相似/冲突：全部</option>
-          <option value="similar">有相似项</option>
-          <option value="duplicate">高度重复</option>
-          <option value="content">内容冲突</option>
-        </Select>
+        <div className="flex flex-wrap items-center gap-2">
+          <Button onClick={applyFilters}>
+            <Search className="h-4 w-4" />
+            搜索
+          </Button>
+          {(search || categoryFilter || statusFilter || similarFilter || appliedTags.length > 0) && (
+            <Button variant="ghost" onClick={resetFilters}>
+              清除条件
+            </Button>
+          )}
+          {hasPendingFilters && (
+            <span className="text-xs text-amber-600">条件已修改，请点击「搜索」生效</span>
+          )}
+          {!hasPendingFilters && (search || statusFilter || categoryFilter) && (
+            <span className="text-xs text-slate-500">
+              当前：{search && `「${search}」`}{statusFilter === "draft" && " · 草稿"}{statusFilter === "review" && " · 待审核"}{statusFilter === "approved" && " · 已批准"}{categoryFilter && ` · ${categoryFilter}`}
+              {" · 显示 "}{filtered.length} 条
+            </span>
+          )}
+        </div>
       </div>
 
       <TagFilter
@@ -286,7 +338,6 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
         allTags={allTags}
         appliedTags={appliedTags}
         onApply={setAppliedTags}
-        confirmLabel="确认筛选"
       />
 
       {filtered.length === 0 ? (

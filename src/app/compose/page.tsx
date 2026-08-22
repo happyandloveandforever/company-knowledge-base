@@ -22,6 +22,7 @@ import { TagFilter, collectTags, matchesTagFilter } from "@/components/tag-filte
 export default function ComposePage() {
   const [points, setPoints] = useState<KnowledgePoint[]>([]);
   const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [searchInput, setSearchInput] = useState("");
   const [search, setSearch] = useState("");
   const [title, setTitle] = useState("");
   const [audience, setAudience] = useState("通用");
@@ -86,14 +87,9 @@ export default function ComposePage() {
     setSelected(new Set());
   }, []);
 
-  const confirmTagsAndSelect = useCallback(
-    (tags: string[]) => {
-      setAppliedTags(tags);
-      const matching = points.filter((p) => matchesTagFilter(p.tags, tags));
-      setSelected(new Set(matching.map((p) => p.id)));
-    },
-    [points]
-  );
+  function applySearch() {
+    setSearch(searchInput.trim());
+  }
 
   function scrollToSettings() {
     settingsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -223,17 +219,25 @@ export default function ComposePage() {
                 <Input
                   className="pl-9"
                   placeholder="搜索…"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
+                  value={searchInput}
+                  onChange={(e) => setSearchInput(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && applySearch()}
                 />
+              </div>
+              <div className="mt-2 flex gap-2">
+                <Button size="sm" onClick={applySearch}>
+                  <Search className="h-3.5 w-3.5" />
+                  搜索
+                </Button>
+                {searchInput !== search && (
+                  <span className="self-center text-xs text-amber-600">请点击搜索生效</span>
+                )}
               </div>
               <TagFilter
                 className="mt-3"
                 allTags={allTags}
                 appliedTags={appliedTags}
                 onApply={setAppliedTags}
-                onConfirm={confirmTagsAndSelect}
-                confirmLabel="确认并选中"
               />
               <div className="mt-2 flex gap-2">
                 <Button size="sm" variant="ghost" onClick={selectAll}>全选当前列表</Button>
