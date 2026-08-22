@@ -41,24 +41,57 @@ npm run build
 npm run serve    # http://localhost:43123
 ```
 
-**方式 C — 镜像到 GitHub（双备份，可选）**
+**方式 C — 镜像到 GitHub（推荐：网上无限制调取）**
 
-1. 在 GitHub 新建**私有**仓库，例如 `company-knowledge-base`（不要勾选 README，保持空仓库）  
-2. 在本项目或本地执行：
+推送到 GitHub 后，**全世界任何地方**都能 clone、浏览、程序化读取，不依赖 Cursor 会话。
+
+1. 在 GitHub 新建仓库 `company-knowledge-base`（空仓库）  
+   - **公开仓库**：任何人可 clone；JSON 可用 Raw 链接直接调取（见下）  
+   - **私有仓库**：仅你和你邀请的人可访问（更安全）
+
+2. 添加 remote 并推送：
 
 ```bash
 git remote add github https://github.com/你的用户名/company-knowledge-base.git
 git push -u github main
 ```
 
-3. 以后每次入库后：`git push origin main && git push github main`  
-4. 新对话也可指向 GitHub 仓库地址
+3. 以后每次入库：`git push origin main && git push github main`
+
+**GitHub 上无限制调取数据（公开仓库）：**
+
+```text
+# 全部知识点 JSON（浏览器或程序直接 GET）
+https://raw.githubusercontent.com/你的用户名/company-knowledge-base/main/data/knowledge-points.json
+
+# 来源记录
+https://raw.githubusercontent.com/你的用户名/company-knowledge-base/main/data/sources.json
+
+# HTML 总库（需在本地或部署后生成；或从网页下载后上传到 GitHub Releases）
+```
+
+**方式 D — 部署在线网页（随时随地打开总库 UI）**
+
+| 平台 | 免费 | 上传/编辑 | 说明 |
+|------|------|-----------|------|
+| **Vercel** | ✅ | ❌ 只读* | 连 GitHub 自动部署，适合浏览/搜索/导出 |
+| **Railway / Render** | 有限免费 | ✅ | 有持久磁盘，可完整运行（上传+编辑） |
+| **本地 npm run serve** | ✅ | ✅ | 仅本机或 Cloud Agent Preview |
+
+\* Vercel 无持久磁盘，网页上的写入重启后丢失；**编辑仍通过 Cursor Agent → Git push**，Vercel 自动重新部署。
+
+Vercel 快速部署（GitHub 镜像完成后）：
+1. 登录 [vercel.com](https://vercel.com) → Import GitHub 仓库  
+2. Framework 选 Next.js，Build：`npm run build`，Output 默认  
+3. 部署完成后获得 `https://xxx.vercel.app`，`/library` 随时访问  
 
 | 平台 | 费用 | 适合 |
 |------|------|------|
-| **Cursor Origin** | 免费（已有） | Cloud Agent 直接用，零配置 |
-| **GitHub** | 免费私有仓库 | 本地开发、双备份、团队共享 |
-| **GitLab / Gitee** | 免费私有 | 国内访问快，用法同 GitHub |
+| **Cursor Origin** | 免费（已有） | Cloud Agent 编辑 + 入库 |
+| **GitHub 公开** | 免费 | **代码+JSON 无限制调取**、API 集成 |
+| **GitHub 私有** | 免费 | 备份、需登录访问 |
+| **Vercel** | 免费 | 在线浏览总库（只读） |
+| **Gitee** | 免费 | 国内 clone 更快 |
 
 ### 代码交接清单（给新 Agent）
 
@@ -256,7 +289,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-22 | 新增来源管理、删除按钮、keep-alive 服务 |
 | 2026-08-22 | 恢复误删的 B端 50 条（从 Git） |
 | 2026-08-22 | 建立 PROJECT.md + AGENTS.md + Cursor rules 多对话协作机制 |
-| 2026-08-22 | PROJECT.md 补充代码仓库地址与 GitHub 镜像说明 |
+| 2026-08-22 | PROJECT.md 补充 GitHub 无限制调取 + Vercel 在线浏览方案 |
 
 ---
 
