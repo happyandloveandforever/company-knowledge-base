@@ -58,8 +58,7 @@
       "KP-FAF-051",
       "KP-FAF-052",
       "KP-FAF-053",
-      "KP-FAF-054",
-      "KP-FAF-055"
+      "KP-FAF-054"
     ],
     "status": "done",
     "splitMode": "claude-agent",

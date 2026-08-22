@@ -1996,40 +1996,6 @@
     "updatedAt": "2026-08-22T11:28:12.796Z"
   },
   {
-    "id": "KP-FAF-055",
-    "title": "杨浦四合一最优落地地",
-    "category": "市场营销",
-    "tags": [
-      "杨浦",
-      "落地",
-      "G端"
-    ],
-    "audience": [
-      "政府汇报",
-      "杨浦区"
-    ],
-    "prerequisites": [],
-    "summary": "复旦+同济+大厂+政策四合一，杨浦是全国首创最优落地地。",
-    "body": "杨浦首创 · 复旦·同济·大厂·政策 · 四合一最优落地地\n我们希望，这件事从杨浦出发。",
-    "examples": [],
-    "source": {
-      "file": "漂浮方舟_杨浦区财务.pdf",
-      "location": "第 13-14 页",
-      "date": "2026-01",
-      "author": "中友瑞水（北京）科技有限公司"
-    },
-    "scenarios": [
-      "政府汇报",
-      "演讲",
-      "投资人"
-    ],
-    "durationMin": 4,
-    "version": "1.0",
-    "status": "draft",
-    "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:12:30.667Z"
-  },
-  {
     "id": "KP-B2B-001",
     "title": "漂浮方舟×一龄集团战略合作提案定位",
     "category": "市场营销",
@@ -2060,9 +2026,9 @@
     ],
     "durationMin": 3,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T11:53:23.190Z"
   },
   {
     "id": "KP-B2B-002",
@@ -2094,9 +2060,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T11:53:33.942Z"
   },
   {
     "id": "KP-B2B-003",
@@ -2128,9 +2094,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T11:53:37.078Z"
   },
   {
     "id": "KP-B2B-004",
@@ -2162,9 +2128,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T11:53:38.525Z"
   },
   {
     "id": "KP-B2B-005",
@@ -2199,9 +2165,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T11:53:42.921Z"
   },
   {
     "id": "KP-B2B-006",
@@ -2234,9 +2200,9 @@
     ],
     "durationMin": 8,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T11:53:45.637Z"
   },
   {
     "id": "KP-B2B-007",
@@ -2269,9 +2235,9 @@
     ],
     "durationMin": 7,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T11:53:48.240Z"
   },
   {
     "id": "KP-B2B-008",
@@ -2303,9 +2269,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T11:53:50.029Z"
   },
   {
     "id": "KP-B2B-009",
@@ -2336,9 +2302,9 @@
     ],
     "durationMin": 6,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T11:53:51.521Z"
   },
   {
     "id": "KP-B2B-010",
@@ -2369,9 +2335,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T11:53:54.837Z"
   },
   {
     "id": "KP-B2B-011",
@@ -2402,9 +2368,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T11:53:53.481Z"
   },
   {
     "id": "KP-B2B-012",
@@ -2434,9 +2400,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T11:53:56.781Z"
   },
   {
     "id": "KP-B2B-013",
@@ -2468,9 +2434,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T11:53:59.162Z"
   },
   {
     "id": "KP-B2B-014",
@@ -2502,9 +2468,9 @@
     ],
     "durationMin": 8,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T11:54:00.579Z"
   },
   {
     "id": "KP-B2B-015",
@@ -2536,9 +2502,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T11:54:02.552Z"
   },
   {
     "id": "KP-B2B-016",
@@ -2569,9 +2535,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T11:54:03.934Z"
   },
   {
     "id": "KP-B2B-017",
@@ -2806,9 +2772,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:43:54.264Z"
+    "updatedAt": "2026-08-22T11:53:58.185Z"
   },
   {
     "id": "KP-B2B-024",

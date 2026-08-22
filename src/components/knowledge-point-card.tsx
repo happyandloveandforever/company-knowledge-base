@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Input, Textarea } from "@/components/ui/input";
 
 const STATUS_LABELS: Record<KnowledgeStatus, string> = {
-  draft: "草稿",
+  draft: "待审核",
   review: "待审核",
   approved: "已批准",
 };

@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { Search, Download, AlertCircle, RefreshCw, AlertTriangle } from "lucide-react";
+import { Search, Download, AlertCircle, RefreshCw, AlertTriangle, X } from "lucide-react";
 import type { KnowledgePoint, KnowledgeStatus, ConflictGroup } from "@/lib/types";
 import type { SimilarMatch } from "@/lib/similarity";
 import type { ContentConflict } from "@/lib/conflict-detector";
@@ -14,27 +14,43 @@ import { Input, Select } from "@/components/ui/input";
 
 interface LibraryClientProps {
   initialPoints: KnowledgePoint[];
+  initialSimilarities?: Record<string, SimilarMatch[]>;
+  initialContentConflicts?: Record<string, ContentConflict[]>;
+  initialConflictGroups?: ConflictGroup[];
 }
 
-export function LibraryClient({ initialPoints }: LibraryClientProps) {
+function matchesStatusFilter(status: KnowledgeStatus, filter: string): boolean {
+  if (!filter) return true;
+  if (filter === "pending") return status === "draft" || status === "review";
+  return status === filter;
+}
+
+export function LibraryClient({
+  initialPoints,
+  initialSimilarities = {},
+  initialContentConflicts = {},
+  initialConflictGroups = [],
+}: LibraryClientProps) {
   const [points, setPoints] = useState<KnowledgePoint[]>(initialPoints);
-  const [similarities, setSimilarities] = useState<Record<string, SimilarMatch[]>>({});
-  const [contentConflicts, setContentConflicts] = useState<Record<string, ContentConflict[]>>({});
-  const [conflictGroups, setConflictGroups] = useState<ConflictGroup[]>([]);
-  const [searchInput, setSearchInput] = useState("");
+  const [similarities, setSimilarities] = useState(initialSimilarities);
+  const [contentConflicts, setContentConflicts] = useState(initialContentConflicts);
+  const [conflictGroups, setConflictGroups] = useState(initialConflictGroups);
   const [search, setSearch] = useState("");
-  const [categoryInput, setCategoryInput] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
-  const [statusInput, setStatusInput] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
-  const [similarInput, setSimilarInput] = useState("");
   const [similarFilter, setSimilarFilter] = useState("");
+  const [appliedTags, setAppliedTags] = useState<string[]>([]);
   const [expanded, setExpanded] = useState<string | null>(null);
   const [editing, setEditing] = useState<string | null>(null);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [refreshing, setRefreshing] = useState(false);
-  const [appliedTags, setAppliedTags] = useState<string[]>([]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedSearch(search.trim()), 250);
+    return () => clearTimeout(timer);
+  }, [search]);
 
   const loadConflicts = useCallback(async () => {
     try {
@@ -60,29 +76,21 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
     }
   }, []);
 
-  const loadSimilarities = loadConflicts;
-
   const load = useCallback(async () => {
     setRefreshing(true);
     setError("");
     try {
-      const [kpRes] = await Promise.all([
-        fetch("/api/knowledge"),
-        loadSimilarities(),
-      ]);
+      const kpRes = await fetch("/api/knowledge");
       if (!kpRes.ok) throw new Error(`加载失败 (${kpRes.status})`);
       const data = await kpRes.json();
       setPoints(data.knowledgePoints || []);
+      await loadConflicts();
     } catch (e) {
       setError(e instanceof Error ? e.message : "加载知识库失败，请刷新页面");
     } finally {
       setRefreshing(false);
     }
-  }, [loadSimilarities]);
-
-  useEffect(() => {
-    loadSimilarities();
-  }, [loadSimilarities]);
+  }, [loadConflicts]);
 
   const categories = useMemo(
     () => Array.from(new Set(points.map((p) => p.category))).sort(),
@@ -91,25 +99,26 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
 
   const allTags = useMemo(() => collectTags(points), [points]);
 
-  const hasPendingFilters =
-    searchInput !== search ||
-    categoryInput !== categoryFilter ||
-    statusInput !== statusFilter ||
-    similarInput !== similarFilter;
+  const statusCounts = useMemo(() => {
+    let pending = 0;
+    let approved = 0;
+    for (const p of points) {
+      if (p.status === "approved") approved++;
+      else pending++;
+    }
+    return { pending, approved, total: points.length };
+  }, [points]);
 
-  function applyFilters() {
-    setSearch(searchInput.trim());
-    setCategoryFilter(categoryInput);
-    setStatusFilter(statusInput);
-    setSimilarFilter(similarInput);
-  }
+  const hasActiveFilters =
+    !!debouncedSearch ||
+    !!categoryFilter ||
+    !!statusFilter ||
+    !!similarFilter ||
+    appliedTags.length > 0;
 
   function resetFilters() {
-    setSearchInput("");
-    setCategoryInput("");
-    setStatusInput("");
-    setSimilarInput("");
     setSearch("");
+    setDebouncedSearch("");
     setCategoryFilter("");
     setStatusFilter("");
     setSimilarFilter("");
@@ -132,20 +141,20 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
     return points.filter((p) => {
       if (!matchesTagFilter(p.tags, appliedTags)) return false;
       if (categoryFilter && p.category !== categoryFilter) return false;
-      if (statusFilter && p.status !== statusFilter) return false;
+      if (!matchesStatusFilter(p.status, statusFilter)) return false;
       if (similarFilter === "similar" && !similarities[p.id]?.length) return false;
       if (similarFilter === "duplicate" && !similarities[p.id]?.some((m) => m.level === "duplicate")) {
         return false;
       }
       if (similarFilter === "content" && !contentConflicts[p.id]?.length) return false;
-      if (search) {
-        const q = search.toLowerCase();
-        const hay = `${p.title} ${p.summary} ${p.body} ${p.tags.join(" ")}`.toLowerCase();
+      if (debouncedSearch) {
+        const q = debouncedSearch.toLowerCase();
+        const hay = `${p.title} ${p.summary} ${p.body} ${p.tags.join(" ")} ${p.audience.join(" ")}`.toLowerCase();
         if (!hay.includes(q)) return false;
       }
       return true;
     });
-  }, [points, search, categoryFilter, statusFilter, similarFilter, similarities, contentConflicts, appliedTags]);
+  }, [points, debouncedSearch, categoryFilter, statusFilter, similarFilter, similarities, contentConflicts, appliedTags]);
 
   const grouped = useMemo(() => {
     const map = new Map<string, KnowledgePoint[]>();
@@ -179,7 +188,7 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
       setEditing(null);
       setSuccess(approve ? "已保存并批准入库" : "修改已保存");
       setTimeout(() => setSuccess(""), 3000);
-      loadSimilarities();
+      loadConflicts();
     } catch {
       setError("保存失败，请重试");
     }
@@ -203,7 +212,7 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
       if (expanded === id) setExpanded(null);
       setSuccess("知识点已删除");
       setTimeout(() => setSuccess(""), 3000);
-      loadSimilarities();
+      loadConflicts();
     } catch {
       setError("删除失败，请重试");
     }
@@ -215,6 +224,22 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
     document.getElementById(`kp-${id}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
+  function emptyMessage(): string {
+    if (points.length === 0) {
+      return "暂无知识点。请先前往「导入文件」上传 PPT 或 Word。";
+    }
+    if (statusFilter === "pending" && statusCounts.pending === 0) {
+      return "当前没有待审核的知识点。";
+    }
+    if (similarFilter === "similar" && similarStats.withSimilar === 0) {
+      return "当前库内未检测到相似项。";
+    }
+    if (similarFilter === "content" && conflictStats.contentConflicts === 0) {
+      return "当前库内未检测到内容冲突。";
+    }
+    return "没有符合筛选条件的知识点，试试放宽条件或清除筛选。";
+  }
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -222,6 +247,9 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
           <h1 className="text-2xl font-bold text-slate-900">知识总库</h1>
           <p className="text-sm text-slate-500">
             共 {points.length} 个知识点，当前显示 {filtered.length} 个
+            <span className="text-slate-400">
+              {" "}（待审核 {statusCounts.pending} · 已批准 {statusCounts.approved}）
+            </span>
             {similarStats.withSimilar > 0 && (
               <span className="text-amber-600">
                 {" "}· {similarStats.withSimilar} 条存在相似项
@@ -268,69 +296,51 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
         </div>
       )}
 
-      <div className="mb-4 flex flex-col gap-3">
-        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <div className="relative min-w-[200px] flex-1">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-            <Input
-              className="pl-9"
-              placeholder="搜索标题、内容、标签…"
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && applyFilters()}
-            />
-          </div>
-          <Select
-            value={categoryInput}
-            onChange={(e) => setCategoryInput(e.target.value)}
-            className="sm:w-40"
-          >
-            <option value="">全部分类</option>
-            {categories.map((c) => (
-              <option key={c} value={c}>{c}</option>
-            ))}
-          </Select>
-          <Select
-            value={statusInput}
-            onChange={(e) => setStatusInput(e.target.value)}
-            className="sm:w-36"
-          >
-            <option value="">全部状态</option>
-            <option value="draft">草稿</option>
-            <option value="review">待审核</option>
-            <option value="approved">已批准</option>
-          </Select>
-          <Select
-            value={similarInput}
-            onChange={(e) => setSimilarInput(e.target.value)}
-            className="sm:w-40"
-          >
-            <option value="">相似/冲突：全部</option>
-            <option value="similar">有相似项</option>
-            <option value="duplicate">高度重复</option>
-            <option value="content">内容冲突</option>
-          </Select>
+      <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+        <div className="relative min-w-[200px] flex-1">
+          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+          <Input
+            className="pl-9"
+            placeholder="输入关键词即时筛选，如：一龄、REST、V4.0…"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
         </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <Button onClick={applyFilters}>
-            <Search className="h-4 w-4" />
-            搜索
+        <Select
+          value={categoryFilter}
+          onChange={(e) => setCategoryFilter(e.target.value)}
+          className="sm:w-40"
+        >
+          <option value="">全部分类</option>
+          {categories.map((c) => (
+            <option key={c} value={c}>{c}</option>
+          ))}
+        </Select>
+        <Select
+          value={statusFilter}
+          onChange={(e) => setStatusFilter(e.target.value)}
+          className="sm:w-44"
+        >
+          <option value="">全部状态（{statusCounts.total}）</option>
+          <option value="pending">待审核（{statusCounts.pending}）</option>
+          <option value="approved">已批准（{statusCounts.approved}）</option>
+        </Select>
+        <Select
+          value={similarFilter}
+          onChange={(e) => setSimilarFilter(e.target.value)}
+          className="sm:w-44"
+        >
+          <option value="">相似/冲突：全部</option>
+          <option value="similar">有相似项（{similarStats.withSimilar}）</option>
+          <option value="duplicate">高度重复（{similarStats.duplicates}）</option>
+          <option value="content">内容冲突（{conflictStats.contentConflicts}）</option>
+        </Select>
+        {hasActiveFilters && (
+          <Button variant="ghost" size="sm" onClick={resetFilters}>
+            <X className="h-4 w-4" />
+            清除
           </Button>
-          {(search || categoryFilter || statusFilter || similarFilter || appliedTags.length > 0) && (
-            <Button variant="ghost" onClick={resetFilters}>
-              清除条件
-            </Button>
-          )}
-          {hasPendingFilters && (
-            <span className="text-xs text-amber-600">条件已修改，请点击「搜索」生效</span>
-          )}
-          {!hasPendingFilters && (search || statusFilter || categoryFilter) && (
-            <span className="text-xs text-slate-500">
-              当前：{search && `「${search}」`}{statusFilter === "draft" && " · 草稿"}{statusFilter === "review" && " · 待审核"}{statusFilter === "approved" && " · 已批准"}{categoryFilter && ` · ${categoryFilter}`}
-              {" · 显示 "}{filtered.length} 条
-            </span>
-          )}
-        </div>
+        )}
       </div>
 
       <TagFilter
@@ -343,11 +353,12 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
       {filtered.length === 0 ? (
         <Card className="py-12 text-center">
           <CardContent>
-            <p className="text-slate-500">
-              {points.length === 0
-                ? "暂无知识点。请先前往「导入文件」上传 PPT 或 Word。"
-                : "没有符合筛选条件的知识点。"}
-            </p>
+            <p className="text-slate-500">{emptyMessage()}</p>
+            {hasActiveFilters && (
+              <Button variant="outline" className="mt-4" onClick={resetFilters}>
+                清除全部筛选
+              </Button>
+            )}
           </CardContent>
         </Card>
       ) : (

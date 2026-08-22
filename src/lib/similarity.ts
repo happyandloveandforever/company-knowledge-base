@@ -10,7 +10,7 @@ export interface SimilarMatch {
 }
 
 const DUPLICATE_THRESHOLD = 0.85;
-const SIMILAR_THRESHOLD = 0.62;
+const SIMILAR_THRESHOLD = 0.52;
 
 function normalize(text: string): string {
   return text
@@ -51,7 +51,11 @@ export function compareKnowledgePoints(a: KnowledgePoint, b: KnowledgePoint): nu
   const summarySim = textSimilarity(a.summary, b.summary);
   const bodySim = textSimilarity(a.body.slice(0, 800), b.body.slice(0, 800));
 
-  return titleSim * 0.45 + bodySim * 0.4 + summarySim * 0.15;
+  const sharedTags = a.tags.filter((t) => b.tags.includes(t)).length;
+  const tagBoost = sharedTags >= 2 ? 0.1 : sharedTags >= 1 ? 0.05 : 0;
+
+  const base = titleSim * 0.45 + bodySim * 0.4 + summarySim * 0.15;
+  return Math.min(1, base + tagBoost);
 }
 
 export function getSimilarityLevel(score: number): SimilarityLevel | null {

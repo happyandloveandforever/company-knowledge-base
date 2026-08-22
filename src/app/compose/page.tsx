@@ -22,8 +22,8 @@ import { TagFilter, collectTags, matchesTagFilter } from "@/components/tag-filte
 export default function ComposePage() {
   const [points, setPoints] = useState<KnowledgePoint[]>([]);
   const [selected, setSelected] = useState<Set<string>>(new Set());
-  const [searchInput, setSearchInput] = useState("");
   const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [title, setTitle] = useState("");
   const [audience, setAudience] = useState("通用");
   const [durationMin, setDurationMin] = useState(60);
@@ -45,20 +45,25 @@ export default function ComposePage() {
       });
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedSearch(search.trim()), 250);
+    return () => clearTimeout(timer);
+  }, [search]);
+
   const allTags = useMemo(() => collectTags(points), [points]);
 
   const filtered = useMemo(() => {
     return points.filter((p) => {
       if (!matchesTagFilter(p.tags, appliedTags)) return false;
-      if (!search) return true;
-      const q = search.toLowerCase();
+      if (!debouncedSearch) return true;
+      const q = debouncedSearch.toLowerCase();
       return (
         p.title.toLowerCase().includes(q) ||
         p.summary.toLowerCase().includes(q) ||
         p.tags.some((t) => t.toLowerCase().includes(q))
       );
     });
-  }, [points, search, appliedTags]);
+  }, [points, debouncedSearch, appliedTags]);
 
   const selectedPoints = useMemo(
     () => points.filter((p) => selected.has(p.id)),
@@ -86,10 +91,6 @@ export default function ComposePage() {
   const clearAll = useCallback(() => {
     setSelected(new Set());
   }, []);
-
-  function applySearch() {
-    setSearch(searchInput.trim());
-  }
 
   function scrollToSettings() {
     settingsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -218,20 +219,10 @@ export default function ComposePage() {
                 <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
                 <Input
                   className="pl-9"
-                  placeholder="搜索…"
-                  value={searchInput}
-                  onChange={(e) => setSearchInput(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && applySearch()}
+                  placeholder="输入关键词即时筛选…"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
                 />
-              </div>
-              <div className="mt-2 flex gap-2">
-                <Button size="sm" onClick={applySearch}>
-                  <Search className="h-3.5 w-3.5" />
-                  搜索
-                </Button>
-                {searchInput !== search && (
-                  <span className="self-center text-xs text-amber-600">请点击搜索生效</span>
-                )}
               </div>
               <TagFilter
                 className="mt-3"
