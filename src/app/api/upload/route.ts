@@ -15,9 +15,11 @@ import {
   addSourceFile,
   updateSourceFile,
   getUploadsDir,
+  getKnowledgePoints,
 } from "@/lib/storage";
 import type { KnowledgePoint } from "@/lib/types";
 import { generateId } from "@/lib/utils";
+import { checkImportConflicts } from "@/lib/similarity";
 
 export const runtime = "nodejs";
 export const maxDuration = 300;
@@ -131,6 +133,20 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "未能提取有效知识点，请检查文件内容" }, { status: 422 });
     }
 
+    const existingPoints = await getKnowledgePoints();
+    const conflicts = checkImportConflicts(knowledgePoints, existingPoints);
+
+    // 标记可能重复的知识点
+    knowledgePoints = knowledgePoints.map((kp) => {
+      const matches = conflicts[kp.id];
+      if (!matches?.length) return kp;
+      const hasDuplicate = matches.some((m) => m.level === "duplicate");
+      const tags = kp.tags.filter((t) => t !== "可能重复" && t !== "高度重复");
+      if (hasDuplicate) tags.unshift("高度重复");
+      else tags.unshift("可能重复");
+      return { ...kp, tags };
+    });
+
     await addKnowledgePoints(knowledgePoints);
 
     await updateSourceFile({
@@ -150,6 +166,8 @@ export async function POST(request: NextRequest) {
       rawSlideCount: rawChunks.length,
       splitMode,
       aiModel,
+      conflictCount: Object.keys(conflicts).length,
+      conflicts,
       knowledgePoints,
     });
   } catch (err) {

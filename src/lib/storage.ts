@@ -61,6 +61,17 @@ export async function deleteKnowledgePoint(id: string): Promise<boolean> {
   const filtered = all.filter((kp) => kp.id !== id);
   if (filtered.length === all.length) return false;
   await saveKnowledgePoints(filtered);
+
+  const sources = await getSourceFiles();
+  let sourcesChanged = false;
+  for (const source of sources) {
+    if (source.knowledgePointIds.includes(id)) {
+      source.knowledgePointIds = source.knowledgePointIds.filter((kid) => kid !== id);
+      sourcesChanged = true;
+    }
+  }
+  if (sourcesChanged) await saveSourceFiles(sources);
+
   return true;
 }
 

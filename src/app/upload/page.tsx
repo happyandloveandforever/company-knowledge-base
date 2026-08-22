@@ -14,6 +14,7 @@ interface UploadResult {
   rawSlideCount?: number;
   splitMode?: "ai" | "basic";
   aiModel?: string;
+  conflictCount?: number;
   knowledgePoints: KnowledgePoint[];
 }
 
@@ -65,6 +66,7 @@ export default function UploadPage() {
             rawSlideCount: data.rawSlideCount,
             splitMode: data.splitMode,
             aiModel: data.aiModel,
+            conflictCount: data.conflictCount,
             knowledgePoints: data.knowledgePoints,
           },
           ...prev,
@@ -202,6 +204,11 @@ export default function UploadPage() {
                 <span>基础拆分</span>
               )}
             </CardDescription>
+            {(result.conflictCount ?? 0) > 0 && (
+              <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-800">
+                ⚠ {result.conflictCount} 条与现有知识点相似或重复，请在总库中核对（可筛选「高度重复」）
+              </p>
+            )}
           </CardHeader>
           <CardContent>
             <div className="space-y-2">

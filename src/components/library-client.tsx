@@ -1,8 +1,9 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Search, Download, AlertCircle, RefreshCw } from "lucide-react";
 import type { KnowledgePoint, KnowledgeStatus } from "@/lib/types";
+import type { SimilarMatch } from "@/lib/similarity";
 import { KnowledgePointCard } from "@/components/knowledge-point-card";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -14,39 +15,71 @@ interface LibraryClientProps {
 
 export function LibraryClient({ initialPoints }: LibraryClientProps) {
   const [points, setPoints] = useState<KnowledgePoint[]>(initialPoints);
+  const [similarities, setSimilarities] = useState<Record<string, SimilarMatch[]>>({});
   const [search, setSearch] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
+  const [similarFilter, setSimilarFilter] = useState("");
   const [expanded, setExpanded] = useState<string | null>(null);
   const [editing, setEditing] = useState<string | null>(null);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [refreshing, setRefreshing] = useState(false);
 
+  const loadSimilarities = useCallback(async () => {
+    try {
+      const res = await fetch("/api/knowledge/similarities");
+      if (!res.ok) return;
+      const data = await res.json();
+      setSimilarities(data.similarities || {});
+    } catch {
+      // non-blocking
+    }
+  }, []);
+
   const load = useCallback(async () => {
     setRefreshing(true);
     setError("");
     try {
-      const res = await fetch("/api/knowledge");
-      if (!res.ok) throw new Error(`加载失败 (${res.status})`);
-      const data = await res.json();
+      const [kpRes] = await Promise.all([
+        fetch("/api/knowledge"),
+        loadSimilarities(),
+      ]);
+      if (!kpRes.ok) throw new Error(`加载失败 (${kpRes.status})`);
+      const data = await kpRes.json();
       setPoints(data.knowledgePoints || []);
     } catch (e) {
       setError(e instanceof Error ? e.message : "加载知识库失败，请刷新页面");
     } finally {
       setRefreshing(false);
     }
-  }, []);
+  }, [loadSimilarities]);
+
+  useEffect(() => {
+    loadSimilarities();
+  }, [loadSimilarities]);
 
   const categories = useMemo(
     () => Array.from(new Set(points.map((p) => p.category))).sort(),
     [points]
   );
 
+  const similarStats = useMemo(() => {
+    const withSimilar = Object.keys(similarities).length;
+    const duplicates = Object.values(similarities).filter((m) =>
+      m.some((x) => x.level === "duplicate")
+    ).length;
+    return { withSimilar, duplicates };
+  }, [similarities]);
+
   const filtered = useMemo(() => {
     return points.filter((p) => {
       if (categoryFilter && p.category !== categoryFilter) return false;
       if (statusFilter && p.status !== statusFilter) return false;
+      if (similarFilter === "similar" && !similarities[p.id]?.length) return false;
+      if (similarFilter === "duplicate" && !similarities[p.id]?.some((m) => m.level === "duplicate")) {
+        return false;
+      }
       if (search) {
         const q = search.toLowerCase();
         const hay = `${p.title} ${p.summary} ${p.body} ${p.tags.join(" ")}`.toLowerCase();
@@ -54,7 +87,7 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
       }
       return true;
     });
-  }, [points, search, categoryFilter, statusFilter]);
+  }, [points, search, categoryFilter, statusFilter, similarFilter, similarities]);
 
   const grouped = useMemo(() => {
     const map = new Map<string, KnowledgePoint[]>();
@@ -83,6 +116,7 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
       setEditing(null);
       setSuccess(approve ? "已保存并批准入库" : "修改已保存");
       setTimeout(() => setSuccess(""), 3000);
+      loadSimilarities();
     } catch {
       setError("保存失败，请重试");
     }
@@ -94,13 +128,43 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
     await savePoint({ ...point, status });
   }
 
+  async function deletePoint(id: string) {
+    setError("");
+    try {
+      const res = await fetch(`/api/knowledge?id=${encodeURIComponent(id)}`, {
+        method: "DELETE",
+      });
+      if (!res.ok) throw new Error("删除失败");
+      setPoints((prev) => prev.filter((p) => p.id !== id));
+      if (editing === id) setEditing(null);
+      if (expanded === id) setExpanded(null);
+      setSuccess("知识点已删除");
+      setTimeout(() => setSuccess(""), 3000);
+      loadSimilarities();
+    } catch {
+      setError("删除失败，请重试");
+    }
+  }
+
+  function jumpToSimilar(id: string) {
+    setExpanded(id);
+    setEditing(null);
+    document.getElementById(`kp-${id}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-2xl font-bold text-slate-900">知识总库</h1>
           <p className="text-sm text-slate-500">
-            共 {points.length} 个知识点，当前显示 {filtered.length} 个 · 可先编辑，再批准入库
+            共 {points.length} 个知识点，当前显示 {filtered.length} 个
+            {similarStats.withSimilar > 0 && (
+              <span className="text-amber-600">
+                {" "}· {similarStats.withSimilar} 条存在相似项
+                {similarStats.duplicates > 0 && `（${similarStats.duplicates} 条高度重复）`}
+              </span>
+            )}
           </p>
         </div>
         <div className="flex gap-2">
@@ -130,8 +194,8 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
         </div>
       )}
 
-      <div className="mb-6 flex flex-col gap-3 sm:flex-row">
-        <div className="relative flex-1">
+      <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <div className="relative min-w-[200px] flex-1">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
           <Input
             className="pl-9"
@@ -160,6 +224,15 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
           <option value="review">待审核</option>
           <option value="approved">已批准</option>
         </Select>
+        <Select
+          value={similarFilter}
+          onChange={(e) => setSimilarFilter(e.target.value)}
+          className="sm:w-40"
+        >
+          <option value="">相似度：全部</option>
+          <option value="similar">有相似项</option>
+          <option value="duplicate">高度重复</option>
+        </Select>
       </div>
 
       {filtered.length === 0 ? (
@@ -186,6 +259,7 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
                   kp={kp}
                   expanded={expanded === kp.id}
                   editing={editing === kp.id}
+                  similarMatches={similarities[kp.id]}
                   onToggleExpand={() =>
                     setExpanded(expanded === kp.id ? null : kp.id)
                   }
@@ -196,6 +270,8 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
                   onCancelEdit={() => setEditing(null)}
                   onSave={savePoint}
                   onUpdateStatus={(status) => updateStatus(kp.id, status)}
+                  onDelete={() => deletePoint(kp.id)}
+                  onJumpToSimilar={jumpToSimilar}
                 />
               ))}
             </div>

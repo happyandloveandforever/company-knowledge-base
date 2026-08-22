@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Pencil, Check, X, Save } from "lucide-react";
+import { Pencil, Check, X, Save, Trash2, Link2 } from "lucide-react";
 import type { KnowledgePoint, KnowledgeStatus } from "@/lib/types";
+import type { SimilarMatch } from "@/lib/similarity";
+import { SIMILARITY_LABELS } from "@/lib/similarity";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -36,11 +38,14 @@ interface KnowledgePointCardProps {
   kp: KnowledgePoint;
   expanded: boolean;
   editing: boolean;
+  similarMatches?: SimilarMatch[];
   onToggleExpand: () => void;
   onStartEdit: () => void;
   onCancelEdit: () => void;
   onSave: (updated: KnowledgePoint, approve?: boolean) => Promise<void>;
   onUpdateStatus: (status: KnowledgeStatus) => Promise<void>;
+  onDelete: () => Promise<void>;
+  onJumpToSimilar?: (id: string) => void;
 }
 
 function splitCsv(value: string): string[] {
@@ -67,6 +72,9 @@ export function KnowledgePointCard({
   onCancelEdit,
   onSave,
   onUpdateStatus,
+  onDelete,
+  onJumpToSimilar,
+  similarMatches = [],
 }: KnowledgePointCardProps) {
   const [form, setForm] = useState(kp);
   const [tagsInput, setTagsInput] = useState(kp.tags.join("、"));
@@ -74,6 +82,8 @@ export function KnowledgePointCard({
   const [autoSyncSummary, setAutoSyncSummary] = useState(false);
   const [summaryTouched, setSummaryTouched] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
     if (editing) {
@@ -84,6 +94,18 @@ export function KnowledgePointCard({
       setSummaryTouched(false);
     }
   }, [editing, kp.id]);
+
+  async function handleDelete() {
+    setDeleting(true);
+    try {
+      await onDelete();
+    } finally {
+      setDeleting(false);
+      setConfirmDelete(false);
+    }
+  }
+
+  const topSimilar = similarMatches[0];
 
   function updateBody(body: string) {
     setForm((prev) => ({
@@ -252,16 +274,32 @@ export function KnowledgePointCard({
   }
 
   return (
-    <Card className="overflow-hidden">
+    <Card
+      id={`kp-${kp.id}`}
+      className={`overflow-hidden ${
+        topSimilar?.level === "duplicate"
+          ? "border-amber-400 ring-1 ring-amber-100"
+          : topSimilar?.level === "similar"
+            ? "border-orange-200"
+            : ""
+      }`}
+    >
       <CardHeader className="pb-2">
         <div className="flex items-start justify-between gap-3">
           <div className="flex-1">
             <CardTitle className="text-base">{kp.title}</CardTitle>
             <p className="mt-1 text-sm text-slate-500">{kp.summary}</p>
           </div>
-          <Badge variant={STATUS_VARIANT[kp.status]}>
-            {STATUS_LABELS[kp.status]}
-          </Badge>
+          <div className="flex flex-col items-end gap-1">
+            <Badge variant={STATUS_VARIANT[kp.status]}>
+              {STATUS_LABELS[kp.status]}
+            </Badge>
+            {topSimilar && (
+              <Badge variant={topSimilar.level === "duplicate" ? "warning" : "outline"}>
+                {SIMILARITY_LABELS[topSimilar.level]} {Math.round(topSimilar.score * 100)}%
+              </Badge>
+            )}
+          </div>
         </div>
         <div className="mt-2 flex flex-wrap items-center gap-2">
           {kp.tags.map((t) => (
@@ -273,15 +311,42 @@ export function KnowledgePointCard({
             {kp.source.location ? ` · ${kp.source.location}` : ""}
           </span>
         </div>
+        {similarMatches.length > 0 && (
+          <div className="mt-3 rounded-lg bg-amber-50 p-3 text-sm text-amber-900">
+            <div className="mb-1 flex items-center gap-1 font-medium">
+              <Link2 className="h-3.5 w-3.5" />
+              与现有知识点相似，请核对后再入库
+            </div>
+            <ul className="space-y-1 text-xs">
+              {similarMatches.slice(0, 3).map((m) => (
+                <li key={m.id} className="flex flex-wrap items-center gap-2">
+                  <span className="rounded bg-white/80 px-1.5 py-0.5">
+                    {SIMILARITY_LABELS[m.level]} · {Math.round(m.score * 100)}%
+                  </span>
+                  <button
+                    type="button"
+                    className="text-left text-blue-700 hover:underline"
+                    onClick={() => onJumpToSimilar?.(m.id)}
+                  >
+                    {m.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-2 text-xs text-amber-700">
+              建议：高度重复可删除本条；内容相似但不同场景可都保留并改标题区分
+            </p>
+          </div>
+        )}
       </CardHeader>
-      <CardContent className="flex items-center justify-between">
+      <CardContent className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <button
           className="text-sm text-blue-600 hover:underline"
           onClick={onToggleExpand}
         >
           {expanded ? "收起" : "查看完整内容"}
         </button>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <Button size="sm" variant="outline" onClick={onStartEdit}>
             <Pencil className="h-3 w-3" /> 编辑
           </Button>
@@ -294,6 +359,20 @@ export function KnowledgePointCard({
             <Button size="sm" variant="ghost" onClick={() => onUpdateStatus("review")}>
               <X className="h-3 w-3" /> 退回审核
             </Button>
+          )}
+          {!confirmDelete ? (
+            <Button size="sm" variant="ghost" className="text-red-600 hover:text-red-700" onClick={() => setConfirmDelete(true)}>
+              <Trash2 className="h-3 w-3" /> 删除
+            </Button>
+          ) : (
+            <>
+              <Button size="sm" variant="destructive" onClick={handleDelete} disabled={deleting}>
+                {deleting ? "删除中…" : "确认删除"}
+              </Button>
+              <Button size="sm" variant="ghost" onClick={() => setConfirmDelete(false)} disabled={deleting}>
+                取消
+              </Button>
+            </>
           )}
         </div>
       </CardContent>
