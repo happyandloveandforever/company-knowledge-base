@@ -171,7 +171,7 @@ Vercel 快速部署（GitHub 镜像完成后）：
 
 | 指标 | 数值 |
 |------|------|
-| 知识点总数 | **195**（153 `approved` + 42 `draft`：机理13 + v7 29） |
+| 知识点总数 | **195**（166 `approved` + 29 v7 `draft`；机理 13 条已在网页批准） |
 | 已导入文件 | **5** |
 | 待 Claude 拆分队列 | 0 |
 
@@ -182,13 +182,14 @@ Vercel 快速部署（GitHub 镜像完成后）：
 | 漂浮方舟_杨浦区财务.pdf | SRC-FAF-YANGPU | KP-FAF-001 ~ 054 | 54 | done，已批准 | claude-agent |
 | B端定稿.pdf | SRC-B2B-YILING | KP-B2B-001 ~ 050 | 50 | done，已批准 | claude-agent |
 | （已压缩）漂浮方舟 · 品牌画册.pdf | SRC-BRAND-BROCHURE | KP-BRAND-*（缺002） | 44 | done，多数已批准 | claude-agent |
-| 方舟机理.pdf | SRC-MECH-JILI | KP-MECH-001 ~ 013 | 13 | done，draft 待审 | claude-agent |
+| 方舟机理.pdf | SRC-MECH-JILI | KP-MECH-001 ~ 013 | 13 | done，已批准 | claude-agent |
 | 漂浮方舟_v7.pdf | SRC-FAF-V7 | KP-V7-001 ~ 029 | 29 | done，**draft 待审** | claude-agent |
 
 ### 待办
 
 - [x] 品牌画册 / 方舟机理 / **漂浮方舟_v7** Claude 精细拆分
-- [ ] 审核批准 `KP-MECH-*`（13）与 `KP-V7-*`（29）draft
+- [x] 审核批准机理 `KP-MECH-*`（13）
+- [ ] 审核批准 v7 `KP-V7-*`（29）draft
 - [ ] 继续导入更多历史材料
 
 
