@@ -15,6 +15,7 @@ interface UploadResult {
   splitMode?: "ai" | "basic";
   aiModel?: string;
   conflictCount?: number;
+  contentConflictCount?: number;
   knowledgePoints: KnowledgePoint[];
 }
 
@@ -67,6 +68,7 @@ export default function UploadPage() {
             splitMode: data.splitMode,
             aiModel: data.aiModel,
             conflictCount: data.conflictCount,
+            contentConflictCount: data.contentConflictCount,
             knowledgePoints: data.knowledgePoints,
           },
           ...prev,
@@ -204,6 +206,11 @@ export default function UploadPage() {
                 <span>基础拆分</span>
               )}
             </CardDescription>
+            {(result.contentConflictCount ?? 0) > 0 && (
+              <p className="mt-2 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-800">
+                ⚠ {result.contentConflictCount} 条存在内容冲突（如 5大功效 vs 3大功效），请在总库筛选「内容冲突」核对
+              </p>
+            )}
             {(result.conflictCount ?? 0) > 0 && (
               <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-800">
                 ⚠ {result.conflictCount} 条与现有知识点相似或重复，请在总库中核对（可筛选「高度重复」）

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Pencil, Check, X, Save, Trash2, Link2 } from "lucide-react";
 import type { KnowledgePoint, KnowledgeStatus } from "@/lib/types";
 import type { SimilarMatch } from "@/lib/similarity";
+import type { ContentConflict } from "@/lib/conflict-detector";
 import { SIMILARITY_LABELS } from "@/lib/similarity";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -39,6 +40,7 @@ interface KnowledgePointCardProps {
   expanded: boolean;
   editing: boolean;
   similarMatches?: SimilarMatch[];
+  contentConflicts?: ContentConflict[];
   onToggleExpand: () => void;
   onStartEdit: () => void;
   onCancelEdit: () => void;
@@ -75,6 +77,7 @@ export function KnowledgePointCard({
   onDelete,
   onJumpToSimilar,
   similarMatches = [],
+  contentConflicts = [],
 }: KnowledgePointCardProps) {
   const [form, setForm] = useState(kp);
   const [tagsInput, setTagsInput] = useState(kp.tags.join("、"));
@@ -106,6 +109,7 @@ export function KnowledgePointCard({
   }
 
   const topSimilar = similarMatches[0];
+  const hasContentConflict = contentConflicts.length > 0;
 
   function updateBody(body: string) {
     setForm((prev) => ({
@@ -277,11 +281,13 @@ export function KnowledgePointCard({
     <Card
       id={`kp-${kp.id}`}
       className={`overflow-hidden ${
-        topSimilar?.level === "duplicate"
-          ? "border-amber-400 ring-1 ring-amber-100"
-          : topSimilar?.level === "similar"
-            ? "border-orange-200"
-            : ""
+        hasContentConflict
+          ? "border-red-400 ring-1 ring-red-100"
+          : topSimilar?.level === "duplicate"
+            ? "border-amber-400 ring-1 ring-amber-100"
+            : topSimilar?.level === "similar"
+              ? "border-orange-200"
+              : ""
       }`}
     >
       <CardHeader className="pb-2">
@@ -294,6 +300,11 @@ export function KnowledgePointCard({
             <Badge variant={STATUS_VARIANT[kp.status]}>
               {STATUS_LABELS[kp.status]}
             </Badge>
+            {hasContentConflict && (
+              <Badge variant="warning" className="bg-red-100 text-red-800">
+                内容冲突
+              </Badge>
+            )}
             {topSimilar && (
               <Badge variant={topSimilar.level === "duplicate" ? "warning" : "outline"}>
                 {SIMILARITY_LABELS[topSimilar.level]} {Math.round(topSimilar.score * 100)}%
@@ -311,6 +322,28 @@ export function KnowledgePointCard({
             {kp.source.location ? ` · ${kp.source.location}` : ""}
           </span>
         </div>
+        {contentConflicts.length > 0 && (
+          <div className="mt-3 rounded-lg bg-red-50 p-3 text-sm text-red-900">
+            <div className="mb-1 font-medium">⚠ 内容冲突：同一主题数据不一致</div>
+            <ul className="space-y-2 text-xs">
+              {contentConflicts.slice(0, 3).map((c, i) => (
+                <li key={`${c.id}-${c.topic}-${i}`} className="rounded bg-white/80 p-2">
+                  <div className="font-medium">{c.topic}：本条「{c.myValue}」 vs 冲突条「{c.theirValue}」</div>
+                  <button
+                    type="button"
+                    className="mt-1 text-blue-700 hover:underline"
+                    onClick={() => onJumpToSimilar?.(c.id)}
+                  >
+                    对比：{c.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-2 text-xs text-red-700">
+              建议：核对哪个数字正确，编辑统一后批准；或删除过时版本
+            </p>
+          </div>
+        )}
         {similarMatches.length > 0 && (
           <div className="mt-3 rounded-lg bg-amber-50 p-3 text-sm text-amber-900">
             <div className="mb-1 flex items-center gap-1 font-medium">

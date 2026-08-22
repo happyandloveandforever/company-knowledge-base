@@ -20,6 +20,7 @@ import {
 import type { KnowledgePoint } from "@/lib/types";
 import { generateId } from "@/lib/utils";
 import { checkImportConflicts } from "@/lib/similarity";
+import { checkImportContentConflicts } from "@/lib/conflict-detector";
 
 export const runtime = "nodejs";
 export const maxDuration = 300;
@@ -135,15 +136,20 @@ export async function POST(request: NextRequest) {
 
     const existingPoints = await getKnowledgePoints();
     const conflicts = checkImportConflicts(knowledgePoints, existingPoints);
+    const contentConflicts = checkImportContentConflicts(knowledgePoints, existingPoints);
 
-    // 标记可能重复的知识点
+    // 标记可能重复或内容冲突的知识点
     knowledgePoints = knowledgePoints.map((kp) => {
-      const matches = conflicts[kp.id];
-      if (!matches?.length) return kp;
-      const hasDuplicate = matches.some((m) => m.level === "duplicate");
-      const tags = kp.tags.filter((t) => t !== "可能重复" && t !== "高度重复");
-      if (hasDuplicate) tags.unshift("高度重复");
-      else tags.unshift("可能重复");
+      const simMatches = conflicts[kp.id];
+      const contMatches = contentConflicts[kp.id];
+      let tags = kp.tags.filter(
+        (t) => !["可能重复", "高度重复", "内容冲突"].includes(t)
+      );
+
+      if (simMatches?.some((m) => m.level === "duplicate")) tags.unshift("高度重复");
+      else if (simMatches?.length) tags.unshift("可能重复");
+      if (contMatches?.length) tags.unshift("内容冲突");
+
       return { ...kp, tags };
     });
 
@@ -167,7 +173,9 @@ export async function POST(request: NextRequest) {
       splitMode,
       aiModel,
       conflictCount: Object.keys(conflicts).length,
+      contentConflictCount: Object.keys(contentConflicts).length,
       conflicts,
+      contentConflicts,
       knowledgePoints,
     });
   } catch (err) {

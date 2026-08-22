@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { Search, Download, AlertCircle, RefreshCw } from "lucide-react";
 import type { KnowledgePoint, KnowledgeStatus } from "@/lib/types";
 import type { SimilarMatch } from "@/lib/similarity";
+import type { ContentConflict } from "@/lib/conflict-detector";
 import { KnowledgePointCard } from "@/components/knowledge-point-card";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,7 @@ interface LibraryClientProps {
 export function LibraryClient({ initialPoints }: LibraryClientProps) {
   const [points, setPoints] = useState<KnowledgePoint[]>(initialPoints);
   const [similarities, setSimilarities] = useState<Record<string, SimilarMatch[]>>({});
+  const [contentConflicts, setContentConflicts] = useState<Record<string, ContentConflict[]>>({});
   const [search, setSearch] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
@@ -26,16 +28,26 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
   const [success, setSuccess] = useState("");
   const [refreshing, setRefreshing] = useState(false);
 
-  const loadSimilarities = useCallback(async () => {
+  const loadConflicts = useCallback(async () => {
     try {
-      const res = await fetch("/api/knowledge/similarities");
-      if (!res.ok) return;
-      const data = await res.json();
-      setSimilarities(data.similarities || {});
+      const [simRes, contRes] = await Promise.all([
+        fetch("/api/knowledge/similarities"),
+        fetch("/api/knowledge/conflicts"),
+      ]);
+      if (simRes.ok) {
+        const data = await simRes.json();
+        setSimilarities(data.similarities || {});
+      }
+      if (contRes.ok) {
+        const data = await contRes.json();
+        setContentConflicts(data.conflicts || {});
+      }
     } catch {
       // non-blocking
     }
   }, []);
+
+  const loadSimilarities = loadConflicts;
 
   const load = useCallback(async () => {
     setRefreshing(true);
@@ -72,6 +84,10 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
     return { withSimilar, duplicates };
   }, [similarities]);
 
+  const conflictStats = useMemo(() => {
+    return { contentConflicts: Object.keys(contentConflicts).length };
+  }, [contentConflicts]);
+
   const filtered = useMemo(() => {
     return points.filter((p) => {
       if (categoryFilter && p.category !== categoryFilter) return false;
@@ -80,6 +96,7 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
       if (similarFilter === "duplicate" && !similarities[p.id]?.some((m) => m.level === "duplicate")) {
         return false;
       }
+      if (similarFilter === "content" && !contentConflicts[p.id]?.length) return false;
       if (search) {
         const q = search.toLowerCase();
         const hay = `${p.title} ${p.summary} ${p.body} ${p.tags.join(" ")}`.toLowerCase();
@@ -87,7 +104,7 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
       }
       return true;
     });
-  }, [points, search, categoryFilter, statusFilter, similarFilter, similarities]);
+  }, [points, search, categoryFilter, statusFilter, similarFilter, similarities, contentConflicts]);
 
   const grouped = useMemo(() => {
     const map = new Map<string, KnowledgePoint[]>();
@@ -165,6 +182,11 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
                 {similarStats.duplicates > 0 && `（${similarStats.duplicates} 条高度重复）`}
               </span>
             )}
+            {conflictStats.contentConflicts > 0 && (
+              <span className="text-red-600">
+                {" "}· {conflictStats.contentConflicts} 条存在内容冲突
+              </span>
+            )}
           </p>
         </div>
         <div className="flex gap-2">
@@ -229,9 +251,10 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
           onChange={(e) => setSimilarFilter(e.target.value)}
           className="sm:w-40"
         >
-          <option value="">相似度：全部</option>
+          <option value="">相似/冲突：全部</option>
           <option value="similar">有相似项</option>
           <option value="duplicate">高度重复</option>
+          <option value="content">内容冲突</option>
         </Select>
       </div>
 
@@ -260,6 +283,7 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
                   expanded={expanded === kp.id}
                   editing={editing === kp.id}
                   similarMatches={similarities[kp.id]}
+                  contentConflicts={contentConflicts[kp.id]}
                   onToggleExpand={() =>
                     setExpanded(expanded === kp.id ? null : kp.id)
                   }
