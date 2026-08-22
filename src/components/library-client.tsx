@@ -1,24 +1,12 @@
 "use client";
 
 import { useCallback, useMemo, useState } from "react";
-import { Search, Download, Check, X, AlertCircle, RefreshCw } from "lucide-react";
+import { Search, Download, AlertCircle, RefreshCw } from "lucide-react";
 import type { KnowledgePoint, KnowledgeStatus } from "@/lib/types";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { KnowledgePointCard } from "@/components/knowledge-point-card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input, Select } from "@/components/ui/input";
-
-const STATUS_LABELS: Record<KnowledgeStatus, string> = {
-  draft: "草稿",
-  review: "待审核",
-  approved: "已批准",
-};
-
-const STATUS_VARIANT: Record<KnowledgeStatus, "warning" | "default" | "success"> = {
-  draft: "warning",
-  review: "default",
-  approved: "success",
-};
 
 interface LibraryClientProps {
   initialPoints: KnowledgePoint[];
@@ -30,7 +18,9 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
   const [categoryFilter, setCategoryFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [editing, setEditing] = useState<string | null>(null);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [refreshing, setRefreshing] = useState(false);
 
   const load = useCallback(async () => {
@@ -76,22 +66,32 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
     return map;
   }, [filtered]);
 
-  async function updateStatus(id: string, status: KnowledgeStatus) {
-    const point = points.find((p) => p.id === id);
-    if (!point) return;
+  async function savePoint(updated: KnowledgePoint, approve?: boolean) {
+    setError("");
+    setSuccess("");
     try {
+      const payload = approve ? { ...updated, status: "approved" as const } : updated;
       const res = await fetch("/api/knowledge", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...point, status }),
+        body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error("更新失败");
+      if (!res.ok) throw new Error("保存失败");
       setPoints((prev) =>
-        prev.map((p) => (p.id === id ? { ...p, status } : p))
+        prev.map((p) => (p.id === updated.id ? payload : p))
       );
+      setEditing(null);
+      setSuccess(approve ? "已保存并批准入库" : "修改已保存");
+      setTimeout(() => setSuccess(""), 3000);
     } catch {
-      setError("更新状态失败，请重试");
+      setError("保存失败，请重试");
     }
+  }
+
+  async function updateStatus(id: string, status: KnowledgeStatus) {
+    const point = points.find((p) => p.id === id);
+    if (!point) return;
+    await savePoint({ ...point, status });
   }
 
   return (
@@ -100,7 +100,7 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
         <div>
           <h1 className="text-2xl font-bold text-slate-900">知识总库</h1>
           <p className="text-sm text-slate-500">
-            共 {points.length} 个知识点，当前显示 {filtered.length} 个
+            共 {points.length} 个知识点，当前显示 {filtered.length} 个 · 可先编辑，再批准入库
           </p>
         </div>
         <div className="flex gap-2">
@@ -121,6 +121,12 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
         <div className="mb-4 flex items-center gap-2 rounded-lg bg-red-50 p-3 text-sm text-red-700">
           <AlertCircle className="h-4 w-4 shrink-0" />
           {error}
+        </div>
+      )}
+
+      {success && (
+        <div className="mb-4 rounded-lg bg-emerald-50 p-3 text-sm text-emerald-700">
+          {success}
         </div>
       )}
 
@@ -175,54 +181,22 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
             </h2>
             <div className="grid gap-3">
               {items.map((kp) => (
-                <Card key={kp.id} className="overflow-hidden">
-                  <CardHeader className="pb-2">
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="flex-1">
-                        <CardTitle className="text-base">{kp.title}</CardTitle>
-                        <p className="mt-1 text-sm text-slate-500">{kp.summary}</p>
-                      </div>
-                      <Badge variant={STATUS_VARIANT[kp.status]}>
-                        {STATUS_LABELS[kp.status]}
-                      </Badge>
-                    </div>
-                    <div className="mt-2 flex flex-wrap items-center gap-2">
-                      {kp.tags.map((t) => (
-                        <Badge key={t} variant="secondary">{t}</Badge>
-                      ))}
-                      <span className="text-xs text-slate-400">约 {kp.durationMin} 分钟</span>
-                      <span className="text-xs text-slate-400">
-                        来源：{kp.source.file}
-                        {kp.source.location ? ` · ${kp.source.location}` : ""}
-                      </span>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="flex items-center justify-between">
-                    <button
-                      className="text-sm text-blue-600 hover:underline"
-                      onClick={() => setExpanded(expanded === kp.id ? null : kp.id)}
-                    >
-                      {expanded === kp.id ? "收起" : "查看完整内容"}
-                    </button>
-                    <div className="flex gap-2">
-                      {kp.status !== "approved" && (
-                        <Button size="sm" variant="outline" onClick={() => updateStatus(kp.id, "approved")}>
-                          <Check className="h-3 w-3" /> 批准
-                        </Button>
-                      )}
-                      {kp.status === "approved" && (
-                        <Button size="sm" variant="ghost" onClick={() => updateStatus(kp.id, "review")}>
-                          <X className="h-3 w-3" /> 退回审核
-                        </Button>
-                      )}
-                    </div>
-                  </CardContent>
-                  {expanded === kp.id && (
-                    <CardContent className="border-t border-slate-100 bg-slate-50 pt-4">
-                      <pre className="whitespace-pre-wrap text-sm text-slate-700">{kp.body}</pre>
-                    </CardContent>
-                  )}
-                </Card>
+                <KnowledgePointCard
+                  key={kp.id}
+                  kp={kp}
+                  expanded={expanded === kp.id}
+                  editing={editing === kp.id}
+                  onToggleExpand={() =>
+                    setExpanded(expanded === kp.id ? null : kp.id)
+                  }
+                  onStartEdit={() => {
+                    setEditing(kp.id);
+                    setExpanded(kp.id);
+                  }}
+                  onCancelEdit={() => setEditing(null)}
+                  onSave={savePoint}
+                  onUpdateStatus={(status) => updateStatus(kp.id, status)}
+                />
               ))}
             </div>
           </section>

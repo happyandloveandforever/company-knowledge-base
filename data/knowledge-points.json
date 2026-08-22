@@ -394,9 +394,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:12:30.667Z"
+    "updatedAt": "2026-08-22T11:21:05.057Z"
   },
   {
     "id": "KP-FAF-008",
@@ -429,9 +429,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:12:30.667Z"
+    "updatedAt": "2026-08-22T11:21:00.561Z"
   },
   {
     "id": "KP-FAF-009",
@@ -462,9 +462,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:12:30.667Z"
+    "updatedAt": "2026-08-22T11:21:24.573Z"
   },
   {
     "id": "KP-FAF-010",
@@ -495,9 +495,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:12:30.667Z"
+    "updatedAt": "2026-08-22T11:21:25.988Z"
   },
   {
     "id": "KP-FAF-011",
@@ -529,9 +529,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:12:30.667Z"
+    "updatedAt": "2026-08-22T11:21:30.547Z"
   },
   {
     "id": "KP-FAF-012",
