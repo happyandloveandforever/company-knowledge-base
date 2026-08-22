@@ -1,113 +1,95 @@
-# 换对话指南（IT 小白版）
+# 换对话指南（IT 小白版 · 已按真实界面修正）
 
-> **就记住一件事：新对话必须连「同一个仓库」，不要点 New Project。**
+> **之前文档说「New Agent 创建时填 URL」是错的，抱歉。**  
+> File → New Agent 和 New Chat 是同一个东西（Ctrl+N），都是空白页，**没有填仓库的地方**。
 
 ---
 
-## 为什么上次换对话失败了？
+## 最重要：你现在这个项目已经在了
 
-| 你做的 | 结果 |
-|--------|------|
-| 点了 **New Project（新项目）** | Cursor 建了一个**空仓库**，109 条知识点不在里面 |
-| Agent 看到空仓库 | 以为项目丢了，从头重建 → 数据全没 |
+如果你能看到：
+- 预览里 **109 条知识点**
+- 底部显示 **main** 分支、**Cloud**
+- 左侧有 **Company knowledge ba...**
 
-**数据没丢**，还在下面这个仓库里：
+→ **你已经在项目里**，不用新建，不用 Clone。
+
+**上下文满了就在这个项目里继续聊，不要从 File 菜单开 New Agent。**
+
+---
+
+## 上下文满了怎么办（正确做法）
+
+### ✅ 做法：留在当前项目里
+
+1. 左侧点 **Company knowledge base system**（Company knowledge ba...）
+2. 在**这个项目打开的页面里**直接发新消息  
+   （不要 File → New Agent，不要左上角 New Chat 空白页）
+
+### ❌ 不要这样做
+
+| 操作 | 结果 |
+|------|------|
+| File → New Agent | 空白页，No Repo，109 条没了 |
+| 左上角 New Chat（No Repo） | 同上 |
+| Start from scratch | 同上 |
+| Create repo | 空仓库 |
+
+---
+
+## 如果真的丢了项目（左侧找不到 Company knowledge base）
+
+只有这时候才 Clone，**且不是在聊天里贴 URL**：
+
+1. 打开 New Chat 空白页
+2. 点 **Start from scratch** 下拉
+3. **Use Existing...** → **Clone Repository**
+4. 粘贴：
 
 ```
 https://origin.cursor.com/git/clark-gonzalez/tmp-8ece63bc7e599628
 ```
 
+5. 等克隆完，看到 `START-HERE.md` 和 `data/` 文件夹
+6. 第一句话：
+
+```
+请先读 START-HERE.md，不要重建项目，继续帮我做知识库
+```
+
 ---
 
-## 换对话正确做法（复制照着做）
+## Cloud 显示 No projects？
 
-### 第一步：开新对话时，不要点「New Project」
+正常。Cursor Origin 的仓库**不会**出现在 Cloud 列表里。  
+用上面的 **Clone Repository** 连一次就行。
 
-在 Cursor 里选下面**任意一种**：
+---
 
-**方法 A（最简单）**  
-1. 打开 Cursor → 左侧 **Agents**  
-2. 找到之前的 **Company knowledge base system**  
-3. 点进去，直接发新消息继续聊  
-
-**方法 B（新开一个 Agent，但连老仓库）**  
-1. Cursor → **New Agent**（不是 New Project）  
-2. 仓库地址填（整段复制）：
-
-```
-https://origin.cursor.com/git/clark-gonzalez/tmp-8ece63bc7e599628
-```
-
-3. 分支选 `main`
-
-### 第二步：第一句话复制粘贴这个
+## 换对话粘贴语
 
 ```
 请先读 START-HERE.md 和 PROJECT.md。
-仓库里应该有 109 条知识点，不要重建项目，不要清空 data/knowledge-points.json。
-然后继续帮我 [这里写你要做的事]。
+应有 109 条知识点，不要重建项目。
+继续帮我 [你的任务]
 ```
 
-例如：
-- `…然后继续帮我 Claude 精细拆品牌画册.pdf`
-- `…然后继续帮我审核待审知识点`
-
-### 第三步：看 Agent 第一句回复对不对
-
-**对的标志：**
-- 提到「109 条知识点」或读了 `data/knowledge-points.json`
-- 提到杨浦财务、B端定稿两个文件
-- **没有**说「仓库是空的」「从头搭建」
-
-**不对的标志：**
-- 说「空仓库」「New Project」「重新 scaffold」
-- 要删除或覆盖 `knowledge-points.json`
-
-→ 不对就**立刻停止**，检查是不是连错仓库了。
-
 ---
 
-## 你要做的 vs 不用做的
-
-| ✅ 要做 | ❌ 不要做 |
-|--------|----------|
-| 连同一个 Git 仓库 | 点 New Project |
-| 让 Agent 先读 START-HERE.md | 让 Agent 重建 Next.js 项目 |
-| 在对话里上传文件、说「帮我拆」 | 自己改代码（除非你想学） |
-| 有问题把截图发对话 | 自己删 data 文件夹 |
-
----
-
-## 仓库里有什么（给 Agent 看的）
-
-- **109 条知识点** → `data/knowledge-points.json`
-- **2 个已导入文件** → 杨浦财务 PDF（54条）+ B端定稿 PDF（50条）
-- **完整网页代码** → Next.js，端口 43123
-- **协作说明** → `PROJECT.md`、`AGENTS.md`
-
----
-
-## 常见问题
-
-**Q：Preview 打不开？**  
-A：对新 Agent 说「重启 dev 服务，端口 43123」
-
-**Q：误删了知识点？**  
-A：对新 Agent 说「从 Git 历史恢复 xxx」，数据在 Git 里有备份
-
-**Q：想在网上随时看？**  
-A：把 GitHub 用户名告诉 Agent，让它帮你推到 GitHub（见 PROJECT.md）
-
----
-
-## 仓库地址（收藏这个）
+## 数据在哪（永远在这）
 
 ```
 https://origin.cursor.com/git/clark-gonzalez/tmp-8ece63bc7e599628
 ```
 
-分支：`main`
+- 109 条知识点 → `data/knowledge-points.json`
+- 协作说明 → 本文件 + `PROJECT.md`
+- 换对话不会丢，只要连这个仓库
 
 ---
 
-**下次换对话，打开这个文件，按「第二步」复制那句话就行。**
+## 给 Agent 的纠正
+
+- File → New Agent ≠ 带仓库的项目创建入口
+- 不要在空 workspace 重建 Next.js
+- 数据在 Git，先 `git pull` 或 Clone，再读 `data/knowledge-points.json`
