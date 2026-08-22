@@ -2,18 +2,24 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpen, FileUp, LayoutDashboard, Presentation, Library } from "lucide-react";
+import { BookOpen, FileUp, LayoutDashboard, Presentation, Library, AlertTriangle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const links = [
   { href: "/", label: "首页", icon: LayoutDashboard },
   { href: "/library", label: "知识总库", icon: Library },
+  { href: "/library/conflicts", label: "冲突组", icon: AlertTriangle },
   { href: "/upload", label: "导入文件", icon: FileUp },
   { href: "/compose", label: "编排演讲", icon: Presentation },
 ];
 
 export function Nav() {
   const pathname = usePathname();
+
+  function isActive(href: string) {
+    if (href === "/library") return pathname === "/library";
+    return pathname === href || pathname.startsWith(`${href}/`);
+  }
 
   return (
     <header className="border-b border-slate-200 bg-white">
@@ -29,7 +35,7 @@ export function Nav() {
               href={href}
               className={cn(
                 "flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
-                pathname === href
+                isActive(href)
                   ? "bg-blue-50 text-blue-700"
                   : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
               )}

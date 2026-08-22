@@ -1,8 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Search, Download, AlertCircle, RefreshCw } from "lucide-react";
-import type { KnowledgePoint, KnowledgeStatus } from "@/lib/types";
+import Link from "next/link";
+import { Search, Download, AlertCircle, RefreshCw, AlertTriangle } from "lucide-react";
+import type { KnowledgePoint, KnowledgeStatus, ConflictGroup } from "@/lib/types";
 import type { SimilarMatch } from "@/lib/similarity";
 import type { ContentConflict } from "@/lib/conflict-detector";
 import { KnowledgePointCard } from "@/components/knowledge-point-card";
@@ -18,6 +19,7 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
   const [points, setPoints] = useState<KnowledgePoint[]>(initialPoints);
   const [similarities, setSimilarities] = useState<Record<string, SimilarMatch[]>>({});
   const [contentConflicts, setContentConflicts] = useState<Record<string, ContentConflict[]>>({});
+  const [conflictGroups, setConflictGroups] = useState<ConflictGroup[]>([]);
   const [search, setSearch] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
@@ -30,9 +32,10 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
 
   const loadConflicts = useCallback(async () => {
     try {
-      const [simRes, contRes] = await Promise.all([
+      const [simRes, contRes, groupRes] = await Promise.all([
         fetch("/api/knowledge/similarities"),
         fetch("/api/knowledge/conflicts"),
+        fetch("/api/knowledge/conflict-groups"),
       ]);
       if (simRes.ok) {
         const data = await simRes.json();
@@ -41,6 +44,10 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
       if (contRes.ok) {
         const data = await contRes.json();
         setContentConflicts(data.conflicts || {});
+      }
+      if (groupRes.ok) {
+        const data = await groupRes.json();
+        setConflictGroups(data.groups || []);
       }
     } catch {
       // non-blocking
@@ -116,6 +123,11 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
     return map;
   }, [filtered]);
 
+  function getGroupIdForPoint(pointId: string): string | undefined {
+    const g = conflictGroups.find((gr) => gr.memberIds.includes(pointId));
+    return g?.id;
+  }
+
   async function savePoint(updated: KnowledgePoint, approve?: boolean) {
     setError("");
     setSuccess("");
@@ -190,6 +202,12 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
           </p>
         </div>
         <div className="flex gap-2">
+          <Link href="/library/conflicts">
+            <Button variant="outline" size="sm">
+              <AlertTriangle className="h-4 w-4" />
+              冲突组对照
+            </Button>
+          </Link>
           <Button variant="ghost" size="sm" onClick={load} disabled={refreshing}>
             <RefreshCw className={`h-4 w-4 ${refreshing ? "animate-spin" : ""}`} />
             刷新
@@ -284,6 +302,7 @@ export function LibraryClient({ initialPoints }: LibraryClientProps) {
                   editing={editing === kp.id}
                   similarMatches={similarities[kp.id]}
                   contentConflicts={contentConflicts[kp.id]}
+                  conflictGroupId={getGroupIdForPoint(kp.id)}
                   onToggleExpand={() =>
                     setExpanded(expanded === kp.id ? null : kp.id)
                   }

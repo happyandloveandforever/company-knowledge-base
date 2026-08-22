@@ -24,6 +24,16 @@ export interface KnowledgePoint {
   status: KnowledgeStatus;
   createdAt: string;
   updatedAt: string;
+  /** 冲突组 ID：同组知识点为不同版本/表述，可并存 */
+  variantGroupId?: string;
+  /** 版本标签，如「政府版愿景」「投资人版愿景」 */
+  variantLabel?: string;
+  /** 允许与其他版本冲突（针对不同客户，非错误） */
+  conflictAllowed?: boolean;
+  /** 冲突说明，如「杨浦政府汇报用」「B端销售用」 */
+  conflictNote?: string;
+  /** 本组内首选版本（编排演讲时默认选中） */
+  isPreferredInGroup?: boolean;
 }
 
 export interface SourceFile {
@@ -68,4 +78,14 @@ export interface ParsedChunk {
   title: string;
   body: string;
   location?: string;
+}
+
+export interface ConflictGroup {
+  id: string;
+  topic: string;
+  type: "numeric" | "definition" | "mixed";
+  memberIds: string[];
+  allowedConflict: boolean;
+  note?: string;
+  details: string[];
 }

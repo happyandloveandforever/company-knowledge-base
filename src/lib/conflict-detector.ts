@@ -1,4 +1,4 @@
-import type { KnowledgePoint } from "./types";
+import type { KnowledgePoint, ConflictGroup } from "./types";
 
 /** 内容冲突：同一主题下数据/表述不一致（如 5大功效 vs 3大功效） */
 export interface ContentConflict {
@@ -259,4 +259,156 @@ export function checkImportContentConflicts(
   }
 
   return conflicts;
+}
+
+const DEFINITION_KEYWORDS = ["愿景", "使命", "定位", "核心理念", "价值主张", "标语"];
+
+function localTextSimilarity(a: string, b: string): number {
+  const na = a.toLowerCase().replace(/\s+/g, "");
+  const nb = b.toLowerCase().replace(/\s+/g, "");
+  if (!na || !nb) return 0;
+  if (na === nb) return 1;
+  const shorter = na.length < nb.length ? na : nb;
+  const longer = na.length < nb.length ? nb : na;
+  if (longer.includes(shorter) && shorter.length > 10) return 0.9;
+  let matches = 0;
+  for (let i = 0; i < shorter.length - 1; i++) {
+    if (longer.includes(shorter.slice(i, i + 2))) matches++;
+  }
+  return matches / Math.max(shorter.length, 1);
+}
+
+export function findDefinitionVariantGroups(points: KnowledgePoint[]): ConflictGroup[] {
+  const groups: ConflictGroup[] = [];
+  const paired = new Set<string>();
+
+  for (let i = 0; i < points.length; i++) {
+    for (let j = i + 1; j < points.length; j++) {
+      const a = points[i];
+      const b = points[j];
+      const pairKey = [a.id, b.id].sort().join("|");
+      if (paired.has(pairKey)) continue;
+
+      const textA = `${a.title} ${a.summary}`;
+      const textB = `${b.title} ${b.summary}`;
+      const sharedKw = DEFINITION_KEYWORDS.filter(
+        (kw) => textA.includes(kw) && textB.includes(kw)
+      );
+      if (sharedKw.length === 0) continue;
+
+      const bodySim = localTextSimilarity(a.body.slice(0, 400), b.body.slice(0, 400));
+      const titleSim = localTextSimilarity(a.title, b.title);
+      if (bodySim >= 0.85) continue;
+      if (bodySim < 0.25 && titleSim < 0.3) continue;
+
+      paired.add(pairKey);
+      const topic = sharedKw[0];
+      groups.push({
+        id: `CG-DEF-${topic}-${pairKey.replace(/\|/g, "-")}`,
+        topic: `${topic}（多种表述）`,
+        type: "definition",
+        memberIds: [a.id, b.id],
+        allowedConflict: !!(a.conflictAllowed && b.conflictAllowed),
+        note: a.conflictNote || b.conflictNote,
+        details: [`${a.title} ↔ ${b.title}`],
+      });
+    }
+  }
+
+  return groups;
+}
+
+function memberIdsKey(ids: string[]): string {
+  return [...ids].sort().join(",");
+}
+
+export function buildConflictGroups(points: KnowledgePoint[]): ConflictGroup[] {
+  const pairMap = scanContentConflicts(points);
+  const edges: Array<[string, string, string]> = [];
+
+  for (const [id, conflicts] of Object.entries(pairMap)) {
+    for (const c of conflicts) {
+      edges.push([id, c.id, `${c.topic}：${c.myValue} vs ${c.theirValue}`]);
+    }
+  }
+
+  const parent = new Map<string, string>();
+  function find(x: string): string {
+    if (!parent.has(x)) parent.set(x, x);
+    if (parent.get(x) !== x) parent.set(x, find(parent.get(x)!));
+    return parent.get(x)!;
+  }
+  function union(a: string, b: string) {
+    parent.set(find(a), find(b));
+  }
+
+  for (const [a, b] of edges) union(a, b);
+
+  const clusters = new Map<string, { ids: Set<string>; details: Set<string> }>();
+  for (const [a, b, detail] of edges) {
+    const root = find(a);
+    if (!clusters.has(root)) clusters.set(root, { ids: new Set(), details: new Set() });
+    clusters.get(root)!.ids.add(a);
+    clusters.get(root)!.ids.add(b);
+    clusters.get(root)!.details.add(detail);
+  }
+
+  const numericGroups: ConflictGroup[] = [];
+  for (const [root, { ids, details }] of clusters) {
+    const memberIds = Array.from(ids);
+    const members = memberIds.map((id) => points.find((p) => p.id === id)!).filter(Boolean);
+    const topic = [...details][0]?.split("：")[0] || "内容冲突";
+    const existingGroupId = members.find((m) => m.variantGroupId)?.variantGroupId;
+
+    numericGroups.push({
+      id: existingGroupId || `CG-NUM-${root.slice(0, 12)}`,
+      topic,
+      type: "numeric",
+      memberIds,
+      allowedConflict: members.length > 0 && members.every((m) => m.conflictAllowed),
+      note: members.find((m) => m.conflictNote)?.conflictNote,
+      details: Array.from(details),
+    });
+  }
+
+  const defGroups = findDefinitionVariantGroups(points);
+
+  const manualMap = new Map<string, string[]>();
+  for (const p of points) {
+    if (p.variantGroupId) {
+      if (!manualMap.has(p.variantGroupId)) manualMap.set(p.variantGroupId, []);
+      manualMap.get(p.variantGroupId)!.push(p.id);
+    }
+  }
+  const manualGroups: ConflictGroup[] = [];
+  for (const [gid, memberIds] of manualMap) {
+    if (memberIds.length < 2) continue;
+    const members = memberIds.map((id) => points.find((p) => p.id === id)!).filter(Boolean);
+    manualGroups.push({
+      id: gid,
+      topic: members[0]?.title.slice(0, 20) || "自定义版本组",
+      type: "mixed",
+      memberIds,
+      allowedConflict: members.every((m) => m.conflictAllowed),
+      note: members.find((m) => m.conflictNote)?.conflictNote,
+      details: members.map((m) => m.variantLabel || m.title),
+    });
+  }
+
+  const all = [...numericGroups, ...defGroups, ...manualGroups];
+  const seen = new Map<string, ConflictGroup>();
+  for (const g of all) {
+    const key = memberIdsKey(g.memberIds);
+    if (!seen.has(key) || g.memberIds.length > seen.get(key)!.memberIds.length) {
+      seen.set(key, g);
+    }
+  }
+  return Array.from(seen.values());
+}
+
+export function getGroupForPoint(
+  pointId: string,
+  groups: ConflictGroup[]
+): ConflictGroup | undefined {
+  return groups.find((g) => g.memberIds.includes(pointId));
 }

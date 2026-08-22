@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { Pencil, Check, X, Save, Trash2, Link2 } from "lucide-react";
 import type { KnowledgePoint, KnowledgeStatus } from "@/lib/types";
 import type { SimilarMatch } from "@/lib/similarity";
@@ -41,6 +42,7 @@ interface KnowledgePointCardProps {
   editing: boolean;
   similarMatches?: SimilarMatch[];
   contentConflicts?: ContentConflict[];
+  conflictGroupId?: string;
   onToggleExpand: () => void;
   onStartEdit: () => void;
   onCancelEdit: () => void;
@@ -78,6 +80,7 @@ export function KnowledgePointCard({
   onJumpToSimilar,
   similarMatches = [],
   contentConflicts = [],
+  conflictGroupId,
 }: KnowledgePointCardProps) {
   const [form, setForm] = useState(kp);
   const [tagsInput, setTagsInput] = useState(kp.tags.join("、"));
@@ -253,6 +256,42 @@ export function KnowledgePointCard({
               placeholder="政府汇报、投资人"
             />
           </div>
+          <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 space-y-3">
+            <p className="text-sm font-medium text-slate-700">版本与冲突设置</p>
+            <div>
+              <label className="mb-1 block text-xs text-slate-600">版本标签（如「政府版愿景」）</label>
+              <Input
+                value={form.variantLabel || ""}
+                onChange={(e) => setForm({ ...form, variantLabel: e.target.value })}
+                placeholder="投资人版 · 愿景"
+              />
+            </div>
+            <div>
+              <label className="mb-1 block text-xs text-slate-600">版本组 ID（同组并排对比，可留空自动生成）</label>
+              <Input
+                value={form.variantGroupId || ""}
+                onChange={(e) => setForm({ ...form, variantGroupId: e.target.value })}
+                placeholder="CG-VISION-001"
+              />
+            </div>
+            <div>
+              <label className="mb-1 block text-xs text-slate-600">冲突说明（不同客户/场景）</label>
+              <Input
+                value={form.conflictNote || ""}
+                onChange={(e) => setForm({ ...form, conflictNote: e.target.value })}
+                placeholder="杨浦政府汇报专用表述"
+              />
+            </div>
+            <label className="flex cursor-pointer items-center gap-2 text-sm text-slate-600">
+              <input
+                type="checkbox"
+                checked={!!form.conflictAllowed}
+                onChange={(e) => setForm({ ...form, conflictAllowed: e.target.checked })}
+                className="rounded border-slate-300"
+              />
+              允许与其他版本冲突（针对不同客户，非错误）
+            </label>
+          </div>
           <p className="text-xs text-slate-400">
             来源：{kp.source.file}{kp.source.location ? ` · ${kp.source.location}` : ""}
           </p>
@@ -340,8 +379,23 @@ export function KnowledgePointCard({
               ))}
             </ul>
             <p className="mt-2 text-xs text-red-700">
-              建议：核对哪个数字正确，编辑统一后批准；或删除过时版本
+              建议：在「冲突组」页并排对比，选需要的版本；若针对不同客户，标记「允许冲突」
             </p>
+            <Link
+              href={`/library/conflicts${conflictGroupId ? `#${conflictGroupId}` : ""}`}
+              className="mt-2 inline-block text-xs font-medium text-blue-700 hover:underline"
+            >
+              打开冲突组并排对比 →
+            </Link>
+          </div>
+        )}
+        {(conflictGroupId || kp.conflictAllowed) && contentConflicts.length === 0 && (
+          <div className="mt-3 rounded-lg bg-slate-50 p-2 text-xs text-slate-600">
+            版本组：{kp.variantLabel || kp.variantGroupId}
+            {kp.conflictAllowed && " · 已允许冲突"}
+            <Link href="/library/conflicts" className="ml-2 text-blue-600 hover:underline">
+              查看冲突组
+            </Link>
           </div>
         )}
         {similarMatches.length > 0 && (
