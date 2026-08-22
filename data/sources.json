@@ -340,5 +340,39 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "Cursor Claude 精细拆分，40页→37个知识点（增强背景第二部分下册：证据收尾/场景/专家/盈利）"
+  },
+  {
+    "id": "SRC-CHAMPION-CFG",
+    "filename": "（已压缩）漂浮方舟冠军系列产品配置说明.pdf",
+    "fileType": "pdf",
+    "uploadedAt": "2026-08-22T16:21:50.525Z",
+    "knowledgePointIds": [
+      "KP-CHAMP-001",
+      "KP-CHAMP-002",
+      "KP-CHAMP-003",
+      "KP-CHAMP-004",
+      "KP-CHAMP-005",
+      "KP-CHAMP-006",
+      "KP-CHAMP-007",
+      "KP-CHAMP-008",
+      "KP-CHAMP-009",
+      "KP-CHAMP-010",
+      "KP-CHAMP-011",
+      "KP-CHAMP-012",
+      "KP-CHAMP-013",
+      "KP-CHAMP-014",
+      "KP-CHAMP-015",
+      "KP-CHAMP-016",
+      "KP-CHAMP-017",
+      "KP-CHAMP-018",
+      "KP-CHAMP-019",
+      "KP-CHAMP-020",
+      "KP-CHAMP-021",
+      "KP-CHAMP-022",
+      "KP-CHAMP-023"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "Cursor Claude 精细拆分，15页→23个知识点（冠军系列 D/O/P 产品配置说明）"
   }
 ]
