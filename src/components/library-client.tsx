@@ -46,6 +46,7 @@ function applyFilterLogic(
       return false;
     }
     if (f.similar === "content" && !contentConflicts[p.id]?.length) return false;
+    if (f.source && p.source.file !== f.source) return false;
     if (f.search) {
       const q = f.search.toLowerCase();
       const hay = `${p.title} ${p.summary} ${p.body} ${p.tags.join(" ")} ${p.audience.join(" ")}`.toLowerCase();
@@ -156,7 +157,7 @@ export function LibraryClient({
   }
 
   function resetFilters() {
-    navigateWithFilters({ search: "", category: "", status: "", similar: "", tags: [] });
+    navigateWithFilters({ search: "", category: "", status: "", similar: "", source: "", tags: [] });
   }
 
   function getGroupIdForPoint(pointId: string): string | undefined {
@@ -231,6 +232,7 @@ export function LibraryClient({
     if (applied.similar === "duplicate") parts.push("高度重复");
     if (applied.similar === "content") parts.push("内容冲突");
     if (applied.tags.length) parts.push(`标签:${applied.tags.join("、")}`);
+    if (applied.source) parts.push(`来源:${applied.source}`);
     return parts.length ? parts.join(" · ") : "";
   }
 
@@ -342,7 +344,23 @@ export function LibraryClient({
           {pending.tags.length > 0 && (
             <input type="hidden" name="tags" value={pending.tags.join(",")} />
           )}
+          {pending.source && (
+            <input type="hidden" name="source" value={pending.source} />
+          )}
         </div>
+
+        {applied.source && (
+          <div className="mt-2 flex items-center gap-2 text-sm text-blue-700">
+            <span>来源文件：{applied.source}</span>
+            <button
+              type="button"
+              className="text-xs text-slate-500 underline hover:text-slate-700"
+              onClick={() => navigateWithFilters({ ...applied, source: "" })}
+            >
+              清除
+            </button>
+          </div>
+        )}
 
         <div className="mt-3 flex flex-wrap items-center gap-2">
           <Button type="submit">

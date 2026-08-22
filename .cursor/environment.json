@@ -1,11 +1,11 @@
 {
   "name": "公司知识库",
   "install": "npm install && npm run build",
-  "start": "bash scripts/keep-alive-server.sh",
+  "start": "PORT=43123 bash scripts/keep-alive-server.sh",
   "terminals": [
     {
       "name": "knowledge-base",
-      "command": "bash scripts/keep-alive-server.sh"
+      "command": "PORT=43123 bash scripts/keep-alive-server.sh"
     }
   ]
 }
