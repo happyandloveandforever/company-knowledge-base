@@ -84,10 +84,12 @@ Continue the company knowledge base work.
 
 ---
 
-## Repo URL (bookmark this)
+## GitHub 仓库（Clone 用这个 ✅）
 
 ```
-https://origin.cursor.com/git/clark-gonzalez/tmp-8ece63bc7e599628
+https://github.com/happyandloveandforever/company-knowledge-base.git
 ```
 
-Branch: `main`
+New Chat → Clone Repository → 粘贴上面地址 → Clone 按钮会变蓝。
+
+---
