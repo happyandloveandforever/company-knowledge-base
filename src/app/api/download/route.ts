@@ -15,6 +15,18 @@ const ALLOWED: Record<string, { file: string; type: string }> = {
     file: "漂浮方舟_北京化工集团_初次交流.pptx",
     type: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
   },
+  "bjhg-intro-global.pptx": {
+    file: "bjhg-intro-global.pptx",
+    type: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  },
+  "bjhg-intro-global-outline.md": {
+    file: "bjhg-intro-global-outline.md",
+    type: "text/markdown; charset=utf-8",
+  },
+  "北京化工集团-国际视野版.pptx": {
+    file: "漂浮方舟_北京化工集团_国际视野版.pptx",
+    type: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  },
 };
 
 export async function GET(request: NextRequest) {
