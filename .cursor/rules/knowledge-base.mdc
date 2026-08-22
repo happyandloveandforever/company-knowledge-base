@@ -1,0 +1,28 @@
+---
+description: 公司知识库项目 — 新对话必须先读 PROJECT.md，禁止重建项目或覆盖已有数据
+alwaysApply: true
+---
+
+# 公司知识库 — Agent 规则
+
+## 新对话第一件事
+
+1. **读取** 仓库根目录 `PROJECT.md`（完整项目状态、协作方式、当前库清单）
+2. **读取** `AGENTS.md` 中「项目协作规则」部分
+3. **检查** `data/knowledge-points.json`、`data/sources.json` 当前条数，不要假设为空
+
+## 硬性禁止
+
+- 不要重建 Next.js 项目或换技术栈
+- 不要删除或覆盖 `data/knowledge-points.json` 中已有知识点（除非用户明确要求）
+- 不要重复运行 import 脚本重新生成已入库的文件（如杨浦财务、B端定稿）
+- 不要清空 `data/sources.json` 中 status=done 的记录
+
+## 默认协作模式
+
+- 用户使用 **Cursor 内置 Claude** 做精细拆分，**不需要** `ANTHROPIC_API_KEY`
+- 上传 → 拆分队列或对话里拆分 → 写入 JSON → **commit + push** `data/`
+
+## 做完数据变更后
+
+更新 `PROJECT.md` 的「当前库状态」和「变更记录」小节，并 commit。

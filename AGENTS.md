@@ -7,3 +7,69 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+---
+
+# 项目协作规则（公司知识库）
+
+> **新对话必读：** 先读 [`PROJECT.md`](./PROJECT.md)，那里有完整的当前状态、代码地图和协作约定。  
+> 本文件是 Agent 的快速入口；详细内容以 PROJECT.md 为准。
+
+## 这是什么
+
+Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。  
+用户通过**多个 Cursor 对话**持续上传文件、Claude 精细拆分、审核、编排 PPT。
+
+## 新对话启动清单
+
+```
+1. 读 PROJECT.md
+2. 读 data/sources.json          → 已导入哪些文件
+3. 读 data/knowledge-points.json   → 当前多少条（勿覆盖）
+4. 运行 node scripts/process-split-queue.mjs  → 有无待拆分
+5. curl http://127.0.0.1:43123/api/health     → 服务是否在线
+```
+
+## 拆分方式（重要）
+
+| 方式 | 条件 | 怎么做 |
+|------|------|--------|
+| **Cursor Claude（默认）** | 无 API Key | 用户上传后，在对话中说「处理拆分队列」或「帮我 Claude 精细拆 xxx.pdf」→ 参考 `scripts/import-*.mjs` 写知识点 → 更新 JSON |
+| Claude API 自动 | 有 `ANTHROPIC_API_KEY` | 网页上传自动拆分 |
+| 基础机械拆分 | 用户选 basic 模式 | 按页/段拆分，质量低 |
+
+**用户明确不要 API Key。** 杨浦财务、B端定稿都是 Cursor Claude 对话拆的。
+
+## 关键文件
+
+| 文件 | 作用 |
+|------|------|
+| `PROJECT.md` | **固定协作文档**，每次会话更新状态 |
+| `data/knowledge-points.json` | 核心资产，进 Git |
+| `data/sources.json` | 导入来源记录 |
+| `scripts/import-faf-yangpu.mjs` | 杨浦 PDF 拆分参考 |
+| `scripts/import-b2b-yiling.mjs` | B端 PDF 拆分参考 |
+| `scripts/process-split-queue.mjs` | 查看待拆分队列 |
+| `src/app/api/upload/route.ts` | 网页上传逻辑 |
+| `src/lib/storage.ts` | JSON 读写、deleteSourceFile |
+| `.cursor/environment.json` | Cloud 环境自动 build + keep-alive |
+
+## 常用命令
+
+```bash
+npm run build && npm run serve          # 生产模式 + 守护进程，端口 43123
+node scripts/process-split-queue.mjs    # 看待拆分文件
+curl http://127.0.0.1:43123/api/health # 健康检查
+```
+
+## 数据变更后必做
+
+1. `git add data/` → commit → push
+2. 更新 `PROJECT.md` 的「当前库状态」和「变更记录」
+
+## 禁止
+
+- 重建项目 / 换框架
+- 覆盖已有知识点（除非用户要求）
+- 重复 import 已入库文件
+- 未经确认删除 sources 或 knowledge points
