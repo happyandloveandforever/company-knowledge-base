@@ -23,6 +23,7 @@ import {
   groupPointsBySource,
   topCategories,
 } from "@/lib/dashboard-stats";
+import { SourceListItem } from "@/components/source-list-item";
 
 export const dynamic = "force-dynamic";
 
@@ -198,23 +199,12 @@ export default async function HomePage() {
                 <p className="p-6 text-sm text-slate-500">还没有导入文件</p>
               ) : (
                 sourceGroups.slice(0, 5).map(({ source, count, pending }) => (
-                  <Link
+                  <SourceListItem
                     key={source.id}
-                    href={`/library?source=${encodeURIComponent(source.filename)}`}
-                    className="flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-50"
-                  >
-                    <FolderOpen className="h-5 w-5 shrink-0 text-slate-400" />
-                    <div className="min-w-0 flex-1">
-                      <p className="truncate font-medium text-slate-900">{source.filename}</p>
-                      <p className="text-xs text-slate-500">
-                        {count} 个知识点
-                        {pending > 0 && ` · ${pending} 待审核`}
-                      </p>
-                    </div>
-                    <Badge variant={pending > 0 ? "warning" : "success"}>
-                      {pending > 0 ? "待审" : "已入库"}
-                    </Badge>
-                  </Link>
+                    source={source}
+                    count={count}
+                    pending={pending}
+                  />
                 ))
               )}
             </CardContent>

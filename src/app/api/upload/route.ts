@@ -21,6 +21,8 @@ import {
   updateSourceFile,
   getUploadsDir,
   getKnowledgePoints,
+  findStaleSourcesByFilename,
+  deleteSourceFile,
 } from "@/lib/storage";
 import { addToSplitQueue } from "@/lib/split-queue";
 import type { KnowledgePoint } from "@/lib/types";
@@ -94,6 +96,11 @@ function basicChunksToResults(
 }
 
 export async function POST(request: NextRequest) {
+  let sourceId: string | null = null;
+  let filename = "";
+  let fileType: SourceFileType = "other";
+  let now = "";
+
   try {
     const formData = await request.formData();
     const file = formData.get("file") as File | null;
@@ -103,7 +110,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "请选择文件" }, { status: 400 });
     }
 
-    const filename = file.name;
+    filename = file.name;
     const ext = getFileExtension(filename);
 
     if (!isSupportedExtension(ext)) {
@@ -115,15 +122,21 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // 自动清理同名未完成导入（处理中断、重复点击）
+    const stale = await findStaleSourcesByFilename(filename);
+    for (const old of stale) {
+      await deleteSourceFile(old.id);
+    }
+
     const buffer = Buffer.from(await file.arrayBuffer());
-    const sourceId = generateId("SRC");
+    sourceId = generateId("SRC");
     const queueId = generateId("SQ");
     const uploadsDir = getUploadsDir();
     const savedPath = path.join(uploadsDir, `${sourceId}-${filename}`);
     await fs.writeFile(savedPath, buffer);
 
-    const fileType = mapFileTypeForSource(ext);
-    const now = new Date().toISOString();
+    fileType = mapFileTypeForSource(ext);
+    now = new Date().toISOString();
 
     await addSourceFile({
       id: sourceId,
@@ -272,6 +285,17 @@ export async function POST(request: NextRequest) {
     });
   } catch (err) {
     const message = err instanceof Error ? err.message : "上传处理失败";
+    if (sourceId) {
+      await updateSourceFile({
+        id: sourceId,
+        filename,
+        fileType,
+        uploadedAt: now || new Date().toISOString(),
+        knowledgePointIds: [],
+        status: "error",
+        error: message,
+      }).catch(() => {});
+    }
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }
