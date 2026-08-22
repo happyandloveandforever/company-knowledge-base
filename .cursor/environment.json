@@ -1,0 +1,11 @@
+{
+  "name": "公司知识库",
+  "install": "npm install && npm run build",
+  "start": "npm run start -- -p 43123 -H 0.0.0.0",
+  "terminals": [
+    {
+      "name": "knowledge-base",
+      "command": "npm run start -- -p 43123 -H 0.0.0.0"
+    }
+  ]
+}
