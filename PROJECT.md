@@ -171,10 +171,10 @@ Vercel 快速部署（GitHub 镜像完成后）：
 
 | 指标 | 数值 |
 |------|------|
-| 知识点总数 | **154**（109 `approved` + 45 品牌画册 `draft` 待审） |
-| 已导入文件 | **3** |
+| 知识点总数 | **166**（153 `approved` + 13 机理 `draft`） |
+| 已导入文件 | **4** |
 | 待 Claude 拆分队列 | 0 |
-| 冲突组 | 0（导入后可在 `/library/conflicts` 再复核） |
+| 冲突组 | 0（可在 `/library/conflicts` 再复核） |
 
 ### 已入库文件
 
@@ -182,25 +182,24 @@ Vercel 快速部署（GitHub 镜像完成后）：
 |------|---------|----------------|------|------|----------|
 | 漂浮方舟_杨浦区财务.pdf | SRC-FAF-YANGPU | KP-FAF-001 ~ 054 | 54 | done，已批准 | claude-agent |
 | B端定稿.pdf | SRC-B2B-YILING | KP-B2B-001 ~ 050 | 50 | done，已批准 | claude-agent |
-| （已压缩）漂浮方舟 · 品牌画册.pdf | SRC-BRAND-BROCHURE | KP-BRAND-001 ~ 045 | 45 | done，**draft 待审** | claude-agent |
+| （已压缩）漂浮方舟 · 品牌画册.pdf | SRC-BRAND-BROCHURE | KP-BRAND-001 ~ 045（缺 002） | 44 | done，多数已批准 | claude-agent |
+| 方舟机理.pdf | SRC-MECH-JILI | KP-MECH-001 ~ 013 | 13 | done，**draft 待审** | claude-agent |
 
 ### 待办
 
-- [x] 审核并批准杨浦 + B端 知识点 — 109 条全部 `approved`
-- [x] 核对冲突组（`/library/conflicts`）— 检测结果 0 组，无需并存处理
-- [x] **品牌画册.pdf — Claude 精细拆分完成**（38 页 → 45 条，状态 draft）
-- [ ] 在 `/library` 筛选状态=draft，审核并批准品牌画册 45 条
+- [x] 审核并批准杨浦 + B端 知识点
+- [x] 品牌画册 Claude 精细拆分（用户已在网页批准大部分，并删除 KP-BRAND-002）
+- [x] **方舟机理.pdf — Claude 精细拆分完成**（4 页 → 13 条）
+- [ ] 在 `/library` 审核并批准机理 13 条 draft（`KP-MECH-*`）
 - [ ] 继续导入更多历史材料 — 需先上传文件
 
-> 品牌画册原始 PDF 仅在本机 `uploads/`（不进 Git）；知识点正文已写入 `data/knowledge-points.json`。
-
-### 数据体检（2026-08-22 · 导入品牌画册后）
+### 数据体检（2026-08-22 · 导入机理后）
 
 | 检查项 | 结果 |
 |--------|------|
-| 总数 | 154（109 approved + 45 draft） |
-| 品牌画册 ID | KP-BRAND-001 ~ KP-BRAND-045 |
-| 参考脚本 | `scripts/import-brand-brochure.mjs`（可幂等重跑，已存在则跳过） |
+| 总数 | 166 |
+| 机理 ID | KP-MECH-001 ~ KP-MECH-013 |
+| 参考脚本 | `scripts/import-fangzhou-jili.mjs` |
 
 
 ## 四、网页功能一览
@@ -324,6 +323,8 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-22 | 修复 keep-alive 守护进程重复启动的 EADDRINUSE 空转（见下）；新增 `scripts/test-keep-alive.sh` 回归测试 |
 | 2026-08-22 | 复核库状态：109 条全部已批准、冲突组 0、拆分队列空；剩余待办均需用户上传文件 |
 | 2026-08-22 | Claude 精细拆分品牌画册：38页→45条（KP-BRAND-001~045），库总量 109→154 |
+| 2026-08-22 | 网页同步：品牌画册多条批准，删除 KP-BRAND-002（45→44） |
+| 2026-08-22 | Claude 精细拆分方舟机理.pdf：4页→13条（KP-MECH-001~013），库总量→166 |
 
 ---
 

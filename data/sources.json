@@ -178,6 +178,30 @@
     ],
     "status": "done",
     "splitMode": "claude-agent",
-    "note": "Cursor Claude 精细拆分，38页→45个知识点（品牌画册）"
+    "note": "Cursor Claude 精细拆分，38页→44个知识点（品牌画册）"
+  },
+  {
+    "id": "SRC-MECH-JILI",
+    "filename": "方舟机理.pdf",
+    "fileType": "pdf",
+    "uploadedAt": "2026-08-22T16:02:07.465Z",
+    "knowledgePointIds": [
+      "KP-MECH-001",
+      "KP-MECH-002",
+      "KP-MECH-003",
+      "KP-MECH-004",
+      "KP-MECH-005",
+      "KP-MECH-006",
+      "KP-MECH-007",
+      "KP-MECH-008",
+      "KP-MECH-009",
+      "KP-MECH-010",
+      "KP-MECH-011",
+      "KP-MECH-012",
+      "KP-MECH-013"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "Cursor Claude 精细拆分，4页→13个知识点（作用机理）"
   }
 ]
