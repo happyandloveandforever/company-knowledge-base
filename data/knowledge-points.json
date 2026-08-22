@@ -3710,42 +3710,9 @@
     ],
     "durationMin": 3,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
-  },
-  {
-    "id": "KP-BRAND-002",
-    "title": "品牌画册叙事结构：从时代焦虑到系统导入",
-    "category": "市场营销",
-    "tags": [
-      "品牌画册",
-      "叙事结构",
-      "目录"
-    ],
-    "audience": [
-      "销售团队",
-      "B端客户"
-    ],
-    "prerequisites": [],
-    "summary": "画册按「起点→方法论→产品与专家→落地与验证→收官」推进，覆盖序、公司、科学、系统、差异、产品、专家、场景、模式、认证、数据、培训、方案、合作与学会。",
-    "body": "目录主线：\n序：失眠、疲惫与神经系统长期过载（P04）\n公司：十年积累（P06）\n科学：感官剥夺如何让身体归零（P08）\n系统：十维干预（P11）\n差异：方法积累无法被复制（P14）\n产品：五条产品线（P16）\n专家：院士与首席科学家（P22）\n场景：八大行业 200+ 机构（P24）\n模式 / 认证 / 数据 / 培训 / 方案 / 合作 / 学会 / 尾声",
-    "examples": [],
-    "source": {
-      "file": "（已压缩）漂浮方舟 · 品牌画册.pdf",
-      "location": "第 3 页",
-      "date": "2026-08",
-      "author": "中友瑞水（北京）科技有限公司"
-    },
-    "scenarios": [
-      "销售培训",
-      "演讲"
-    ],
-    "durationMin": 4,
-    "version": "1.0",
-    "status": "draft",
-    "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:57:39.260Z"
   },
   {
     "id": "KP-BRAND-003",
@@ -3778,9 +3745,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:57:49.543Z"
   },
   {
     "id": "KP-BRAND-004",
@@ -3811,9 +3778,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:57:52.788Z"
   },
   {
     "id": "KP-BRAND-005",
@@ -3846,9 +3813,9 @@
     ],
     "durationMin": 3,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:57:57.046Z"
   },
   {
     "id": "KP-BRAND-006",
@@ -3884,9 +3851,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:01.660Z"
   },
   {
     "id": "KP-BRAND-007",
@@ -3919,9 +3886,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:05.236Z"
   },
   {
     "id": "KP-BRAND-008",
@@ -3954,9 +3921,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:09.736Z"
   },
   {
     "id": "KP-BRAND-009",
@@ -3990,9 +3957,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:11.964Z"
   },
   {
     "id": "KP-BRAND-010",
@@ -4025,9 +3992,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:13.544Z"
   },
   {
     "id": "KP-BRAND-011",
@@ -4062,9 +4029,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:15.480Z"
   },
   {
     "id": "KP-BRAND-012",
@@ -4096,9 +4063,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:16.930Z"
   },
   {
     "id": "KP-BRAND-013",
@@ -4131,9 +4098,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:19.354Z"
   },
   {
     "id": "KP-BRAND-014",
@@ -4166,9 +4133,9 @@
     ],
     "durationMin": 6,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:20.689Z"
   },
   {
     "id": "KP-BRAND-015",
@@ -4199,9 +4166,9 @@
     ],
     "durationMin": 3,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:23.026Z"
   },
   {
     "id": "KP-BRAND-016",
@@ -4234,9 +4201,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:25.549Z"
   },
   {
     "id": "KP-BRAND-017",
@@ -4269,9 +4236,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:27.809Z"
   },
   {
     "id": "KP-BRAND-018",
@@ -4304,9 +4271,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:29.856Z"
   },
   {
     "id": "KP-BRAND-019",
@@ -4340,9 +4307,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:31.850Z"
   },
   {
     "id": "KP-BRAND-020",
@@ -4373,9 +4340,9 @@
     ],
     "durationMin": 3,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:32.938Z"
   },
   {
     "id": "KP-BRAND-021",
@@ -4408,9 +4375,9 @@
     ],
     "durationMin": 3,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:35.593Z"
   },
   {
     "id": "KP-BRAND-022",
@@ -4443,9 +4410,9 @@
     ],
     "durationMin": 3,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:37.556Z"
   },
   {
     "id": "KP-BRAND-023",
@@ -4477,9 +4444,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:39.513Z"
   },
   {
     "id": "KP-BRAND-024",
@@ -4512,9 +4479,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:40.985Z"
   },
   {
     "id": "KP-BRAND-025",
@@ -4549,9 +4516,9 @@
     ],
     "durationMin": 3,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:42.818Z"
   },
   {
     "id": "KP-BRAND-026",
@@ -4582,9 +4549,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:43.827Z"
   },
   {
     "id": "KP-BRAND-027",
@@ -4615,9 +4582,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:45.219Z"
   },
   {
     "id": "KP-BRAND-028",
@@ -4650,9 +4617,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:46.158Z"
   },
   {
     "id": "KP-BRAND-029",
@@ -4683,9 +4650,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:47.994Z"
   },
   {
     "id": "KP-BRAND-030",
@@ -4717,9 +4684,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:52.232Z"
   },
   {
     "id": "KP-BRAND-031",
@@ -4752,9 +4719,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:53.105Z"
   },
   {
     "id": "KP-BRAND-032",
@@ -4791,9 +4758,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:54.026Z"
   },
   {
     "id": "KP-BRAND-033",
@@ -4830,9 +4797,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:55.321Z"
   },
   {
     "id": "KP-BRAND-034",
@@ -4864,9 +4831,9 @@
     ],
     "durationMin": 3,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:56.098Z"
   },
   {
     "id": "KP-BRAND-035",
@@ -4899,9 +4866,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:58.003Z"
   },
   {
     "id": "KP-BRAND-036",
@@ -4934,9 +4901,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:58:59.598Z"
   },
   {
     "id": "KP-BRAND-037",
@@ -4969,9 +4936,9 @@
     ],
     "durationMin": 3,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:59:00.608Z"
   },
   {
     "id": "KP-BRAND-038",
@@ -5004,9 +4971,9 @@
     ],
     "durationMin": 3,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:59:01.696Z"
   },
   {
     "id": "KP-BRAND-039",
@@ -5039,9 +5006,9 @@
     ],
     "durationMin": 3,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:59:03.272Z"
   },
   {
     "id": "KP-BRAND-040",
@@ -5074,9 +5041,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:59:04.498Z"
   },
   {
     "id": "KP-BRAND-041",
@@ -5109,9 +5076,9 @@
     ],
     "durationMin": 4,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:59:05.770Z"
   },
   {
     "id": "KP-BRAND-042",
@@ -5142,9 +5109,9 @@
     ],
     "durationMin": 3,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:59:07.402Z"
   },
   {
     "id": "KP-BRAND-043",
@@ -5177,9 +5144,9 @@
     ],
     "durationMin": 5,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:59:08.556Z"
   },
   {
     "id": "KP-BRAND-044",
@@ -5215,9 +5182,9 @@
     ],
     "durationMin": 3,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:59:12.217Z"
   },
   {
     "id": "KP-BRAND-045",
@@ -5248,8 +5215,8 @@
     ],
     "durationMin": 6,
     "version": "1.0",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:56:03.370Z"
+    "updatedAt": "2026-08-22T15:59:29.164Z"
   }
 ]
