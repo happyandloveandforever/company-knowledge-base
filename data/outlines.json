@@ -1,1 +1,116 @@
-[]
+[
+  {
+    "id": "OL-MT49T5VJ-CZ4YD",
+    "title": "测试演讲",
+    "audience": "新人销售",
+    "durationMin": 60,
+    "logicId": "problem-solution-case",
+    "logicName": "问题 → 方案 → 案例",
+    "slides": [
+      {
+        "order": 1,
+        "title": "测试演讲",
+        "bullets": [
+          "目标受众：新人销售",
+          "预计时长：60 分钟",
+          "演讲逻辑：问题 → 方案 → 案例",
+          "知识点数量：2 个"
+        ],
+        "knowledgePointIds": [
+          "KP-DEMO-001",
+          "KP-DEMO-002"
+        ],
+        "logicStep": "封面",
+        "speakerNotes": "本次演讲面向新人销售，采用「问题 → 方案 → 案例」结构。"
+      },
+      {
+        "order": 2,
+        "title": "客户异议处理三步法",
+        "bullets": [
+          "第一步：倾听",
+          "不要急于反驳，让客户完整表达顾虑。",
+          "第二步：共情",
+          "「我理解您的考量，很多客户一开始也有类似的想法。」",
+          "第三步：价值传递"
+        ],
+        "knowledgePointIds": [
+          "KP-DEMO-001"
+        ],
+        "logicStep": "开场与目标",
+        "speakerNotes": "开场与目标\n\n面对客户价格异议时，采用「倾听-共情-价值」三步法，先理解真实顾虑，再传递产品价值。"
+      },
+      {
+        "order": 3,
+        "title": "产品核心价值主张",
+        "bullets": [
+          "效率提升：平均节省 40% 的操作时间",
+          "成本节约：首年 ROI 可达 230%",
+          "风险控制：合规审计通过率 99.7%",
+          "核心差异化：行业唯一支持端到端自动化的解决方案"
+        ],
+        "knowledgePointIds": [
+          "KP-DEMO-002"
+        ],
+        "logicStep": "问题与痛点",
+        "speakerNotes": "问题与痛点\n\n我们的产品在效率提升、成本节约、风险控制三个维度为客户创造可量化的价值。"
+      },
+      {
+        "order": 4,
+        "title": "解决方案",
+        "bullets": [
+          "本页待补充：解决方案相关内容"
+        ],
+        "knowledgePointIds": [],
+        "logicStep": "解决方案",
+        "speakerNotes": "演讲逻辑「问题 → 方案 → 案例」— 解决方案"
+      },
+      {
+        "order": 5,
+        "title": "实施步骤",
+        "bullets": [
+          "本页待补充：实施步骤相关内容"
+        ],
+        "knowledgePointIds": [],
+        "logicStep": "实施步骤",
+        "speakerNotes": "演讲逻辑「问题 → 方案 → 案例」— 实施步骤"
+      },
+      {
+        "order": 6,
+        "title": "成功案例",
+        "bullets": [
+          "本页待补充：成功案例相关内容"
+        ],
+        "knowledgePointIds": [],
+        "logicStep": "成功案例",
+        "speakerNotes": "演讲逻辑「问题 → 方案 → 案例」— 成功案例"
+      },
+      {
+        "order": 7,
+        "title": "总结与行动",
+        "bullets": [
+          "本页待补充：总结与行动相关内容"
+        ],
+        "knowledgePointIds": [],
+        "logicStep": "总结与行动",
+        "speakerNotes": "演讲逻辑「问题 → 方案 → 案例」— 总结与行动"
+      },
+      {
+        "order": 8,
+        "title": "总结与下一步",
+        "bullets": [
+          "回顾核心要点",
+          "明确行动项",
+          "Q&A 答疑"
+        ],
+        "knowledgePointIds": [],
+        "logicStep": "总结",
+        "speakerNotes": "感谢聆听，欢迎提问。"
+      }
+    ],
+    "knowledgePointIds": [
+      "KP-DEMO-001",
+      "KP-DEMO-002"
+    ],
+    "createdAt": "2026-08-22T11:03:59.743Z"
+  }
+]

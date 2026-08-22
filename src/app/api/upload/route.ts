@@ -8,6 +8,8 @@ import {
   inferAudience,
   estimateDuration,
 } from "@/lib/parser";
+import { getAIConfig, getAIStatusLabel } from "@/lib/ai-config";
+import { splitDenseContentWithAI } from "@/lib/ai-splitter";
 import {
   addKnowledgePoints,
   addSourceFile,
@@ -18,11 +20,13 @@ import type { KnowledgePoint } from "@/lib/types";
 import { generateId } from "@/lib/utils";
 
 export const runtime = "nodejs";
+export const maxDuration = 300;
 
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
     const file = formData.get("file") as File | null;
+    const mode = (formData.get("mode") as string) || "auto";
 
     if (!file) {
       return NextResponse.json({ error: "请选择文件" }, { status: 400 });
@@ -52,31 +56,80 @@ export async function POST(request: NextRequest) {
       status: "processing",
     });
 
-    const chunks = await parseDocument(buffer, filename);
+    const rawChunks = await parseDocument(buffer, filename);
+    const aiConfig = getAIConfig();
+    const useAI = mode === "ai" || (mode === "auto" && aiConfig.enabled);
+
+    let splitMode: "ai" | "basic" = "basic";
+    let aiModel: string | undefined;
+    let knowledgePoints: KnowledgePoint[];
     const now = new Date().toISOString();
 
-    const knowledgePoints: KnowledgePoint[] = chunks.map((chunk) => ({
-      id: generateId("KP"),
-      title: chunk.title,
-      category: inferCategory(filename, chunk.title),
-      tags: inferTags(chunk.title, chunk.body),
-      audience: inferAudience(chunk.title, chunk.body),
-      prerequisites: [],
-      summary: chunk.body.slice(0, 120) + (chunk.body.length > 120 ? "…" : ""),
-      body: chunk.body,
-      examples: [],
-      source: {
-        file: filename,
-        location: chunk.location,
-        date: now.split("T")[0],
-      },
-      scenarios: ["演讲", "培训"],
-      durationMin: estimateDuration(chunk.body),
-      version: "1.0",
-      status: "draft",
-      createdAt: now,
-      updatedAt: now,
-    }));
+    if (useAI && aiConfig.enabled) {
+      splitMode = "ai";
+      aiModel = getAIStatusLabel(aiConfig);
+
+      const aiResults = await splitDenseContentWithAI(aiConfig, rawChunks, filename);
+
+      knowledgePoints = aiResults.map((chunk) => ({
+        id: generateId("KP"),
+        title: chunk.title,
+        category: chunk.category || inferCategory(filename, chunk.title),
+        tags: chunk.tags || inferTags(chunk.title, chunk.body),
+        audience: chunk.audience || inferAudience(chunk.title, chunk.body),
+        prerequisites: [],
+        summary: chunk.summary || chunk.body.slice(0, 120) + (chunk.body.length > 120 ? "…" : ""),
+        body: chunk.body,
+        examples: chunk.examples || [],
+        source: {
+          file: filename,
+          location: chunk.location,
+          date: now.split("T")[0],
+        },
+        scenarios: ["演讲", "培训"],
+        durationMin: estimateDuration(chunk.body),
+        version: "1.0",
+        status: "draft" as const,
+        createdAt: now,
+        updatedAt: now,
+      }));
+    } else {
+      knowledgePoints = rawChunks.map((chunk) => ({
+        id: generateId("KP"),
+        title: chunk.title,
+        category: inferCategory(filename, chunk.title),
+        tags: inferTags(chunk.title, chunk.body),
+        audience: inferAudience(chunk.title, chunk.body),
+        prerequisites: [],
+        summary: chunk.body.slice(0, 120) + (chunk.body.length > 120 ? "…" : ""),
+        body: chunk.body,
+        examples: [],
+        source: {
+          file: filename,
+          location: chunk.location,
+          date: now.split("T")[0],
+        },
+        scenarios: ["演讲", "培训"],
+        durationMin: estimateDuration(chunk.body),
+        version: "1.0",
+        status: "draft" as const,
+        createdAt: now,
+        updatedAt: now,
+      }));
+    }
+
+    if (knowledgePoints.length === 0) {
+      await updateSourceFile({
+        id: sourceId,
+        filename,
+        fileType: ext === "pptx" ? "pptx" : "docx",
+        uploadedAt: now,
+        knowledgePointIds: [],
+        status: "error",
+        error: "未能提取有效知识点",
+      });
+      return NextResponse.json({ error: "未能提取有效知识点，请检查文件内容" }, { status: 422 });
+    }
 
     await addKnowledgePoints(knowledgePoints);
 
@@ -94,6 +147,9 @@ export async function POST(request: NextRequest) {
       sourceId,
       filename,
       count: knowledgePoints.length,
+      rawSlideCount: rawChunks.length,
+      splitMode,
+      aiModel,
       knowledgePoints,
     });
   } catch (err) {
