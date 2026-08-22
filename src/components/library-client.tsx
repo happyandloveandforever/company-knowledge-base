@@ -2,44 +2,27 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
 import { Search, Download, AlertCircle, RefreshCw, AlertTriangle, X, Check } from "lucide-react";
 import type { KnowledgePoint, KnowledgeStatus, ConflictGroup } from "@/lib/types";
 import type { SimilarMatch } from "@/lib/similarity";
 import type { ContentConflict } from "@/lib/conflict-detector";
+import {
+  type FilterState,
+  filtersKey,
+  filtersToParams,
+} from "@/lib/library-filters";
 import { KnowledgePointCard } from "@/components/knowledge-point-card";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { TagFilter, collectTags, matchesTagFilter } from "@/components/tag-filter";
 import { Input, Select } from "@/components/ui/input";
 
-interface FilterState {
-  search: string;
-  category: string;
-  status: string;
-  similar: string;
-  tags: string[];
-}
-
-function parseFilters(params: URLSearchParams): FilterState {
-  const tags = params.get("tags");
-  return {
-    search: params.get("q") || "",
-    category: params.get("category") || "",
-    status: params.get("status") || "",
-    similar: params.get("similar") || "",
-    tags: tags ? tags.split(",").filter(Boolean) : [],
-  };
-}
-
-function filtersToParams(f: FilterState): string {
-  const p = new URLSearchParams();
-  if (f.search) p.set("q", f.search);
-  if (f.category) p.set("category", f.category);
-  if (f.status) p.set("status", f.status);
-  if (f.similar) p.set("similar", f.similar);
-  if (f.tags.length) p.set("tags", f.tags.join(","));
-  return p.toString();
+interface LibraryClientProps {
+  initialPoints: KnowledgePoint[];
+  initialSimilarities: Record<string, SimilarMatch[]>;
+  initialContentConflicts: Record<string, ContentConflict[]>;
+  initialConflictGroups: ConflictGroup[];
+  initialFilters: FilterState;
 }
 
 function matchesStatusFilter(status: KnowledgeStatus, filter: string): boolean {
@@ -72,18 +55,18 @@ function applyFilterLogic(
   });
 }
 
-export function LibraryClient() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-
-  const [points, setPoints] = useState<KnowledgePoint[]>([]);
-  const [similarities, setSimilarities] = useState<Record<string, SimilarMatch[]>>({});
-  const [contentConflicts, setContentConflicts] = useState<Record<string, ContentConflict[]>>({});
-  const [conflictGroups, setConflictGroups] = useState<ConflictGroup[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  const [pending, setPending] = useState<FilterState>(() => parseFilters(searchParams));
-  const [applied, setApplied] = useState<FilterState>(() => parseFilters(searchParams));
+export function LibraryClient({
+  initialPoints,
+  initialSimilarities,
+  initialContentConflicts,
+  initialConflictGroups,
+  initialFilters,
+}: LibraryClientProps) {
+  const [points, setPoints] = useState(initialPoints);
+  const [similarities, setSimilarities] = useState(initialSimilarities);
+  const [contentConflicts, setContentConflicts] = useState(initialContentConflicts);
+  const [conflictGroups, setConflictGroups] = useState(initialConflictGroups);
+  const [pending, setPending] = useState(initialFilters);
 
   const [expanded, setExpanded] = useState<string | null>(null);
   const [editing, setEditing] = useState<string | null>(null);
@@ -91,49 +74,29 @@ export function LibraryClient() {
   const [success, setSuccess] = useState("");
   const [refreshing, setRefreshing] = useState(false);
 
-  // URL 变化时恢复筛选（防止 remount 丢状态）
-  useEffect(() => {
-    const fromUrl = parseFilters(searchParams);
-    setApplied(fromUrl);
-    setPending(fromUrl);
-  }, [searchParams]);
+  const applied = initialFilters;
 
-  const loadAll = useCallback(async () => {
+  useEffect(() => {
+    setPoints(initialPoints);
+    setSimilarities(initialSimilarities);
+    setContentConflicts(initialContentConflicts);
+    setConflictGroups(initialConflictGroups);
+  }, [initialPoints, initialSimilarities, initialContentConflicts, initialConflictGroups]);
+
+  useEffect(() => {
+    setPending(initialFilters);
+  }, [filtersKey(initialFilters)]);
+
+  const refreshData = useCallback(async () => {
+    setRefreshing(true);
     setError("");
     try {
-      const [kpRes, simRes, contRes, groupRes] = await Promise.all([
-        fetch("/api/knowledge"),
-        fetch("/api/knowledge/similarities"),
-        fetch("/api/knowledge/conflicts"),
-        fetch("/api/knowledge/conflict-groups"),
-      ]);
-      if (!kpRes.ok) throw new Error(`加载失败 (${kpRes.status})`);
-      const kpData = await kpRes.json();
-      setPoints(kpData.knowledgePoints || []);
-
-      if (simRes.ok) {
-        const data = await simRes.json();
-        setSimilarities(data.similarities || {});
-      }
-      if (contRes.ok) {
-        const data = await contRes.json();
-        setContentConflicts(data.conflicts || {});
-      }
-      if (groupRes.ok) {
-        const data = await groupRes.json();
-        setConflictGroups(data.groups || []);
-      }
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "加载知识库失败");
-    } finally {
-      setLoading(false);
+      window.location.reload();
+    } catch {
+      setError("刷新失败");
       setRefreshing(false);
     }
   }, []);
-
-  useEffect(() => {
-    loadAll();
-  }, [loadAll]);
 
   const categories = useMemo(
     () => Array.from(new Set(points.map((p) => p.category))).sort(),
@@ -143,13 +106,13 @@ export function LibraryClient() {
   const allTags = useMemo(() => collectTags(points), [points]);
 
   const statusCounts = useMemo(() => {
-    let pending = 0;
+    let pendingCount = 0;
     let approved = 0;
     for (const p of points) {
       if (p.status === "approved") approved++;
-      else pending++;
+      else pendingCount++;
     }
-    return { pending, approved, total: points.length };
+    return { pending: pendingCount, approved, total: points.length };
   }, [points]);
 
   const similarStats = useMemo(() => {
@@ -164,22 +127,9 @@ export function LibraryClient() {
     return { contentConflicts: Object.keys(contentConflicts).length };
   }, [contentConflicts]);
 
-  const hasPendingChanges = useMemo(() => {
-    return (
-      pending.search !== applied.search ||
-      pending.category !== applied.category ||
-      pending.status !== applied.status ||
-      pending.similar !== applied.similar ||
-      pending.tags.join(",") !== applied.tags.join(",")
-    );
-  }, [pending, applied]);
+  const hasPendingChanges = filtersKey(pending) !== filtersKey(applied);
 
-  const hasActiveFilters =
-    !!applied.search ||
-    !!applied.category ||
-    !!applied.status ||
-    !!applied.similar ||
-    applied.tags.length > 0;
+  const hasActiveFilters = filtersKey(applied) !== "";
 
   const filtered = useMemo(
     () => applyFilterLogic(points, applied, similarities, contentConflicts),
@@ -196,17 +146,17 @@ export function LibraryClient() {
     return map;
   }, [filtered]);
 
+  function navigateWithFilters(f: FilterState) {
+    const qs = filtersToParams(f);
+    window.location.href = qs ? `/library?${qs}` : "/library";
+  }
+
   function applyFilters() {
-    setApplied(pending);
-    const qs = filtersToParams(pending);
-    router.replace(qs ? `/library?${qs}` : "/library", { scroll: false });
+    navigateWithFilters(pending);
   }
 
   function resetFilters() {
-    const empty: FilterState = { search: "", category: "", status: "", similar: "", tags: [] };
-    setPending(empty);
-    setApplied(empty);
-    router.replace("/library", { scroll: false });
+    navigateWithFilters({ search: "", category: "", status: "", similar: "", tags: [] });
   }
 
   function getGroupIdForPoint(pointId: string): string | undefined {
@@ -229,7 +179,6 @@ export function LibraryClient() {
       setEditing(null);
       setSuccess(approve ? "已保存并批准入库" : "修改已保存");
       setTimeout(() => setSuccess(""), 3000);
-      loadAll();
     } catch {
       setError("保存失败，请重试");
     }
@@ -253,7 +202,6 @@ export function LibraryClient() {
       if (expanded === id) setExpanded(null);
       setSuccess("知识点已删除");
       setTimeout(() => setSuccess(""), 3000);
-      loadAll();
     } catch {
       setError("删除失败，请重试");
     }
@@ -286,10 +234,6 @@ export function LibraryClient() {
     return parts.length ? parts.join(" · ") : "";
   }
 
-  if (loading) {
-    return <div className="py-20 text-center text-slate-500">加载知识库…</div>;
-  }
-
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -319,15 +263,7 @@ export function LibraryClient() {
               冲突组对照
             </Button>
           </Link>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => {
-              setRefreshing(true);
-              loadAll();
-            }}
-            disabled={refreshing}
-          >
+          <Button variant="ghost" size="sm" onClick={refreshData} disabled={refreshing}>
             <RefreshCw className={`h-4 w-4 ${refreshing ? "animate-spin" : ""}`} />
             刷新
           </Button>
@@ -351,19 +287,28 @@ export function LibraryClient() {
         <div className="mb-4 rounded-lg bg-emerald-50 p-3 text-sm text-emerald-700">{success}</div>
       )}
 
-      <div className="mb-4 rounded-lg border border-slate-200 bg-white p-4">
+      <form
+        className="mb-4 rounded-lg border border-slate-200 bg-white p-4"
+        action="/library"
+        method="GET"
+        onSubmit={(e) => {
+          e.preventDefault();
+          applyFilters();
+        }}
+      >
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
           <div className="relative min-w-[200px] flex-1">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
             <Input
               className="pl-9"
+              name="q"
               placeholder="搜索标题、内容、标签，如：一龄"
               value={pending.search}
               onChange={(e) => setPending((p) => ({ ...p, search: e.target.value }))}
-              onKeyDown={(e) => e.key === "Enter" && applyFilters()}
             />
           </div>
           <Select
+            name="category"
             value={pending.category}
             onChange={(e) => setPending((p) => ({ ...p, category: e.target.value }))}
             className="sm:w-40"
@@ -374,6 +319,7 @@ export function LibraryClient() {
             ))}
           </Select>
           <Select
+            name="status"
             value={pending.status}
             onChange={(e) => setPending((p) => ({ ...p, status: e.target.value }))}
             className="sm:w-44"
@@ -383,6 +329,7 @@ export function LibraryClient() {
             <option value="approved">已批准（{statusCounts.approved}）</option>
           </Select>
           <Select
+            name="similar"
             value={pending.similar}
             onChange={(e) => setPending((p) => ({ ...p, similar: e.target.value }))}
             className="sm:w-44"
@@ -392,15 +339,18 @@ export function LibraryClient() {
             <option value="duplicate">高度重复（{similarStats.duplicates}）</option>
             <option value="content">内容冲突（{conflictStats.contentConflicts}）</option>
           </Select>
+          {pending.tags.length > 0 && (
+            <input type="hidden" name="tags" value={pending.tags.join(",")} />
+          )}
         </div>
 
         <div className="mt-3 flex flex-wrap items-center gap-2">
-          <Button onClick={applyFilters}>
+          <Button type="submit">
             <Check className="h-4 w-4" />
             应用筛选
           </Button>
           {hasActiveFilters && (
-            <Button variant="ghost" onClick={resetFilters}>
+            <Button type="button" variant="ghost" onClick={resetFilters}>
               <X className="h-4 w-4" />
               清除条件
             </Button>
@@ -414,15 +364,13 @@ export function LibraryClient() {
             </span>
           )}
         </div>
-      </div>
+      </form>
 
       <TagFilter
         className="mb-6"
         allTags={allTags}
         appliedTags={pending.tags}
-        onApply={(tags) => {
-          setPending((p) => ({ ...p, tags }));
-        }}
+        onApply={(tags) => setPending((p) => ({ ...p, tags }))}
       />
       {pending.tags.join(",") !== applied.tags.join(",") && (
         <p className="-mt-4 mb-6 text-xs text-amber-600">标签已改，请点击上方「应用筛选」</p>
