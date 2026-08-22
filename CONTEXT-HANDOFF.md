@@ -23,15 +23,25 @@
 
 ### Step 2 — Connect the repo (NOT by pasting URL in chat)
 
-1. Click **Start from scratch** dropdown  
-2. **Use Existing...** → **Clone Repository**  
-3. Paste:
+⚠️ **Cursor 的 Clone Repository 界面不支持 `origin.cursor.com` 地址**  
+（按钮不会变蓝、点了没反应 — 这是 Cursor 的限制，不是你看错了）
 
-```
-https://origin.cursor.com/git/clark-gonzalez/tmp-8ece63bc7e599628
-```
+**可行方案 A — 用 GitHub（推荐，Clone 界面认这个）：**
 
-4. Wait until you see files: `START-HERE.md`, `data/`, `src/`
+1. 左下角点 **Connect GitHub**
+2. 在 GitHub 新建空仓库 `company-knowledge-base`
+3. 告诉 Agent 你的 GitHub 用户名，让它 push 上去
+4. New Chat → Clone Repository → 粘贴：
+   `https://github.com/你的用户名/company-knowledge-base.git`
+5. Clone 按钮会变蓝，能用了
+
+**可行方案 B — 回到已有 Cloud Agent（不用 Clone）：**
+
+1. 左侧 **Repositories** 点 **Company knowledge base system**
+2. 在同一个 Agent 里发新消息（不要 File → New Chat）
+3. 第一句话读 `CONTEXT-HANDOFF.md`
+
+~~旧步骤（Origin URL Clone — 在 Cursor UI 里不工作）：~~
 
 ### Step 3 — First message in the new chat
 
