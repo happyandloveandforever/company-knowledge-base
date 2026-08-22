@@ -6,46 +6,27 @@
 
 ## 功能
 
-- **导入文件**：上传 `.pptx` / `.docx`，自动按幻灯片或章节拆分为知识点
+- **导入文件**：上传多种格式，**默认 Claude 精细拆分**
+  - 支持：`.pptx` `.docx` `.pdf` `.md` `.html` `.txt` `.png` `.jpg` `.webp`
+  - 配置 `ANTHROPIC_API_KEY` 后网页自动拆分；否则进入 Claude 待拆分队列
 - **知识总库**：按分类浏览、搜索、审核（草稿 → 已批准）
 - **HTML 导出**：一键导出结构化 HTML 总库，可离线浏览和分享
 - **编排演讲**：选择知识点 + 演讲逻辑模板 → 生成大纲
 - **PPT 导出**：根据大纲自动生成 `.pptx` 文件
 
-## AI 精细拆分（推荐用于密集 PPT）
+## AI 精细拆分（Claude，默认）
 
-默认情况下，系统使用 **officeparser** 按幻灯片/章节做基础拆分（一页 = 一个知识点）。
-
-若你的 PPT 信息密集，请配置 AI 模型做**精细拆分**：一页可拆成多个独立知识点，保留数据、案例和步骤细节。
-
-### 配置方法
-
-1. 复制 `.env.example` 为 `.env.local`
-2. 填入 API Key（二选一或都填）：
+复制 `.env.example` 为 `.env.local`，填入 Anthropic API Key：
 
 ```bash
-# 使用 OpenAI（ChatGPT API）
-AI_PROVIDER=openai
-AI_MODEL=gpt-4o          # 推荐，适合密集内容
-OPENAI_API_KEY=sk-...
-
-# 或使用 Gemini
-AI_PROVIDER=gemini
-AI_MODEL=gemini-2.0-flash   # 或 gemini-1.5-pro 更精细
-GEMINI_API_KEY=...
+AI_PROVIDER=anthropic
+ANTHROPIC_API_KEY=sk-ant-...
+AI_MODEL=claude-sonnet-4-20250514
 ```
 
-3. 重启开发服务器
+未配置时：上传文件会进入 **Claude 待拆分队列**，在 Cursor 对话中说「处理拆分队列」即可。
 
-### 模型推荐
-
-| 场景 | 推荐模型 | 说明 |
-|------|----------|------|
-| 密集 PPT、需精细拆分 | **OpenAI gpt-4o** | 默认首选，理解力强、JSON 输出稳定 |
-| 更长文档、要更深度理解 | **Gemini 1.5 Pro** | 上下文窗口大，适合整章 Word |
-| 批量处理、成本敏感 | **Gemini 2.0 Flash** | 速度快、成本低 |
-
-上传时在「拆分模式」中选择 **AI 精细拆分** 或 **自动**（有 API Key 时默认走 AI）。
+也支持 OpenAI / Gemini 作为备选（见 `.env.example`）。
 
 ## 快速开始
 

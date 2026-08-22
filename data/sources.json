@@ -124,5 +124,21 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "Claude精细拆分，38页→50个知识点，B端一龄战略合作提案"
+  },
+  {
+    "id": "SRC-MT4CW1O3-IPUZ9",
+    "filename": "漂浮方舟 · 品牌画册.pdf",
+    "fileType": "pdf",
+    "uploadedAt": "2026-08-22T12:30:13.148Z",
+    "knowledgePointIds": [],
+    "status": "processing"
+  },
+  {
+    "id": "SRC-MT4CW2GQ-JAAD7",
+    "filename": "漂浮方舟 · 品牌画册.pdf",
+    "fileType": "pdf",
+    "uploadedAt": "2026-08-22T12:30:14.175Z",
+    "knowledgePointIds": [],
+    "status": "processing"
   }
 ]

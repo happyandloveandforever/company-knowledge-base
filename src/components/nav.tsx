@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpen, FileUp, LayoutDashboard, Presentation, Library, AlertTriangle } from "lucide-react";
+import { BookOpen, FileUp, LayoutDashboard, Presentation, Library, AlertTriangle, Activity } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ServerStatus } from "@/components/server-status";
 
 const links = [
   { href: "/", label: "首页", icon: LayoutDashboard },
@@ -11,6 +12,7 @@ const links = [
   { href: "/library/conflicts", label: "冲突组", icon: AlertTriangle },
   { href: "/upload", label: "导入文件", icon: FileUp },
   { href: "/compose", label: "编排演讲", icon: Presentation },
+  { href: "/status", label: "状态", icon: Activity },
 ];
 
 export function Nav() {
@@ -28,7 +30,9 @@ export function Nav() {
           <BookOpen className="h-6 w-6 text-blue-600" />
           <span>公司知识库</span>
         </Link>
-        <nav className="flex items-center gap-1">
+        <div className="flex items-center gap-3">
+          <ServerStatus />
+          <nav className="flex items-center gap-1">
           {links.map(({ href, label, icon: Icon }) => (
             <Link
               key={href}
@@ -44,7 +48,8 @@ export function Nav() {
               <span className="hidden sm:inline">{label}</span>
             </Link>
           ))}
-        </nav>
+          </nav>
+        </div>
       </div>
     </header>
   );

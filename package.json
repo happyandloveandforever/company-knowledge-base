@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "preview": "npm run build && next start -p 43123 -H 0.0.0.0",
+    "serve": "bash scripts/keep-alive-server.sh",
+    "preview": "npm run build && bash scripts/keep-alive-server.sh",
     "lint": "eslint"
   },
   "dependencies": {
