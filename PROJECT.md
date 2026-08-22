@@ -171,7 +171,7 @@ Vercel 快速部署（GitHub 镜像完成后）：
 
 | 指标 | 数值 |
 |------|------|
-| 知识点总数 | **293**（270 `approved` + 23 冠军系列 `draft`） |
+| 知识点总数 | **293**（全部 `approved`） |
 | 已导入文件 | **8** |
 | 待 Claude 拆分队列 | 0 |
 
@@ -186,13 +186,13 @@ Vercel 快速部署（GitHub 镜像完成后）：
 | 漂浮方舟_v7.pdf | SRC-FAF-V7 | KP-V7-001 ~ 029 | 29 | done，已批准 | claude-agent |
 | 增强背景 1–40.pdf | SRC-BG2-ENHANCE | KP-BG2-001 ~ 038 | 38 | done，已批准 | claude-agent |
 | 增强背景 41–80.pdf | SRC-BG2-ENHANCE-B | KP-BG2-039 ~ 075 | 37 | done，已批准 | claude-agent |
-| 冠军系列产品配置说明.pdf | SRC-CHAMPION-CFG | KP-CHAMP-001 ~ 023 | 23 | done，**draft 待审** | claude-agent |
+| 冠军系列产品配置说明.pdf | SRC-CHAMPION-CFG | KP-CHAMP-001 ~ 023 | 23 | done，已批准 | claude-agent |
 
 ### 待办
 
 - [x] 品牌画册 / 方舟机理 / 漂浮方舟_v7 / **增强背景上下册** Claude 精细拆分
 - [x] 审核批准机理 `KP-MECH-*`、v7 `KP-V7-*`、增强背景 `KP-BG2-*`（75）
-- [ ] 审核批准冠军系列 `KP-CHAMP-*`（23）draft
+- [x] 审核批准冠军系列 `KP-CHAMP-*`（23）
 - [ ] 继续导入更多历史材料
 
 
@@ -325,6 +325,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-22 | 网页同步：批准 v7 全部 29 条 |
 | 2026-08-22 | 批准增强背景全部 75 条（KP-BG2-001~075）；库内 draft=0、全部 approved |
 | 2026-08-22 | Claude 精细拆分冠军系列产品配置说明.pdf：15页→23条（KP-CHAMP-001~023），库总量→293 |
+| 2026-08-22 | 批准冠军系列全部 23 条（KP-CHAMP-001~023）；库内 draft=0、全部 approved |
 
 
 ---
