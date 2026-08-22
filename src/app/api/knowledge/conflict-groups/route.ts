@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getKnowledgePoints, saveKnowledgePoints } from "@/lib/storage";
-import { buildConflictGroups } from "@/lib/conflict-detector";
+import { getLibraryAnalysis } from "@/lib/analysis-cache";
 
 export async function GET() {
   const points = await getKnowledgePoints();
-  const groups = buildConflictGroups(points);
+  const analysis = await getLibraryAnalysis(points);
 
-  const enriched = groups.map((g) => ({
+  const enriched = analysis.conflictGroups.map((g) => ({
     ...g,
     members: g.memberIds
       .map((id) => points.find((p) => p.id === id))
@@ -16,10 +16,12 @@ export async function GET() {
   return NextResponse.json({
     groups: enriched,
     stats: {
-      total: groups.length,
-      allowed: groups.filter((g) => g.allowedConflict).length,
-      pending: groups.filter((g) => !g.allowedConflict).length,
+      total: analysis.stats.conflictGroups,
+      allowed: enriched.filter((g) => g.allowedConflict).length,
+      pending: enriched.filter((g) => !g.allowedConflict).length,
     },
+    cached: analysis.cached,
+    computedAt: analysis.computedAt,
   });
 }
 

@@ -1,5 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
+import { invalidateAnalysisCache } from "./analysis-cache";
 import type { KnowledgePoint, Outline, SourceFile } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
@@ -40,6 +41,7 @@ export async function getKnowledgePoint(id: string): Promise<KnowledgePoint | un
 
 export async function saveKnowledgePoints(points: KnowledgePoint[]): Promise<void> {
   await writeJson(KNOWLEDGE_FILE, points);
+  await invalidateAnalysisCache();
 }
 
 export async function addKnowledgePoints(newPoints: KnowledgePoint[]): Promise<void> {

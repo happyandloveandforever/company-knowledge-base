@@ -33,6 +33,12 @@
 
 ## 系统入口
 
+**推荐（稳定 Preview）：**
+```bash
+npm run preview
+```
+
+开发调试：
 ```bash
 npm run dev -- -p 43123 -H 0.0.0.0
 ```
@@ -42,11 +48,30 @@ npm run dev -- -p 43123 -H 0.0.0.0
 - `/upload` — 导入文件
 - `/compose` — 编排演讲 → 大纲 / PPT
 
-## 数据位置
+## 数据位置与持久化（重要）
 
-- `data/knowledge-points.json` — 全部知识点
-- `data/sources.json` — 已导入文件记录
-- `uploads/` — 原始文件备份
+| 路径 | 是否进 Git | 说明 |
+|------|-----------|------|
+| `data/knowledge-points.json` | ✅ 是 | **核心资产**，所有知识点，必须 commit + push |
+| `data/sources.json` | ✅ 是 | 导入文件记录 |
+| `data/outlines.json` | ✅ 是 | 大纲历史 |
+| `data/analysis-cache.json` | ❌ 否 | 相似/冲突分析缓存，自动生成，删了会重建 |
+| `uploads/` | ❌ 否 | 原始 PDF/PPT 备份，**仅本机**；换环境会丢 |
+
+### 大量文件上传时怎么做
+
+1. **知识点**：每次 Claude 拆分或网页导入后，我会 **commit + push** `data/` 到 Git — 这是你的永久库
+2. **原始文件**：发在对话里或放 `uploads/`，如需长期保留请自行备份；知识点正文已在 JSON 里
+3. **库不会丢**：只要 Git 里有 `knowledge-points.json`，换机器、重启 Preview 都能恢复
+4. **性能**：相似/冲突分析有磁盘缓存，只有数据变更后才重算，上千条也不会每次打开都卡
+
+### 当前库位置
+
+就在本仓库根目录：
+```
+/workspace/data/knowledge-points.json   ← 109 条知识点（会随导入增长）
+/workspace/data/sources.json
+```
 
 ## 冲突与重复处理
 

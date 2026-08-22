@@ -1,6 +1,5 @@
 import { getKnowledgePoints } from "@/lib/storage";
-import { scanAllSimilarities } from "@/lib/similarity";
-import { scanContentConflicts, buildConflictGroups } from "@/lib/conflict-detector";
+import { getLibraryAnalysis } from "@/lib/analysis-cache";
 import { parseFilters } from "@/lib/library-filters";
 import { LibraryClient } from "@/components/library-client";
 
@@ -20,16 +19,14 @@ export default async function LibraryPage({
 
   const initialFilters = parseFilters(params);
   const points = await getKnowledgePoints();
-  const similarities = scanAllSimilarities(points);
-  const contentConflicts = scanContentConflicts(points);
-  const groups = buildConflictGroups(points);
+  const analysis = await getLibraryAnalysis(points);
 
   return (
     <LibraryClient
       initialPoints={points}
-      initialSimilarities={similarities}
-      initialContentConflicts={contentConflicts}
-      initialConflictGroups={groups}
+      initialSimilarities={analysis.similarities}
+      initialContentConflicts={analysis.contentConflicts}
+      initialConflictGroups={analysis.conflictGroups}
       initialFilters={initialFilters}
     />
   );

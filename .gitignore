@@ -39,5 +39,8 @@ yarn-error.log*
 # uploads (user files)
 /uploads
 
+# computed analysis cache (auto-regenerated)
+/data/analysis-cache.json
+
 # data runtime (keep seed in git, but allow local overrides)
 # data is committed with seed data

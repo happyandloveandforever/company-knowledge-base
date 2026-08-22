@@ -322,12 +322,15 @@ function memberIdsKey(ids: string[]): string {
   return [...ids].sort().join(",");
 }
 
-export function buildConflictGroups(points: KnowledgePoint[]): ConflictGroup[] {
-  const pairMap = scanContentConflicts(points);
+export function buildConflictGroups(
+  points: KnowledgePoint[],
+  pairMap?: Record<string, ContentConflict[]>
+): ConflictGroup[] {
+  const conflictMap = pairMap ?? scanContentConflicts(points);
   const edges: Array<[string, string, string]> = [];
 
-  for (const [id, conflicts] of Object.entries(pairMap)) {
-    for (const c of conflicts) {
+  for (const [id, list] of Object.entries(conflictMap)) {
+    for (const c of list) {
       edges.push([id, c.id, `${c.topic}：${c.myValue} vs ${c.theirValue}`]);
     }
   }
