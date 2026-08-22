@@ -27,11 +27,17 @@
 
 ### 新对话如何接上代码？
 
-**方式 A — 继续在本仓库开 Cloud Agent（推荐）**
+**方式 A — 新对话 + Clone 同一仓库（正确做法）**
 
-1. Cursor → Cloud Agents → 找到 **Company knowledge base system** 项目  
-2. 或新建 Agent，仓库填：`https://origin.cursor.com/git/clark-gonzalez/tmp-8ece63bc7e599628`  
-3. 开场说：「请先读 PROJECT.md 和 AGENTS.md，然后继续…」
+Cursor 里 **New Agent = New Chat**，创建时没有填 URL 的地方。  
+要新对话且保留全部工作：
+
+1. New Chat 空白页 → **Use Existing → Clone Repository**
+2. 粘贴：`https://origin.cursor.com/git/clark-gonzalez/tmp-8ece63bc7e599628`
+3. 新对话第一句：读 `CONTEXT-HANDOFF.md`，不要重建项目
+
+❌ 错误：以为「继续在本对话里聊」= 新对话（上下文仍会满）  
+❌ 错误：在聊天消息里贴 URL（不会连接仓库）
 
 **方式 B — 本地 clone 到电脑**
 
