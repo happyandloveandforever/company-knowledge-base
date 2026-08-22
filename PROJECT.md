@@ -3,10 +3,71 @@
 > **这是本项目的「单一事实来源」。**  
 > 换对话、换 Agent、隔几天再来，**先读这个文件**，即可接着干，不用从头解释。
 
-**仓库：** 本 Git 仓库（Cursor Cloud Agent）  
+**仓库：** https://origin.cursor.com/git/clark-gonzalez/tmp-8ece63bc7e599628  
 **网页：** `http://127.0.0.1:43123`  
 **Agent 快速入口：** [`AGENTS.md`](./AGENTS.md)  
 **Cursor 自动规则：** [`.cursor/rules/knowledge-base.mdc`](./.cursor/rules/knowledge-base.mdc)
+
+---
+
+## 〇、代码仓库与交接（先看这里）
+
+### 代码已经在哪？
+
+| 项目 | 说明 |
+|------|------|
+| **当前托管** | [Cursor Origin（免费）](https://origin.cursor.com/git/clark-gonzalez/tmp-8ece63bc7e599628) |
+| **分支** | `main` |
+| **包含** | 全部 Next.js 代码 + `data/knowledge-points.json`（109 条）+ `data/sources.json` |
+| **不包含** | `uploads/` 原始 PDF、`node_modules/`、`.env` |
+
+每次 Agent 改完代码或入库，都会 **commit + push 到这个仓库**。换对话不会丢代码和数据。
+
+### 新对话如何接上代码？
+
+**方式 A — 继续在本仓库开 Cloud Agent（推荐）**
+
+1. Cursor → Cloud Agents → 找到 **Company knowledge base system** 项目  
+2. 或新建 Agent，仓库填：`https://origin.cursor.com/git/clark-gonzalez/tmp-8ece63bc7e599628`  
+3. 开场说：「请先读 PROJECT.md 和 AGENTS.md，然后继续…」
+
+**方式 B — 本地 clone 到电脑**
+
+```bash
+git clone https://origin.cursor.com/git/clark-gonzalez/tmp-8ece63bc7e599628.git company-knowledge-base
+cd company-knowledge-base
+npm install
+npm run build
+npm run serve    # http://localhost:43123
+```
+
+**方式 C — 镜像到 GitHub（双备份，可选）**
+
+1. 在 GitHub 新建**私有**仓库，例如 `company-knowledge-base`（不要勾选 README，保持空仓库）  
+2. 在本项目或本地执行：
+
+```bash
+git remote add github https://github.com/你的用户名/company-knowledge-base.git
+git push -u github main
+```
+
+3. 以后每次入库后：`git push origin main && git push github main`  
+4. 新对话也可指向 GitHub 仓库地址
+
+| 平台 | 费用 | 适合 |
+|------|------|------|
+| **Cursor Origin** | 免费（已有） | Cloud Agent 直接用，零配置 |
+| **GitHub** | 免费私有仓库 | 本地开发、双备份、团队共享 |
+| **GitLab / Gitee** | 免费私有 | 国内访问快，用法同 GitHub |
+
+### 代码交接清单（给新 Agent）
+
+```
+仓库：origin.cursor.com/git/clark-gonzalez/tmp-8ece63bc7e599628
+分支：main
+先读：PROJECT.md → AGENTS.md → data/sources.json → data/knowledge-points.json
+禁止：重建项目、覆盖已有知识点
+```
 
 ---
 
@@ -195,6 +256,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-22 | 新增来源管理、删除按钮、keep-alive 服务 |
 | 2026-08-22 | 恢复误删的 B端 50 条（从 Git） |
 | 2026-08-22 | 建立 PROJECT.md + AGENTS.md + Cursor rules 多对话协作机制 |
+| 2026-08-22 | PROJECT.md 补充代码仓库地址与 GitHub 镜像说明 |
 
 ---
 

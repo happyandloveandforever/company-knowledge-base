@@ -23,7 +23,8 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 ## 新对话启动清单
 
 ```
-1. 读 PROJECT.md
+仓库：https://origin.cursor.com/git/clark-gonzalez/tmp-8ece63bc7e599628  分支：main
+1. 读 PROJECT.md（含代码仓库地址）
 2. 读 data/sources.json          → 已导入哪些文件
 3. 读 data/knowledge-points.json   → 当前多少条（勿覆盖）
 4. 运行 node scripts/process-split-queue.mjs  → 有无待拆分

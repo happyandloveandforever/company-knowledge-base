@@ -16,7 +16,9 @@
 
 **新对话开场白（复制即用）：**
 
-> 请先阅读 PROJECT.md 和 AGENTS.md，了解公司知识库当前状态，然后继续帮我 [具体任务]。
+> 仓库 https://origin.cursor.com/git/clark-gonzalez/tmp-8ece63bc7e599628 ，请先阅读 PROJECT.md 和 AGENTS.md，然后继续帮我 [具体任务]。
+
+**代码备份（可选）：** 可镜像到 GitHub 私有仓库，步骤见 PROJECT.md「代码仓库与交接」。
 
 ---
 
