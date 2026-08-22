@@ -25,7 +25,7 @@ export function TagFilter({ allTags, appliedTags, onApply, className }: TagFilte
   return (
     <div className={cn("rounded-lg border border-slate-200 bg-slate-50 p-3", className)}>
       <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
-        <p className="text-sm font-medium text-slate-700">按标签筛选（点击即生效）</p>
+        <p className="text-sm font-medium text-slate-700">按标签筛选</p>
         {appliedTags.length > 0 && (
           <Button size="sm" variant="ghost" onClick={() => onApply([])}>
             <X className="h-3.5 w-3.5" />

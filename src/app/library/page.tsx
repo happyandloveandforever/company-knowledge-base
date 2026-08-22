@@ -1,20 +1,10 @@
-import { getKnowledgePoints } from "@/lib/storage";
-import { scanAllSimilarities } from "@/lib/similarity";
-import { scanContentConflicts, buildConflictGroups } from "@/lib/conflict-detector";
+import { Suspense } from "react";
 import { LibraryClient } from "@/components/library-client";
 
-export default async function LibraryPage() {
-  const points = await getKnowledgePoints();
-  const similarities = scanAllSimilarities(points);
-  const contentConflicts = scanContentConflicts(points);
-  const conflictGroups = buildConflictGroups(points);
-
+export default function LibraryPage() {
   return (
-    <LibraryClient
-      initialPoints={points}
-      initialSimilarities={similarities}
-      initialContentConflicts={contentConflicts}
-      initialConflictGroups={conflictGroups}
-    />
+    <Suspense fallback={<div className="py-20 text-center text-slate-500">加载知识库…</div>}>
+      <LibraryClient />
+    </Suspense>
   );
 }
