@@ -171,23 +171,36 @@ Vercel 快速部署（GitHub 镜像完成后）：
 
 | 指标 | 数值 |
 |------|------|
-| 知识点总数 | **109** |
+| 知识点总数 | **109**（全部 `approved`，无 pending） |
 | 已导入文件 | **2** |
-| 待 Claude 拆分队列 | 0（运行 `node scripts/process-split-queue.mjs` 确认） |
+| 待 Claude 拆分队列 | 0（`node scripts/process-split-queue.mjs` 已确认为空） |
+| 冲突组 | 0（`/api/knowledge/conflict-groups` 已确认为空） |
 
 ### 已入库文件
 
 | 文件 | 来源 ID | 知识点 ID 范围 | 条数 | 状态 | 拆分方式 |
 |------|---------|----------------|------|------|----------|
-| 漂浮方舟_杨浦区财务.pdf | SRC-FAF-YANGPU | KP-FAF-001 ~ 054 | 54 | done，待审核 | claude-agent |
-| B端定稿.pdf | SRC-B2B-YILING | KP-B2B-001 ~ 050 | 50 | done，待审核 | claude-agent |
+| 漂浮方舟_杨浦区财务.pdf | SRC-FAF-YANGPU | KP-FAF-001 ~ 054 | 54 | done，已批准 | claude-agent |
+| B端定稿.pdf | SRC-B2B-YILING | KP-B2B-001 ~ 050 | 50 | done，已批准 | claude-agent |
 
 ### 待办
 
-- [ ] 审核并批准杨浦 + B端 知识点（`/library?status=pending`）
-- [ ] 核对冲突组（`/library/conflicts`）— 政府版 vs 投资人版可并存
-- [ ] 品牌画册.pdf — 曾上传中断，需重新上传后 Claude 拆分
-- [ ] 继续导入更多历史材料
+- [x] 审核并批准杨浦 + B端 知识点 — 109 条全部 `approved`
+- [x] 核对冲突组（`/library/conflicts`）— 检测结果 0 组，无需并存处理
+- [ ] **品牌画册.pdf — 需要你重新上传**（`uploads/` 为空，仓库里没有这个文件，Agent 无法代劳）
+- [ ] 继续导入更多历史材料 — 同样需要你先上传文件
+
+> ⚠️ 剩余两项都**卡在文件上传**：`uploads/` 不进 Git，换环境即清空。
+> 新对话要继续扩库，请先在 `/upload` 上传或直接把文件发到对话里，再说「帮我 Claude 精细拆 xxx」。
+
+### 数据体检（2026-08-22 复核）
+
+| 检查项 | 结果 |
+|--------|------|
+| 重复标题 | 0 |
+| 缺 tags | 0 |
+| 分类分布 | 技术知识 35 / 产品知识 31 / 市场营销 13 / 战略规划 11 / 管理技能 10 / 财务分析 7 / 销售技巧 1 / 培训资料 1 |
+| 可优化 | 103 条无 `examples`、47 条正文偏短（<80 字），后续补充素材时可回填 |
 
 ---
 
@@ -249,6 +262,17 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 - 端口：**43123**
 - Preview 断开 → 点 Reconnect，或重启 `npm run serve`
 - 健康检查：`curl http://127.0.0.1:43123/api/health`
+- 守护进程日志：`/tmp/knowledge-base-server.log`（超过 5MB 自动轮转为 `.1`）
+- 回归测试：`bash scripts/test-keep-alive.sh`（独立端口 43877，不影响线上服务）
+
+### 守护进程为什么是单实例（改脚本前先看）
+
+`.cursor/environment.json` 的 `start` 和 `terminals` 会**同时**拉起 `keep-alive-server.sh`。
+脚本用 `flock` 保证只有一个实例真正持有端口，后到的实例自动转为 `tail -f` 跟随日志。
+
+之前用 PID 文件做守卫（先检查后写入，非原子），两个实例都能通过，
+落败的那个每 2 秒重启一次 `next start` 撞 `EADDRINUSE`，日志无限膨胀。
+**不要把 flock 换回 PID 文件判断。**
 
 ---
 
@@ -274,7 +298,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 帮我 Claude 精细拆 xxx.pdf | 读文件 → 参考 `import-*.mjs` → 写知识点 |
 | KP-xxx 改标题/合并 | PATCH `knowledge-points.json` |
 | 删重复来源 | `DELETE /api/sources?id=...` 或改 JSON |
-| Preview 打不开 | 重启 keep-alive，验证 `/api/health` |
+| Preview 打不开 | 先看 `/tmp/knowledge-base-server.log`，再重启 keep-alive，验证 `/api/health` |
 | 改网页功能 | 改 `src/`，build，重启服务 |
 
 ---
@@ -298,6 +322,8 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-22 | 恢复误删的 B端 50 条（从 Git） |
 | 2026-08-22 | 建立 PROJECT.md + AGENTS.md + Cursor rules 多对话协作机制 |
 | 2026-08-22 | PROJECT.md 补充 GitHub 无限制调取 + Vercel 在线浏览方案 |
+| 2026-08-22 | 修复 keep-alive 守护进程重复启动的 EADDRINUSE 空转（见下）；新增 `scripts/test-keep-alive.sh` 回归测试 |
+| 2026-08-22 | 复核库状态：109 条全部已批准、冲突组 0、拆分队列空；剩余待办均需用户上传文件 |
 
 ---
 
