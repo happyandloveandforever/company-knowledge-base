@@ -171,10 +171,9 @@ Vercel 快速部署（GitHub 镜像完成后）：
 
 | 指标 | 数值 |
 |------|------|
-| 知识点总数 | **166**（153 `approved` + 13 机理 `draft`） |
-| 已导入文件 | **4** |
+| 知识点总数 | **195**（153 `approved` + 42 `draft`：机理13 + v7 29） |
+| 已导入文件 | **5** |
 | 待 Claude 拆分队列 | 0 |
-| 冲突组 | 0（可在 `/library/conflicts` 再复核） |
 
 ### 已入库文件
 
@@ -182,24 +181,15 @@ Vercel 快速部署（GitHub 镜像完成后）：
 |------|---------|----------------|------|------|----------|
 | 漂浮方舟_杨浦区财务.pdf | SRC-FAF-YANGPU | KP-FAF-001 ~ 054 | 54 | done，已批准 | claude-agent |
 | B端定稿.pdf | SRC-B2B-YILING | KP-B2B-001 ~ 050 | 50 | done，已批准 | claude-agent |
-| （已压缩）漂浮方舟 · 品牌画册.pdf | SRC-BRAND-BROCHURE | KP-BRAND-001 ~ 045（缺 002） | 44 | done，多数已批准 | claude-agent |
-| 方舟机理.pdf | SRC-MECH-JILI | KP-MECH-001 ~ 013 | 13 | done，**draft 待审** | claude-agent |
+| （已压缩）漂浮方舟 · 品牌画册.pdf | SRC-BRAND-BROCHURE | KP-BRAND-*（缺002） | 44 | done，多数已批准 | claude-agent |
+| 方舟机理.pdf | SRC-MECH-JILI | KP-MECH-001 ~ 013 | 13 | done，draft 待审 | claude-agent |
+| 漂浮方舟_v7.pdf | SRC-FAF-V7 | KP-V7-001 ~ 029 | 29 | done，**draft 待审** | claude-agent |
 
 ### 待办
 
-- [x] 审核并批准杨浦 + B端 知识点
-- [x] 品牌画册 Claude 精细拆分（用户已在网页批准大部分，并删除 KP-BRAND-002）
-- [x] **方舟机理.pdf — Claude 精细拆分完成**（4 页 → 13 条）
-- [ ] 在 `/library` 审核并批准机理 13 条 draft（`KP-MECH-*`）
-- [ ] 继续导入更多历史材料 — 需先上传文件
-
-### 数据体检（2026-08-22 · 导入机理后）
-
-| 检查项 | 结果 |
-|--------|------|
-| 总数 | 166 |
-| 机理 ID | KP-MECH-001 ~ KP-MECH-013 |
-| 参考脚本 | `scripts/import-fangzhou-jili.mjs` |
+- [x] 品牌画册 / 方舟机理 / **漂浮方舟_v7** Claude 精细拆分
+- [ ] 审核批准 `KP-MECH-*`（13）与 `KP-V7-*`（29）draft
+- [ ] 继续导入更多历史材料
 
 
 ## 四、网页功能一览
@@ -325,6 +315,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-22 | Claude 精细拆分品牌画册：38页→45条（KP-BRAND-001~045），库总量 109→154 |
 | 2026-08-22 | 网页同步：品牌画册多条批准，删除 KP-BRAND-002（45→44） |
 | 2026-08-22 | Claude 精细拆分方舟机理.pdf：4页→13条（KP-MECH-001~013），库总量→166 |
+| 2026-08-22 | Claude 精细拆分漂浮方舟_v7.pdf：26页→29条（KP-V7-001~029），库总量→195 |
 
 ---
 
