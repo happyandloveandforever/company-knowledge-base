@@ -1,0 +1,48 @@
+# 公司知识库
+
+将现有 PPT 和 Word 文件拆分为结构化知识点，建立可浏览的总库，选择知识点和演讲逻辑后生成大纲并导出 PPT。
+
+## 功能
+
+- **导入文件**：上传 `.pptx` / `.docx`，自动按幻灯片或章节拆分为知识点
+- **知识总库**：按分类浏览、搜索、审核（草稿 → 已批准）
+- **HTML 导出**：一键导出结构化 HTML 总库，可离线浏览和分享
+- **编排演讲**：选择知识点 + 演讲逻辑模板 → 生成大纲
+- **PPT 导出**：根据大纲自动生成 `.pptx` 文件
+
+## 快速开始
+
+```bash
+npm install
+npm run dev
+```
+
+浏览器打开 [http://localhost:43123](http://localhost:43123)
+
+## 使用流程
+
+1. **导入文件** — 在「导入文件」页上传 PPT 或 Word
+2. **审核总库** — 在「知识总库」中查看、搜索、批准知识点
+3. **编排演讲** — 在「编排演讲」页选择知识点和演讲逻辑，生成大纲
+4. **导出** — 下载 Markdown 大纲或 PPT 文件
+
+## 技术栈
+
+- Next.js 16 + TypeScript + Tailwind CSS
+- officeparser（文档解析）
+- pptxgenjs（PPT 生成）
+- JSON 文件存储（无需数据库）
+
+## 数据目录
+
+- `data/knowledge-points.json` — 知识点
+- `data/sources.json` — 导入文件记录
+- `data/outlines.json` — 生成的大纲历史
+- `uploads/` — 上传的原始文件
+
+## 后续扩展
+
+- 接入 OpenAI / Gemini API 增强知识点拆分和分类
+- 支持 PDF / EPUB 书籍导入
+- 培训资料和量表模板导出
+- 多用户权限与审核流
