@@ -47,7 +47,7 @@
 
 ```
 Read CONTEXT-HANDOFF.md, START-HERE.md, and PROJECT.md first.
-Do NOT rebuild the project. data/knowledge-points.json has 195 points.
+Do NOT rebuild the project. data/knowledge-points.json has 270 points.
 Continue the company knowledge base work.
 ```
 
@@ -57,11 +57,11 @@ Continue the company knowledge base work.
 
 | Item | Status |
 |------|--------|
-| Knowledge points | **195** (54 杨浦 + 50 B端 + 44 品牌 + 13 机理 + 29 v7 draft + 5 demo) |
-| Sources | 杨浦财务, B端定稿, 品牌画册, 方舟机理, 漂浮方舟_v7 |
+| Knowledge points | **270**（195 approved + 75 增强背景 draft；含 demo 5） |
+| Sources | 杨浦、B端、品牌、机理、v7、增强背景1–40、增强背景41–80 |
 | Web app | Next.js, port 43123 |
 | Split mode | Cursor Claude in chat (no API key required) |
-| Pending | 机理 13 + v7 29 条 draft 待审核 |
+| Pending | 增强背景 `KP-BG2-*` 75 条 draft 待审核 |
 
 ---
 
