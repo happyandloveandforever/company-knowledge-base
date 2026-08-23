@@ -47,7 +47,7 @@
 
 ```
 Read CONTEXT-HANDOFF.md, START-HERE.md, and PROJECT.md first.
-Do NOT rebuild the project. data/knowledge-points.json has 470 points, all approved.
+Do NOT rebuild the project. data/knowledge-points.json has 516 points (470 approved + 46 draft SOP/YFOP/MEDF).
 Continue the company knowledge base work.
 ```
 
@@ -57,11 +57,11 @@ Continue the company knowledge base work.
 
 | Item | Status |
 |------|--------|
-| Knowledge points | **470**（全部 approved，draft=0） |
-| Sources | 既有材料 + 消杀 + 实验方案 + **SRC-WEB-ENRICH** |
+| Knowledge points | **516**（470 approved + 46 draft：SOP22 + YFOP10 + MEDF14） |
+| Sources | 既有 + WEB + **SRC-SOP-260519 / SRC-YFOP-OPS / SRC-MEDF-PLAN** |
 | Web app | Next.js, port 43123 |
 | Split mode | Cursor Claude in chat（构想/通识也可直接写入） |
-| Pending | 老板锁数字；补案例/售后（网上补不了） |
+| Pending | 审核 SOP/YFOP/MEDF；锁数字与水温；补真实案例 |
 
 ---
 
