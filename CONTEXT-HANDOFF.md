@@ -47,7 +47,8 @@
 
 ```
 Read CONTEXT-HANDOFF.md, START-HERE.md, and PROJECT.md first.
-Do NOT rebuild the project. data/knowledge-points.json has 109 points.
+Do NOT rebuild the project. data/knowledge-points.json has 361 points (356 approved + 5 draft).
+Do NOT re-run import-mev-atoms.mjs to recreate 100 paper atoms.
 Continue the company knowledge base work.
 ```
 
@@ -57,11 +58,11 @@ Continue the company knowledge base work.
 
 | Item | Status |
 |------|--------|
-| Knowledge points | **109** (54 杨浦 FAF + 50 B端 B2B + 5 demo) |
-| Sources | 漂浮方舟_杨浦区财务.pdf, B端定稿.pdf |
+| Knowledge points | **361**（356 approved + 5 draft） |
+| Sources | 既有 + WEB + SOP/YFOP/MEDF；MEV 已主题合并 |
 | Web app | Next.js, port 43123 |
-| Split mode | Cursor Claude in chat (no API key required) |
-| Pending | 品牌画册.pdf — upload interrupted, needs re-upload + Claude split |
+| Split mode | Cursor Claude in chat（构想/通识也可直接写入） |
+| Pending | 审核剩余 draft；锁数字与水温；补真实案例 |
 
 ---
 

@@ -249,20 +249,46 @@ export default async function HomePage() {
       </div>
 
       {/* Export */}
-      <section className="mt-8 rounded-xl border border-slate-200 bg-white p-6">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h2 className="text-lg font-semibold text-slate-900">导出 HTML 总库</h2>
-            <p className="mt-1 text-sm text-slate-600">
-              将所有知识点导出为结构化 HTML，可离线浏览或分享给团队。
-            </p>
+      <section className="mt-8 space-y-4">
+        <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h2 className="text-lg font-semibold text-slate-900">北京化工集团 · 初次交流</h2>
+              <p className="mt-1 text-sm text-slate-600">
+                主稿 17 页：脊柱 9 页 + 插件 P1–P5 原样保留，新增 P6 赛道与投资联动两页。
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <a href="/api/download?file=bjhg-final-deck-p6.pptx">
+                <Button>
+                  <Download className="h-4 w-4" />
+                  下载主稿（含 P6）
+                </Button>
+              </a>
+              <a href="/api/download?file=bjhg-final-deck.pptx">
+                <Button variant="outline">不含 P6 版</Button>
+              </a>
+              <a href="/api/download?file=bjhg-invest-deck.pptx">
+                <Button variant="outline">纯赛道版</Button>
+              </a>
+            </div>
           </div>
-          <a href="/api/library/html" download>
-            <Button variant="outline">
-              <Download className="h-4 w-4" />
-              下载 HTML 总库
-            </Button>
-          </a>
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-white p-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h2 className="text-lg font-semibold text-slate-900">导出 HTML 总库</h2>
+              <p className="mt-1 text-sm text-slate-600">
+                将所有知识点导出为结构化 HTML，可离线浏览或分享给团队。
+              </p>
+            </div>
+            <a href="/api/library/html" download>
+              <Button variant="outline">
+                <Download className="h-4 w-4" />
+                下载 HTML 总库
+              </Button>
+            </a>
+          </div>
         </div>
       </section>
     </div>
