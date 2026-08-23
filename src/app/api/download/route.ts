@@ -59,6 +59,14 @@ const ALLOWED: Record<string, { file: string; type: string }> = {
     file: "漂浮方舟_北京化工集团_初次交流_全插件版.pptx",
     type: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
   },
+  "bjhg-invest-deck.pptx": {
+    file: "漂浮方舟_北京化工集团_心理健康赛道_投资联动版.pptx",
+    type: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  },
+  "北京化工集团-心理健康赛道-投资联动版.pptx": {
+    file: "漂浮方舟_北京化工集团_心理健康赛道_投资联动版.pptx",
+    type: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  },
 };
 
 export async function GET(request: NextRequest) {

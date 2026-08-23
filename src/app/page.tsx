@@ -253,23 +253,23 @@ export default async function HomePage() {
         <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <h2 className="text-lg font-semibold text-slate-900">北京化工集团 · 初次交流成品稿</h2>
+              <h2 className="text-lg font-semibold text-slate-900">北京化工集团 · 初次交流</h2>
               <p className="mt-1 text-sm text-slate-600">
-                15 页对外稿：脊柱 9 页 + 插件 P1–P5 全开。另附内部选型底稿。
+                投资联动版 15 页：心理健康赛道、可持续性与扩展方向。另存介绍版与内部选型底稿。
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
-              <a href="/api/download?file=bjhg-final-deck.pptx">
+              <a href="/api/download?file=bjhg-invest-deck.pptx">
                 <Button>
                   <Download className="h-4 w-4" />
-                  下载成品 PPT
+                  下载投资联动版
                 </Button>
               </a>
-              <a href="/api/download?file=bjhg-spine-plugins.pptx">
-                <Button variant="outline">选型稿 v2</Button>
+              <a href="/api/download?file=bjhg-final-deck.pptx">
+                <Button variant="outline">介绍版</Button>
               </a>
-              <a href="/api/download?file=bjhg-structure-choice.pptx">
-                <Button variant="outline">选型稿 v1</Button>
+              <a href="/api/download?file=bjhg-spine-plugins.pptx">
+                <Button variant="outline">选型稿</Button>
               </a>
             </div>
           </div>
