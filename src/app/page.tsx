@@ -259,7 +259,7 @@ export default async function HomePage() {
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
-              <a href="/decks/bjhg-mental-health-invest/">
+              <a href="/decks/bjhg-mental-health-invest">
                 <Button>打开网页演示</Button>
               </a>
               <a href="/api/download?file=bjhg-mental-health-invest.pptx">
