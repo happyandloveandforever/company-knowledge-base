@@ -47,7 +47,7 @@
 
 ```
 Read CONTEXT-HANDOFF.md, START-HERE.md, and PROJECT.md first.
-Do NOT rebuild the project. data/knowledge-points.json has 470 points (458 approved + 12 draft WEB cards).
+Do NOT rebuild the project. data/knowledge-points.json has 470 points, all approved.
 Continue the company knowledge base work.
 ```
 
@@ -57,11 +57,11 @@ Continue the company knowledge base work.
 
 | Item | Status |
 |------|--------|
-| Knowledge points | **470**（458 approved + 12 draft：`KP-WEB-001~012`） |
+| Knowledge points | **470**（全部 approved，draft=0） |
 | Sources | 既有材料 + 消杀 + 实验方案 + **SRC-WEB-ENRICH** |
 | Web app | Next.js, port 43123 |
 | Split mode | Cursor Claude in chat（构想/通识也可直接写入） |
-| Pending | 审核 WEB 卡；老板锁数字；补案例/售后（网上补不了） |
+| Pending | 老板锁数字；补案例/售后（网上补不了） |
 
 ---
 
