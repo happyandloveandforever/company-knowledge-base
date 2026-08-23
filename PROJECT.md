@@ -283,7 +283,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 ```
 
 - 端口：**43123**
-- Preview 断开 → 点 Reconnect，或重启 `npm run serve`
+- Preview 断开 / `127.0.0.1 refused to connect` → 点右侧 Preview 的 **Reconnect**，或点编辑器右上角插头图标，把 `43123` 转发出去。不要在自己电脑的 Chrome 里单独开这个地址（那是云端服务，不是你本机）。
 - 健康检查：`curl http://127.0.0.1:43123/api/health`
 - 守护进程日志：`/tmp/knowledge-base-server.log`（超过 5MB 自动轮转为 `.1`）
 - 回归测试：`bash scripts/test-keep-alive.sh`（独立端口 43877，不影响线上服务）
