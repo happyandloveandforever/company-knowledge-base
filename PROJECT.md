@@ -171,8 +171,8 @@ Vercel 快速部署（GitHub 镜像完成后）：
 
 | 指标 | 数值 |
 |------|------|
-| 知识点总数 | **318**（293 `approved` + 25 宣讲设计 `draft`） |
-| 已导入文件 | **9**（含 1 条设计稿来源） |
+| 知识点总数 | **332**（293 `approved` + 39 `draft`） |
+| 已导入文件 | **10** |
 | 待 Claude 拆分队列 | 0 |
 
 ### 已入库文件
@@ -188,6 +188,7 @@ Vercel 快速部署（GitHub 镜像完成后）：
 | 增强背景 41–80.pdf | SRC-BG2-ENHANCE-B | KP-BG2-039 ~ 075 | 37 | done，已批准 | claude-agent |
 | 冠军系列产品配置说明.pdf | SRC-CHAMPION-CFG | KP-CHAMP-001 ~ 023 | 23 | done，已批准 | claude-agent |
 | 宣讲设计稿·构想与通识框架 v1 | SRC-SPEECH-CRAFT | KP-CRAFT-001 ~ 025 | 25 | done，**draft 待审** | 构想/通识设计 |
+| 建立医用失重舱进行康复治疗的思考.docx | SRC-MED-WEIGHTLESS | KP-MEDW-001 ~ 014 | 14 | done，**draft 待审** | claude-agent |
 
 ### 待办
 
@@ -196,6 +197,7 @@ Vercel 快速部署（GitHub 镜像完成后）：
 - [x] 审核批准冠军系列 `KP-CHAMP-*`（23）
 - [ ] 审核批准宣讲设计 `KP-CRAFT-*`（25）draft
 - [ ] 老板锁死对外数字口径后替换 KP-CRAFT-023
+- [ ] 审核 `KP-MEDW-*`（14）：可用「重力卸载谱系」，禁用病种疗效外推
 - [ ] 上传优先书籍：睡眠/REST综述/体验经济/主动健康政策
 - [ ] 继续导入更多历史材料
 
@@ -333,6 +335,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-22 | 为北京化工集团初次交流编排 PPT（13页，知识库驱动，方向对齐口径） |
 | 2026-08-22 | 北京化工集团 PPT 国际视野版（14页，深入浅出/能力辉煌，弱化地域） |
 | 2026-08-23 | 宣讲补强 v1：构想+通识+讲法 25 条（KP-CRAFT-001~025），库总量→318 |
+| 2026-08-23 | Claude 精细拆分《建立医用失重舱进行康复治疗的思考》：14条（KP-MEDW），并写明与漂浮REST边界，库总量→332 |
 
 
 ---

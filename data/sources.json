@@ -410,5 +410,30 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "构想+通识+宣讲结构补强，25 条 draft。非原文摘录，用于提升对外宣讲。"
+  },
+  {
+    "id": "SRC-MED-WEIGHTLESS",
+    "filename": "建立医用失重舱进行康复治疗的思考.docx",
+    "fileType": "docx",
+    "uploadedAt": "2026-08-23T01:43:44.912Z",
+    "knowledgePointIds": [
+      "KP-MEDW-001",
+      "KP-MEDW-002",
+      "KP-MEDW-003",
+      "KP-MEDW-004",
+      "KP-MEDW-005",
+      "KP-MEDW-006",
+      "KP-MEDW-007",
+      "KP-MEDW-008",
+      "KP-MEDW-009",
+      "KP-MEDW-010",
+      "KP-MEDW-011",
+      "KP-MEDW-012",
+      "KP-MEDW-013",
+      "KP-MEDW-014"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "2010南中医综述，14条。强调与漂浮REST边界，白血病猜想已隔离。"
   }
 ]
