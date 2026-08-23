@@ -569,8 +569,7 @@
       "KP-SAN-011",
       "KP-SAN-012",
       "KP-SAN-013",
-      "KP-SAN-014",
-      "KP-SAN-015"
+      "KP-SAN-014"
     ],
     "status": "done",
     "splitMode": "claude-agent",
@@ -582,7 +581,6 @@
     "fileType": "docx",
     "uploadedAt": "2026-08-23T01:51:26.917Z",
     "knowledgePointIds": [
-      "KP-EXP-001",
       "KP-EXP-002",
       "KP-EXP-003",
       "KP-EXP-004",
@@ -596,5 +594,28 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "10条。N=5预实验与氢氧/光频参数标为申报口径。"
+  },
+  {
+    "id": "SRC-WEB-ENRICH",
+    "filename": "公开文献与标准摘录（Web 2026-08-23）",
+    "fileType": "other",
+    "uploadedAt": "2026-08-23T01:58:01.129Z",
+    "knowledgePointIds": [
+      "KP-WEB-001",
+      "KP-WEB-002",
+      "KP-WEB-003",
+      "KP-WEB-004",
+      "KP-WEB-005",
+      "KP-WEB-006",
+      "KP-WEB-007",
+      "KP-WEB-008",
+      "KP-WEB-009",
+      "KP-WEB-010",
+      "KP-WEB-011",
+      "KP-WEB-012"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "12条公开文献/标准摘录：Feinstein纠偏、NSF卫生、透皮镁限度、健康中国。"
   }
 ]
