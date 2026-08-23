@@ -171,8 +171,8 @@ Vercel 快速部署（GitHub 镜像完成后）：
 
 | 指标 | 数值 |
 |------|------|
-| 知识点总数 | **293**（全部 `approved`） |
-| 已导入文件 | **8** |
+| 知识点总数 | **318**（293 `approved` + 25 宣讲设计 `draft`） |
+| 已导入文件 | **9**（含 1 条设计稿来源） |
 | 待 Claude 拆分队列 | 0 |
 
 ### 已入库文件
@@ -187,12 +187,16 @@ Vercel 快速部署（GitHub 镜像完成后）：
 | 增强背景 1–40.pdf | SRC-BG2-ENHANCE | KP-BG2-001 ~ 038 | 38 | done，已批准 | claude-agent |
 | 增强背景 41–80.pdf | SRC-BG2-ENHANCE-B | KP-BG2-039 ~ 075 | 37 | done，已批准 | claude-agent |
 | 冠军系列产品配置说明.pdf | SRC-CHAMPION-CFG | KP-CHAMP-001 ~ 023 | 23 | done，已批准 | claude-agent |
+| 宣讲设计稿·构想与通识框架 v1 | SRC-SPEECH-CRAFT | KP-CRAFT-001 ~ 025 | 25 | done，**draft 待审** | 构想/通识设计 |
 
 ### 待办
 
 - [x] 品牌画册 / 方舟机理 / 漂浮方舟_v7 / **增强背景上下册** Claude 精细拆分
 - [x] 审核批准机理 `KP-MECH-*`、v7 `KP-V7-*`、增强背景 `KP-BG2-*`（75）
 - [x] 审核批准冠军系列 `KP-CHAMP-*`（23）
+- [ ] 审核批准宣讲设计 `KP-CRAFT-*`（25）draft
+- [ ] 老板锁死对外数字口径后替换 KP-CRAFT-023
+- [ ] 上传优先书籍：睡眠/REST综述/体验经济/主动健康政策
 - [ ] 继续导入更多历史材料
 
 
@@ -328,6 +332,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-22 | 批准冠军系列全部 23 条（KP-CHAMP-001~023）；库内 draft=0、全部 approved |
 | 2026-08-22 | 为北京化工集团初次交流编排 PPT（13页，知识库驱动，方向对齐口径） |
 | 2026-08-22 | 北京化工集团 PPT 国际视野版（14页，深入浅出/能力辉煌，弱化地域） |
+| 2026-08-23 | 宣讲补强 v1：构想+通识+讲法 25 条（KP-CRAFT-001~025），库总量→318 |
 
 
 ---

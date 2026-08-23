@@ -374,5 +374,41 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "Cursor Claude 精细拆分，15页→23个知识点（冠军系列 D/O/P 产品配置说明）"
+  },
+  {
+    "id": "SRC-SPEECH-CRAFT",
+    "filename": "宣讲设计稿·构想与通识框架（知识库补强v1）",
+    "fileType": "other",
+    "uploadedAt": "2026-08-23T01:40:14.754Z",
+    "knowledgePointIds": [
+      "KP-CRAFT-001",
+      "KP-CRAFT-002",
+      "KP-CRAFT-003",
+      "KP-CRAFT-004",
+      "KP-CRAFT-005",
+      "KP-CRAFT-006",
+      "KP-CRAFT-007",
+      "KP-CRAFT-008",
+      "KP-CRAFT-009",
+      "KP-CRAFT-010",
+      "KP-CRAFT-011",
+      "KP-CRAFT-012",
+      "KP-CRAFT-013",
+      "KP-CRAFT-014",
+      "KP-CRAFT-015",
+      "KP-CRAFT-016",
+      "KP-CRAFT-017",
+      "KP-CRAFT-018",
+      "KP-CRAFT-019",
+      "KP-CRAFT-020",
+      "KP-CRAFT-021",
+      "KP-CRAFT-022",
+      "KP-CRAFT-023",
+      "KP-CRAFT-024",
+      "KP-CRAFT-025"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "构想+通识+宣讲结构补强，25 条 draft。非原文摘录，用于提升对外宣讲。"
   }
 ]
