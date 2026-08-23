@@ -27,6 +27,18 @@ const ALLOWED: Record<string, { file: string; type: string }> = {
     file: "漂浮方舟_北京化工集团_国际视野版.pptx",
     type: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
   },
+  "bjhg-structure-choice.pptx": {
+    file: "北化交流_PPT结构选型_给合伙人.pptx",
+    type: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  },
+  "bjhg-structure-choice.md": {
+    file: "北化交流_PPT结构选型_给合伙人.md",
+    type: "text/markdown; charset=utf-8",
+  },
+  "北化交流-结构选型.pptx": {
+    file: "北化交流_PPT结构选型_给合伙人.pptx",
+    type: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  },
 };
 
 export async function GET(request: NextRequest) {

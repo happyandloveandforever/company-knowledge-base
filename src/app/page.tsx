@@ -249,20 +249,43 @@ export default async function HomePage() {
       </div>
 
       {/* Export */}
-      <section className="mt-8 rounded-xl border border-slate-200 bg-white p-6">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h2 className="text-lg font-semibold text-slate-900">导出 HTML 总库</h2>
-            <p className="mt-1 text-sm text-slate-600">
-              将所有知识点导出为结构化 HTML，可离线浏览或分享给团队。
-            </p>
+      <section className="mt-8 space-y-4">
+        <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h2 className="text-lg font-semibold text-slate-900">北化交流 · 给合伙人选型</h2>
+              <p className="mt-1 text-sm text-slate-600">
+                内部对照：五套结构的讲法与优缺点。先圈选，再做对外稿。推荐默认 A。
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <a href="/api/download?file=bjhg-structure-choice.pptx">
+                <Button>
+                  <Download className="h-4 w-4" />
+                  下载 PPT
+                </Button>
+              </a>
+              <a href="/api/download?file=bjhg-structure-choice.md">
+                <Button variant="outline">下载 Markdown</Button>
+              </a>
+            </div>
           </div>
-          <a href="/api/library/html" download>
-            <Button variant="outline">
-              <Download className="h-4 w-4" />
-              下载 HTML 总库
-            </Button>
-          </a>
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-white p-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h2 className="text-lg font-semibold text-slate-900">导出 HTML 总库</h2>
+              <p className="mt-1 text-sm text-slate-600">
+                将所有知识点导出为结构化 HTML，可离线浏览或分享给团队。
+              </p>
+            </div>
+            <a href="/api/library/html" download>
+              <Button variant="outline">
+                <Download className="h-4 w-4" />
+                下载 HTML 总库
+              </Button>
+            </a>
+          </div>
         </div>
       </section>
     </div>
