@@ -57,11 +57,11 @@ Continue the company knowledge base work.
 
 | Item | Status |
 |------|--------|
-| Knowledge points | **435**（293 approved + 142 draft：宣讲25+失重舱14+论文原子103） |
+| Knowledge points | **435**（全部 approved） |
 | Sources | 既有 PDF + 宣讲设计 + 失重舱综述 + 100论文原子 |
 | Web app | Next.js, port 43123 |
 | Split mode | Cursor Claude in chat（构想/通识也可直接写入） |
-| Pending | 审核 `KP-CRAFT-*`；上传睡眠/REST/体验经济等书补强 |
+| Pending | 无 draft；可继续上传书籍补强 |
 
 ---
 
