@@ -255,21 +255,21 @@ export default async function HomePage() {
             <div>
               <h2 className="text-lg font-semibold text-slate-900">北京化工集团 · 初次交流</h2>
               <p className="mt-1 text-sm text-slate-600">
-                投资联动版 15 页：心理健康赛道、可持续性与扩展方向。另存介绍版与内部选型底稿。
+                主稿 17 页：脊柱 9 页 + 插件 P1–P5 原样保留，新增 P6 赛道与投资联动两页。
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
-              <a href="/api/download?file=bjhg-invest-deck.pptx">
+              <a href="/api/download?file=bjhg-final-deck-p6.pptx">
                 <Button>
                   <Download className="h-4 w-4" />
-                  下载投资联动版
+                  下载主稿（含 P6）
                 </Button>
               </a>
               <a href="/api/download?file=bjhg-final-deck.pptx">
-                <Button variant="outline">介绍版</Button>
+                <Button variant="outline">不含 P6 版</Button>
               </a>
-              <a href="/api/download?file=bjhg-spine-plugins.pptx">
-                <Button variant="outline">选型稿</Button>
+              <a href="/api/download?file=bjhg-invest-deck.pptx">
+                <Button variant="outline">纯赛道版</Button>
               </a>
             </div>
           </div>
