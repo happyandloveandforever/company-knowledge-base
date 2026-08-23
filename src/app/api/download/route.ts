@@ -75,6 +75,14 @@ const ALLOWED: Record<string, { file: string; type: string }> = {
     file: "漂浮方舟_北京化工集团_心理健康赛道_投资联动版.pptx",
     type: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
   },
+  "bjhg-mental-health-invest.pptx": {
+    file: "漂浮方舟_北京化工集团_心理健康产业投资交流_精排版.pptx",
+    type: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  },
+  "北京化工集团-心理健康产业投资交流-精排版.pptx": {
+    file: "漂浮方舟_北京化工集团_心理健康产业投资交流_精排版.pptx",
+    type: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  },
 };
 
 export async function GET(request: NextRequest) {

@@ -250,6 +250,24 @@ export default async function HomePage() {
 
       {/* Export */}
       <section className="mt-8 space-y-4">
+        <div className="rounded-xl border border-amber-200 bg-amber-50/70 p-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h2 className="text-lg font-semibold text-slate-900">北化心理健康产业投资交流 · 精排版</h2>
+              <p className="mt-1 text-sm text-slate-600">
+                按你认可的成品文字重排，15 页不删字。浏览器全屏演示，或下载 PPTX。
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <a href="/decks/bjhg-mental-health-invest/">
+                <Button>打开网页演示</Button>
+              </a>
+              <a href="/api/download?file=bjhg-mental-health-invest.pptx">
+                <Button variant="outline">下载精排版 PPTX</Button>
+              </a>
+            </div>
+          </div>
+        </div>
         <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
