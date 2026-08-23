@@ -51,6 +51,14 @@ const ALLOWED: Record<string, { file: string; type: string }> = {
     file: "北化交流_脊柱加插件_给合伙人.pptx",
     type: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
   },
+  "bjhg-final-deck.pptx": {
+    file: "漂浮方舟_北京化工集团_初次交流_全插件版.pptx",
+    type: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  },
+  "北京化工集团-初次交流-全插件版.pptx": {
+    file: "漂浮方舟_北京化工集团_初次交流_全插件版.pptx",
+    type: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  },
 };
 
 export async function GET(request: NextRequest) {
