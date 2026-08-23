@@ -171,8 +171,8 @@ Vercel 快速部署（GitHub 镜像完成后）：
 
 | 指标 | 数值 |
 |------|------|
-| 知识点总数 | **435**（全部 `approved`） |
-| 已导入文件 | **11** |
+| 知识点总数 | **460**（435 `approved` + 25 `draft`） |
+| 已导入文件 | **13** |
 | 待 Claude 拆分队列 | 0 |
 
 ### 已入库文件
@@ -190,6 +190,8 @@ Vercel 快速部署（GitHub 镜像完成后）：
 | 宣讲设计稿·构想与通识框架 v1 | SRC-SPEECH-CRAFT | KP-CRAFT-001 ~ 025 | 25 | done，已批准 | 构想/通识设计 |
 | 建立医用失重舱进行康复治疗的思考.docx | SRC-MED-WEIGHTLESS | KP-MEDW-001 ~ 014 | 14 | done，已批准 | claude-agent |
 | 100个论文原子.md | SRC-MEV-100-ATOMS | KP-MEV-001 ~ 103 | 103 | done，已批准 | claude-agent |
+| 消杀.pptx | SRC-SANITIZE-PPT | KP-SAN-001 ~ 015 | 15 | done，**draft 待审** | claude-agent |
+| 项目核心实验方案.docx | SRC-CORE-EXP | KP-EXP-001 ~ 010 | 10 | done，**draft 待审** | claude-agent |
 
 ### 待办
 
@@ -201,6 +203,7 @@ Vercel 快速部署（GitHub 镜像完成后）：
 - [x] 审核 `KP-MEDW-*`（14）
 - [x] 审核 `KP-MEV-*`（103）；对外仍遵守红线 KP-MEV-102
 - [ ] 上传优先书籍：睡眠/REST综述/体验经济/主动健康政策
+- [ ] 审核 `KP-SAN-*`（15）与 `KP-EXP-*`（10）；乳酸口径与 N=5 表勿当铁证
 - [ ] 继续导入更多历史材料
 
 
@@ -340,6 +343,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-23 | Claude 精细拆分《建立医用失重舱进行康复治疗的思考》：14条（KP-MEDW），并写明与漂浮REST边界，库总量→332 |
 | 2026-08-23 | 入库《100个论文原子》：103条（KP-MEV-001~103，含用法/红线），库总量→435 |
 | 2026-08-23 | 批准全部 draft：宣讲25 + 失重舱14 + 论文原子103；库内 435 条全部 approved |
+| 2026-08-23 | 入库消杀.pptx 15条 + 核心实验方案 10条（draft），库总量→460；标注乳酸冲突与小样本预实验 |
 
 
 ---

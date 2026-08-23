@@ -549,5 +549,52 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "100个论文原子 + 3条用法/红线，共103条 draft"
+  },
+  {
+    "id": "SRC-SANITIZE-PPT",
+    "filename": "消杀.pptx",
+    "fileType": "pptx",
+    "uploadedAt": "2026-08-23T01:51:26.885Z",
+    "knowledgePointIds": [
+      "KP-SAN-001",
+      "KP-SAN-002",
+      "KP-SAN-003",
+      "KP-SAN-004",
+      "KP-SAN-005",
+      "KP-SAN-006",
+      "KP-SAN-007",
+      "KP-SAN-008",
+      "KP-SAN-009",
+      "KP-SAN-010",
+      "KP-SAN-011",
+      "KP-SAN-012",
+      "KP-SAN-013",
+      "KP-SAN-014",
+      "KP-SAN-015"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "26页运动消杀PPT→15条。乳酸表与MEV-021冲突已标注。"
+  },
+  {
+    "id": "SRC-CORE-EXP",
+    "filename": "项目核心实验方案.docx",
+    "fileType": "docx",
+    "uploadedAt": "2026-08-23T01:51:26.917Z",
+    "knowledgePointIds": [
+      "KP-EXP-001",
+      "KP-EXP-002",
+      "KP-EXP-003",
+      "KP-EXP-004",
+      "KP-EXP-005",
+      "KP-EXP-006",
+      "KP-EXP-007",
+      "KP-EXP-008",
+      "KP-EXP-009",
+      "KP-EXP-010"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "10条。N=5预实验与氢氧/光频参数标为申报口径。"
   }
 ]

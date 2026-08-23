@@ -47,7 +47,7 @@
 
 ```
 Read CONTEXT-HANDOFF.md, START-HERE.md, and PROJECT.md first.
-Do NOT rebuild the project. data/knowledge-points.json has 435 points.
+Do NOT rebuild the project. data/knowledge-points.json has 460 points.
 Continue the company knowledge base work.
 ```
 
@@ -57,8 +57,8 @@ Continue the company knowledge base work.
 
 | Item | Status |
 |------|--------|
-| Knowledge points | **435**（全部 approved） |
-| Sources | 既有 PDF + 宣讲设计 + 失重舱综述 + 100论文原子 |
+| Knowledge points | **460**（435 approved + 25 draft：消杀15+实验方案10） |
+| Sources | 既有材料 + 消杀.pptx + 项目核心实验方案 |
 | Web app | Next.js, port 43123 |
 | Split mode | Cursor Claude in chat（构想/通识也可直接写入） |
 | Pending | 无 draft；可继续上传书籍补强 |
