@@ -171,7 +171,7 @@ Vercel 快速部署（GitHub 镜像完成后）：
 
 | 指标 | 数值 |
 |------|------|
-| 知识点总数 | **361**（352 `approved` + 9 `draft`） |
+| 知识点总数 | **361**（356 `approved` + 5 `draft`） |
 | 已导入文件 | **17**（过厚层已压缩，条数少于原稿拆出数） |
 | 待 Claude 拆分队列 | 0 |
 | 结构判断 | 论文原子与跨稿宣传重复已压缩；经营层有 SOP。仍缺锁数字与真实案例 |
@@ -193,9 +193,9 @@ Vercel 快速部署（GitHub 镜像完成后）：
 | 消杀.pptx | SRC-SANITIZE-PPT | KP-SAN-*（缺 015） | 14 | done，已批准 | claude-agent |
 | 项目核心实验方案.docx | SRC-CORE-EXP | KP-EXP-*（缺 001） | 9 | done，已批准 | claude-agent |
 | 公开文献与标准摘录（Web） | SRC-WEB-ENRICH | KP-WEB-001 ~ 012 | 12 | done，已批准 | 网上高价值摘录 |
-| 优浮医疗联合运营执行方案.doc | SRC-YFOP-OPS | KP-YFOP-001 ~ 010 | 10 | done，**draft 待审** | claude-agent |
-| 医学漂浮诊疗方案.ppt | SRC-MEDF-PLAN | KP-MEDF-001 ~ 014 | 14 | done，**draft 待审** | claude-agent |
-| 漂浮方舟_SOP手册260519.pdf | SRC-SOP-260519 | KP-SOP-001 ~ 022 | 22 | done，**draft 待审** | claude-agent |
+| 优浮医疗联合运营执行方案.doc | SRC-YFOP-OPS | KP-YFOP-001 ~ 010 | 10 | done，余 4 条 draft | claude-agent |
+| 医学漂浮诊疗方案.ppt | SRC-MEDF-PLAN | KP-MEDF-001 ~ 014 | 14 | done，余 1 条 draft | claude-agent |
+| 漂浮方舟_SOP手册260519.pdf | SRC-SOP-260519 | KP-SOP-001 ~ 022 | 22 | done，已批准 | claude-agent |
 
 ### 结构体检（2026-08-23）
 
@@ -218,7 +218,8 @@ Vercel 快速部署（GitHub 镜像完成后）：
 - [x] 审核 `KP-SAN-*`（现 14）与 `KP-EXP-*`（现 9）；乳酸与 N=5 仍勿当铁证
 - [x] 审核网上补强卡 `KP-WEB-001~012`（Feinstein 纠偏、NSF 卫生、透皮镁、健康中国、证据金字塔）
 - [x] 拆分优浮联合运营 / 医学诊疗 PPT / 开业 SOP（46 条 draft）
-- [ ] **审核 `KP-SOP-*`（22）`KP-YFOP-*`（10）`KP-MEDF-*`（14）**；院内稿与独立门店勿混用
+- [x] 审核开业 SOP 22 条
+- [ ] 审核剩余 5 条 draft（YFOP-001/007/008/009，MEDF-009）
 - [ ] 老板锁：对外数字 + SOP 水温 + 是否沿用优浮历史价
 - [ ] 用户提供：可公开案例回访（SOP 已补水质/消杀/岗位，售后制度仍缺厂家维保原文）
 - [ ] 上传优先书籍：睡眠/REST综述/体验经济

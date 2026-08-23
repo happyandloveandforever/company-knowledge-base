@@ -47,7 +47,7 @@
 
 ```
 Read CONTEXT-HANDOFF.md, START-HERE.md, and PROJECT.md first.
-Do NOT rebuild the project. data/knowledge-points.json has 361 points (352 approved + 9 draft).
+Do NOT rebuild the project. data/knowledge-points.json has 361 points (356 approved + 5 draft).
 Do NOT re-run import-mev-atoms.mjs to recreate 100 paper atoms.
 Continue the company knowledge base work.
 ```
@@ -58,7 +58,7 @@ Continue the company knowledge base work.
 
 | Item | Status |
 |------|--------|
-| Knowledge points | **361**（352 approved + 9 draft） |
+| Knowledge points | **361**（356 approved + 5 draft） |
 | Sources | 既有 + WEB + SOP/YFOP/MEDF；MEV 已主题合并 |
 | Web app | Next.js, port 43123 |
 | Split mode | Cursor Claude in chat（构想/通识也可直接写入） |
