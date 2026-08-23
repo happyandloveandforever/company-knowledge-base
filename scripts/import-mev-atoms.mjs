@@ -1279,8 +1279,8 @@ const kpPath = path.join(dataDir, "knowledge-points.json");
 const sourcesPath = path.join(dataDir, "sources.json");
 const existing = JSON.parse(readFileSync(kpPath, "utf-8"));
 
-if (existing.some((p) => p.id === "KP-MEV-001")) {
-  console.log("论文原子已存在，跳过。总数:", existing.length);
+if (existing.some((p) => p.id === "KP-MEV-001" || p.id === "KP-MEV-201")) {
+  console.log("论文原子已入库或已主题合并，跳过。勿再生成100条。总数:", existing.length);
   process.exit(0);
 }
 

@@ -20,13 +20,12 @@
           "KP-V7-001",
           "KP-FAF-001",
           "KP-BRAND-001",
-          "KP-BG2-001",
           "KP-BG2-006",
-          "KP-BG2-009",
+          "KP-MECH-003",
           "KP-MECH-001",
-          "KP-BG2-033",
-          "KP-BG2-034",
-          "KP-BG2-039",
+          "KP-WEB-010",
+          "KP-WEB-002",
+          "KP-WEB-003",
           "KP-BG2-040",
           "KP-BG2-041",
           "KP-CHAMP-001",
@@ -36,15 +35,13 @@
           "KP-CHAMP-013",
           "KP-CHAMP-017",
           "KP-CHAMP-022",
-          "KP-BG2-053",
-          "KP-BG2-055",
-          "KP-BG2-060",
-          "KP-BG2-061",
+          "KP-BRAND-032",
+          "KP-BRAND-031",
+          "KP-BRAND-021",
           "KP-BG2-073",
           "KP-BG2-048",
           "KP-BG2-071",
           "KP-BG2-074",
-          "KP-BRAND-021",
           "KP-BRAND-022",
           "KP-V7-002"
         ],
@@ -62,8 +59,7 @@
         ],
         "knowledgePointIds": [
           "KP-BG2-003",
-          "KP-BG2-009",
-          "KP-BG2-001",
+          "KP-MECH-003",
           "KP-BRAND-001"
         ],
         "logicStep": "深入浅出",
@@ -96,7 +92,7 @@
           "目标：让深度恢复像工业品一样稳定、可检验、可扩张"
         ],
         "knowledgePointIds": [
-          "KP-BG2-001",
+          "KP-BRAND-001",
           "KP-V7-001",
           "KP-FAF-001",
           "KP-BG2-064"
@@ -115,7 +111,7 @@
         ],
         "knowledgePointIds": [
           "KP-MECH-001",
-          "KP-BG2-009",
+          "KP-MECH-003",
           "KP-CHAMP-001"
         ],
         "logicStep": "机理浅讲",
@@ -131,9 +127,9 @@
           "我们的态度同样国际：证据充分处敢讲，证据不足处不包装万能疗法"
         ],
         "knowledgePointIds": [
-          "KP-BG2-033",
-          "KP-BG2-034",
-          "KP-BG2-039",
+          "KP-WEB-010",
+          "KP-WEB-002",
+          "KP-WEB-003",
           "KP-BG2-040"
         ],
         "logicStep": "学术辉煌",
@@ -168,9 +164,8 @@
         ],
         "knowledgePointIds": [
           "KP-CHAMP-013",
-          "KP-BG2-061",
-          "KP-CHAMP-003",
-          "KP-BG2-055"
+          "KP-BRAND-031",
+          "KP-CHAMP-003"
         ],
         "logicStep": "信任辉煌",
         "speakerNotes": "强调「能进严肃客户门」。二类器械推进中可口头补充，不写成已拿证。"
@@ -203,8 +198,8 @@
         ],
         "knowledgePointIds": [
           "KP-BRAND-022",
-          "KP-BG2-060",
-          "KP-BG2-055",
+          "KP-BRAND-021",
+          "KP-BRAND-031",
           "KP-BG2-073"
         ],
         "logicStep": "生态辉煌",
@@ -220,7 +215,7 @@
           "专精特新与双高等级企业背书，深度参与行业标准制定"
         ],
         "knowledgePointIds": [
-          "KP-BG2-053",
+          "KP-BRAND-032",
           "KP-CHAMP-022",
           "KP-BG2-073"
         ],
@@ -272,7 +267,7 @@
           "谢谢。欢迎用最尖锐的问题考验我们。"
         ],
         "knowledgePointIds": [
-          "KP-BG2-001",
+          "KP-BRAND-001",
           "KP-BG2-073",
           "KP-CHAMP-022"
         ],
@@ -284,13 +279,12 @@
       "KP-V7-001",
       "KP-FAF-001",
       "KP-BRAND-001",
-      "KP-BG2-001",
       "KP-BG2-006",
-      "KP-BG2-009",
+      "KP-MECH-003",
       "KP-MECH-001",
-      "KP-BG2-033",
-      "KP-BG2-034",
-      "KP-BG2-039",
+      "KP-WEB-010",
+      "KP-WEB-002",
+      "KP-WEB-003",
       "KP-BG2-040",
       "KP-BG2-041",
       "KP-CHAMP-001",
@@ -300,15 +294,13 @@
       "KP-CHAMP-013",
       "KP-CHAMP-017",
       "KP-CHAMP-022",
-      "KP-BG2-053",
-      "KP-BG2-055",
-      "KP-BG2-060",
-      "KP-BG2-061",
+      "KP-BRAND-032",
+      "KP-BRAND-031",
+      "KP-BRAND-021",
       "KP-BG2-073",
       "KP-BG2-048",
       "KP-BG2-071",
       "KP-BG2-074",
-      "KP-BRAND-021",
       "KP-BRAND-022",
       "KP-V7-002"
     ],
@@ -335,19 +327,17 @@
           "KP-V7-001",
           "KP-V7-002",
           "KP-BRAND-001",
-          "KP-BG2-001",
           "KP-BG2-003",
           "KP-BG2-006",
-          "KP-BG2-009",
-          "KP-BG2-033",
-          "KP-BG2-034",
+          "KP-MECH-003",
+          "KP-WEB-010",
+          "KP-WEB-002",
           "KP-BG2-040",
           "KP-BG2-041",
           "KP-BG2-048",
           "KP-BG2-051",
-          "KP-BG2-055",
+          "KP-BRAND-031",
           "KP-BG2-057",
-          "KP-BG2-061",
           "KP-BG2-064",
           "KP-BG2-071",
           "KP-BG2-074",
@@ -369,7 +359,7 @@
           "可能和贵集团怎么同路：先找契合，不急于谈条款"
         ],
         "knowledgePointIds": [
-          "KP-BG2-001",
+          "KP-BRAND-001",
           "KP-V7-001"
         ],
         "logicStep": "交流目标",
@@ -433,8 +423,8 @@
           "主张：激活自愈与恢复能力的入口，而不是单次新奇体验"
         ],
         "knowledgePointIds": [
-          "KP-BG2-009",
-          "KP-BG2-001",
+          "KP-MECH-003",
+          "KP-BRAND-001",
           "KP-BG2-027",
           "KP-BG2-064"
         ],
@@ -451,8 +441,8 @@
           "对外原则：卖可验证的深度恢复，不卖「治病」"
         ],
         "knowledgePointIds": [
-          "KP-BG2-033",
-          "KP-BG2-034",
+          "KP-WEB-010",
+          "KP-WEB-002",
           "KP-BG2-040",
           "KP-BG2-041"
         ],
@@ -473,7 +463,7 @@
           "KP-CHAMP-007",
           "KP-BG2-048",
           "KP-BG2-051",
-          "KP-BG2-055"
+          "KP-BRAND-031"
         ],
         "logicStep": "方向对齐",
         "speakerNotes": "本页是全场关键。用「供讨论」语气，邀请对方修正：贵集团更关心抗衰赛道、园区载体，还是企业服务？我们按对方真实需求收窄。"
@@ -524,7 +514,7 @@
           "合作纪律：参数与承诺以型号铭牌、合同和技术文件为准"
         ],
         "knowledgePointIds": [
-          "KP-BG2-061",
+          "KP-BRAND-031",
           "KP-CHAMP-013"
         ],
         "logicStep": "信任基础",
@@ -565,19 +555,17 @@
       "KP-V7-001",
       "KP-V7-002",
       "KP-BRAND-001",
-      "KP-BG2-001",
       "KP-BG2-003",
       "KP-BG2-006",
-      "KP-BG2-009",
-      "KP-BG2-033",
-      "KP-BG2-034",
+      "KP-MECH-003",
+      "KP-WEB-010",
+      "KP-WEB-002",
       "KP-BG2-040",
       "KP-BG2-041",
       "KP-BG2-048",
       "KP-BG2-051",
-      "KP-BG2-055",
+      "KP-BRAND-031",
       "KP-BG2-057",
-      "KP-BG2-061",
       "KP-BG2-064",
       "KP-BG2-071",
       "KP-BG2-074",
@@ -606,10 +594,7 @@
           "演讲逻辑：问题 → 方案 → 案例",
           "知识点数量：2 个"
         ],
-        "knowledgePointIds": [
-          "KP-DEMO-001",
-          "KP-DEMO-002"
-        ],
+        "knowledgePointIds": [],
         "logicStep": "封面",
         "speakerNotes": "本次演讲面向新人销售，采用「问题 → 方案 → 案例」结构。"
       },
@@ -623,9 +608,7 @@
           "「我理解您的考量，很多客户一开始也有类似的想法。」",
           "第三步：价值传递"
         ],
-        "knowledgePointIds": [
-          "KP-DEMO-001"
-        ],
+        "knowledgePointIds": [],
         "logicStep": "开场与目标",
         "speakerNotes": "开场与目标\n\n面对客户价格异议时，采用「倾听-共情-价值」三步法，先理解真实顾虑，再传递产品价值。"
       },
@@ -638,9 +621,7 @@
           "风险控制：合规审计通过率 99.7%",
           "核心差异化：行业唯一支持端到端自动化的解决方案"
         ],
-        "knowledgePointIds": [
-          "KP-DEMO-002"
-        ],
+        "knowledgePointIds": [],
         "logicStep": "问题与痛点",
         "speakerNotes": "问题与痛点\n\n我们的产品在效率提升、成本节约、风险控制三个维度为客户创造可量化的价值。"
       },
@@ -697,10 +678,7 @@
         "speakerNotes": "感谢聆听，欢迎提问。"
       }
     ],
-    "knowledgePointIds": [
-      "KP-DEMO-001",
-      "KP-DEMO-002"
-    ],
+    "knowledgePointIds": [],
     "createdAt": "2026-08-22T11:03:59.743Z"
   }
 ]

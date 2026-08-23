@@ -171,26 +171,25 @@ Vercel 快速部署（GitHub 镜像完成后）：
 
 | 指标 | 数值 |
 |------|------|
-| 知识点总数 | **516**（470 `approved` + 46 `draft`） |
-| 已导入文件 | **17** |
+| 知识点总数 | **361**（352 `approved` + 9 `draft`） |
+| 已导入文件 | **17**（过厚层已压缩，条数少于原稿拆出数） |
 | 待 Claude 拆分队列 | 0 |
-| 结构判断 | 经营层已补 SOP；论文/宣传仍厚。新冲突：**院内诊疗稿 vs 独立门店 SOP** |
+| 结构判断 | 论文原子与跨稿宣传重复已压缩；经营层有 SOP。仍缺锁数字与真实案例 |
 
 ### 已入库文件
 
 | 文件 | 来源 ID | 知识点 ID 范围 | 条数 | 状态 | 拆分方式 |
 |------|---------|----------------|------|------|----------|
-| 漂浮方舟_杨浦区财务.pdf | SRC-FAF-YANGPU | KP-FAF-001 ~ 054 | 54 | done，已批准 | claude-agent |
-| B端定稿.pdf | SRC-B2B-YILING | KP-B2B-001 ~ 050 | 50 | done，已批准 | claude-agent |
+| 漂浮方舟_杨浦区财务.pdf | SRC-FAF-YANGPU | KP-FAF-*（去重后） | 41 | done，已批准 | claude-agent |
+| B端定稿.pdf | SRC-B2B-YILING | KP-B2B-*（去重后） | 34 | done，已批准 | claude-agent |
 | （已压缩）漂浮方舟 · 品牌画册.pdf | SRC-BRAND-BROCHURE | KP-BRAND-*（缺002） | 44 | done，多数已批准 | claude-agent |
 | 方舟机理.pdf | SRC-MECH-JILI | KP-MECH-001 ~ 013 | 13 | done，已批准 | claude-agent |
-| 漂浮方舟_v7.pdf | SRC-FAF-V7 | KP-V7-001 ~ 029 | 29 | done，已批准 | claude-agent |
-| 增强背景 1–40.pdf | SRC-BG2-ENHANCE | KP-BG2-001 ~ 038 | 38 | done，已批准 | claude-agent |
-| 增强背景 41–80.pdf | SRC-BG2-ENHANCE-B | KP-BG2-039 ~ 075 | 37 | done，已批准 | claude-agent |
+| 漂浮方舟_v7.pdf | SRC-FAF-V7 | KP-V7-*（去重后） | 27 | done，已批准 | claude-agent |
+| 增强背景 1–40 / 41–80.pdf | SRC-BG2-ENHANCE(-B) | KP-BG2-*（去重后） | 39 | done，已批准 | claude-agent |
 | 冠军系列产品配置说明.pdf | SRC-CHAMPION-CFG | KP-CHAMP-001 ~ 023 | 23 | done，已批准 | claude-agent |
 | 宣讲设计稿·构想与通识框架 v1 | SRC-SPEECH-CRAFT | KP-CRAFT-001 ~ 025 | 25 | done，已批准 | 构想/通识设计 |
 | 建立医用失重舱进行康复治疗的思考.docx | SRC-MED-WEIGHTLESS | KP-MEDW-001 ~ 014 | 14 | done，已批准 | claude-agent |
-| 100个论文原子.md | SRC-MEV-100-ATOMS | KP-MEV-001 ~ 103 | 103 | done，已批准 | claude-agent |
+| 100个论文原子.md | SRC-MEV-100-ATOMS | KP-MEV-021 + 101–103 + 201–216 | 20 | done，已批准 | 主题合并 |
 | 消杀.pptx | SRC-SANITIZE-PPT | KP-SAN-*（缺 015） | 14 | done，已批准 | claude-agent |
 | 项目核心实验方案.docx | SRC-CORE-EXP | KP-EXP-*（缺 001） | 9 | done，已批准 | claude-agent |
 | 公开文献与标准摘录（Web） | SRC-WEB-ENRICH | KP-WEB-001 ~ 012 | 12 | done，已批准 | 网上高价值摘录 |
@@ -202,8 +201,8 @@ Vercel 快速部署（GitHub 镜像完成后）：
 
 | 层 | 现状 | 建议 |
 |----|------|------|
-| 过厚 | `KP-MEV` 103 文献原子；产品/机理多版本重复（FAF/B2B/BRAND/V7/BG2）；客户定制稿占 104 条 | **停堆同类画册**；对外只用证据金字塔（`KP-WEB-010`） |
-| 已补 | 宣讲、失重舱、消杀、实验、网上纠偏、**开业SOP 22条**、优浮联合运营、医学诊疗讲义 | 先审 `KP-SOP/YFOP/MEDF` |
+| 已压缩 | 论文 103→20 主题卡；跨稿 REST史/专家复读/证据墙/功效分条/DEMO 已删 | 对外用 `KP-WEB-010` + 主题卡，勿再跑 `import-mev-atoms.mjs` |
+| 已补 | 宣讲、失重舱、消杀、实验、网上纠偏、**开业SOP 22条**、优浮联合运营、医学诊疗讲义 | 先审剩余 `KP-SOP/YFOP/MEDF` draft |
 | 过薄 | FAQ 仍空；真实具名案例仍空；公司一页纸 5；统一数字未锁 | **你必须提供**：机构/专利/C端锁定数字、可公开案例 |
 | 冲突 | 乳酸；Feinstein 非 RCT；**院内「治疗/处方」vs SOP「不治病」**；SOP 水温 36±0.5 / 38℃ / 36.5–39.5 | 独立门店跟 SOP；医院共建跟 YFOP/MEDF；温度与 58%/2000 项须老板锁 |
 
@@ -215,7 +214,7 @@ Vercel 快速部署（GitHub 镜像完成后）：
 - [x] 审核批准宣讲设计 `KP-CRAFT-*`（25）
 - [ ] 老板锁死对外数字口径后替换 KP-CRAFT-023
 - [x] 审核 `KP-MEDW-*`（14）
-- [x] 审核 `KP-MEV-*`（103）；对外仍遵守红线 KP-MEV-102
+- [x] 审核 `KP-MEV-*`；已主题合并为 20 条，对外仍遵守红线 KP-MEV-102
 - [x] 审核 `KP-SAN-*`（现 14）与 `KP-EXP-*`（现 9）；乳酸与 N=5 仍勿当铁证
 - [x] 审核网上补强卡 `KP-WEB-001~012`（Feinstein 纠偏、NSF 卫生、透皮镁、健康中国、证据金字塔）
 - [x] 拆分优浮联合运营 / 医学诊疗 PPT / 开业 SOP（46 条 draft）
@@ -367,6 +366,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-23 | 网上补强 12 条（KP-WEB-001~012，draft）：Feinstein 非 RCT、Garland 2024 可行性 RCT、Choquette 口径、NSF/NAFTS 卫生、透皮镁限度、乳酸仲裁、REST 九通道、健康中国/主动健康、证据金字塔、库体检、卫生检查单；库总量→470 |
 | 2026-08-23 | 批准全部 WEB 卡 KP-WEB-001~012；库内 470 条全部 approved，draft=0 |
 | 2026-08-23 | 精细拆分优浮联合运营10 + 医学诊疗14 + 开业SOP22（draft）；库总量→516；标注院内诊疗 vs 独立门店冲突 |
+| 2026-08-23 | 压缩过厚层：100论文原子→16主题卡；删除跨稿重复宣传与 DEMO；库 516→361 |
 
 
 ---

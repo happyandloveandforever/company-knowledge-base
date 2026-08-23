@@ -523,7 +523,7 @@ const kpPath = path.join(dataDir, "knowledge-points.json");
 const sourcesPath = path.join(dataDir, "sources.json");
 const existing = JSON.parse(readFileSync(kpPath, "utf-8"));
 
-if (existing.some((p) => p.id === "KP-BG2-039")) {
+if (existing.some((p) => p.id === "KP-BG2-039" || p.id === "KP-BG2-044")) {
   console.log("BG2 41-80 已存在，跳过。总数:", existing.length);
   process.exit(0);
 }

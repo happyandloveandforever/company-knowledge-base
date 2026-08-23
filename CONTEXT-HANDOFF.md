@@ -47,7 +47,8 @@
 
 ```
 Read CONTEXT-HANDOFF.md, START-HERE.md, and PROJECT.md first.
-Do NOT rebuild the project. data/knowledge-points.json has 516 points (470 approved + 46 draft SOP/YFOP/MEDF).
+Do NOT rebuild the project. data/knowledge-points.json has 361 points (352 approved + 9 draft).
+Do NOT re-run import-mev-atoms.mjs to recreate 100 paper atoms.
 Continue the company knowledge base work.
 ```
 
@@ -57,11 +58,11 @@ Continue the company knowledge base work.
 
 | Item | Status |
 |------|--------|
-| Knowledge points | **516**（470 approved + 46 draft：SOP22 + YFOP10 + MEDF14） |
-| Sources | 既有 + WEB + **SRC-SOP-260519 / SRC-YFOP-OPS / SRC-MEDF-PLAN** |
+| Knowledge points | **361**（352 approved + 9 draft） |
+| Sources | 既有 + WEB + SOP/YFOP/MEDF；MEV 已主题合并 |
 | Web app | Next.js, port 43123 |
 | Split mode | Cursor Claude in chat（构想/通识也可直接写入） |
-| Pending | 审核 SOP/YFOP/MEDF；锁数字与水温；补真实案例 |
+| Pending | 审核剩余 draft；锁数字与水温；补真实案例 |
 
 ---
 
