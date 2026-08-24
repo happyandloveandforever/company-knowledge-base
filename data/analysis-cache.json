@@ -1,0 +1,286 @@
+{
+  "version": 1,
+  "pointsHash": "1d196845385ed5cd",
+  "pointsCount": 361,
+  "computedAt": "2026-08-23T08:00:50.271Z",
+  "similarities": {
+    "KP-FAF-040": [
+      {
+        "id": "KP-B2B-043",
+        "title": "战略合作伙伴生态",
+        "score": 0.68,
+        "level": "similar"
+      }
+    ],
+    "KP-B2B-043": [
+      {
+        "id": "KP-FAF-040",
+        "title": "战略合作伙伴",
+        "score": 0.68,
+        "level": "similar"
+      },
+      {
+        "id": "KP-V7-020",
+        "title": "六大签约合作伙伴矩阵",
+        "score": 0.62,
+        "level": "similar"
+      }
+    ],
+    "KP-V7-020": [
+      {
+        "id": "KP-B2B-043",
+        "title": "战略合作伙伴生态",
+        "score": 0.62,
+        "level": "similar"
+      }
+    ],
+    "KP-CHAMP-015": [
+      {
+        "id": "KP-CHAMP-016",
+        "title": "FA-O型关键工程参数",
+        "score": 0.58,
+        "level": "similar"
+      }
+    ],
+    "KP-CHAMP-016": [
+      {
+        "id": "KP-CHAMP-015",
+        "title": "FA-D型关键工程参数",
+        "score": 0.58,
+        "level": "similar"
+      }
+    ]
+  },
+  "contentConflicts": {
+    "KP-FAF-027": [
+      {
+        "id": "KP-V7-013",
+        "title": "神经重置窗口：重力剥夺、感官降噪、低频共振",
+        "topic": "路径",
+        "myValue": "4个路径",
+        "theirValue": "3个路径",
+        "mySnippet": "记忆或完成认知重构。四条路径中唯一直接作用于意识层面的调控",
+        "theirSnippet": "启动清理代谢废物。 三大路径：01 重力剥夺；02 感官降"
+      }
+    ],
+    "KP-V7-013": [
+      {
+        "id": "KP-FAF-027",
+        "title": "干预路径04：语音引导（意识层介入）",
+        "topic": "路径",
+        "myValue": "4个路径",
+        "theirValue": "3个路径",
+        "mySnippet": "记忆或完成认知重构。四条路径中唯一直接作用于意识层面的调控",
+        "theirSnippet": "启动清理代谢废物。 三大路径：01 重力剥夺；02 感官降"
+      }
+    ],
+    "KP-B2B-020": [
+      {
+        "id": "KP-BRAND-045",
+        "title": "品牌画册销售话术主线：问题—科学—系统—交付",
+        "topic": "模块",
+        "myValue": "6个模块",
+        "theirValue": "4个模块",
+        "mySnippet": "、声、氢干预参数。 六大模块协同作用，实现系统性神经-代谢",
+        "theirSnippet": "vs 传统漂浮舱；四大模块库护城河 4. 产品交付：O/"
+      }
+    ],
+    "KP-BRAND-045": [
+      {
+        "id": "KP-B2B-020",
+        "title": "V4.0 M6 AI调度芯片",
+        "topic": "模块",
+        "myValue": "6个模块",
+        "theirValue": "4个模块",
+        "mySnippet": "、声、氢干预参数。 六大模块协同作用，实现系统性神经-代谢",
+        "theirSnippet": "vs 传统漂浮舱；四大模块库护城河 4. 产品交付：O/"
+      },
+      {
+        "id": "KP-V7-029",
+        "title": "v7销售叙事主线：损失—机制—系统—试点",
+        "topic": "模块",
+        "myValue": "4个模块",
+        "theirValue": "6个模块",
+        "mySnippet": "vs 传统漂浮舱；四大模块库护城河 4. 产品交付：O/",
+        "theirSnippet": "+ M1–M7 + 六大模块协同 + 三类产品线 5. 信"
+      }
+    ],
+    "KP-B2B-022": [
+      {
+        "id": "KP-V7-021",
+        "title": "六大模块矩阵：方舟枢纽+氢光营养恢复评估",
+        "topic": "模块",
+        "myValue": "6个模块",
+        "theirValue": "5个模块",
+        "mySnippet": "+ 靶向加法」— 六大模块生理干预，主动重塑功能 · 干",
+        "theirSnippet": "恢复调节与数字化评估五大模块。 核心枢纽：漂浮方舟 B 氢"
+      }
+    ],
+    "KP-V7-021": [
+      {
+        "id": "KP-B2B-022",
+        "title": "REST vs 漂浮方舟V4.0：被动减法 vs 主动干预",
+        "topic": "模块",
+        "myValue": "6个模块",
+        "theirValue": "5个模块",
+        "mySnippet": "+ 靶向加法」— 六大模块生理干预，主动重塑功能 · 干",
+        "theirSnippet": "恢复调节与数字化评估五大模块。 核心枢纽：漂浮方舟 B 氢"
+      }
+    ],
+    "KP-V7-029": [
+      {
+        "id": "KP-BRAND-045",
+        "title": "品牌画册销售话术主线：问题—科学—系统—交付",
+        "topic": "模块",
+        "myValue": "4个模块",
+        "theirValue": "6个模块",
+        "mySnippet": "vs 传统漂浮舱；四大模块库护城河 4. 产品交付：O/",
+        "theirSnippet": "+ M1–M7 + 六大模块协同 + 三类产品线 5. 信"
+      }
+    ],
+    "KP-BG2-014": [
+      {
+        "id": "KP-MEDF-010",
+        "title": "疗效六因子：基因、离店应激、店环境、液、舱、漂浮师",
+        "topic": "功效",
+        "myValue": "9个功效",
+        "theirValue": "5个功效",
+        "mySnippet": "九大功效一览（辅助定位，已合并分条）",
+        "theirSnippet": "人为压力 4 漂浮液功效 5 漂浮舱：刺激最小化、模式、引导"
+      }
+    ],
+    "KP-MEDF-010": [
+      {
+        "id": "KP-BG2-014",
+        "title": "九大功效一览（辅助定位，已合并分条）",
+        "topic": "功效",
+        "myValue": "9个功效",
+        "theirValue": "5个功效",
+        "mySnippet": "九大功效一览（辅助定位，已合并分条）",
+        "theirSnippet": "人为压力 4 漂浮液功效 5 漂浮舱：刺激最小化、模式、引导"
+      }
+    ]
+  },
+  "conflictGroups": [
+    {
+      "id": "CG-NUM-KP-V7-013",
+      "topic": "路径",
+      "type": "numeric",
+      "memberIds": [
+        "KP-FAF-027",
+        "KP-V7-013"
+      ],
+      "allowedConflict": false,
+      "details": [
+        "路径：4个路径 vs 3个路径"
+      ]
+    },
+    {
+      "id": "CG-NUM-KP-V7-029",
+      "topic": "模块",
+      "type": "numeric",
+      "memberIds": [
+        "KP-B2B-020",
+        "KP-BRAND-045",
+        "KP-V7-029"
+      ],
+      "allowedConflict": false,
+      "details": [
+        "模块：6个模块 vs 4个模块",
+        "模块：4个模块 vs 6个模块"
+      ]
+    },
+    {
+      "id": "CG-NUM-KP-V7-021",
+      "topic": "模块",
+      "type": "numeric",
+      "memberIds": [
+        "KP-B2B-022",
+        "KP-V7-021"
+      ],
+      "allowedConflict": false,
+      "details": [
+        "模块：6个模块 vs 5个模块"
+      ]
+    },
+    {
+      "id": "CG-NUM-KP-MEDF-010",
+      "topic": "功效",
+      "type": "numeric",
+      "memberIds": [
+        "KP-BG2-014",
+        "KP-MEDF-010"
+      ],
+      "allowedConflict": false,
+      "note": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。",
+      "details": [
+        "功效：9个功效 vs 5个功效"
+      ]
+    },
+    {
+      "id": "CG-DEF-定位-KP-BRAND-001-KP-FAF-001",
+      "topic": "定位（多种表述）",
+      "type": "definition",
+      "memberIds": [
+        "KP-FAF-001",
+        "KP-BRAND-001"
+      ],
+      "allowedConflict": false,
+      "details": [
+        "漂浮方舟：非药物神经重置系统定位 ↔ 漂浮方舟品牌定位：标准化可复制的身心恢复系统"
+      ]
+    },
+    {
+      "id": "CG-DEF-定位-KP-BRAND-006-KP-FAF-001",
+      "topic": "定位（多种表述）",
+      "type": "definition",
+      "memberIds": [
+        "KP-FAF-001",
+        "KP-BRAND-006"
+      ],
+      "allowedConflict": false,
+      "details": [
+        "漂浮方舟：非药物神经重置系统定位 ↔ 可编程神经重置系统：定义主动恢复新物种"
+      ]
+    },
+    {
+      "id": "CG-DEF-定位-KP-FAF-001-KP-V7-001",
+      "topic": "定位（多种表述）",
+      "type": "definition",
+      "memberIds": [
+        "KP-FAF-001",
+        "KP-V7-001"
+      ],
+      "allowedConflict": false,
+      "details": [
+        "漂浮方舟：非药物神经重置系统定位 ↔ 漂浮方舟v7定位：心理健康主动干预系统"
+      ]
+    },
+    {
+      "id": "CG-DEF-定位-KP-B2B-001-KP-V7-001",
+      "topic": "定位（多种表述）",
+      "type": "definition",
+      "memberIds": [
+        "KP-B2B-001",
+        "KP-V7-001"
+      ],
+      "allowedConflict": false,
+      "details": [
+        "漂浮方舟×一龄集团战略合作提案定位 ↔ 漂浮方舟v7定位：心理健康主动干预系统"
+      ]
+    },
+    {
+      "id": "CG-DEF-定位-KP-BRAND-001-KP-V7-001",
+      "topic": "定位（多种表述）",
+      "type": "definition",
+      "memberIds": [
+        "KP-BRAND-001",
+        "KP-V7-001"
+      ],
+      "allowedConflict": false,
+      "details": [
+        "漂浮方舟品牌定位：标准化可复制的身心恢复系统 ↔ 漂浮方舟v7定位：心理健康主动干预系统"
+      ]
+    }
+  ]
+}

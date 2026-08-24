@@ -39,8 +39,7 @@ yarn-error.log*
 # uploads (user files)
 /uploads
 
-# computed analysis cache (auto-regenerated)
-/data/analysis-cache.json
+# analysis-cache.json 入库，便于 Vercel 只读部署直接打开首页
 
 # claude split queue (runtime)
 /data/split-queue.json

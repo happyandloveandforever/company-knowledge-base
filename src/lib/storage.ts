@@ -11,8 +11,12 @@ const SOURCES_FILE = path.join(DATA_DIR, "sources.json");
 const OUTLINES_FILE = path.join(DATA_DIR, "outlines.json");
 
 async function ensureDirs() {
-  await fs.mkdir(DATA_DIR, { recursive: true });
-  await fs.mkdir(UPLOADS_DIR, { recursive: true });
+  try {
+    await fs.mkdir(DATA_DIR, { recursive: true });
+    await fs.mkdir(UPLOADS_DIR, { recursive: true });
+  } catch {
+    // Vercel 等只读文件系统上 mkdir 会失败，读取仍可用仓库里的 data/
+  }
 }
 
 async function readJson<T>(filePath: string, fallback: T): Promise<T> {

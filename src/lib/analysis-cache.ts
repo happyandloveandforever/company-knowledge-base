@@ -77,8 +77,12 @@ async function readCacheFile(): Promise<AnalysisCacheFile | null> {
 }
 
 async function writeCacheFile(data: AnalysisCacheFile): Promise<void> {
-  await fs.mkdir(path.dirname(CACHE_FILE), { recursive: true });
-  await fs.writeFile(CACHE_FILE, JSON.stringify(data, null, 2), "utf-8");
+  try {
+    await fs.mkdir(path.dirname(CACHE_FILE), { recursive: true });
+    await fs.writeFile(CACHE_FILE, JSON.stringify(data, null, 2), "utf-8");
+  } catch {
+    // 只读部署（如 Vercel）无法写缓存，忽略即可
+  }
 }
 
 function computeAnalysis(points: KnowledgePoint[]): Omit<LibraryAnalysis, "cached"> {
