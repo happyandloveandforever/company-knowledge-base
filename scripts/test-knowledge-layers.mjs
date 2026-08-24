@@ -49,7 +49,7 @@ check("库总量不少于 450", points.length >= 450, String(points.length));
 
 // ── 培训教材隔离 ─────────────────────────────────────
 const trn = points.filter((p) => p.id.startsWith("KP-TRN-"));
-check("培训卡 KP-TRN 至少 71 条", trn.length >= 71, String(trn.length));
+check("培训卡 KP-TRN 至少 94 条", trn.length >= 94, String(trn.length));
 check("培训卡全部 usage=training", trn.every((p) => p.usage === "training"));
 check("培训卡全部 internalOnly", trn.every((p) => p.internalOnly === true));
 
@@ -81,6 +81,25 @@ check(
   "来源登记的 ID 与库内一致",
   !!trnSource && trnSource.knowledgePointIds.every((id) => points.some((p) => p.id === id))
 );
+
+const extraSrc = ["SRC-TRN-REACTION", "SRC-TRN-INDICATIONS", "SRC-TRN-CONTRA", "SRC-PRODUCT-MANUAL"];
+check(
+  "四份补充材料来源已记录",
+  extraSrc.every((id) => sources.some((s) => s.id === id && s.status === "done"))
+);
+check("KP-TRN-080 绝对禁忌存在", points.some((p) => p.id === "KP-TRN-080"));
+check("KP-SOP-023 门店拒客清单为 ops", points.find((p) => p.id === "KP-SOP-023")?.usage === "ops");
+check("KP-MAN-004 周维护为 ops", points.find((p) => p.id === "KP-MAN-004")?.usage === "ops");
+const newDrafts = ["KP-TRN-072", "KP-TRN-073", "KP-TRN-074", "KP-TRN-079"];
+check(
+  "好转反应理论与适应症清单仍为 draft",
+  newDrafts.every((id) => points.find((p) => p.id === id)?.status === "draft"),
+  newDrafts.filter((id) => points.find((p) => p.id === id)?.status !== "draft").join(",")
+);
+const indOps = points.filter(
+  (p) => p.usage === "ops" && /一般适应症分系统|类风湿性关节炎/.test(`${p.title}\n${p.body}`)
+);
+check("适应症病谱没有写进运营卡", indOps.length === 0, indOps.map((p) => p.id).join(","));
 
 if (failed) {
   console.log(`\n${failed} failed`);
