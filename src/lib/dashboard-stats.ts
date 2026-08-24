@@ -1,6 +1,6 @@
 import type { KnowledgePoint, SourceFile } from "./types";
 import type { LibraryAnalysis } from "./analysis-cache";
-import { countByLayer, countByUsage, countInternalOnly } from "./knowledge-layers";
+import { countByLayer, countByUsage, countInternalOnly, isInternalOnly } from "./knowledge-layers";
 
 export interface DashboardStats {
   total: number;
@@ -19,6 +19,7 @@ export interface DashboardStats {
   ops: number;
   both: number;
   internalOnly: number;
+  internalPending: number;
 }
 
 export function computeDashboardStats(
@@ -47,6 +48,7 @@ export function computeDashboardStats(
     ops: usages.ops,
     both: usages.both,
     internalOnly: countInternalOnly(points),
+    internalPending: points.filter((p) => isInternalOnly(p) && p.status !== "approved").length,
   };
 }
 
