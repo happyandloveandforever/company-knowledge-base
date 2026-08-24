@@ -164,8 +164,20 @@ export default async function HomePage() {
           </Link>
         </div>
         <p className="mt-3 text-sm text-slate-500">
-          培训初稿不是第三层：科学培训进通识层、SOP/产品培训进公司层，卡片用途标成「培训」。PPT 汇报用「汇报/提案」。
+          培训不是第三层：科学培训进通识层、SOP/产品培训进公司层，卡片用途标成「培训」。PPT 汇报用「汇报/提案」。
         </p>
+        {stats.internalOnly > 0 && (
+          <Link
+            href="/library?internal=only"
+            className="mt-3 flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800 hover:bg-red-100"
+          >
+            <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
+            <span>
+              <strong>{stats.internalOnly} 条仅内训</strong>
+              （漂浮师培训教材，含适应症、处方、疗效案例）。编排 PPT 时默认排除，禁止进客户资料。
+            </span>
+          </Link>
+        )}
       </section>
 
       {/* Pending alerts */}

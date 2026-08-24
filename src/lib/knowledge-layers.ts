@@ -28,6 +28,14 @@ export function countByLayer(points: KnowledgePoint[]): Record<KnowledgeLayer, n
   return counts;
 }
 
+export function isInternalOnly(point: KnowledgePoint): boolean {
+  return point.internalOnly === true;
+}
+
+export function countInternalOnly(points: KnowledgePoint[]): number {
+  return points.reduce((sum, point) => sum + (isInternalOnly(point) ? 1 : 0), 0);
+}
+
 export function countByUsage(points: KnowledgePoint[]): Record<KnowledgeUsage, number> {
   const counts: Record<KnowledgeUsage, number> = {
     pitch: 0,

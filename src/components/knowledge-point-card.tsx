@@ -9,6 +9,7 @@ import {
   USAGE_LABELS,
   getLayer,
   getUsage,
+  isInternalOnly,
 } from "@/lib/knowledge-layers";
 import type { SimilarMatch } from "@/lib/similarity";
 import type { ContentConflict } from "@/lib/conflict-detector";
@@ -246,6 +247,15 @@ export function KnowledgePointCard({
               </Select>
             </div>
           </div>
+          <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800">
+            <input
+              type="checkbox"
+              checked={!!form.internalOnly}
+              onChange={(e) => setForm({ ...form, internalOnly: e.target.checked })}
+              className="rounded border-red-300"
+            />
+            仅内训：禁止进客户资料与对外 PPT（编排页默认排除）
+          </label>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <label className="mb-1 block text-sm font-medium text-slate-700">分类</label>
@@ -366,6 +376,9 @@ export function KnowledgePointCard({
             <p className="mt-1 text-sm text-slate-500">{kp.summary}</p>
           </div>
           <div className="flex flex-col items-end gap-1">
+            {isInternalOnly(kp) && (
+              <Badge className="bg-red-100 text-red-800">仅内训 · 禁止外发</Badge>
+            )}
             <Badge variant={getLayer(kp) === "commons" ? "default" : "secondary"}>
               {LAYER_LABELS[getLayer(kp)]}
             </Badge>

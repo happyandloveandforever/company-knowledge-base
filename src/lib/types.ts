@@ -32,6 +32,8 @@ export interface KnowledgePoint {
   layer?: KnowledgeLayer;
   /** 汇报、培训、运营。缺省按汇报+培训。 */
   usage?: KnowledgeUsage;
+  /** 仅内训：禁止进客户资料与对外 PPT。编排页默认排除。 */
+  internalOnly?: boolean;
   createdAt: string;
   updatedAt: string;
   /** 冲突组 ID：同组知识点为不同版本/表述，可并存 */

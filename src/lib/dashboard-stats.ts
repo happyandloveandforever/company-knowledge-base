@@ -1,6 +1,6 @@
 import type { KnowledgePoint, SourceFile } from "./types";
 import type { LibraryAnalysis } from "./analysis-cache";
-import { countByLayer, countByUsage } from "./knowledge-layers";
+import { countByLayer, countByUsage, countInternalOnly } from "./knowledge-layers";
 
 export interface DashboardStats {
   total: number;
@@ -18,6 +18,7 @@ export interface DashboardStats {
   training: number;
   ops: number;
   both: number;
+  internalOnly: number;
 }
 
 export function computeDashboardStats(
@@ -45,6 +46,7 @@ export function computeDashboardStats(
     training: usages.training,
     ops: usages.ops,
     both: usages.both,
+    internalOnly: countInternalOnly(points),
   };
 }
 

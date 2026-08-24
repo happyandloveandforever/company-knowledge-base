@@ -54,6 +54,8 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/import-faf-yangpu.mjs` | 杨浦 PDF 拆分参考 |
 | `scripts/import-b2b-yiling.mjs` | B端 PDF 拆分参考 |
 | `scripts/apply-knowledge-layers.mjs` | 通识/公司分层 + 通识前沿卡（幂等） |
+| `scripts/import-float-training.mjs` | 漂浮培训大纲 71 条内训卡（幂等，全部 internalOnly） |
+| `scripts/test-knowledge-layers.mjs` | 分层与培训隔离回归测试 |
 | `scripts/process-split-queue.mjs` | 查看待拆分队列 |
 | `src/app/api/upload/route.ts` | 网页上传逻辑 |
 | `src/lib/storage.ts` | JSON 读写、deleteSourceFile |
