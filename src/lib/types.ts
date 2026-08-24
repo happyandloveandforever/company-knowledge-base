@@ -1,5 +1,11 @@
 export type KnowledgeStatus = "draft" | "review" | "approved";
 
+/** 知识分层：通识（公开科学/政策）vs 公司自有（产品、报价、SOP、案例） */
+export type KnowledgeLayer = "commons" | "company";
+
+/** 使用场景：不是第三层。同一条知识可同时服务汇报与培训。 */
+export type KnowledgeUsage = "pitch" | "training" | "ops" | "both";
+
 export interface KnowledgeSource {
   file: string;
   location?: string;
@@ -22,6 +28,10 @@ export interface KnowledgePoint {
   durationMin: number;
   version: string;
   status: KnowledgeStatus;
+  /** 通识层 / 公司自有层。缺省按公司自有处理。 */
+  layer?: KnowledgeLayer;
+  /** 汇报、培训、运营。缺省按汇报+培训。 */
+  usage?: KnowledgeUsage;
   createdAt: string;
   updatedAt: string;
   /** 冲突组 ID：同组知识点为不同版本/表述，可并存 */

@@ -77,6 +77,8 @@ function toKnowledgePoints(chunks: SplitChunk[], filename: string, now: string):
     durationMin: estimateDuration(chunk.body),
     version: "1.0",
     status: "draft" as const,
+    layer: "company",
+    usage: "both",
     createdAt: now,
     updatedAt: now,
   }));

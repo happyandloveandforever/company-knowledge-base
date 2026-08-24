@@ -12,6 +12,7 @@ import {
   ArrowDown,
 } from "lucide-react";
 import type { KnowledgePoint, Outline } from "@/lib/types";
+import { LAYER_LABELS, USAGE_LABELS, getLayer, getUsage } from "@/lib/knowledge-layers";
 import { PRESENTATION_LOGICS } from "@/lib/presentation-logic";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -34,6 +35,8 @@ export default function ComposePage() {
   const [exporting, setExporting] = useState(false);
   const [error, setError] = useState("");
   const [appliedTags, setAppliedTags] = useState<string[]>([]);
+  const [layerFilter, setLayerFilter] = useState("");
+  const [usageFilter, setUsageFilter] = useState("");
   const settingsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -54,6 +57,8 @@ export default function ComposePage() {
 
   const filtered = useMemo(() => {
     return points.filter((p) => {
+      if (layerFilter && getLayer(p) !== layerFilter) return false;
+      if (usageFilter && getUsage(p) !== usageFilter) return false;
       if (!matchesTagFilter(p.tags, appliedTags)) return false;
       if (!debouncedSearch) return true;
       const q = debouncedSearch.toLowerCase();
@@ -63,7 +68,7 @@ export default function ComposePage() {
         p.tags.some((t) => t.toLowerCase().includes(q))
       );
     });
-  }, [points, debouncedSearch, appliedTags]);
+  }, [points, debouncedSearch, appliedTags, layerFilter, usageFilter]);
 
   const selectedPoints = useMemo(
     () => points.filter((p) => selected.has(p.id)),
@@ -224,6 +229,20 @@ export default function ComposePage() {
                   onChange={(e) => setSearch(e.target.value)}
                 />
               </div>
+              <div className="mt-2 grid gap-2 sm:grid-cols-2">
+                <Select value={layerFilter} onChange={(e) => setLayerFilter(e.target.value)}>
+                  <option value="">全部层级</option>
+                  <option value="commons">{LAYER_LABELS.commons}</option>
+                  <option value="company">{LAYER_LABELS.company}</option>
+                </Select>
+                <Select value={usageFilter} onChange={(e) => setUsageFilter(e.target.value)}>
+                  <option value="">全部用途</option>
+                  <option value="pitch">{USAGE_LABELS.pitch}</option>
+                  <option value="training">{USAGE_LABELS.training}</option>
+                  <option value="ops">{USAGE_LABELS.ops}</option>
+                  <option value="both">{USAGE_LABELS.both}</option>
+                </Select>
+              </div>
               <TagFilter
                 className="mt-3"
                 allTags={allTags}
@@ -256,6 +275,10 @@ export default function ComposePage() {
                     <div className="min-w-0 flex-1">
                       <p className="text-sm font-medium text-slate-900">{kp.title}</p>
                       <div className="mt-1 flex flex-wrap gap-1">
+                        <Badge variant={getLayer(kp) === "commons" ? "default" : "secondary"}>
+                          {LAYER_LABELS[getLayer(kp)]}
+                        </Badge>
+                        <Badge variant="outline">{USAGE_LABELS[getUsage(kp)]}</Badge>
                         <Badge variant="secondary">{kp.category}</Badge>
                         {kp.tags.slice(0, 3).map((t) => (
                           <Badge key={t} variant="outline">{t}</Badge>

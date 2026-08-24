@@ -1,5 +1,6 @@
 import type { KnowledgePoint, SourceFile } from "./types";
 import type { LibraryAnalysis } from "./analysis-cache";
+import { countByLayer, countByUsage } from "./knowledge-layers";
 
 export interface DashboardStats {
   total: number;
@@ -11,6 +12,12 @@ export interface DashboardStats {
   contentConflicts: number;
   duplicates: number;
   pendingQueue: number;
+  commons: number;
+  company: number;
+  pitch: number;
+  training: number;
+  ops: number;
+  both: number;
 }
 
 export function computeDashboardStats(
@@ -20,6 +27,8 @@ export function computeDashboardStats(
   pendingQueue: number
 ): DashboardStats {
   const approved = points.filter((p) => p.status === "approved").length;
+  const layers = countByLayer(points);
+  const usages = countByUsage(points);
   return {
     total: points.length,
     pending: points.length - approved,
@@ -30,6 +39,12 @@ export function computeDashboardStats(
     contentConflicts: analysis.stats.contentConflicts,
     duplicates: analysis.stats.duplicateCount,
     pendingQueue,
+    commons: layers.commons,
+    company: layers.company,
+    pitch: usages.pitch,
+    training: usages.training,
+    ops: usages.ops,
+    both: usages.both,
   };
 }
 

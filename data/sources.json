@@ -546,5 +546,34 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "22条开业SOP：客群、获客、仪式、水质消杀、疗程转化、180天指标。数字与水温未锁。"
+  },
+  {
+    "id": "SRC-COMMONS-FRONTIER",
+    "filename": "通识层架构与前沿文献（2026-08-24）",
+    "fileType": "other",
+    "uploadedAt": "2026-08-24T04:30:00.000Z",
+    "knowledgePointIds": [
+      "KP-COM-001",
+      "KP-COM-002",
+      "KP-COM-003",
+      "KP-COM-004",
+      "KP-COM-005",
+      "KP-COM-006",
+      "KP-COM-007",
+      "KP-COM-008",
+      "KP-COM-009",
+      "KP-COM-010",
+      "KP-COM-011",
+      "KP-COM-012",
+      "KP-COM-013",
+      "KP-COM-014",
+      "KP-COM-015",
+      "KP-COM-016",
+      "KP-COM-017",
+      "KP-COM-018"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "18条通识层：两层架构、培训vs汇报、WHO 2025、Atlas 2024、2025/2026 REST综述、在研试验红线。"
   }
 ]

@@ -1,4 +1,5 @@
 import type { KnowledgePoint } from "./types";
+import { LAYER_LABELS, USAGE_LABELS, getLayer, getUsage, countByLayer } from "./knowledge-layers";
 
 function escapeHtml(text: string): string {
   return text
@@ -23,6 +24,7 @@ export function generateLibraryHtml(points: KnowledgePoint[]): string {
   const categories = Array.from(grouped.keys()).sort();
   const allTags = Array.from(new Set(points.flatMap((p) => p.tags))).sort();
   const now = new Date().toLocaleString("zh-CN");
+  const layers = countByLayer(points);
 
   const navItems = categories
     .map((cat) => `<li><a href="#cat-${encodeURIComponent(cat)}">${escapeHtml(cat)} (${grouped.get(cat)!.length})</a></li>`)
@@ -34,10 +36,14 @@ export function generateLibraryHtml(points: KnowledgePoint[]): string {
       const cards = items
         .map(
           (kp) => `
-        <article class="kp-card" id="${kp.id}" data-tags="${escapeHtml(kp.tags.join(","))}" data-status="${kp.status}">
+        <article class="kp-card" id="${kp.id}" data-tags="${escapeHtml(kp.tags.join(","))}" data-status="${kp.status}" data-layer="${getLayer(kp)}" data-usage="${getUsage(kp)}">
           <header>
             <h3>${escapeHtml(kp.title)}</h3>
-            <span class="status status-${kp.status}">${statusLabel(kp.status)}</span>
+            <div class="badges">
+              <span class="layer layer-${getLayer(kp)}">${LAYER_LABELS[getLayer(kp)]}</span>
+              <span class="usage">${USAGE_LABELS[getUsage(kp)]}</span>
+              <span class="status status-${kp.status}">${statusLabel(kp.status)}</span>
+            </div>
           </header>
           <p class="summary">${escapeHtml(kp.summary)}</p>
           <div class="meta">
@@ -126,12 +132,17 @@ export function generateLibraryHtml(points: KnowledgePoint[]): string {
       padding: 1.25rem; transition: box-shadow 0.2s;
     }
     .kp-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-    .kp-card header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem; }
+    .kp-card header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem; gap: 0.75rem; }
     .kp-card h3 { font-size: 1rem; flex: 1; }
+    .badges { display: flex; flex-wrap: wrap; gap: 0.25rem; justify-content: flex-end; }
     .status { font-size: 0.75rem; padding: 0.15rem 0.5rem; border-radius: 999px; white-space: nowrap; }
     .status-draft { background: #fef3c7; color: #92400e; }
     .status-review { background: #dbeafe; color: #1e40af; }
     .status-approved { background: #d1fae5; color: #065f46; }
+    .layer, .usage { font-size: 0.75rem; padding: 0.15rem 0.5rem; border-radius: 999px; white-space: nowrap; }
+    .layer-commons { background: #dbeafe; color: #1e40af; }
+    .layer-company { background: #e2e8f0; color: #334155; }
+    .usage { border: 1px solid var(--border); color: var(--muted); }
     .summary { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.75rem; }
     .meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
     .tag { display: inline-block; background: #eff6ff; color: var(--accent); font-size: 0.75rem; padding: 0.1rem 0.5rem; border-radius: 999px; margin-right: 0.25rem; }
@@ -158,9 +169,9 @@ export function generateLibraryHtml(points: KnowledgePoint[]): string {
     <main>
       <div class="stats">
         <div class="stat"><strong>${points.length}</strong><span>知识点总数</span></div>
-        <div class="stat"><strong>${categories.length}</strong><span>知识分类</span></div>
+        <div class="stat"><strong>${layers.commons}</strong><span>通识层</span></div>
+        <div class="stat"><strong>${layers.company}</strong><span>公司自有层</span></div>
         <div class="stat"><strong>${points.filter((p) => p.status === "approved").length}</strong><span>已批准</span></div>
-        <div class="stat"><strong>${allTags.length}</strong><span>标签数</span></div>
       </div>
       ${sections}
     </main>

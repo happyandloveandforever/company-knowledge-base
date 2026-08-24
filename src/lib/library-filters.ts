@@ -6,6 +6,8 @@ export interface FilterState {
   status: string;
   similar: string;
   source: string;
+  layer: string;
+  usage: string;
   tags: string[];
 }
 
@@ -17,6 +19,8 @@ export function parseFilters(params: URLSearchParams | ReadonlyURLSearchParams):
     status: params.get("status") || "",
     similar: params.get("similar") || "",
     source: params.get("source") || "",
+    layer: params.get("layer") || "",
+    usage: params.get("usage") || "",
     tags: tags ? tags.split(",").filter(Boolean) : [],
   };
 }
@@ -28,6 +32,8 @@ export function filtersToParams(f: FilterState): string {
   if (f.status) p.set("status", f.status);
   if (f.similar) p.set("similar", f.similar);
   if (f.source) p.set("source", f.source);
+  if (f.layer) p.set("layer", f.layer);
+  if (f.usage) p.set("usage", f.usage);
   if (f.tags.length) p.set("tags", f.tags.join(","));
   return p.toString();
 }

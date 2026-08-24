@@ -32,7 +32,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:26:16.376Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-002",
@@ -66,7 +68,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:26:54.700Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-003",
@@ -102,7 +106,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:26:56.977Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-004",
@@ -136,7 +142,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:26:58.309Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-005",
@@ -170,7 +178,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:26:59.913Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-006",
@@ -204,7 +214,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:27:09.469Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-007",
@@ -237,7 +249,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:21:05.057Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-008",
@@ -272,7 +286,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:21:00.561Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-009",
@@ -305,7 +321,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:21:24.573Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-010",
@@ -338,7 +356,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:21:25.988Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-011",
@@ -372,7 +392,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:21:30.547Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-012",
@@ -405,7 +427,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:26:26.449Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-017",
@@ -438,7 +462,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:26:30.869Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-018",
@@ -476,7 +502,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:27:47.192Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-019",
@@ -511,7 +539,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:27:48.511Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-020",
@@ -547,7 +577,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:27:49.805Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-021",
@@ -580,7 +612,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:26:38.376Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-022",
@@ -614,7 +648,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:26:41.174Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-023",
@@ -649,7 +685,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:27:51.956Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-024",
@@ -684,7 +722,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:26:41.509Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-025",
@@ -718,7 +758,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:26:43.145Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-026",
@@ -753,7 +795,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:26:44.410Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-027",
@@ -787,7 +831,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:26:45.616Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-035",
@@ -820,7 +866,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:26:46.743Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-036",
@@ -853,7 +901,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:27:33.344Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-037",
@@ -886,7 +936,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:27:34.272Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-040",
@@ -919,7 +971,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:27:10.420Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-041",
@@ -952,7 +1006,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:28:03.278Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-042",
@@ -986,7 +1042,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:28:04.981Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-043",
@@ -1019,7 +1077,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:28:06.657Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-044",
@@ -1052,7 +1112,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:28:16.297Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-045",
@@ -1085,7 +1147,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:28:17.805Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-046",
@@ -1119,7 +1183,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:28:19.038Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-047",
@@ -1152,7 +1218,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:28:08.309Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-048",
@@ -1186,7 +1254,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:28:20.827Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-049",
@@ -1220,7 +1290,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:28:22.975Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-050",
@@ -1254,7 +1326,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:28:27.751Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-051",
@@ -1287,7 +1361,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:28:29.399Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-052",
@@ -1321,7 +1397,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:28:10.208Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-053",
@@ -1354,7 +1432,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:28:11.729Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-FAF-054",
@@ -1389,7 +1469,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:12:30.667Z",
-    "updatedAt": "2026-08-22T11:28:12.796Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-001",
@@ -1424,7 +1506,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:53:23.190Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-002",
@@ -1458,7 +1542,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:53:33.942Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-003",
@@ -1492,7 +1578,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:53:37.078Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-004",
@@ -1526,7 +1614,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:53:38.525Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-005",
@@ -1563,7 +1653,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:53:42.921Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-006",
@@ -1598,7 +1690,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:53:45.637Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-007",
@@ -1633,7 +1727,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:53:48.240Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-014",
@@ -1667,7 +1763,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:54:00.579Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-015",
@@ -1701,7 +1799,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:54:02.552Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-016",
@@ -1734,7 +1834,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T11:54:03.934Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-017",
@@ -1767,7 +1869,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:20:18.584Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-018",
@@ -1801,7 +1905,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:18:54.560Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-019",
@@ -1834,7 +1940,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:19:01.586Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-020",
@@ -1869,7 +1977,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:18:58.466Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-021",
@@ -1903,7 +2013,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:20:00.524Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-022",
@@ -1937,7 +2049,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:20:02.942Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-030",
@@ -1971,7 +2085,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:21:47.437Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-031",
@@ -2004,7 +2120,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:20:28.290Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-032",
@@ -2037,7 +2155,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:22:36.841Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-033",
@@ -2070,7 +2190,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:20:30.485Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-034",
@@ -2103,7 +2225,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:21:45.288Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-035",
@@ -2135,7 +2259,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:20:31.824Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-036",
@@ -2169,7 +2295,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:22:25.965Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-037",
@@ -2202,7 +2330,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:20:33.205Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-041",
@@ -2234,7 +2364,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:20:40.572Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-042",
@@ -2267,7 +2399,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:22:13.921Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-043",
@@ -2300,7 +2434,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:20:45.461Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-044",
@@ -2334,7 +2470,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:20:05.615Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-045",
@@ -2368,7 +2506,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:20:50.931Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-046",
@@ -2402,7 +2542,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:20:16.406Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-047",
@@ -2436,7 +2578,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:20:47.056Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-048",
@@ -2470,7 +2614,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:22:17.228Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-049",
@@ -2504,7 +2650,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:20:48.884Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-B2B-050",
@@ -2538,7 +2686,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T11:43:54.264Z",
-    "updatedAt": "2026-08-22T12:20:12.677Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-001",
@@ -2573,7 +2723,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:57:39.260Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-003",
@@ -2608,7 +2760,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:57:49.543Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-004",
@@ -2641,7 +2795,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:57:52.788Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-005",
@@ -2676,7 +2832,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:57:57.046Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-006",
@@ -2714,7 +2872,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:01.660Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-007",
@@ -2749,7 +2909,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:05.236Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-008",
@@ -2784,7 +2946,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:09.736Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-009",
@@ -2820,7 +2984,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:11.964Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-010",
@@ -2855,7 +3021,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:13.544Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-011",
@@ -2892,7 +3060,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:15.480Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-012",
@@ -2926,7 +3096,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:16.930Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-013",
@@ -2961,7 +3133,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:19.354Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-014",
@@ -2996,7 +3170,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:20.689Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-015",
@@ -3029,7 +3205,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:23.026Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-016",
@@ -3064,7 +3242,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:25.549Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-017",
@@ -3099,7 +3279,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:27.809Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-018",
@@ -3134,7 +3316,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:29.856Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-019",
@@ -3170,7 +3354,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:31.850Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-020",
@@ -3203,7 +3389,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:32.938Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-021",
@@ -3238,7 +3426,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:35.593Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-022",
@@ -3273,7 +3463,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:37.556Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-023",
@@ -3307,7 +3499,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:39.513Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-024",
@@ -3342,7 +3536,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:40.985Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-025",
@@ -3379,7 +3575,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:42.818Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-026",
@@ -3412,7 +3610,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:43.827Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-027",
@@ -3445,7 +3645,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:45.219Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-028",
@@ -3480,7 +3682,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:46.158Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-029",
@@ -3513,7 +3717,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:47.994Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-030",
@@ -3547,7 +3753,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:52.232Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-031",
@@ -3582,7 +3790,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:53.105Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-032",
@@ -3621,7 +3831,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:54.026Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-033",
@@ -3660,7 +3872,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:55.321Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "training"
   },
   {
     "id": "KP-BRAND-034",
@@ -3694,7 +3908,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:56.098Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "training"
   },
   {
     "id": "KP-BRAND-035",
@@ -3729,7 +3945,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:58.003Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "training"
   },
   {
     "id": "KP-BRAND-036",
@@ -3764,7 +3982,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:58:59.598Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-037",
@@ -3799,7 +4019,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:59:00.608Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-038",
@@ -3834,7 +4056,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:59:01.696Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-039",
@@ -3869,7 +4093,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:59:03.272Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-040",
@@ -3904,7 +4130,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:59:04.498Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-041",
@@ -3939,7 +4167,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:59:05.770Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-042",
@@ -3972,7 +4202,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:59:07.402Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-043",
@@ -4007,7 +4239,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:59:08.556Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-044",
@@ -4045,7 +4279,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:59:12.217Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BRAND-045",
@@ -4078,7 +4314,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T15:56:03.370Z",
-    "updatedAt": "2026-08-22T15:59:29.164Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-MECH-001",
@@ -4115,7 +4353,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:02:07.465Z",
-    "updatedAt": "2026-08-22T16:03:01.986Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MECH-002",
@@ -4152,7 +4392,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:02:07.465Z",
-    "updatedAt": "2026-08-22T16:03:07.011Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MECH-003",
@@ -4187,7 +4429,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:02:07.465Z",
-    "updatedAt": "2026-08-22T16:03:09.748Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MECH-004",
@@ -4224,7 +4468,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:02:07.465Z",
-    "updatedAt": "2026-08-22T16:03:12.667Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MECH-005",
@@ -4260,7 +4506,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:02:07.465Z",
-    "updatedAt": "2026-08-22T16:03:14.473Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MECH-006",
@@ -4297,7 +4545,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:02:07.465Z",
-    "updatedAt": "2026-08-22T16:03:15.730Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MECH-007",
@@ -4334,7 +4584,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:02:07.465Z",
-    "updatedAt": "2026-08-22T16:03:17.502Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MECH-008",
@@ -4375,7 +4627,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:02:07.465Z",
-    "updatedAt": "2026-08-22T16:03:18.989Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MECH-009",
@@ -4411,7 +4665,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:02:07.465Z",
-    "updatedAt": "2026-08-22T16:03:20.945Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "both"
   },
   {
     "id": "KP-MECH-010",
@@ -4448,7 +4704,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:02:07.465Z",
-    "updatedAt": "2026-08-22T16:03:22.206Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MECH-011",
@@ -4483,7 +4741,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:02:07.465Z",
-    "updatedAt": "2026-08-22T16:03:24.156Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MECH-012",
@@ -4525,7 +4785,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:02:07.465Z",
-    "updatedAt": "2026-08-22T16:03:26.717Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "training"
   },
   {
     "id": "KP-MECH-013",
@@ -4560,7 +4822,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:02:07.465Z",
-    "updatedAt": "2026-08-22T16:03:29.045Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "both"
   },
   {
     "id": "KP-V7-001",
@@ -4596,7 +4860,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:06:39.382Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-002",
@@ -4632,7 +4898,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:06:41.986Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-003",
@@ -4668,7 +4936,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:06:44.524Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-004",
@@ -4708,7 +4978,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:06:46.174Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-005",
@@ -4743,7 +5015,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:06:48.729Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-006",
@@ -4781,7 +5055,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:06:50.315Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-007",
@@ -4817,7 +5093,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:06:54.064Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-008",
@@ -4855,7 +5133,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:06:55.198Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-009",
@@ -4890,7 +5170,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:06:56.760Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-010",
@@ -4925,7 +5207,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:06:57.957Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-011",
@@ -4960,7 +5244,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:07:00.057Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-012",
@@ -4995,7 +5281,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:07:01.699Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-013",
@@ -5030,7 +5318,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:07:04.213Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-014",
@@ -5065,7 +5355,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:07:05.759Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-016",
@@ -5101,7 +5393,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:07:08.130Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-017",
@@ -5136,7 +5430,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:07:09.973Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-018",
@@ -5176,7 +5472,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:07:11.102Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-020",
@@ -5212,7 +5510,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:07:15.273Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-021",
@@ -5248,7 +5548,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:07:18.633Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-022",
@@ -5283,7 +5585,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:07:20.833Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-023",
@@ -5318,7 +5622,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:07:22.825Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-024",
@@ -5353,7 +5659,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:07:24.848Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-025",
@@ -5392,7 +5700,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:07:26.942Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-026",
@@ -5427,7 +5737,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:07:14.187Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-027",
@@ -5460,7 +5772,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:07:27.758Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-028",
@@ -5495,7 +5809,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:07:29.053Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-V7-029",
@@ -5528,7 +5844,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:05:50.507Z",
-    "updatedAt": "2026-08-22T16:07:31.509Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-003",
@@ -5563,7 +5881,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:13:18.163Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-005",
@@ -5597,7 +5917,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:13:18.163Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-006",
@@ -5632,7 +5954,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:13:18.163Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-007",
@@ -5667,7 +5991,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:13:18.163Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-008",
@@ -5702,7 +6028,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:13:18.163Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-012",
@@ -5737,7 +6065,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:13:18.163Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-013",
@@ -5772,7 +6102,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:13:18.163Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-014",
@@ -5804,7 +6136,9 @@
     "version": "2.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:13:18.163Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-026",
@@ -5838,7 +6172,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:13:18.163Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-027",
@@ -5872,7 +6208,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:13:18.163Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-028",
@@ -5906,7 +6244,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:13:18.163Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-032",
@@ -5940,7 +6280,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:13:18.163Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-040",
@@ -5975,7 +6317,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-041",
@@ -6010,7 +6354,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-042",
@@ -6045,7 +6391,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-044",
@@ -6080,7 +6428,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-045",
@@ -6114,7 +6464,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-046",
@@ -6149,7 +6501,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-047",
@@ -6183,7 +6537,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-048",
@@ -6217,7 +6573,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-049",
@@ -6251,7 +6609,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-050",
@@ -6285,7 +6645,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-051",
@@ -6320,7 +6682,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-052",
@@ -6354,7 +6718,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-056",
@@ -6388,7 +6754,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-057",
@@ -6423,7 +6791,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-058",
@@ -6457,7 +6827,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-059",
@@ -6492,7 +6864,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-063",
@@ -6526,7 +6900,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-064",
@@ -6562,7 +6938,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-065",
@@ -6596,7 +6974,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-067",
@@ -6631,7 +7011,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-068",
@@ -6666,7 +7048,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-069",
@@ -6701,7 +7085,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-070",
@@ -6734,7 +7120,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-071",
@@ -6769,7 +7157,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-072",
@@ -6805,7 +7195,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-073",
@@ -6841,7 +7233,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-BG2-074",
@@ -6876,7 +7270,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:15:26.614Z",
-    "updatedAt": "2026-08-22T16:17:01.678Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-001",
@@ -6913,7 +7309,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-002",
@@ -6946,7 +7344,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-003",
@@ -6982,7 +7382,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-004",
@@ -7018,7 +7420,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-005",
@@ -7054,7 +7458,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-006",
@@ -7089,7 +7495,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-007",
@@ -7125,7 +7533,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-008",
@@ -7160,7 +7570,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-009",
@@ -7196,7 +7608,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-010",
@@ -7232,7 +7646,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-011",
@@ -7266,7 +7682,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-012",
@@ -7302,7 +7720,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-013",
@@ -7340,7 +7760,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-014",
@@ -7376,7 +7798,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-015",
@@ -7412,7 +7836,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-016",
@@ -7448,7 +7874,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-017",
@@ -7485,7 +7913,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-018",
@@ -7521,7 +7951,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-019",
@@ -7558,7 +7990,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-020",
@@ -7594,7 +8028,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-CHAMP-021",
@@ -7630,7 +8066,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-022",
@@ -7666,7 +8104,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CHAMP-023",
@@ -7702,7 +8142,9 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-22T16:21:50.525Z",
-    "updatedAt": "2026-08-22T16:22:29.518Z"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-001",
@@ -7740,8 +8182,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "company",
+    "usage": "training"
   },
   {
     "id": "KP-CRAFT-002",
@@ -7779,8 +8223,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-003",
@@ -7817,8 +8263,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-004",
@@ -7853,8 +8301,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-005",
@@ -7889,8 +8339,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-006",
@@ -7926,8 +8378,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-007",
@@ -7963,8 +8417,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-008",
@@ -8000,8 +8456,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-009",
@@ -8038,8 +8496,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-010",
@@ -8074,8 +8534,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-011",
@@ -8110,8 +8572,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-012",
@@ -8146,8 +8610,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-013",
@@ -8181,8 +8647,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-014",
@@ -8216,8 +8684,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-015",
@@ -8252,8 +8722,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-016",
@@ -8288,8 +8760,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-017",
@@ -8324,8 +8798,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-018",
@@ -8360,8 +8836,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-019",
@@ -8396,8 +8874,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-020",
@@ -8430,8 +8910,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "company",
+    "usage": "training"
   },
   {
     "id": "KP-CRAFT-021",
@@ -8464,8 +8946,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "company",
+    "usage": "training"
   },
   {
     "id": "KP-CRAFT-022",
@@ -8500,8 +8984,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-023",
@@ -8535,8 +9021,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-CRAFT-024",
@@ -8570,8 +9058,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "commons",
+    "usage": "training"
   },
   {
     "id": "KP-CRAFT-025",
@@ -8606,8 +9096,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:40:14.754Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "构想/通识/讲法设计，非原始 PDF 摘录；数字须服从对外首选口径",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-MEDW-001",
@@ -8644,8 +9136,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:43:44.912Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEDW-002",
@@ -8683,8 +9177,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:43:44.912Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEDW-003",
@@ -8720,8 +9216,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:43:44.912Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEDW-004",
@@ -8757,8 +9255,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:43:44.912Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEDW-005",
@@ -8794,8 +9294,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:43:44.912Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEDW-006",
@@ -8830,8 +9332,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:43:44.912Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEDW-007",
@@ -8866,8 +9370,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:43:44.912Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEDW-008",
@@ -8901,8 +9407,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:43:44.912Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEDW-009",
@@ -8936,8 +9444,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:43:44.912Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEDW-010",
@@ -8970,8 +9480,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:43:44.912Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEDW-011",
@@ -9007,8 +9519,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:43:44.912Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEDW-012",
@@ -9046,8 +9560,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:43:44.912Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEDW-013",
@@ -9082,8 +9598,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:43:44.912Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEDW-014",
@@ -9116,8 +9634,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:43:44.912Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "2010康复综述：医用失重舱构想。与漂浮REST不可混称，病种疗效不可外推到本公司产品。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEV-021",
@@ -9154,8 +9674,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:45:06.395Z",
-    "updatedAt": "2026-08-23T01:45:56.003Z",
-    "conflictNote": "文献原子，非本公司临床结论；对外禁止治疗承诺。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "文献原子，非本公司临床结论；对外禁止治疗承诺。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEV-101",
@@ -9190,8 +9712,10 @@
     "version": "2.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:45:06.395Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z",
-    "conflictNote": "文献原子，非本公司临床结论；对外禁止治疗承诺。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "文献原子，非本公司临床结论；对外禁止治疗承诺。",
+    "layer": "commons",
+    "usage": "training"
   },
   {
     "id": "KP-MEV-102",
@@ -9226,8 +9750,10 @@
     "version": "2.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:45:06.395Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z",
-    "conflictNote": "文献原子，非本公司临床结论；对外禁止治疗承诺。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "文献原子，非本公司临床结论；对外禁止治疗承诺。",
+    "layer": "commons",
+    "usage": "training"
   },
   {
     "id": "KP-MEV-103",
@@ -9262,8 +9788,10 @@
     "version": "2.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:45:06.395Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z",
-    "conflictNote": "文献原子，非本公司临床结论；对外禁止治疗承诺。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "文献原子，非本公司临床结论；对外禁止治疗承诺。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEV-201",
@@ -9296,8 +9824,10 @@
     "version": "2.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:14:43.389Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z",
-    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEV-202",
@@ -9330,8 +9860,10 @@
     "version": "2.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:14:43.389Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z",
-    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEV-203",
@@ -9364,8 +9896,10 @@
     "version": "2.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:14:43.389Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z",
-    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEV-204",
@@ -9398,8 +9932,10 @@
     "version": "2.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:14:43.389Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z",
-    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEV-205",
@@ -9432,8 +9968,10 @@
     "version": "2.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:14:43.389Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z",
-    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEV-206",
@@ -9466,8 +10004,10 @@
     "version": "2.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:14:43.389Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z",
-    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEV-207",
@@ -9500,8 +10040,10 @@
     "version": "2.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:14:43.389Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z",
-    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEV-208",
@@ -9534,8 +10076,10 @@
     "version": "2.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:14:43.389Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z",
-    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEV-209",
@@ -9568,8 +10112,10 @@
     "version": "2.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:14:43.389Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z",
-    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEV-210",
@@ -9602,8 +10148,10 @@
     "version": "2.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:14:43.389Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z",
-    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEV-211",
@@ -9636,8 +10184,10 @@
     "version": "2.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:14:43.389Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z",
-    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEV-212",
@@ -9670,8 +10220,10 @@
     "version": "2.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:14:43.389Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z",
-    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEV-213",
@@ -9704,8 +10256,10 @@
     "version": "2.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:14:43.389Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z",
-    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEV-214",
@@ -9738,8 +10292,10 @@
     "version": "2.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:14:43.389Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z",
-    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEV-215",
@@ -9772,8 +10328,10 @@
     "version": "2.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:14:43.389Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z",
-    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-MEV-216",
@@ -9806,8 +10364,10 @@
     "version": "2.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:14:43.389Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z",
-    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "主题合并卡。原 100 条原子已删除，细节以本卡条目为准。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-SAN-001",
@@ -9843,8 +10403,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.885Z",
-    "updatedAt": "2026-08-23T01:55:08.949Z",
-    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SAN-002",
@@ -9879,8 +10441,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.885Z",
-    "updatedAt": "2026-08-23T01:53:42.572Z",
-    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SAN-003",
@@ -9918,8 +10482,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.885Z",
-    "updatedAt": "2026-08-23T01:53:47.513Z",
-    "conflictNote": "与 KP-MEV-021 乳酸结论不一致，对外须并陈或只选一套。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "与 KP-MEV-021 乳酸结论不一致，对外须并陈或只选一套。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SAN-004",
@@ -9955,8 +10521,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.885Z",
-    "updatedAt": "2026-08-23T01:53:51.028Z",
-    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SAN-005",
@@ -9991,8 +10559,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.885Z",
-    "updatedAt": "2026-08-23T01:53:55.359Z",
-    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SAN-006",
@@ -10027,8 +10597,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.885Z",
-    "updatedAt": "2026-08-23T01:54:00.557Z",
-    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SAN-007",
@@ -10064,8 +10636,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.885Z",
-    "updatedAt": "2026-08-23T01:54:04.540Z",
-    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SAN-008",
@@ -10101,8 +10675,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.885Z",
-    "updatedAt": "2026-08-23T01:54:07.856Z",
-    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SAN-009",
@@ -10135,8 +10711,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.885Z",
-    "updatedAt": "2026-08-23T01:54:10.197Z",
-    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SAN-010",
@@ -10172,8 +10750,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.885Z",
-    "updatedAt": "2026-08-23T01:54:13.499Z",
-    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SAN-011",
@@ -10209,8 +10789,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.885Z",
-    "updatedAt": "2026-08-23T01:54:16.241Z",
-    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SAN-012",
@@ -10244,8 +10826,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.885Z",
-    "updatedAt": "2026-08-23T01:54:19.835Z",
-    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SAN-013",
@@ -10280,8 +10864,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.885Z",
-    "updatedAt": "2026-08-23T01:54:22.379Z",
-    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SAN-014",
@@ -10315,8 +10901,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.885Z",
-    "updatedAt": "2026-08-23T01:54:24.925Z",
-    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "含设计口径与未锁死对比表，数字须标注材料口径。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-EXP-002",
@@ -10350,8 +10938,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.917Z",
-    "updatedAt": "2026-08-23T01:54:39.739Z",
-    "conflictNote": "申报/构想方案与小样本预实验表，非已结题国家队RCT。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "申报/构想方案与小样本预实验表，非已结题国家队RCT。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-EXP-003",
@@ -10386,8 +10976,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.917Z",
-    "updatedAt": "2026-08-23T01:54:43.998Z",
-    "conflictNote": "申报/构想方案与小样本预实验表，非已结题国家队RCT。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "申报/构想方案与小样本预实验表，非已结题国家队RCT。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-EXP-004",
@@ -10423,8 +11015,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.917Z",
-    "updatedAt": "2026-08-23T01:54:52.018Z",
-    "conflictNote": "申报/构想方案与小样本预实验表，非已结题国家队RCT。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "申报/构想方案与小样本预实验表，非已结题国家队RCT。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-EXP-005",
@@ -10458,8 +11052,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.917Z",
-    "updatedAt": "2026-08-23T01:54:55.900Z",
-    "conflictNote": "申报/构想方案与小样本预实验表，非已结题国家队RCT。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "申报/构想方案与小样本预实验表，非已结题国家队RCT。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-EXP-006",
@@ -10494,8 +11090,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.917Z",
-    "updatedAt": "2026-08-23T01:55:00.836Z",
-    "conflictNote": "申报/构想方案与小样本预实验表，非已结题国家队RCT。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "申报/构想方案与小样本预实验表，非已结题国家队RCT。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-EXP-007",
@@ -10530,8 +11128,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.917Z",
-    "updatedAt": "2026-08-23T01:55:03.351Z",
-    "conflictNote": "申报/构想方案与小样本预实验表，非已结题国家队RCT。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "申报/构想方案与小样本预实验表，非已结题国家队RCT。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-EXP-008",
@@ -10565,8 +11165,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.917Z",
-    "updatedAt": "2026-08-23T01:55:04.884Z",
-    "conflictNote": "申报/构想方案与小样本预实验表，非已结题国家队RCT。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "申报/构想方案与小样本预实验表，非已结题国家队RCT。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-EXP-009",
@@ -10602,8 +11204,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.917Z",
-    "updatedAt": "2026-08-23T01:55:12.753Z",
-    "conflictNote": "申报/构想方案与小样本预实验表，非已结题国家队RCT。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "申报/构想方案与小样本预实验表，非已结题国家队RCT。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-EXP-010",
@@ -10638,8 +11242,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:51:26.917Z",
-    "updatedAt": "2026-08-23T01:55:16.129Z",
-    "conflictNote": "申报/构想方案与小样本预实验表，非已结题国家队RCT。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "申报/构想方案与小样本预实验表，非已结题国家队RCT。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-WEB-001",
@@ -10675,8 +11281,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:58:01.129Z",
-    "updatedAt": "2026-08-23T02:01:32.735Z",
-    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-WEB-002",
@@ -10712,8 +11320,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:58:01.129Z",
-    "updatedAt": "2026-08-23T02:01:32.735Z",
-    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-WEB-003",
@@ -10747,8 +11357,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:58:01.129Z",
-    "updatedAt": "2026-08-23T02:01:32.735Z",
-    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-WEB-004",
@@ -10786,8 +11398,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:58:01.129Z",
-    "updatedAt": "2026-08-23T02:01:32.735Z",
-    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-WEB-005",
@@ -10823,8 +11437,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:58:01.129Z",
-    "updatedAt": "2026-08-23T02:01:32.735Z",
-    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-WEB-006",
@@ -10860,8 +11476,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:58:01.129Z",
-    "updatedAt": "2026-08-23T02:01:32.735Z",
-    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-WEB-007",
@@ -10896,8 +11514,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:58:01.129Z",
-    "updatedAt": "2026-08-23T02:01:32.735Z",
-    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-WEB-008",
@@ -10932,8 +11552,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:58:01.129Z",
-    "updatedAt": "2026-08-23T02:01:32.735Z",
-    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-WEB-009",
@@ -10969,8 +11591,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:58:01.129Z",
-    "updatedAt": "2026-08-23T02:01:32.735Z",
-    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。",
+    "layer": "commons",
+    "usage": "both"
   },
   {
     "id": "KP-WEB-010",
@@ -11003,8 +11627,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:58:01.129Z",
-    "updatedAt": "2026-08-23T02:01:32.735Z",
-    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。",
+    "layer": "commons",
+    "usage": "training"
   },
   {
     "id": "KP-WEB-011",
@@ -11037,8 +11663,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:58:01.129Z",
-    "updatedAt": "2026-08-23T02:14:43.389Z",
-    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。",
+    "layer": "commons",
+    "usage": "training"
   },
   {
     "id": "KP-WEB-012",
@@ -11074,8 +11702,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T01:58:01.129Z",
-    "updatedAt": "2026-08-23T02:01:32.735Z",
-    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "公开文献/标准摘录。用于纠偏与补强，不构成本公司临床试验。",
+    "layer": "commons",
+    "usage": "ops"
   },
   {
     "id": "KP-YFOP-001",
@@ -11111,8 +11741,10 @@
     "version": "1.0",
     "status": "draft",
     "createdAt": "2026-08-23T02:06:12.083Z",
-    "updatedAt": "2026-08-23T02:06:12.083Z",
-    "conflictNote": "医院联合运营稿。与 SOP「独立中心、无医生无处方」冲突，须分场景使用，不把病种清单当批准适应症。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医院联合运营稿。与 SOP「独立中心、无医生无处方」冲突，须分场景使用，不把病种清单当批准适应症。",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-YFOP-002",
@@ -11148,8 +11780,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.083Z",
-    "updatedAt": "2026-08-23T02:07:48.652Z",
-    "conflictNote": "医院联合运营稿。与 SOP「独立中心、无医生无处方」冲突，须分场景使用，不把病种清单当批准适应症。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医院联合运营稿。与 SOP「独立中心、无医生无处方」冲突，须分场景使用，不把病种清单当批准适应症。",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-YFOP-003",
@@ -11183,8 +11817,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.083Z",
-    "updatedAt": "2026-08-23T02:07:53.664Z",
-    "conflictNote": "医院联合运营稿。与 SOP「独立中心、无医生无处方」冲突，须分场景使用，不把病种清单当批准适应症。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医院联合运营稿。与 SOP「独立中心、无医生无处方」冲突，须分场景使用，不把病种清单当批准适应症。",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-YFOP-004",
@@ -11220,8 +11856,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.083Z",
-    "updatedAt": "2026-08-23T02:07:56.526Z",
-    "conflictNote": "医院联合运营稿。与 SOP「独立中心、无医生无处方」冲突，须分场景使用，不把病种清单当批准适应症。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医院联合运营稿。与 SOP「独立中心、无医生无处方」冲突，须分场景使用，不把病种清单当批准适应症。",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-YFOP-005",
@@ -11256,8 +11894,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.083Z",
-    "updatedAt": "2026-08-23T02:07:58.473Z",
-    "conflictNote": "医院联合运营稿。与 SOP「独立中心、无医生无处方」冲突，须分场景使用，不把病种清单当批准适应症。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医院联合运营稿。与 SOP「独立中心、无医生无处方」冲突，须分场景使用，不把病种清单当批准适应症。",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-YFOP-006",
@@ -11291,8 +11931,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.083Z",
-    "updatedAt": "2026-08-23T02:08:00.488Z",
-    "conflictNote": "医院联合运营稿。与 SOP「独立中心、无医生无处方」冲突，须分场景使用，不把病种清单当批准适应症。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医院联合运营稿。与 SOP「独立中心、无医生无处方」冲突，须分场景使用，不把病种清单当批准适应症。",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-YFOP-010",
@@ -11327,8 +11969,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.083Z",
-    "updatedAt": "2026-08-23T02:08:22.009Z",
-    "conflictNote": "医院联合运营稿。与 SOP「独立中心、无医生无处方」冲突，须分场景使用，不把病种清单当批准适应症。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医院联合运营稿。与 SOP「独立中心、无医生无处方」冲突，须分场景使用，不把病种清单当批准适应症。",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-MEDF-001",
@@ -11361,8 +12005,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.120Z",
-    "updatedAt": "2026-08-23T02:08:45.500Z",
-    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-MEDF-002",
@@ -11395,8 +12041,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.120Z",
-    "updatedAt": "2026-08-23T02:15:52.172Z",
-    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-MEDF-003",
@@ -11431,8 +12079,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.120Z",
-    "updatedAt": "2026-08-23T02:15:55.374Z",
-    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-MEDF-004",
@@ -11466,8 +12116,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.120Z",
-    "updatedAt": "2026-08-23T02:08:53.092Z",
-    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。",
+    "layer": "commons",
+    "usage": "pitch"
   },
   {
     "id": "KP-MEDF-005",
@@ -11503,8 +12155,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.120Z",
-    "updatedAt": "2026-08-23T02:08:57.417Z",
-    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-MEDF-006",
@@ -11538,8 +12192,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.120Z",
-    "updatedAt": "2026-08-23T02:09:18.819Z",
-    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-MEDF-007",
@@ -11574,8 +12230,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.120Z",
-    "updatedAt": "2026-08-23T02:16:00.481Z",
-    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-MEDF-008",
@@ -11609,8 +12267,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.120Z",
-    "updatedAt": "2026-08-23T02:16:02.982Z",
-    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-MEDF-009",
@@ -11646,8 +12306,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.120Z",
-    "updatedAt": "2026-08-23T02:16:09.741Z",
-    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-MEDF-010",
@@ -11681,8 +12343,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.120Z",
-    "updatedAt": "2026-08-23T02:10:21.912Z",
-    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。",
+    "layer": "company",
+    "usage": "training"
   },
   {
     "id": "KP-MEDF-011",
@@ -11716,8 +12380,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.120Z",
-    "updatedAt": "2026-08-23T02:09:35.426Z",
-    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-MEDF-012",
@@ -11750,8 +12416,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.120Z",
-    "updatedAt": "2026-08-23T02:09:39.556Z",
-    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-MEDF-013",
@@ -11786,8 +12454,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.120Z",
-    "updatedAt": "2026-08-23T02:09:42.613Z",
-    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-MEDF-014",
@@ -11821,8 +12491,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.120Z",
-    "updatedAt": "2026-08-23T02:09:44.132Z",
-    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医学讲义。病种清单与90%有效率不是批准适应症或本公司RCT。与SOP禁用「治疗」词汇冲突。",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-SOP-001",
@@ -11856,8 +12528,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:07:44.562Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-002",
@@ -11891,8 +12565,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:09:48.405Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-003",
@@ -11925,8 +12601,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:09:50.873Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-004",
@@ -11960,8 +12638,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:09:53.720Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-005",
@@ -11994,8 +12674,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:09:55.191Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-006",
@@ -12028,8 +12710,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:09:57.092Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-007",
@@ -12061,8 +12745,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:09:57.860Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-008",
@@ -12095,8 +12781,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:09:59.123Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-009",
@@ -12130,8 +12818,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:10:01.468Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-010",
@@ -12164,8 +12854,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:09:29.476Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-011",
@@ -12197,8 +12889,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:10:02.588Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-012",
@@ -12231,8 +12925,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:10:03.616Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-013",
@@ -12266,8 +12962,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:10:05.480Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-014",
@@ -12299,8 +12997,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:10:07.711Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-015",
@@ -12334,8 +13034,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:10:09.243Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-016",
@@ -12366,8 +13068,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:09:31.586Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-017",
@@ -12400,8 +13104,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:10:20.629Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-018",
@@ -12434,8 +13140,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:10:17.532Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-019",
@@ -12469,8 +13177,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:10:18.246Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-020",
@@ -12502,8 +13212,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:10:16.539Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-021",
@@ -12537,8 +13249,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:10:19.007Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-SOP-022",
@@ -12572,8 +13286,10 @@
     "version": "1.0",
     "status": "approved",
     "createdAt": "2026-08-23T02:06:12.154Z",
-    "updatedAt": "2026-08-23T02:10:15.511Z",
-    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "独立门店SOP。与优浮/医学诊疗稿的「治疗/处方」冲突。手册内水温与58%/2000项数字未锁。",
+    "layer": "company",
+    "usage": "ops"
   },
   {
     "id": "KP-YFOP-007",
@@ -12607,8 +13323,10 @@
     "version": "1.0",
     "status": "draft",
     "createdAt": "2026-08-23T02:06:12.083Z",
-    "updatedAt": "2026-08-23T02:06:12.083Z",
-    "conflictNote": "医院联合运营稿。与 SOP「独立中心、无医生无处方」冲突，须分场景使用，不把病种清单当批准适应症。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医院联合运营稿。与 SOP「独立中心、无医生无处方」冲突，须分场景使用，不把病种清单当批准适应症。",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-YFOP-008",
@@ -12642,8 +13360,10 @@
     "version": "1.0",
     "status": "draft",
     "createdAt": "2026-08-23T02:06:12.083Z",
-    "updatedAt": "2026-08-23T02:06:12.083Z",
-    "conflictNote": "医院联合运营稿。与 SOP「独立中心、无医生无处方」冲突，须分场景使用，不把病种清单当批准适应症。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医院联合运营稿。与 SOP「独立中心、无医生无处方」冲突，须分场景使用，不把病种清单当批准适应症。",
+    "layer": "company",
+    "usage": "pitch"
   },
   {
     "id": "KP-YFOP-009",
@@ -12677,7 +13397,736 @@
     "version": "1.0",
     "status": "draft",
     "createdAt": "2026-08-23T02:06:12.083Z",
-    "updatedAt": "2026-08-23T02:06:12.083Z",
-    "conflictNote": "医院联合运营稿。与 SOP「独立中心、无医生无处方」冲突，须分场景使用，不把病种清单当批准适应症。"
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "医院联合运营稿。与 SOP「独立中心、无医生无处方」冲突，须分场景使用，不把病种清单当批准适应症。",
+    "layer": "company",
+    "usage": "pitch"
+  },
+  {
+    "id": "KP-COM-001",
+    "title": "两层架构：通识层给客户，公司层守资产",
+    "category": "培训资料",
+    "tags": [
+      "通识层",
+      "公司层",
+      "B端资料",
+      "架构"
+    ],
+    "audience": [
+      "管理者",
+      "销售团队",
+      "培训师"
+    ],
+    "prerequisites": [],
+    "summary": "面对大量B端客户，总库只分两层：通识层（公开科学、政策、卫生标准、证据边界）可进资料包；公司自有层（产品参数、报价、SOP、具名案例、专利口径）按客户授权给。批准状态不是分层。",
+    "body": "为什么要两层：B端客户要的是可核验的公共证据 + 可交付的我司方案。把二者混在「已批准」里，客户会分不清哪句是世界卫生组织、哪句是我们自己的数字。\n通识层（layer=commons）：WHO/政策、REST文献、卫生标准、证据金字塔、培训红线。谁都能查到出处。给客户不泄密。\n公司自有层（layer=company）：产品模块、报价、开业SOP、消杀配方叙事、优浮套餐、具名案例、财务模型。只给签约/尽调授权范围。\n不是分层的东西：approved/draft 只表示审核进度；培训 vs 汇报是 usage，不是第三层。\n给客户资料包默认顺序：通识层一页纸 → 证据边界 → 卫生 → 邀请体验；公司层参数另附，数字未锁定就写「以合同/铭牌为准」。",
+    "examples": [
+      "可以给客户：Garland 2024 可行性RCT原文级别的结论",
+      "不能当通识给客户：优浮次卡价、杨浦财务模型、Jun案例数字"
+    ],
+    "source": {
+      "file": "通识层架构与前沿文献（2026-08-24）",
+      "location": "知识库架构 2026-08-24",
+      "date": "2026-08-24",
+      "author": "公开文献 / 政策 / 知识库架构"
+    },
+    "scenarios": [
+      "内部培训",
+      "资料包设计",
+      "战略研讨"
+    ],
+    "durationMin": 5,
+    "version": "1.0",
+    "status": "approved",
+    "layer": "commons",
+    "usage": "training",
+    "createdAt": "2026-08-24T04:30:00.000Z",
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "通识层。公开科学/政策/方法，不是本公司临床试验或专有数字。"
+  },
+  {
+    "id": "KP-COM-002",
+    "title": "培训卡和汇报卡不是同一条知识：放在 usage，不另建一层",
+    "category": "培训资料",
+    "tags": [
+      "培训",
+      "汇报",
+      "usage",
+      "卡片结构"
+    ],
+    "audience": [
+      "培训师",
+      "销售团队",
+      "管理者"
+    ],
+    "prerequisites": [],
+    "summary": "培训初稿和PPT汇报用的知识完全不一样，但不要建成第三层。同一主题拆成两条：usage=pitch 给客户看；usage=training 给自己人练。层（通识/公司）仍按内容归属。",
+    "body": "结论：培训放在 usage=training。科学培训进通识层，SOP/产品培训进公司层。PPT/提案放 usage=pitch。运营手册放 usage=ops。\n为什么不能合成一条：汇报要短、要边界、要邀请；培训要目标、要误区、要练习、要考核。合成后对客户太长，对学员太虚。\n汇报卡结构：一句话主张 → 一条可核验证据 → 一句边界（不讲什么） → 一句邀请（体验/尽调/试点）。\n培训卡结构：学习目标 → 不要讲成 → 可以讲 → 练习（30秒口播） → 考核（问一句就露馅的题）。\n同一文献的正确拆法：Garland 2024 事实卡（both）+ 培训卡「不要讲成疗效RCT」（training）。不要把培训初稿直接贴进客户PPT。\n你有培训初稿时：上传后说「按培训卡结构拆，usage=training，科学进通识、SOP进公司」。",
+    "examples": [
+      "汇报：六次池漂依从约85%/89%，无严重不良事件；这是可行性，不是治愈率",
+      "培训考核：客户问「所以你们能治抑郁？」正确回答是把问题转回深度恢复与体验，而不是背疗效数字"
+    ],
+    "source": {
+      "file": "通识层架构与前沿文献（2026-08-24）",
+      "location": "知识库架构 2026-08-24",
+      "date": "2026-08-24",
+      "author": "公开文献 / 政策 / 知识库架构"
+    },
+    "scenarios": [
+      "内部培训",
+      "拆分规范",
+      "资料包设计"
+    ],
+    "durationMin": 6,
+    "version": "1.0",
+    "status": "approved",
+    "layer": "commons",
+    "usage": "training",
+    "createdAt": "2026-08-24T04:30:00.000Z",
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "通识层。公开科学/政策/方法，不是本公司临床试验或专有数字。"
+  },
+  {
+    "id": "KP-COM-003",
+    "title": "B端资料包六件套：先通识，后公司",
+    "category": "市场营销",
+    "tags": [
+      "B端资料",
+      "一页纸",
+      "尽调",
+      "通识层"
+    ],
+    "audience": [
+      "B端客户",
+      "销售团队",
+      "管理者"
+    ],
+    "prerequisites": [],
+    "summary": "给产业客户的标准包：①问题与政策通识 ②REST证据与边界 ③卫生与安全 ④参观/体验路径 ⑤FAQ红线 ⑥公司方案附录（数字以合同为准）。前五件主要来自通识层。",
+    "body": "①问题与政策：全球精神障碍规模、中国抑郁焦虑体量、健康中国/主动健康转向。只引官方或可核验来源。\n②证据与边界：Feinstein 2018 开放标签；Garland 2024 安全/可行性RCT；病种RCT不进销售菜单。\n③卫生：NSF/NAFTS 主流是UV/臭氧，不把泳池氯方案当卖点恐吓。\n④参观：看动线、看消杀、看一次完整体验，不在舱边讲病种。\n⑤FAQ：不治病、数字未锁定、案例需授权。\n⑥公司附录：设备参数、合作模式、报价、SOP——单独装订，授权后给。\n不要：把财务模型和论文摘要订成一本让客户自己翻。",
+    "examples": [
+      "产业集团第一轮只给①–⑤；进入尽调再给⑥"
+    ],
+    "source": {
+      "file": "通识层架构与前沿文献（2026-08-24）",
+      "location": "知识库架构 2026-08-24",
+      "date": "2026-08-24",
+      "author": "公开文献 / 政策 / 知识库架构"
+    },
+    "scenarios": [
+      "B端提案",
+      "尽调",
+      "资料包"
+    ],
+    "durationMin": 5,
+    "version": "1.0",
+    "status": "approved",
+    "layer": "commons",
+    "usage": "pitch",
+    "createdAt": "2026-08-24T04:30:00.000Z",
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "通识层。公开科学/政策/方法，不是本公司临床试验或专有数字。"
+  },
+  {
+    "id": "KP-COM-004",
+    "title": "尽调口径：数字未锁定就写材料口径，不编专有数字",
+    "category": "合规与风控",
+    "tags": [
+      "尽调",
+      "数字",
+      "口径",
+      "B端"
+    ],
+    "audience": [
+      "销售团队",
+      "管理者",
+      "B端客户"
+    ],
+    "prerequisites": [],
+    "summary": "客户问机构数、专利数、C端量、回本模型时：通识层只提供公共证据；公司数字未老板锁定前，统一答「以合同、铭牌、最新授权材料为准」，禁止现场发明。",
+    "body": "可立刻引用（通识）：WHO 2025 全球超十亿精神障碍；中国抑郁约5400万、焦虑约4100万（WHO中国页）；Garland 2024 无严重不良事件。\n必须等老板锁（公司层）：对外机构数、专利数、C端用户数、水温、58%/2000项研究、优浮历史价。见 KP-CRAFT-023、KP-SOP-022。\n现场句式：这个问题我们按合同文本答，不在口头把宣传页数字说死。\n红线：不要用通识文献的样本量冒充我司临床数据。",
+    "examples": [
+      "问：你们有没有国家级认证疗效？答：漂浮不是已批准精神科治疗；我们交付的是可运营的深度恢复服务。"
+    ],
+    "source": {
+      "file": "通识层架构与前沿文献（2026-08-24）",
+      "location": "知识库架构 2026-08-24",
+      "date": "2026-08-24",
+      "author": "公开文献 / 政策 / 知识库架构"
+    },
+    "scenarios": [
+      "尽调",
+      "B端提案",
+      "合规培训"
+    ],
+    "durationMin": 4,
+    "version": "1.0",
+    "status": "approved",
+    "layer": "commons",
+    "usage": "both",
+    "createdAt": "2026-08-24T04:30:00.000Z",
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "通识层。公开科学/政策/方法，不是本公司临床试验或专有数字。"
+  },
+  {
+    "id": "KP-COM-005",
+    "title": "文献更新纪律：只写到作者原话级别，禁止升格",
+    "category": "合规与风控",
+    "tags": [
+      "文献",
+      "引用纪律",
+      "前沿",
+      "通识层"
+    ],
+    "audience": [
+      "学术",
+      "销售团队",
+      "培训师"
+    ],
+    "prerequisites": [],
+    "summary": "通识层更新前沿文献时：写清设计、样本、主终点、作者自己的限度。开放标签不写成RCT；可行性RCT不写成疗效金标准；综述不写成元分析定论；在研试验没有结果就不能当证据。",
+    "body": "允许：作者、年份、期刊、DOI/试验号、n、设计、安全事件、作者结论原句级别。\n禁止：把 p 值讲成「已证明治好」；把单中心讲成「全球金标准」；把正在招募的 NCT 讲成「最新疗效」。\n升格梯子（从低到高）：案例/开放标签 → 可行性/安全性RCT → 疗效RCT → 多中心重复 → 系统综述/指南。销售默认停在可行性+即时状态。\n更新频率：有新RCT或WHO报告再补卡；不要每周刮新闻标题。",
+    "examples": [
+      "正确：作者写明 larger RCTs evaluating clinical efficacy are warranted",
+      "错误：最新研究证明漂浮可以治疗焦虑抑郁"
+    ],
+    "source": {
+      "file": "通识层架构与前沿文献（2026-08-24）",
+      "location": "知识库架构 2026-08-24",
+      "date": "2026-08-24",
+      "author": "公开文献 / 政策 / 知识库架构"
+    },
+    "scenarios": [
+      "合规培训",
+      "学术汇报",
+      "拆分规范"
+    ],
+    "durationMin": 4,
+    "version": "1.0",
+    "status": "approved",
+    "layer": "commons",
+    "usage": "training",
+    "createdAt": "2026-08-24T04:30:00.000Z",
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "通识层。公开科学/政策/方法，不是本公司临床试验或专有数字。"
+  },
+  {
+    "id": "KP-COM-006",
+    "title": "培训：漂浮不是治疗，对外怎么把话收回来",
+    "category": "培训资料",
+    "tags": [
+      "培训",
+      "合规",
+      "不治病",
+      "话术"
+    ],
+    "audience": [
+      "培训师",
+      "销售团队",
+      "门店运营"
+    ],
+    "prerequisites": [],
+    "summary": "学习目标：学员能在10秒内把「治病/治愈/处方」纠正为「深度恢复/状态管理/非药物服务」。这是培训卡，不是客户PPT页。",
+    "body": "学习目标：不把漂浮说成精神科治疗、医保项目或医疗器械适应症。\n不要讲成：治疗抑郁症、处方漂浮、有效率90%、替代药物。\n可以讲：非药物、可体验、可重复的深度恢复；研究在追问焦虑/疼痛等信号；我们交付卫生与流程。\n练习：客户说「你们是不是能治失眠？」——先承认失眠很常见，再把服务定义成睡眠管理入口，建议体验+规律作息，不承诺治愈。\n考核：说出三句禁用词（治疗、治愈、医治）和三句替换词（修复、调节、重置/深度恢复）。对接 SOP-009。",
+    "examples": [
+      "禁用：这是治疗焦虑的医疗项目",
+      "可用：这是帮助神经系统降噪重启的恢复服务"
+    ],
+    "source": {
+      "file": "通识层架构与前沿文献（2026-08-24）",
+      "location": "知识库架构 2026-08-24",
+      "date": "2026-08-24",
+      "author": "公开文献 / 政策 / 知识库架构"
+    },
+    "scenarios": [
+      "销售培训",
+      "合规培训",
+      "开业陪跑"
+    ],
+    "durationMin": 5,
+    "version": "1.0",
+    "status": "approved",
+    "layer": "commons",
+    "usage": "training",
+    "createdAt": "2026-08-24T04:30:00.000Z",
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "通识层。公开科学/政策/方法，不是本公司临床试验或专有数字。"
+  },
+  {
+    "id": "KP-COM-007",
+    "title": "WHO 2025：全球超十亿人生活在精神障碍中",
+    "category": "战略规划",
+    "tags": [
+      "WHO",
+      "2025",
+      "精神健康",
+      "通识"
+    ],
+    "audience": [
+      "政府汇报",
+      "B端客户",
+      "投资人"
+    ],
+    "prerequisites": [],
+    "summary": "世界卫生组织 2025 年《World mental health today》：2021年全球约14%人口、超过十亿人生活在精神障碍中；焦虑与抑郁最常见。服务仍严重不足。用于打开问题，不用于证明我司疗效。",
+    "body": "出处：WHO, World mental health today（ISBN 9789240113817），2025-09 发布；新闻稿 2025-09-02。\n核心数：2021年估计超过十亿人（约14%全球人口）生活在精神障碍中；多数在中低收入国家。\n病种：男女均以焦虑障碍、抑郁障碍最常见；女性总体受影响更重。\n服务：与 Mental Health Atlas 2024 一起发布，强调政策有进展但投资和人力跟不上。\n经济：间接成本（生产力损失）远大于直接医疗费用；对外引用时用「WHO指出负担沉重」，不要把全球万亿美元级口径说成我司可回收的市场。\n边界：这是流行病学与卫生系统数据，不是漂浮适应症。\n对外句：心理健康需求巨大且服务不足；我们提供的是可体验的主动健康入口，不是替代专科医疗。",
+    "examples": [
+      "PPT只放：超十亿人；焦虑与抑郁最常见；服务缺口仍大"
+    ],
+    "source": {
+      "file": "通识层架构与前沿文献（2026-08-24）",
+      "location": "https://www.who.int/news/item/02-09-2025-over-a-billion-people-living-with-mental-health-conditions-services-require-urgent-scale-up",
+      "date": "2026-08-24",
+      "author": "公开文献 / 政策 / 知识库架构"
+    },
+    "scenarios": [
+      "政府汇报",
+      "B端提案",
+      "演讲"
+    ],
+    "durationMin": 4,
+    "version": "1.0",
+    "status": "approved",
+    "layer": "commons",
+    "usage": "pitch",
+    "createdAt": "2026-08-24T04:30:00.000Z",
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "通识层。公开科学/政策/方法，不是本公司临床试验或专有数字。"
+  },
+  {
+    "id": "KP-COM-008",
+    "title": "中国规模：抑郁约5400万、焦虑约4100万，健康中国要治疗可及",
+    "category": "战略规划",
+    "tags": [
+      "WHO中国",
+      "抑郁",
+      "焦虑",
+      "健康中国2030"
+    ],
+    "audience": [
+      "政府汇报",
+      "B端客户",
+      "投资人"
+    ],
+    "prerequisites": [],
+    "summary": "WHO中国页：估计中国约5400万人患抑郁、约4100万人患焦虑障碍。健康中国2019–2030目标包括到2030年至少80%抑郁症患者获得治疗可及。用来讲需求与政策，不讲我们覆盖了多少患者。",
+    "body": "出处：WHO China, Mental health 主题页（与世界精神卫生日材料口径一致）。\n数字：抑郁约 54 million；焦虑障碍约 41 million。这是WHO估计，不是我司普查。\n政策：Healthy China 2019–2030 — 抑郁症患者获得治疗的比例，目标2030年至少80%（材料中并提2022年至少30%的阶段性表述，引用时核对最新官方文本）。\n对接：主动健康、社会心理服务体系要的是可及、可体验、可协同的入口；漂浮可以是恢复服务，不能自称已纳入基本公卫或医保。\n禁止：把5400万说成目标客户量或可转化漏斗。",
+    "examples": [
+      "政府页：需求体量大 + 治疗可及目标；下一页才是我们的非医疗恢复角色"
+    ],
+    "source": {
+      "file": "通识层架构与前沿文献（2026-08-24）",
+      "location": "https://www.who.int/china/health-topics/mental-health",
+      "date": "2026-08-24",
+      "author": "公开文献 / 政策 / 知识库架构"
+    },
+    "scenarios": [
+      "政府汇报",
+      "B端提案",
+      "演讲"
+    ],
+    "durationMin": 4,
+    "version": "1.0",
+    "status": "approved",
+    "layer": "commons",
+    "usage": "pitch",
+    "createdAt": "2026-08-24T04:30:00.000Z",
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "通识层。公开科学/政策/方法，不是本公司临床试验或专有数字。"
+  },
+  {
+    "id": "KP-COM-009",
+    "title": "Mental Health Atlas 2024：人力与预算仍薄",
+    "category": "战略规划",
+    "tags": [
+      "WHO",
+      "Atlas 2024",
+      "人力",
+      "服务缺口"
+    ],
+    "audience": [
+      "政府汇报",
+      "B端客户",
+      "投资人"
+    ],
+    "prerequisites": [],
+    "summary": "WHO《Mental Health Atlas 2024》（144国）：全球专科精神卫生人力中位数约13.5/10万；低收入与中低收入国家约1.1–2.4，高收入约67.2。政府卫生预算中精神卫生中位数仍约2%。讲缺口，不讲我们能补上专科医生。",
+    "body": "出处：WHO Mental Health Atlas 2024，ISBN 9789240114487；第七版，2001年起系列。\n人力：全球专科精神卫生工作者中位数 13.5 / 10万人口；儿童青少年专科中位数约 1.5 / 10万。构成大约：护士43%、心理师22%、精神科医师16%。\n预算：政府卫生支出中精神卫生中位数仍约2%。\n含义：专科供给跟不上需求，才会出现「基层可体验的心理与睡眠管理服务」空间。\n边界：Atlas 描述的是卫生系统，不是漂浮行业报告。禁止说「所以国家要采购我们的舱」。\n对外句：政策在增加，但人力和预算仍然薄；产业可以做主动健康的可体验补充，不能假装自己是精神科扩容。",
+    "examples": [],
+    "source": {
+      "file": "通识层架构与前沿文献（2026-08-24）",
+      "location": "https://www.who.int/publications/i/item/9789240114487",
+      "date": "2026-08-24",
+      "author": "公开文献 / 政策 / 知识库架构"
+    },
+    "scenarios": [
+      "政府汇报",
+      "B端提案",
+      "战略研讨"
+    ],
+    "durationMin": 4,
+    "version": "1.0",
+    "status": "approved",
+    "layer": "commons",
+    "usage": "pitch",
+    "createdAt": "2026-08-24T04:30:00.000Z",
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "通识层。公开科学/政策/方法，不是本公司临床试验或专有数字。"
+  },
+  {
+    "id": "KP-COM-010",
+    "title": "政策通识：社会心理服务要可及，主动健康要可体验",
+    "category": "战略规划",
+    "tags": [
+      "社会心理服务体系",
+      "主动健康",
+      "政策",
+      "通识"
+    ],
+    "audience": [
+      "政府汇报",
+      "B端客户",
+      "销售团队"
+    ],
+    "prerequisites": [],
+    "summary": "通识层政策卡：卫生健康工作转向以健康为中心；心理与睡眠是主动健康支柱。我们的角色是可体验的深度恢复入口，不是基本公卫项目，也不是医院科室替代。",
+    "body": "可引：全民健康素养提升三年行动（治病中心→健康中心）；健康中国行动；主动健康六支柱中的心理与睡眠（见 WEB-008/009）。\n产业翻译：客户要的是员工/市民「用得上、敢进去、可重复」的恢复服务，而不是再听一堂心理健康课。\n培训不要讲成：我们已经是社会心理服务体系指定供应商。\n汇报可以讲：政策要可及，我们提供可参观、可体验、可运营的一种形态。\n红线：不写进医保、不写进强制筛查、不写治疗率承诺。",
+    "examples": [
+      "先政策缺口，再邀请参观；不要先设备参数"
+    ],
+    "source": {
+      "file": "通识层架构与前沿文献（2026-08-24）",
+      "location": "对接 KP-WEB-008、KP-WEB-009",
+      "date": "2026-08-24",
+      "author": "公开文献 / 政策 / 知识库架构"
+    },
+    "scenarios": [
+      "政府汇报",
+      "B端提案",
+      "销售培训"
+    ],
+    "durationMin": 4,
+    "version": "1.0",
+    "status": "approved",
+    "layer": "commons",
+    "usage": "both",
+    "createdAt": "2026-08-24T04:30:00.000Z",
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "通识层。公开科学/政策/方法，不是本公司临床试验或专有数字。"
+  },
+  {
+    "id": "KP-COM-011",
+    "title": "培训：Garland 2024 是安全/可行性RCT，不是疗效金标准",
+    "category": "培训资料",
+    "tags": [
+      "Garland",
+      "RCT",
+      "可行性",
+      "培训"
+    ],
+    "audience": [
+      "培训师",
+      "销售团队",
+      "学术"
+    ],
+    "prerequisites": [],
+    "summary": "学习目标：能准确背出 Garland et al., PLoS ONE 2024;19(6):e0286899 的设计级别，并拒绝把它讲成「已经证明治疗焦虑抑郁」。事实细节见 KP-WEB-002。",
+    "body": "学习目标：区分可行性终点 vs 疗效终点。\n事实锚点（WEB-002）：n=75，焦虑+抑郁；pool-REST / pool-REST preferred / chair-REST；约6次；依从 85% / 89% / 74%；无与干预相关严重不良事件；NCT03899090。\n不要讲成：疗效RCT、治愈焦虑、比药物更好、我司临床试验。\n可以讲：重复使用可行、耐受较好、体验以正向为主；作者要求更大疗效RCT。\n练习：用20秒说完「能做完、较安全、功效还要等」。\n考核：主终点是依从/可行性，不是抑郁量表治愈率。答错则停用该文献直到复训。",
+    "examples": [
+      "客户追问疗效 → 把文献级别说清楚，再邀请体验，不补编数字"
+    ],
+    "source": {
+      "file": "通识层架构与前沿文献（2026-08-24）",
+      "location": "https://doi.org/10.1371/journal.pone.0286899",
+      "date": "2026-08-24",
+      "author": "公开文献 / 政策 / 知识库架构"
+    },
+    "scenarios": [
+      "销售培训",
+      "合规培训",
+      "学术汇报"
+    ],
+    "durationMin": 5,
+    "version": "1.0",
+    "status": "approved",
+    "layer": "commons",
+    "usage": "training",
+    "createdAt": "2026-08-24T04:30:00.000Z",
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "通识层。公开科学/政策/方法，不是本公司临床试验或专有数字。"
+  },
+  {
+    "id": "KP-COM-012",
+    "title": "培训：Feinstein 2018 是开放标签，效果量再大也不是RCT",
+    "category": "培训资料",
+    "tags": [
+      "Feinstein",
+      "开放标签",
+      "培训",
+      "焦虑"
+    ],
+    "audience": [
+      "培训师",
+      "销售团队",
+      "学术"
+    ],
+    "prerequisites": [],
+    "summary": "学习目标：Feinstein 2018（n=50，约1小时，状态焦虑下降信号强）必须标注 open-label。作者要求更大对照试验。事实见 KP-WEB-001。",
+    "body": "不要讲成：RCT、金标准、已验证治疗。\n可以讲：有开放标签研究观察到单次后状态焦虑显著下降；这不是已批准精神科治疗。\n练习：先说设计，再说结果，最后说限度。顺序反了就算失败。\n考核：ClinicalTrials.gov 号 NCT03051074；设计标签必须含「开放标签」。\n与 Garland 2024 的关系：2018 给即时状态信号，2024 给重复使用安全/可行性；两张卡不要合成「已经完全证明」。",
+    "examples": [],
+    "source": {
+      "file": "通识层架构与前沿文献（2026-08-24）",
+      "location": "https://doi.org/10.1371/journal.pone.0190292",
+      "date": "2026-08-24",
+      "author": "公开文献 / 政策 / 知识库架构"
+    },
+    "scenarios": [
+      "销售培训",
+      "合规培训"
+    ],
+    "durationMin": 4,
+    "version": "1.0",
+    "status": "approved",
+    "layer": "commons",
+    "usage": "training",
+    "createdAt": "2026-08-24T04:30:00.000Z",
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "通识层。公开科学/政策/方法，不是本公司临床试验或专有数字。"
+  },
+  {
+    "id": "KP-COM-013",
+    "title": "培训：Choquette 2023 住院厌食RCT不可写成产品适应症",
+    "category": "培训资料",
+    "tags": [
+      "Choquette",
+      "身体意象",
+      "红线",
+      "培训"
+    ],
+    "audience": [
+      "培训师",
+      "销售团队",
+      "学术"
+    ],
+    "prerequisites": [],
+    "summary": "eClinicalMedicine 2023 住院神经性厌食女性RCT有信号，但是单中心、样本有限。禁止说「漂浮方舟治疗厌食症」。学术可引用，销售菜单不放。",
+    "body": "学习目标：塔尖文献只对学术/内部。\n不要讲成：我们的适应症、已在中国复制、餐饮/医美客户的承诺。\n可以讲：顶刊级研究说明 REST 对身体意象与状态焦虑被认真研究过；推广性有限。\n考核：能否指出「住院样本 ≠ 门店客群」。\n对接 WEB-003、WEB-010。",
+    "examples": [],
+    "source": {
+      "file": "通识层架构与前沿文献（2026-08-24）",
+      "location": "https://doi.org/10.1016/j.eclinm.2023.102173",
+      "date": "2026-08-24",
+      "author": "公开文献 / 政策 / 知识库架构"
+    },
+    "scenarios": [
+      "合规培训",
+      "学术汇报"
+    ],
+    "durationMin": 4,
+    "version": "1.0",
+    "status": "approved",
+    "layer": "commons",
+    "usage": "training",
+    "createdAt": "2026-08-24T04:30:00.000Z",
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "通识层。公开科学/政策/方法，不是本公司临床试验或专有数字。"
+  },
+  {
+    "id": "KP-COM-014",
+    "title": "2025系统综述：63项研究显示痛、压力、焦虑有信号，睡眠与戒烟弱",
+    "category": "技术知识",
+    "tags": [
+      "系统综述",
+      "Lashgari",
+      "2025",
+      "REST"
+    ],
+    "audience": [
+      "学术",
+      "B端客户",
+      "销售团队"
+    ],
+    "prerequisites": [],
+    "summary": "Lashgari 等，BMC Complementary Medicine and Therapies 2025。检索至2024-05，纳入63项、约1800+参与者。痛、运动表现、压力、临床焦虑偏正向；睡眠障碍与戒烟证据弱。作者强调机制与方案仍待研究。",
+    "body": "出处：Lashgari E, Chen E, Gregory J, Maoz U. A systematic review of flotation-restricted environmental stimulation therapy (REST). BMC Complement Med Ther. 2025.\n范围：PRISMA；数据库检索至 2024-05-23；排除非 flotation-REST 与综述本身。\n体量：63项研究；摘要写 1,838 名参与者，正文样本特征处另有合计口径，对外用「六十余项、约两千人量级」并指向原文，不锁单一总数。\n作者归纳的正向领域：疼痛、运动表现、压力、心理健康、临床焦虑。\n弱/无：睡眠相关障碍、戒烟。\n限度：研究仍少、方案异质、需要更多机制与优化方案研究。有一项疼痛对照甚至与安慰剂接近——不能把综述写成「已证明镇痛药替代」。\n对外句：系统综述支持「值得认真研究的恢复工具」，不是「已经批准的治疗」。\n红线：不要用这项综述覆盖我司产品模块（氢、光、AI）的功效。",
+    "examples": [
+      "汇报只列：痛/压力/焦虑有文献簇；睡眠不要当主打功效承诺"
+    ],
+    "source": {
+      "file": "通识层架构与前沿文献（2026-08-24）",
+      "location": "https://doi.org/10.1186/s12906-025-04973-0",
+      "date": "2026-08-24",
+      "author": "公开文献 / 政策 / 知识库架构"
+    },
+    "scenarios": [
+      "学术汇报",
+      "B端提案",
+      "销售培训"
+    ],
+    "durationMin": 5,
+    "version": "1.0",
+    "status": "approved",
+    "layer": "commons",
+    "usage": "both",
+    "createdAt": "2026-08-24T04:30:00.000Z",
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "通识层。公开科学/政策/方法，不是本公司临床试验或专有数字。"
+  },
+  {
+    "id": "KP-COM-015",
+    "title": "2026范围综述：慢性痛文献簇有信号，但还不能做元分析定论",
+    "category": "技术知识",
+    "tags": [
+      "慢性痛",
+      "scoping review",
+      "2026",
+      "Stuart"
+    ],
+    "audience": [
+      "学术",
+      "B端客户",
+      "销售团队"
+    ],
+    "prerequisites": [],
+    "summary": "Stuart 等，Journal of Pain Research 2026-02-11。检索至2025-01，8项研究（6项RCT）共401人。疼痛强度/频次等多报改善，生理指标不一致，异质性大到无法元分析。作者要高质量长随访RCT。",
+    "body": "出处：Stuart SJ, Achury LK, Kline M, Bair MJ. J Pain Res. 2026. DOI 10.2147/JPR.S565238；PMC12912093。\n设计：scoping review，不是 meta-analysis。\n结果方向：疼痛强度与频率、疼痛部位数、耐受；多数研究中焦虑抑郁下降；压力下降；睡眠有的改善有的无。\n生理/生物标志物：不清晰。\n作者结论级别：appears promising；需要标准化干预与纵向随访的高质量随机试验。\n对外：可以放在证据金字塔中段「疼痛信号较一致」；不能说「已确认治疗慢性痛」。\n与 MECH-008 对齐：疼痛与心理福祉相对更一致，仍有研究缺口。",
+    "examples": [],
+    "source": {
+      "file": "通识层架构与前沿文献（2026-08-24）",
+      "location": "https://doi.org/10.2147/JPR.S565238",
+      "date": "2026-08-24",
+      "author": "公开文献 / 政策 / 知识库架构"
+    },
+    "scenarios": [
+      "学术汇报",
+      "B端提案",
+      "合规培训"
+    ],
+    "durationMin": 4,
+    "version": "1.0",
+    "status": "approved",
+    "layer": "commons",
+    "usage": "both",
+    "createdAt": "2026-08-24T04:30:00.000Z",
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "通识层。公开科学/政策/方法，不是本公司临床试验或专有数字。"
+  },
+  {
+    "id": "KP-COM-016",
+    "title": "研究管线：医护PTSS漂浮试验在招募，没有结果可引用",
+    "category": "合规与风控",
+    "tags": [
+      "NCT07710417",
+      "PTSS",
+      "在研",
+      "红线"
+    ],
+    "audience": [
+      "学术",
+      "销售团队",
+      "培训师"
+    ],
+    "prerequisites": [],
+    "summary": "Laureate Institute NCT07710417（2026年启动招募）：一线医护/急救人员创伤应激症状，两次60分钟漂浮 vs 看纪录片，目标约15名完成者。这是前沿方向，不是证据。",
+    "body": "状态：RECRUITING（以 ClinicalTrials.gov 当时页面为准）。\n设计：单中心、早期、可行性/耐受/安全为主；最多约30人，计划保留15名完成者。\n禁止：说「最新研究证明漂浮治疗PTSD/医护职业耗竭」。\n可以讲：国际实验室仍在把 REST 推进到职业应激场景，说明品类被认真对待；我们等待结果。\n考核：在研试验有没有主终点结果？没有就不能进客户PPT。",
+    "examples": [],
+    "source": {
+      "file": "通识层架构与前沿文献（2026-08-24）",
+      "location": "https://clinicaltrials.gov/study/NCT07710417",
+      "date": "2026-08-24",
+      "author": "公开文献 / 政策 / 知识库架构"
+    },
+    "scenarios": [
+      "合规培训",
+      "学术汇报"
+    ],
+    "durationMin": 3,
+    "version": "1.0",
+    "status": "approved",
+    "layer": "commons",
+    "usage": "training",
+    "createdAt": "2026-08-24T04:30:00.000Z",
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "通识层。公开科学/政策/方法，不是本公司临床试验或专有数字。"
+  },
+  {
+    "id": "KP-COM-017",
+    "title": "B端一页纸：卫生用国际标准讲，不靠恐吓氯",
+    "category": "运营管理",
+    "tags": [
+      "卫生",
+      "NSF",
+      "NAFTS",
+      "尽调"
+    ],
+    "audience": [
+      "采购",
+      "B端客户",
+      "工程实施"
+    ],
+    "prerequisites": [],
+    "summary": "给客户的卫生通识：高镁溶液里氯溴不是主流推荐；UV/臭氧或组合是国际浮舱常见路径；用户间清洁循环要达到认证量级（约3-log）。细节检查单见 WEB-012，公司具体设备参数走公司层。",
+    "body": "一句话主张：卫生是经营信任，不是形容词。\n证据：North American Float Tank Standard / NSF/ANSI/CAN 50 方向——认证消杀系统在规定循环后对主舱细菌约 3-log 灭活；氯溴因测不准且未按浮舱用途注册，普遍不推荐。\n边界：具体臭氧残留、翻转次数以说明书与本地法规为准，不在口头锁死。\n邀请：看机房、看循环、看出舱后的清洁，而不是看宣传片。\n不要讲成：氯致癌所以必须买我们。改口：行业标准本来就不靠泳池氯方案。",
+    "examples": [
+      "参观顺序：淋浴→舱沿→循环机→记录表"
+    ],
+    "source": {
+      "file": "通识层架构与前沿文献（2026-08-24）",
+      "location": "对接 KP-WEB-004、KP-WEB-012",
+      "date": "2026-08-24",
+      "author": "公开文献 / 政策 / 知识库架构"
+    },
+    "scenarios": [
+      "采购尽调",
+      "B端提案",
+      "参观讲解"
+    ],
+    "durationMin": 4,
+    "version": "1.0",
+    "status": "approved",
+    "layer": "commons",
+    "usage": "pitch",
+    "createdAt": "2026-08-24T04:30:00.000Z",
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "通识层。公开科学/政策/方法，不是本公司临床试验或专有数字。"
+  },
+  {
+    "id": "KP-COM-018",
+    "title": "机制红线培训：主通路是REST卸载，不是输液式补镁或乳酸神话",
+    "category": "培训资料",
+    "tags": [
+      "镁",
+      "乳酸",
+      "机制",
+      "培训"
+    ],
+    "audience": [
+      "培训师",
+      "销售团队",
+      "运动队"
+    ],
+    "prerequisites": [],
+    "summary": "把两条最容易讲过头的机制收口：透皮补镁证据不足；血乳酸加速清除并不稳定。对外锁定「主观恢复 + 神经降噪 + 浮力卸载」。",
+    "body": "学习目标：运动/抗衰场景不把漂浮液讲成体外透析。\n不要讲成：矿物像生物导弹、乳酸清除快50–90%（除非有可追溯且已锁定的试验）。\n可以讲：高镁溶液提供浮力与皮肤接触；物理消杀减少化学刺激；主观疲劳/放松更常被报告。\n练习：教练追问生化表，改答「主观恢复更稳，生化指标研究不一致」。\n考核：能否指向 Gröber 2017 Nutrients 综述与库内乳酸冲突仲裁（WEB-005/006）。",
+    "examples": [],
+    "source": {
+      "file": "通识层架构与前沿文献（2026-08-24）",
+      "location": "对接 KP-WEB-005、KP-WEB-006",
+      "date": "2026-08-24",
+      "author": "公开文献 / 政策 / 知识库架构"
+    },
+    "scenarios": [
+      "销售培训",
+      "运动提案",
+      "合规培训"
+    ],
+    "durationMin": 4,
+    "version": "1.0",
+    "status": "approved",
+    "layer": "commons",
+    "usage": "training",
+    "createdAt": "2026-08-24T04:30:00.000Z",
+    "updatedAt": "2026-08-24T04:30:00.000Z",
+    "conflictNote": "通识层。公开科学/政策/方法，不是本公司临床试验或专有数字。"
   }
 ]
