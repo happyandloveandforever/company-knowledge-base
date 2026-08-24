@@ -3,14 +3,20 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Pencil, Check, X, Save, Trash2, Link2 } from "lucide-react";
-import type { KnowledgePoint, KnowledgeStatus } from "@/lib/types";
+import type { KnowledgePoint, KnowledgeStatus, KnowledgeLayer, KnowledgeUsage } from "@/lib/types";
+import {
+  LAYER_LABELS,
+  USAGE_LABELS,
+  getLayer,
+  getUsage,
+} from "@/lib/knowledge-layers";
 import type { SimilarMatch } from "@/lib/similarity";
 import type { ContentConflict } from "@/lib/conflict-detector";
 import { SIMILARITY_LABELS } from "@/lib/similarity";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Input, Textarea } from "@/components/ui/input";
+import { Input, Textarea, Select } from "@/components/ui/input";
 
 const STATUS_LABELS: Record<KnowledgeStatus, string> = {
   draft: "待审核",
@@ -218,6 +224,30 @@ export function KnowledgePointCard({
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
+              <label className="mb-1 block text-sm font-medium text-slate-700">知识层级</label>
+              <Select
+                value={getLayer(form)}
+                onChange={(e) => setForm({ ...form, layer: e.target.value as KnowledgeLayer })}
+              >
+                <option value="commons">{LAYER_LABELS.commons}</option>
+                <option value="company">{LAYER_LABELS.company}</option>
+              </Select>
+            </div>
+            <div>
+              <label className="mb-1 block text-sm font-medium text-slate-700">用途</label>
+              <Select
+                value={getUsage(form)}
+                onChange={(e) => setForm({ ...form, usage: e.target.value as KnowledgeUsage })}
+              >
+                <option value="pitch">{USAGE_LABELS.pitch}</option>
+                <option value="training">{USAGE_LABELS.training}</option>
+                <option value="ops">{USAGE_LABELS.ops}</option>
+                <option value="both">{USAGE_LABELS.both}</option>
+              </Select>
+            </div>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div>
               <label className="mb-1 block text-sm font-medium text-slate-700">分类</label>
               <Input
                 list="category-options"
@@ -336,6 +366,10 @@ export function KnowledgePointCard({
             <p className="mt-1 text-sm text-slate-500">{kp.summary}</p>
           </div>
           <div className="flex flex-col items-end gap-1">
+            <Badge variant={getLayer(kp) === "commons" ? "default" : "secondary"}>
+              {LAYER_LABELS[getLayer(kp)]}
+            </Badge>
+            <Badge variant="outline">{USAGE_LABELS[getUsage(kp)]}</Badge>
             <Badge variant={STATUS_VARIANT[kp.status]}>
               {STATUS_LABELS[kp.status]}
             </Badge>

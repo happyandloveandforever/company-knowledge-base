@@ -11,6 +11,14 @@ import {
   filtersKey,
   filtersToParams,
 } from "@/lib/library-filters";
+import {
+  LAYER_LABELS,
+  USAGE_LABELS,
+  countByLayer,
+  countByUsage,
+  getLayer,
+  getUsage,
+} from "@/lib/knowledge-layers";
 import { KnowledgePointCard } from "@/components/knowledge-point-card";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -47,6 +55,8 @@ function applyFilterLogic(
     }
     if (f.similar === "content" && !contentConflicts[p.id]?.length) return false;
     if (f.source && p.source.file !== f.source) return false;
+    if (f.layer && getLayer(p) !== f.layer) return false;
+    if (f.usage && getUsage(p) !== f.usage) return false;
     if (f.search) {
       const q = f.search.toLowerCase();
       const hay = `${p.title} ${p.summary} ${p.body} ${p.tags.join(" ")} ${p.audience.join(" ")}`.toLowerCase();
@@ -116,6 +126,9 @@ export function LibraryClient({
     return { pending: pendingCount, approved, total: points.length };
   }, [points]);
 
+  const layerCounts = useMemo(() => countByLayer(points), [points]);
+  const usageCounts = useMemo(() => countByUsage(points), [points]);
+
   const similarStats = useMemo(() => {
     const withSimilar = Object.keys(similarities).length;
     const duplicates = Object.values(similarities).filter((m) =>
@@ -157,7 +170,16 @@ export function LibraryClient({
   }
 
   function resetFilters() {
-    navigateWithFilters({ search: "", category: "", status: "", similar: "", source: "", tags: [] });
+    navigateWithFilters({
+      search: "",
+      category: "",
+      status: "",
+      similar: "",
+      source: "",
+      layer: "",
+      usage: "",
+      tags: [],
+    });
   }
 
   function getGroupIdForPoint(pointId: string): string | undefined {
@@ -233,6 +255,11 @@ export function LibraryClient({
     if (applied.similar === "content") parts.push("内容冲突");
     if (applied.tags.length) parts.push(`标签:${applied.tags.join("、")}`);
     if (applied.source) parts.push(`来源:${applied.source}`);
+    if (applied.layer === "commons") parts.push("通识层");
+    if (applied.layer === "company") parts.push("公司自有层");
+    if (applied.usage && applied.usage in USAGE_LABELS) {
+      parts.push(USAGE_LABELS[applied.usage as keyof typeof USAGE_LABELS]);
+    }
     return parts.length ? parts.join(" · ") : "";
   }
 
@@ -244,7 +271,7 @@ export function LibraryClient({
           <p className="text-sm text-slate-500">
             共 {points.length} 个知识点，当前显示 {filtered.length} 个
             <span className="text-slate-400">
-              {" "}（待审核 {statusCounts.pending} · 已批准 {statusCounts.approved}）
+              {" "}（通识 {layerCounts.commons} · 公司 {layerCounts.company} · 待审核 {statusCounts.pending} · 已批准 {statusCounts.approved}）
             </span>
             {similarStats.withSimilar > 0 && (
               <span className="text-amber-600">
@@ -319,6 +346,28 @@ export function LibraryClient({
             {categories.map((c) => (
               <option key={c} value={c}>{c}</option>
             ))}
+          </Select>
+          <Select
+            name="layer"
+            value={pending.layer}
+            onChange={(e) => setPending((p) => ({ ...p, layer: e.target.value }))}
+            className="sm:w-44"
+          >
+            <option value="">全部层级</option>
+            <option value="commons">{LAYER_LABELS.commons}（{layerCounts.commons}）</option>
+            <option value="company">{LAYER_LABELS.company}（{layerCounts.company}）</option>
+          </Select>
+          <Select
+            name="usage"
+            value={pending.usage}
+            onChange={(e) => setPending((p) => ({ ...p, usage: e.target.value }))}
+            className="sm:w-44"
+          >
+            <option value="">全部用途</option>
+            <option value="pitch">{USAGE_LABELS.pitch}（{usageCounts.pitch}）</option>
+            <option value="training">{USAGE_LABELS.training}（{usageCounts.training}）</option>
+            <option value="ops">{USAGE_LABELS.ops}（{usageCounts.ops}）</option>
+            <option value="both">{USAGE_LABELS.both}（{usageCounts.both}）</option>
           </Select>
           <Select
             name="status"

@@ -117,6 +117,57 @@ export default async function HomePage() {
         />
       </div>
 
+      <section className="mb-8">
+        <h2 className="mb-4 text-lg font-semibold text-slate-900">两层知识库</h2>
+        <div className="grid gap-4 md:grid-cols-2">
+          <Link href="/library?layer=commons">
+            <Card className="h-full transition-all hover:border-blue-200 hover:shadow-md">
+              <CardHeader>
+                <div className="mb-2 flex items-center gap-2">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 text-blue-700">
+                    <Layers className="h-5 w-5" />
+                  </div>
+                  <Badge>通识层</Badge>
+                </div>
+                <CardTitle className="text-base">给客户的公共证据</CardTitle>
+                <CardDescription>
+                  公开科学、政策、卫生标准、证据边界。{stats.commons} 条。培训和汇报都可以抽，但不含报价与专有数字。
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <span className="inline-flex items-center text-sm font-medium text-blue-600">
+                  打开通识层 <ArrowRight className="ml-1 h-4 w-4" />
+                </span>
+              </CardContent>
+            </Card>
+          </Link>
+          <Link href="/library?layer=company">
+            <Card className="h-full transition-all hover:border-indigo-200 hover:shadow-md">
+              <CardHeader>
+                <div className="mb-2 flex items-center gap-2">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 text-indigo-700">
+                    <Library className="h-5 w-5" />
+                  </div>
+                  <Badge variant="secondary">公司自有层</Badge>
+                </div>
+                <CardTitle className="text-base">按授权给的我司资产</CardTitle>
+                <CardDescription>
+                  产品、SOP、报价、案例、财务。{stats.company} 条。尽调授权后再给附录，数字未锁定不写死。
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <span className="inline-flex items-center text-sm font-medium text-indigo-600">
+                  打开公司层 <ArrowRight className="ml-1 h-4 w-4" />
+                </span>
+              </CardContent>
+            </Card>
+          </Link>
+        </div>
+        <p className="mt-3 text-sm text-slate-500">
+          培训初稿不是第三层：科学培训进通识层、SOP/产品培训进公司层，卡片用途标成「培训」。PPT 汇报用「汇报/提案」。
+        </p>
+      </section>
+
       {/* Pending alerts */}
       {(stats.pending > 0 || stats.pendingQueue > 0 || stats.conflictGroups > 0) && (
         <section className="mb-8 space-y-3">
