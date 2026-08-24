@@ -10,6 +10,7 @@ import {
   CheckCircle2,
   Sparkles,
   Layers,
+  GraduationCap,
 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -93,6 +94,14 @@ export default async function HomePage() {
                 导入新文件
               </Button>
             </Link>
+            {stats.internalOnly > 0 && (
+              <Link href="/library?internal=only">
+                <Button size="lg" variant="outline" className="border-red-200/60 bg-red-500/20 text-white hover:bg-red-500/30">
+                  <GraduationCap className="h-4 w-4" />
+                  打开漂浮师内训 {stats.internalOnly}
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
       </section>
@@ -118,8 +127,8 @@ export default async function HomePage() {
       </div>
 
       <section className="mb-8">
-        <h2 className="mb-4 text-lg font-semibold text-slate-900">两层知识库</h2>
-        <div className="grid gap-4 md:grid-cols-2">
+        <h2 className="mb-4 text-lg font-semibold text-slate-900">知识库入口</h2>
+        <div className="grid gap-4 lg:grid-cols-3">
           <Link href="/library?layer=commons">
             <Card className="h-full transition-all hover:border-blue-200 hover:shadow-md">
               <CardHeader>
@@ -162,22 +171,64 @@ export default async function HomePage() {
               </CardContent>
             </Card>
           </Link>
+          <Link href="/library?internal=only">
+            <Card className="h-full border-red-200 bg-red-50/50 transition-all hover:border-red-300 hover:shadow-md">
+              <CardHeader>
+                <div className="mb-2 flex items-center gap-2">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-red-100 text-red-700">
+                    <GraduationCap className="h-5 w-5" />
+                  </div>
+                  <Badge className="bg-red-100 text-red-800">仅内训 · 禁止外发</Badge>
+                </div>
+                <CardTitle className="text-base">漂浮师培训教材</CardTitle>
+                <CardDescription>
+                  《漂浮培训大纲》{stats.internalOnly} 条，与对外资料硬隔离。
+                  {stats.internalPending > 0
+                    ? `其中 ${stats.internalPending} 条待裁定。`
+                    : ""}
+                  编排 PPT 时默认排除。
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <span className="inline-flex items-center text-sm font-medium text-red-700">
+                  打开内训库 <ArrowRight className="ml-1 h-4 w-4" />
+                </span>
+              </CardContent>
+            </Card>
+          </Link>
+        </div>
+
+        <h3 className="mb-3 mt-6 text-sm font-semibold text-slate-700">按用途筛选</h3>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <UsageShortcut
+            href="/library?usage=pitch"
+            label="汇报 / 提案"
+            count={stats.pitch}
+            hint="客户 PPT 主用"
+          />
+          <UsageShortcut
+            href="/library?usage=training"
+            label="培训"
+            count={stats.training}
+            hint={`含 ${stats.internalOnly} 条仅内训`}
+            emphasize
+          />
+          <UsageShortcut
+            href="/library?usage=ops"
+            label="运营 SOP"
+            count={stats.ops}
+            hint="开业 / 卫生 / 操作"
+          />
+          <UsageShortcut
+            href="/library?usage=both"
+            label="汇报 + 培训"
+            count={stats.both}
+            hint="两种场景都能抽"
+          />
         </div>
         <p className="mt-3 text-sm text-slate-500">
-          培训不是第三层：科学培训进通识层、SOP/产品培训进公司层，卡片用途标成「培训」。PPT 汇报用「汇报/提案」。
+          培训不是第三层：科学培训进通识层、SOP/产品培训进公司层。红色卡片是《漂浮培训大纲》教材，禁止进客户资料。
         </p>
-        {stats.internalOnly > 0 && (
-          <Link
-            href="/library?internal=only"
-            className="mt-3 flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800 hover:bg-red-100"
-          >
-            <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
-            <span>
-              <strong>{stats.internalOnly} 条仅内训</strong>
-              （漂浮师培训教材，含适应症、处方、疗效案例）。编排 PPT 时默认排除，禁止进客户资料。
-            </span>
-          </Link>
-        )}
       </section>
 
       {/* Pending alerts */}
@@ -389,6 +440,36 @@ function StatCard({
   );
 
   return href ? <Link href={href}>{content}</Link> : content;
+}
+
+function UsageShortcut({
+  href,
+  label,
+  count,
+  hint,
+  emphasize,
+}: {
+  href: string;
+  label: string;
+  count: number;
+  hint: string;
+  emphasize?: boolean;
+}) {
+  return (
+    <Link href={href}>
+      <div
+        className={`rounded-xl border p-4 transition-colors hover:shadow-sm ${
+          emphasize
+            ? "border-red-200 bg-red-50/70 hover:bg-red-50"
+            : "border-slate-200 bg-white hover:border-blue-200 hover:bg-slate-50"
+        }`}
+      >
+        <p className="text-sm font-medium text-slate-900">{label}</p>
+        <p className={`mt-1 text-2xl font-semibold ${emphasize ? "text-red-700" : "text-slate-800"}`}>{count}</p>
+        <p className="mt-1 text-xs text-slate-500">{hint}</p>
+      </div>
+    </Link>
+  );
 }
 
 function TodoCard({
