@@ -45,7 +45,42 @@ const comBodies = com.map((p) => `${p.title}\n${p.summary}\n${p.body}`).join("\n
 check("通识新卡不写疗效承诺数字", !/治愈率\s*\d|治疗率\s*\d/.test(comBodies));
 check("通识新卡包含 WHO 2025", /WHO 2025|World mental health today/.test(comBodies));
 check("通识新卡包含 Garland 可行性培训", /可行性RCT/.test(comBodies));
-check("库总量不少于 379", points.length >= 379, String(points.length));
+check("库总量不少于 450", points.length >= 450, String(points.length));
+
+// ── 培训教材隔离 ─────────────────────────────────────
+const trn = points.filter((p) => p.id.startsWith("KP-TRN-"));
+check("培训卡 KP-TRN 至少 71 条", trn.length >= 71, String(trn.length));
+check("培训卡全部 usage=training", trn.every((p) => p.usage === "training"));
+check("培训卡全部 internalOnly", trn.every((p) => p.internalOnly === true));
+
+const trnText = trn.map((p) => `${p.title}\n${p.summary}\n${p.body}`).join("\n");
+check("培训卡保留禁忌症六条", /恶性肿瘤/.test(trnText) && /怀孕初期和末期/.test(trnText));
+check("培训卡标注水温冲突", /36±0\.5/.test(trnText));
+check("培训卡标注透皮吸收冲突", /KP-WEB-005/.test(trnText));
+
+const landmines = [
+  "KP-TRN-007",
+  "KP-TRN-060",
+  "KP-TRN-065",
+  "KP-TRN-066",
+  "KP-TRN-067",
+];
+const notDraft = landmines.filter(
+  (id) => points.find((p) => p.id === id)?.status !== "draft"
+);
+check("命理/适应症/处方/疗效案例留 draft", notDraft.length === 0, notDraft.join(","));
+
+const leaked = points.filter(
+  (p) => p.internalOnly === true && p.usage !== "training"
+);
+check("没有非培训卡被标成仅内训", leaked.length === 0, leaked.map((p) => p.id).join(","));
+
+const trnSource = sources.find((s) => s.id === "SRC-FLOAT-TRAINING");
+check("来源 SRC-FLOAT-TRAINING 已记录", !!trnSource && trnSource.status === "done");
+check(
+  "来源登记的 ID 与库内一致",
+  !!trnSource && trnSource.knowledgePointIds.every((id) => points.some((p) => p.id === id))
+);
 
 if (failed) {
   console.log(`\n${failed} failed`);

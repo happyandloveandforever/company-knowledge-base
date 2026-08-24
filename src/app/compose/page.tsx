@@ -12,7 +12,13 @@ import {
   ArrowDown,
 } from "lucide-react";
 import type { KnowledgePoint, Outline } from "@/lib/types";
-import { LAYER_LABELS, USAGE_LABELS, getLayer, getUsage } from "@/lib/knowledge-layers";
+import {
+  LAYER_LABELS,
+  USAGE_LABELS,
+  getLayer,
+  getUsage,
+  isInternalOnly,
+} from "@/lib/knowledge-layers";
 import { PRESENTATION_LOGICS } from "@/lib/presentation-logic";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -37,6 +43,7 @@ export default function ComposePage() {
   const [appliedTags, setAppliedTags] = useState<string[]>([]);
   const [layerFilter, setLayerFilter] = useState("");
   const [usageFilter, setUsageFilter] = useState("");
+  const [includeInternal, setIncludeInternal] = useState(false);
   const settingsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -57,6 +64,7 @@ export default function ComposePage() {
 
   const filtered = useMemo(() => {
     return points.filter((p) => {
+      if (!includeInternal && isInternalOnly(p)) return false;
       if (layerFilter && getLayer(p) !== layerFilter) return false;
       if (usageFilter && getUsage(p) !== usageFilter) return false;
       if (!matchesTagFilter(p.tags, appliedTags)) return false;
@@ -68,7 +76,9 @@ export default function ComposePage() {
         p.tags.some((t) => t.toLowerCase().includes(q))
       );
     });
-  }, [points, debouncedSearch, appliedTags, layerFilter, usageFilter]);
+  }, [points, debouncedSearch, appliedTags, layerFilter, usageFilter, includeInternal]);
+
+  const internalCount = useMemo(() => points.filter(isInternalOnly).length, [points]);
 
   const selectedPoints = useMemo(
     () => points.filter((p) => selected.has(p.id)),
@@ -243,6 +253,15 @@ export default function ComposePage() {
                   <option value="both">{USAGE_LABELS.both}</option>
                 </Select>
               </div>
+              <label className="mt-2 flex cursor-pointer items-center gap-2 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-xs text-red-800">
+                <input
+                  type="checkbox"
+                  checked={includeInternal}
+                  onChange={(e) => setIncludeInternal(e.target.checked)}
+                  className="rounded border-red-300"
+                />
+                包含「仅内训」{internalCount} 条（培训教材，含处方与适应症，默认排除）
+              </label>
               <TagFilter
                 className="mt-3"
                 allTags={allTags}
@@ -275,6 +294,9 @@ export default function ComposePage() {
                     <div className="min-w-0 flex-1">
                       <p className="text-sm font-medium text-slate-900">{kp.title}</p>
                       <div className="mt-1 flex flex-wrap gap-1">
+                        {isInternalOnly(kp) && (
+                          <Badge className="bg-red-100 text-red-800">仅内训</Badge>
+                        )}
                         <Badge variant={getLayer(kp) === "commons" ? "default" : "secondary"}>
                           {LAYER_LABELS[getLayer(kp)]}
                         </Badge>

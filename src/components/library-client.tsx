@@ -16,8 +16,10 @@ import {
   USAGE_LABELS,
   countByLayer,
   countByUsage,
+  countInternalOnly,
   getLayer,
   getUsage,
+  isInternalOnly,
 } from "@/lib/knowledge-layers";
 import { KnowledgePointCard } from "@/components/knowledge-point-card";
 import { Card, CardContent } from "@/components/ui/card";
@@ -57,6 +59,8 @@ function applyFilterLogic(
     if (f.source && p.source.file !== f.source) return false;
     if (f.layer && getLayer(p) !== f.layer) return false;
     if (f.usage && getUsage(p) !== f.usage) return false;
+    if (f.internal === "only" && !isInternalOnly(p)) return false;
+    if (f.internal === "external" && isInternalOnly(p)) return false;
     if (f.search) {
       const q = f.search.toLowerCase();
       const hay = `${p.title} ${p.summary} ${p.body} ${p.tags.join(" ")} ${p.audience.join(" ")}`.toLowerCase();
@@ -128,6 +132,7 @@ export function LibraryClient({
 
   const layerCounts = useMemo(() => countByLayer(points), [points]);
   const usageCounts = useMemo(() => countByUsage(points), [points]);
+  const internalCount = useMemo(() => countInternalOnly(points), [points]);
 
   const similarStats = useMemo(() => {
     const withSimilar = Object.keys(similarities).length;
@@ -178,6 +183,7 @@ export function LibraryClient({
       source: "",
       layer: "",
       usage: "",
+      internal: "",
       tags: [],
     });
   }
@@ -260,6 +266,8 @@ export function LibraryClient({
     if (applied.usage && applied.usage in USAGE_LABELS) {
       parts.push(USAGE_LABELS[applied.usage as keyof typeof USAGE_LABELS]);
     }
+    if (applied.internal === "only") parts.push("仅内训");
+    if (applied.internal === "external") parts.push("可对外");
     return parts.length ? parts.join(" · ") : "";
   }
 
@@ -368,6 +376,16 @@ export function LibraryClient({
             <option value="training">{USAGE_LABELS.training}（{usageCounts.training}）</option>
             <option value="ops">{USAGE_LABELS.ops}（{usageCounts.ops}）</option>
             <option value="both">{USAGE_LABELS.both}（{usageCounts.both}）</option>
+          </Select>
+          <Select
+            name="internal"
+            value={pending.internal}
+            onChange={(e) => setPending((p) => ({ ...p, internal: e.target.value }))}
+            className="sm:w-44"
+          >
+            <option value="">外发范围：全部</option>
+            <option value="external">可对外（{points.length - internalCount}）</option>
+            <option value="only">仅内训（{internalCount}）</option>
           </Select>
           <Select
             name="status"

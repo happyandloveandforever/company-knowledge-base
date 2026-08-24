@@ -1,5 +1,13 @@
 import type { KnowledgePoint } from "./types";
-import { LAYER_LABELS, USAGE_LABELS, getLayer, getUsage, countByLayer } from "./knowledge-layers";
+import {
+  LAYER_LABELS,
+  USAGE_LABELS,
+  getLayer,
+  getUsage,
+  countByLayer,
+  countInternalOnly,
+  isInternalOnly,
+} from "./knowledge-layers";
 
 function escapeHtml(text: string): string {
   return text
@@ -25,6 +33,7 @@ export function generateLibraryHtml(points: KnowledgePoint[]): string {
   const allTags = Array.from(new Set(points.flatMap((p) => p.tags))).sort();
   const now = new Date().toLocaleString("zh-CN");
   const layers = countByLayer(points);
+  const internal = countInternalOnly(points);
 
   const navItems = categories
     .map((cat) => `<li><a href="#cat-${encodeURIComponent(cat)}">${escapeHtml(cat)} (${grouped.get(cat)!.length})</a></li>`)
@@ -40,6 +49,7 @@ export function generateLibraryHtml(points: KnowledgePoint[]): string {
           <header>
             <h3>${escapeHtml(kp.title)}</h3>
             <div class="badges">
+              ${isInternalOnly(kp) ? `<span class="internal">仅内训 · 禁止外发</span>` : ""}
               <span class="layer layer-${getLayer(kp)}">${LAYER_LABELS[getLayer(kp)]}</span>
               <span class="usage">${USAGE_LABELS[getUsage(kp)]}</span>
               <span class="status status-${kp.status}">${statusLabel(kp.status)}</span>
@@ -143,6 +153,7 @@ export function generateLibraryHtml(points: KnowledgePoint[]): string {
     .layer-commons { background: #dbeafe; color: #1e40af; }
     .layer-company { background: #e2e8f0; color: #334155; }
     .usage { border: 1px solid var(--border); color: var(--muted); }
+    .internal { font-size: 0.75rem; padding: 0.15rem 0.5rem; border-radius: 999px; white-space: nowrap; background: #fee2e2; color: #991b1b; font-weight: 600; }
     .summary { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.75rem; }
     .meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
     .tag { display: inline-block; background: #eff6ff; color: var(--accent); font-size: 0.75rem; padding: 0.1rem 0.5rem; border-radius: 999px; margin-right: 0.25rem; }
@@ -171,6 +182,7 @@ export function generateLibraryHtml(points: KnowledgePoint[]): string {
         <div class="stat"><strong>${points.length}</strong><span>知识点总数</span></div>
         <div class="stat"><strong>${layers.commons}</strong><span>通识层</span></div>
         <div class="stat"><strong>${layers.company}</strong><span>公司自有层</span></div>
+        <div class="stat"><strong>${internal}</strong><span>仅内训</span></div>
         <div class="stat"><strong>${points.filter((p) => p.status === "approved").length}</strong><span>已批准</span></div>
       </div>
       ${sections}
