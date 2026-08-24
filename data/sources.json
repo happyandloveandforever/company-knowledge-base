@@ -657,5 +657,82 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "71条漂浮师内训卡（8章35节）。全部 usage=training + internalOnly；10 条含适应症/处方/命理/疗效案例，留 draft 待裁定。"
+  },
+  {
+    "id": "SRC-TRN-REACTION",
+    "filename": "6典型性漂浮好转反应.docx",
+    "fileType": "docx",
+    "uploadedAt": "2026-08-24T06:52:00.000Z",
+    "knowledgePointIds": [
+      "KP-TRN-072",
+      "KP-TRN-073",
+      "KP-TRN-074",
+      "KP-TRN-075",
+      "KP-TRN-076",
+      "KP-TRN-077",
+      "KP-SOP-024"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "好转反应理论 draft；红旗出舱另有 SOP-024。"
+  },
+  {
+    "id": "SRC-TRN-INDICATIONS",
+    "filename": "8漂浮一般适应症.docx",
+    "fileType": "docx",
+    "uploadedAt": "2026-08-24T06:52:00.000Z",
+    "knowledgePointIds": [
+      "KP-TRN-078",
+      "KP-TRN-079"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "适应症只进内训，分系统清单 draft；不进运营与客户材料。"
+  },
+  {
+    "id": "SRC-TRN-CONTRA",
+    "filename": "9漂浮禁忌症.docx",
+    "fileType": "docx",
+    "uploadedAt": "2026-08-24T06:52:00.000Z",
+    "knowledgePointIds": [
+      "KP-TRN-080",
+      "KP-TRN-081",
+      "KP-TRN-082",
+      "KP-TRN-083",
+      "KP-TRN-084",
+      "KP-TRN-085",
+      "KP-SOP-023",
+      "KP-SOP-025"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "禁忌症培训详版 + 门店执行版 SOP-023/025。"
+  },
+  {
+    "id": "SRC-PRODUCT-MANUAL",
+    "filename": "产品使用手册.pdf",
+    "fileType": "pdf",
+    "uploadedAt": "2026-08-24T06:52:00.000Z",
+    "knowledgePointIds": [
+      "KP-TRN-086",
+      "KP-TRN-087",
+      "KP-TRN-088",
+      "KP-TRN-089",
+      "KP-TRN-090",
+      "KP-TRN-091",
+      "KP-TRN-092",
+      "KP-TRN-093",
+      "KP-TRN-094",
+      "KP-MAN-001",
+      "KP-MAN-002",
+      "KP-MAN-003",
+      "KP-MAN-004",
+      "KP-MAN-005",
+      "KP-MAN-006",
+      "KP-MAN-007"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "产品使用手册：培训卡 TRN-086~094 + 运营卡 MAN-001~007。"
   }
 ]
