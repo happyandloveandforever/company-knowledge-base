@@ -236,6 +236,7 @@ Vercel 快速部署（GitHub 镜像完成后）：
 | `/sources` | 来源管理：**红色「删除」按钮** |
 | `/upload` | 多格式上传，默认 Cursor Claude 拆分说明 |
 | `/compose` | 选题 + 演讲逻辑 → 大纲 / PPT |
+| `/decks/bjhg-mental-health-invest/` | 北化心理健康产业投资交流 · 精排版 HTML（15页，不删字） |
 | `/status` | 系统状态 |
 | `/api/health` | 健康检查 |
 
@@ -282,7 +283,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 ```
 
 - 端口：**43123**
-- Preview 断开 → 点 Reconnect，或重启 `npm run serve`
+- Preview 断开 / `127.0.0.1 refused to connect` → 点右侧 Preview 的 **Reconnect**，或点编辑器右上角插头图标，把 `43123` 转发出去。不要在自己电脑的 Chrome 里单独开这个地址（那是云端服务，不是你本机）。
 - 健康检查：`curl http://127.0.0.1:43123/api/health`
 - 守护进程日志：`/tmp/knowledge-base-server.log`（超过 5MB 自动轮转为 `.1`）
 - 回归测试：`bash scripts/test-keep-alive.sh`（独立端口 43877，不影响线上服务）
@@ -373,6 +374,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-23 | 北化初次交流对外成品稿 15 页：脊柱 + 插件 P1–P5 全开，数字标材料口径、含边界页 |
 | 2026-08-23 | 北化投资联动版 15 页：主线改为心理健康赛道「重要且薄弱」+ 可持续性 + 可扩展；化工供应链只作一节简述，不以园区试点为落点 |
 | 2026-08-23 | 北化主稿定为 17 页含 P6：在全插件版上仅追加「赛道」「投资联动」两页，脊柱与 P1–P5 逐页未改（已用文本比对校验） |
+| 2026-08-24 | Vercel 只读部署：mkdir/写缓存失败不再打挂首页；分析缓存入库 |
 
 
 ---
