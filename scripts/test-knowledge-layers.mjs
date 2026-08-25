@@ -101,6 +101,21 @@ const indOps = points.filter(
 );
 check("适应症病谱没有写进运营卡", indOps.length === 0, indOps.map((p) => p.id).join(","));
 
+const axes = points.find((p) => p.id === "KP-CRAFT-027");
+check("KP-CRAFT-027 四条价值轴改写存在", !!axes);
+check(
+  "KP-CRAFT-027 为公司层汇报卡",
+  axes?.layer === "company" && axes?.usage === "pitch" && axes?.internalOnly !== true
+);
+check(
+  "KP-CRAFT-027 推荐句用场景落地",
+  /场景落地/.test((axes?.examples || []).join("\n")) && /管理才说得上/.test((axes?.examples || []).join("\n"))
+);
+check(
+  "来源 SRC-FOUR-AXES 已记录",
+  sources.some((s) => s.id === "SRC-FOUR-AXES" && s.status === "done" && s.knowledgePointIds.includes("KP-CRAFT-027"))
+);
+
 if (failed) {
   console.log(`\n${failed} failed`);
   process.exit(1);

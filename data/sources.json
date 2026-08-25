@@ -734,5 +734,17 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "产品使用手册：培训卡 TRN-086~094 + 运营卡 MAN-001~007。"
+  },
+  {
+    "id": "SRC-FOUR-AXES",
+    "filename": "四条价值轴白话改写.md",
+    "fileType": "md",
+    "uploadedAt": "2026-08-25T15:50:00.000Z",
+    "knowledgePointIds": [
+      "KP-CRAFT-027"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "北化 PPT 四条价值轴白话改写。对号入座，不写迷走机制。"
   }
 ]
