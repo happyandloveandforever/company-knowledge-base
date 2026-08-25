@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 380" width="1280" height="380" role="img" xml:lang="zh-CN">
+  <title>迷走接手窗口 · 幻灯片中区</title>
+  <desc>限制环境刺激后交感空转下降，出现窗口让迷走神经接手。交感是油门，迷走是刹车。</desc>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#E8EEF7"/>
+    </marker>
+  </defs>
+  <style>
+    .cn { font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "Droid Sans Fallback", sans-serif; }
+  </style>
+  <g class="cn">
+    <rect x="32" y="16" width="268" height="196" rx="16" fill="#1B4F86" stroke="#9AD0FF" stroke-width="2"/>
+    <circle cx="60" cy="46" r="15" fill="#9AD0FF"/>
+    <text x="60" y="51" text-anchor="middle" font-size="13" font-weight="700" fill="#0E2A4A">1</text>
+    <text x="166" y="52" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">限制环境刺激</text>
+    <text x="166" y="86" text-anchor="middle" font-size="13" fill="#C9E4FF">REST · 少接收外界</text>
+    <text x="166" y="126" text-anchor="middle" font-size="15" fill="#F4FAFF">大脑少为外面做事</text>
+    <text x="166" y="154" text-anchor="middle" font-size="15" fill="#F4FAFF">暂时不必应答警报</text>
+    <text x="166" y="188" text-anchor="middle" font-size="12" fill="#B9D6F3">外感受负荷下降</text>
+    <path d="M308 114 L340 114" stroke="#E8EEF7" stroke-width="3.5" marker-end="url(#ah)"/>
+    <rect x="350" y="16" width="268" height="196" rx="16" fill="#9A3412" stroke="#FDBA74" stroke-width="2"/>
+    <circle cx="378" cy="46" r="15" fill="#FDBA74"/>
+    <text x="378" y="51" text-anchor="middle" font-size="13" font-weight="700" fill="#7C2D12">2</text>
+    <text x="484" y="52" text-anchor="middle" font-size="17" font-weight="700" fill="#FFF7ED">交感空转下降</text>
+    <text x="484" y="86" text-anchor="middle" font-size="13" fill="#FED7AA">油门少空踩</text>
+    <text x="484" y="126" text-anchor="middle" font-size="15" fill="#FFF7ED">少扫描 · 少备战</text>
+    <text x="484" y="154" text-anchor="middle" font-size="15" fill="#FFF7ED">打仗档不必一直开</text>
+    <text x="484" y="188" text-anchor="middle" font-size="12" fill="#FEC89A">交感相对下调</text>
+    <path d="M626 114 L658 114" stroke="#E8EEF7" stroke-width="3.5" marker-end="url(#ah)"/>
+    <rect x="668" y="16" width="268" height="196" rx="16" fill="#854D0E" stroke="#FBBF24" stroke-width="3" stroke-dasharray="9 6"/>
+    <circle cx="696" cy="46" r="15" fill="#FBBF24"/>
+    <text x="696" y="51" text-anchor="middle" font-size="13" font-weight="700" fill="#78350F">3</text>
+    <text x="802" y="52" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFBEB">接手窗口</text>
+    <text x="802" y="86" text-anchor="middle" font-size="13" fill="#FDE68A">警报暂时安静</text>
+    <text x="802" y="126" text-anchor="middle" font-size="15" fill="#FFFBEB">切换条件具备</text>
+    <text x="802" y="154" text-anchor="middle" font-size="15" fill="#FFFBEB">刹车终于有空档</text>
+    <text x="802" y="188" text-anchor="middle" font-size="12" fill="#FCD34D">窗口 ≠ 永久修好</text>
+    <path d="M944 114 L976 114" stroke="#E8EEF7" stroke-width="3.5" marker-end="url(#ah)"/>
+    <rect x="986" y="16" width="262" height="196" rx="16" fill="#0F766E" stroke="#5EEAD4" stroke-width="2"/>
+    <circle cx="1014" cy="46" r="15" fill="#5EEAD4"/>
+    <text x="1014" y="51" text-anchor="middle" font-size="13" font-weight="700" fill="#134E4A">4</text>
+    <text x="1117" y="52" text-anchor="middle" font-size="17" font-weight="700" fill="#F0FDFA">迷走接手</text>
+    <text x="1117" y="86" text-anchor="middle" font-size="13" fill="#99F6E4">刹车咬住</text>
+    <text x="1117" y="126" text-anchor="middle" font-size="15" fill="#F0FDFA">切到休息 · 修复档</text>
+    <text x="1117" y="154" text-anchor="middle" font-size="15" fill="#F0FDFA">心跳消化睡眠让路</text>
+    <text x="1117" y="188" text-anchor="middle" font-size="12" fill="#5EEAD4">副交感相对占优</text>
+  </g>
+  <g class="cn">
+    <text x="32" y="252" font-size="13" font-weight="700" fill="#FDBA74">交感 · 油门</text>
+    <rect x="140" y="236" width="1108" height="18" rx="9" fill="#431407" stroke="#FDBA74" stroke-width="1"/>
+    <rect x="140" y="236" width="528" height="18" rx="9" fill="#FB923C"/>
+    <rect x="658" y="236" width="72" height="18" fill="#FB923C" opacity="0.35"/>
+    <text x="1248" y="250" text-anchor="end" font-size="12" fill="#FED7AA">空转下降</text>
+    <text x="32" y="288" font-size="13" font-weight="700" fill="#5EEAD4">迷走 · 刹车</text>
+    <rect x="140" y="272" width="1108" height="18" rx="9" fill="#042F2E" stroke="#5EEAD4" stroke-width="1"/>
+    <rect x="668" y="272" width="580" height="18" rx="9" fill="#2DD4BF"/>
+    <text x="1248" y="286" text-anchor="end" font-size="12" fill="#99F6E4">开始接手</text>
+    <rect x="668" y="226" width="268" height="74" rx="10" fill="none" stroke="#FBBF24" stroke-width="1.6" stroke-dasharray="6 4"/>
+  </g>
+  <text class="cn" x="640" y="336" text-anchor="middle" font-size="15" fill="#E0F2FE">身体有两套自动挡，通常此消彼长：打仗的交感少空转，休息的迷走才接得上手。</text>
+  <text class="cn" x="640" y="362" text-anchor="middle" font-size="13" fill="#93C5FD">这是自主神经再平衡，不是把神经关掉。一次窗口不等于弹性已经永久恢复。</text>
+</svg>

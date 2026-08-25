@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>迷走接手窗口示意图预览</title>
+  <style>
+    body { margin: 0; min-height: 100vh; background: #071525; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; font-family: "WenQuanYi Micro Hei", sans-serif; }
+    p { color: #9fb4cc; margin: 0; font-size: 14px; }
+    a { color: #7dd3fc; }
+    .slide { width: min(96vw, 1280px); background: #0b1d33; padding: 24px 16px 8px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <p>深色幻灯片预览 · 文件本身是透明底 SVG</p>
+  <div class="slide">
+    <img src="/diagrams/ans-handover-window.svg" alt="完整示意图" width="1280" style="width:100%;height:auto;display:block;" />
+  </div>
+  <p>中区瘦图（插在三框和底栏之间）</p>
+  <div class="slide">
+    <img src="/diagrams/ans-handover-window-middle.svg" alt="幻灯片中区过程图" width="1280" style="width:100%;height:auto;display:block;" />
+  </div>
+  <p>
+    <a href="/diagrams/ans-handover-window.svg" download>下载完整 SVG</a>
+    ·
+    <a href="/diagrams/ans-handover-window-middle.svg" download>下载中区 SVG</a>
+  </p>
+</body>
+</html>
