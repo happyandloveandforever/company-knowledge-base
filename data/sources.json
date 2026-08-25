@@ -752,5 +752,24 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "对话补训 7 张：焦虑/跑步/交感反弹。通识层科学，全部 usage=training + internalOnly；approved。"
+  },
+  {
+    "id": "SRC-VAGUS-ELASTIC",
+    "filename": "迷走弹性与漂浮方舟：恢复力机理补强.md",
+    "fileType": "md",
+    "uploadedAt": "2026-08-25T13:40:00.000Z",
+    "knowledgePointIds": [
+      "KP-COM-019",
+      "KP-COM-020",
+      "KP-WEB-013",
+      "KP-COM-021",
+      "KP-COM-022",
+      "KP-CRAFT-026",
+      "KP-TRN-102",
+      "KP-TRN-103"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "迷走/自主神经弹性：COM-019~022 + WEB-013 + CRAFT-026 幻灯片口径 + TRN-102~103。恢复力≠让人恢复。"
   }
 ]

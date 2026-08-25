@@ -25,7 +25,7 @@ const missing = points.filter((p) => !layers.has(p.layer) || !usages.has(p.usage
 check("每条都有 layer 和 usage", missing.length === 0, missing.slice(0, 5).map((p) => p.id).join(","));
 
 const com = points.filter((p) => p.id.startsWith("KP-COM-"));
-check("通识新卡 KP-COM 至少 18 条", com.length >= 18, String(com.length));
+check("通识新卡 KP-COM 至少 22 条", com.length >= 22, String(com.length));
 check("KP-COM-002 培训vs汇报卡存在", points.some((p) => p.id === "KP-COM-002"));
 check("COM 全部在通识层", com.every((p) => p.layer === "commons"));
 
@@ -49,7 +49,7 @@ check("库总量不少于 450", points.length >= 450, String(points.length));
 
 // ── 培训教材隔离 ─────────────────────────────────────
 const trn = points.filter((p) => p.id.startsWith("KP-TRN-"));
-check("培训卡 KP-TRN 至少 101 条", trn.length >= 101, String(trn.length));
+check("培训卡 KP-TRN 至少 103 条", trn.length >= 103, String(trn.length));
 check("培训卡全部 usage=training", trn.every((p) => p.usage === "training"));
 check("培训卡全部 internalOnly", trn.every((p) => p.internalOnly === true));
 
@@ -128,6 +128,34 @@ check("焦虑跑步卡禁止贬低跑步或宣称治焦虑", /放电换刹车/.t
 check(
   "来源 SRC-TRN-ANS-RUN 已记录",
   sources.some((s) => s.id === "SRC-TRN-ANS-RUN" && s.status === "done" && s.knowledgePointIds.length === 7)
+);
+
+const vagusIds = [
+  "KP-COM-019",
+  "KP-COM-020",
+  "KP-COM-021",
+  "KP-COM-022",
+  "KP-WEB-013",
+  "KP-CRAFT-026",
+  "KP-TRN-102",
+  "KP-TRN-103",
+];
+check(
+  "迷走弹性补强 8 条存在",
+  vagusIds.every((id) => points.some((p) => p.id === id)),
+  vagusIds.filter((id) => !points.some((p) => p.id === id)).join(",")
+);
+check("KP-WEB-013 为通识文献卡", points.find((p) => p.id === "KP-WEB-013")?.layer === "commons");
+check("KP-CRAFT-026 为公司层汇报卡", points.find((p) => p.id === "KP-CRAFT-026")?.layer === "company" && points.find((p) => p.id === "KP-CRAFT-026")?.usage === "pitch");
+const vagusText = vagusIds.map((id) => {
+  const p = points.find((x) => x.id === id);
+  return `${p.title}\n${p.summary}\n${p.body}`;
+}).join("\n");
+check("迷走弹性卡区分恢复与恢复力", /不是让人恢复/.test(vagusText) && /弹性/.test(vagusText));
+check("迷走弹性卡引用 Flux 2022", /995594/.test(vagusText));
+check(
+  "来源 SRC-VAGUS-ELASTIC 已记录",
+  sources.some((s) => s.id === "SRC-VAGUS-ELASTIC" && s.status === "done" && s.knowledgePointIds.length === 8)
 );
 
 if (failed) {
