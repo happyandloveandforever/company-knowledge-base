@@ -49,7 +49,7 @@ check("库总量不少于 450", points.length >= 450, String(points.length));
 
 // ── 培训教材隔离 ─────────────────────────────────────
 const trn = points.filter((p) => p.id.startsWith("KP-TRN-"));
-check("培训卡 KP-TRN 至少 94 条", trn.length >= 94, String(trn.length));
+check("培训卡 KP-TRN 至少 101 条", trn.length >= 101, String(trn.length));
 check("培训卡全部 usage=training", trn.every((p) => p.usage === "training"));
 check("培训卡全部 internalOnly", trn.every((p) => p.internalOnly === true));
 
@@ -100,6 +100,35 @@ const indOps = points.filter(
   (p) => p.usage === "ops" && /一般适应症分系统|类风湿性关节炎/.test(`${p.title}\n${p.body}`)
 );
 check("适应症病谱没有写进运营卡", indOps.length === 0, indOps.map((p) => p.id).join(","));
+
+const ansRunIds = [
+  "KP-TRN-095",
+  "KP-TRN-096",
+  "KP-TRN-097",
+  "KP-TRN-098",
+  "KP-TRN-099",
+  "KP-TRN-100",
+  "KP-TRN-101",
+];
+check(
+  "焦虑跑步自主神经补训 7 条存在",
+  ansRunIds.every((id) => points.some((p) => p.id === id)),
+  ansRunIds.filter((id) => !points.some((p) => p.id === id)).join(",")
+);
+const ansRun = points.filter((p) => ansRunIds.includes(p.id));
+check(
+  "焦虑跑步卡通识层+仅内训+已批准",
+  ansRun.length === 7 &&
+    ansRun.every(
+      (p) => p.layer === "commons" && p.internalOnly === true && p.usage === "training" && p.status === "approved"
+    )
+);
+const ansText = ansRun.map((p) => `${p.title}\n${p.summary}\n${p.body}`).join("\n");
+check("焦虑跑步卡禁止贬低跑步或宣称治焦虑", /放电换刹车/.test(ansText) && /不治病/.test(ansText));
+check(
+  "来源 SRC-TRN-ANS-RUN 已记录",
+  sources.some((s) => s.id === "SRC-TRN-ANS-RUN" && s.status === "done" && s.knowledgePointIds.length === 7)
+);
 
 if (failed) {
   console.log(`\n${failed} failed`);

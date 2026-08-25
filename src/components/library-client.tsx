@@ -63,7 +63,7 @@ function applyFilterLogic(
     if (f.internal === "external" && isInternalOnly(p)) return false;
     if (f.search) {
       const q = f.search.toLowerCase();
-      const hay = `${p.title} ${p.summary} ${p.body} ${p.tags.join(" ")} ${p.audience.join(" ")}`.toLowerCase();
+      const hay = `${p.id} ${p.title} ${p.summary} ${p.body} ${p.tags.join(" ")} ${p.audience.join(" ")}`.toLowerCase();
       if (!hay.includes(q)) return false;
     }
     return true;
