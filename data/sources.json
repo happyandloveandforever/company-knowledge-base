@@ -734,5 +734,23 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "产品使用手册：培训卡 TRN-086~094 + 运营卡 MAN-001~007。"
+  },
+  {
+    "id": "SRC-TRN-ANS-RUN",
+    "filename": "自主神经补训：焦虑跑步与交感反弹.md",
+    "fileType": "md",
+    "uploadedAt": "2026-08-25T08:55:00.000Z",
+    "knowledgePointIds": [
+      "KP-TRN-095",
+      "KP-TRN-096",
+      "KP-TRN-097",
+      "KP-TRN-098",
+      "KP-TRN-099",
+      "KP-TRN-100",
+      "KP-TRN-101"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "对话补训 7 张：焦虑/跑步/交感反弹。通识层科学，全部 usage=training + internalOnly；approved。"
   }
 ]
