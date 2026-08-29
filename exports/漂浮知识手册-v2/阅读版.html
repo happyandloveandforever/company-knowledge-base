@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>漂浮方舟 · 漂浮知识手册（内部 · 内容版 v0.1）</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1c2a32;
+      --muted: #5c6b73;
+      --paper: #f7f1e8;
+      --card: #fffdf8;
+      --line: #d9cfc0;
+      --teal: #0e4a56;
+      --teal-deep: #082f38;
+      --gold: #b0893e;
+      --flag: #8b2e2e;
+      --ok: #2c5f4a;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.75;
+    }
+    .print-bar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background: #082f38;
+      color: #f7f1e8;
+      font-family: "Noto Sans SC", "PingFang SC", sans-serif;
+      font-size: 13px;
+    }
+    .print-bar button {
+      background: var(--gold);
+      color: #082f38;
+      border: 0;
+      padding: 8px 14px;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .cover {
+      background: linear-gradient(165deg, var(--teal-deep) 0%, var(--teal) 55%, #1a6a78 100%);
+      color: #f7f1e8;
+      min-height: 72vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 48px 8vw 56px;
+    }
+    .cover .brand { letter-spacing: 0.35em; font-size: 13px; opacity: 0.8; }
+    .cover h1 {
+      font-weight: 600;
+      font-size: clamp(32px, 5vw, 56px);
+      margin: 16px 0 8px;
+      letter-spacing: 0.08em;
+    }
+    .cover .en { font-family: "Palatino Linotype", Palatino, serif; letter-spacing: 0.22em; opacity: 0.75; font-size: 14px; }
+    .cover .meta { margin-top: 28px; font-size: 14px; opacity: 0.85; max-width: 40em; }
+    .badge {
+      display: inline-block;
+      border: 1px solid rgba(247,241,232,0.45);
+      padding: 4px 10px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      margin-bottom: 18px;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 760px);
+      gap: 48px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 24px 96px;
+    }
+    nav.toc {
+      position: sticky;
+      top: 56px;
+      align-self: start;
+      font-family: "Noto Sans SC", "PingFang SC", sans-serif;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    nav.toc p { color: var(--gold); letter-spacing: 0.18em; font-size: 11px; margin: 0 0 12px; }
+    nav.toc ol { margin: 0; padding: 0 0 0 18px; color: var(--muted); }
+    nav.toc a { color: var(--muted); text-decoration: none; }
+    nav.toc a:hover { color: var(--teal); }
+    article h1 { display: none; }
+    article h2 {
+      font-size: 26px;
+      color: var(--teal-deep);
+      border-top: 2px solid var(--teal);
+      padding-top: 28px;
+      margin: 56px 0 16px;
+      letter-spacing: 0.04em;
+    }
+    article h2:first-of-type { margin-top: 0; }
+    article h3 { font-size: 18px; color: var(--teal); margin: 32px 0 8px; }
+    article p { margin: 0 0 1em; }
+    article .lede { color: var(--muted); font-size: 15px; }
+    article ul, article ol { margin: 0 0 1em; padding-left: 1.4em; }
+    article li { margin: 0.25em 0; }
+    hr { border: 0; border-top: 1px solid var(--line); margin: 32px 0; }
+    blockquote.callout {
+      margin: 16px 0 24px;
+      padding: 16px 20px;
+      background: var(--card);
+      border-left: 4px solid var(--gold);
+    }
+    blockquote.editor { border-left-color: var(--flag); background: #f8ece8; }
+    blockquote p { margin: 0 0 0.5em; }
+    blockquote p:last-child { margin: 0; }
+    .table-wrap { overflow-x: auto; margin: 12px 0 24px; }
+    table { border-collapse: collapse; width: 100%; font-size: 14px; font-family: "Noto Sans SC", "PingFang SC", sans-serif; }
+    th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background: #efe6d6; color: var(--teal-deep); }
+    code { font-family: ui-monospace, monospace; font-size: 0.88em; background: #efe6d6; padding: 0 4px; }
+    pre.ascii {
+      background: var(--teal-deep);
+      color: #e8f0f2;
+      padding: 20px 24px;
+      overflow-x: auto;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    pre.ascii code { background: none; color: inherit; }
+    strong { color: var(--teal-deep); }
+    footer.note {
+      max-width: 1100px;
+      margin: 0 auto 64px;
+      padding: 0 24px;
+      color: var(--muted);
+      font-size: 13px;
+      font-family: "Noto Sans SC", "PingFang SC", sans-serif;
+    }
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+      nav.toc { position: static; }
+    }
+    @page { size: A4; margin: 16mm 14mm 18mm; }
+    @media print {
+      .print-bar { display: none !important; }
+      body { background: white; }
+      .cover {
+        min-height: 100vh;
+        padding: 48mm 18mm 24mm;
+        break-after: page;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      nav.toc {
+        position: static;
+        break-after: page;
+        font-size: 14px;
+        padding-top: 12mm;
+      }
+      nav.toc ol { columns: 1; }
+      .layout { display: block; max-width: none; padding: 0; }
+      article h2 { break-after: avoid; }
+      article h3 { break-after: avoid; }
+      table, blockquote, pre { break-inside: avoid; }
+      a { color: inherit; text-decoration: none; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <div class="print-bar">
+    <span>内部文件 · 浏览器打开后点右侧按钮，目的选「另存为 PDF」，并勾选「背景图形」。</span>
+    <button type="button" onclick="window.print()">打印 / 另存为 PDF</button>
+  </div>
+  <header class="cover">
+    <div class="badge">INTERNAL · CONTENT DRAFT v0.1</div>
+    <div class="brand">FLOATING ARK</div>
+    <h1>漂浮知识手册</h1>
+    <div class="en">KNOWLEDGE OF FLOATATION REST</div>
+    <p class="meta">对照旧稿 40 页《漂浮疗法知识手册》与公司知识库重写。单文件 HTML，可用浏览器另存为 PDF。纸质编号发放，禁止外发原件。</p>
+  </header>
+  <div class="layout">
+    <nav class="toc" aria-label="目录">
+      <p>CONTENTS</p>
+      <ol><li><a href="#s-0-使用说明与红线">0. 使用说明与红线</a></li><li><a href="#s-1-什么是漂浮">1. 什么是漂浮</a></li><li><a href="#s-2-前言-史料-胡佩诚">2. 前言（史料）：胡佩诚</a></li><li><a href="#s-3-历史-从感官剥夺到-REST">3. 历史：从感官剥夺到 REST</a></li><li><a href="#s-4-作用路径-减负-降噪-重置-整合">4. 作用路径：减负 — 降噪 — 重置 — 整合</a></li><li><a href="#s-5-证据-今天科学讲到哪一步">5. 证据：今天科学讲到哪一步</a></li><li><a href="#s-6-谁适合来-人群-不是病谱">6. 谁适合来（人群，不是病谱）</a></li><li><a href="#s-7-研究线索与边界">7. 研究线索与边界</a></li><li><a href="#s-8-如何漂浮">8. 如何漂浮</a></li><li><a href="#s-9-对外怎么讲">9. 对外怎么讲</a></li><li><a href="#s-附录-A-推荐文献-精简可核验">附录 A. 推荐文献（精简可核验）</a></li><li><a href="#s-附录-B-旧稿停用清单-排版时图注也要扫">附录 B. 旧稿停用清单（排版时图注也要扫）</a></li><li><a href="#s-附录-C-知识库对照索引">附录 C. 知识库对照索引</a></li><li><a href="#s-附录-D-待老板锁定-正文不编造">附录 D. 待老板锁定（正文不编造）</a></li></ol>
+    </nav>
+    <article>
+<h1>漂浮方舟 · 漂浮知识手册</h1>
+<p class="lede"><strong>内部使用 · 内容版 v0.1 · 2026-08-29</strong></p>
+<p class="lede">KNOWLEDGE OF FLOATATION REST</p>
+<p class="lede">查阅手册，对齐漂浮方舟对「漂浮」的定义、证据边界与接待底线。<br>纸质编号发放、用后回收。不发原件给客户、加盟商、合作方。</p>
+<p class="lede">版权所有：中友瑞水（北京）科技有限公司<br>禁止擅自转载、复印、翻译或向外部存储。</p>
+<hr />
+<h2 id="s-0-使用说明与红线">0. 使用说明与红线</h2>
+<h3 id="s-0-1-这本手册解决什么">0.1 这本手册解决什么</h3>
+<p>旧版《漂浮疗法知识手册》把科学史、功效故事、合作项目和接待流程订在一起。公司知识库已经把「通识证据、公司执行、内训教材」切开。本版只做一件事：让全员对下面四句话有同一份答案。</p>
+<ol><li>漂浮是什么，不是什么。</li><li>科学目前支持到哪一步，哪一步还只是线索。</li><li>门店对谁能开舱，对谁必须拒绝。</li><li>客户追问「能不能治病」时，标准答法是什么。</li></ol>
+<h3 id="s-0-2-三句总纲">0.2 三句总纲</h3>
+<ol><li><strong>漂浮是限制环境刺激（Flotation REST）的一种实现</strong>，不是泡澡，不是死海旅游，不是医疗项目。</li><li><strong>对外不卖治病。</strong> 可用：修复、调节、重置、深度恢复、睡眠管理、主观疲劳改善。禁用：治疗、治愈、医治、处方、适应症清单、排毒、好转反应。</li><li><strong>任何数字对外前先问：这是公开文献，还是合同/铭牌，还是尚未锁定的宣传口径。</strong> 未锁定的数字不说死。</li></ol>
+<h3 id="s-0-3-和别的文件怎么分工">0.3 和别的文件怎么分工</h3>
+<ul><li>开舱、水质、动线、转化 → 开业 SOP。</li><li>设备按钮、呼叫器、维保 → 产品使用手册。</li><li>漂浮师考核、中医语境、教材原句 → 内训大纲（禁止外发）。</li><li>本手册被问到「把培训资料发我一份」时的标准答：培训是内部教材；客户拿这本知识手册的<strong>对外可讲部分</strong>，或另给客户版资料包。</li></ul>
+<hr />
+<h2 id="s-1-什么是漂浮">1. 什么是漂浮</h2>
+<h3 id="s-1-1-愿景">1.1 愿景</h3>
+<p>以塑造全民健康为己任。<br>Health means all.</p>
+<p>我们不抢医院的治病柱。我们补的是主动健康里「心理」与「睡眠」两根支柱上，可参观、可体验、可重复的深度恢复入口。</p>
+<h3 id="s-1-2-操作定义">1.2 操作定义</h3>
+<p><strong>漂浮：</strong> 在尽量降低声、光、嗅、味、温度差、触觉、前庭、重力与本体感觉输入的环境中，仰卧于高浓度硫酸镁溶液表面，减少运动与说话，让神经系统暂时退出对外部刺激的持续应答。</p>
+<p>一句话：不是「少做事」，是把神经系统的外部账单临时关掉。</p>
+<p>旧稿的形容句可以保留方向，改成可执行的定义：</p>
+<blockquote class="callout"><p>在无声、无光等外界刺激被显著降低的环境中，用过饱和矿物溶液提供浮力、模拟微重力卸载，同时降低皮肤触感与姿势维持负担。</p></blockquote>
+<p>这不是我们发明的。公开文献里的专名是 <strong>Flotation REST</strong>（Restricted Environmental Stimulation Therapy，限制环境刺激疗法）。「疗法」是学术传统用词；对客户不要把 REST 三个字母翻译成「我们在做治疗」。</p>
+<h3 id="s-1-3-什么不算漂浮">1.3 什么不算漂浮</h3>
+<ul><li>死海、盐湖、水上乐园：有强光、嘈杂、社交与温度刺激，不满足 REST 的低刺激条件。</li><li>普通水疗、泡浴、SPA：可以放松，但通常不关闭视听与重力通道。</li><li>长时间社会隔离（极地科考、禁闭）：那是有害的感觉剥夺情境，与可随时离开、时程有限的漂浮不是一回事。</li></ul>
+<p>设备不够舒适、不够温暖、隔音隔光不到位，REST 的前提就不成立。没有接待与理念，只剩一个箱子，同样不成立。</p>
+<h3 id="s-1-4-建议时长">1.4 建议时长</h3>
+<p>公开操作经验与门店执行都以 <strong>约 45–60 分钟</strong> 为一次完整体验。首次可缩短；不提倡一次待数小时。像喝水：一杯刚好，一桶有害。</p>
+<hr />
+<h2 id="s-2-前言-史料-胡佩诚">2. 前言（史料）：胡佩诚</h2>
+<p><strong>编者按。</strong> 以下据旧稿收录的胡佩诚口述整理，作为中国漂浮落地的历史文献阅读。它说明三件事：漂浮在中国不是从零开始的；软硬要一起做；感觉隔离必须满足特定条件才有意义。<br>口述中涉及「静脉注射硫酸镁降压」「热敷治疗乳腺增生」「高三学生成绩提高几十分」「漂浮是最高层次治疗」等句，<strong>不作为现行销售主张，也不写入后文章节的结论。</strong></p>
+<hr />
+<p>我最早是在美国接触的漂浮。那时候漂浮刚刚起步，美国很多人拿这个当辅助手段。尽管美国没把它列为医疗器械，不少心理诊所会建议情绪低落的人去体验。设备叫 tank，像一个大箱子。英文全名 isolation tank，隔离舱。</p>
+<p>漂浮本质就是感觉隔离，也是现代心理学里一种综合的恢复方式。最初人们觉得感觉隔离有害——比如南极科考队长期与外界沟通很少，一两年会出各种心理问题。但人们发现，这种隔离在最初有限的时间里可以是建设性的。像青霉素：发霉的东西老百姓会扔，它却是制造青霉素的原料。</p>
+<p>研究上讲，一次漂浮的合适时间大约半小时到一小时，不能太长。</p>
+<p>我们（北京大学医学部相关团队）是 1997 年做出中国第一代装置的，后来翻新了好多代。起初在屋子里做一个池子，没有盖子；后来做成两三米的小木屋，外面用计算机，过滤用两个大圆桶。漂浮的人在里面，用计算机控制，戴上耳机做引导。中央电视台做过介绍。</p>
+<p>思想不是我一个人的，但我较早把它引进中国。天津精神卫生中心、珠海、颐和园、香山疗养院都尝试过，受限于当时的技术与消费观念，很多没有坚持下来。我的看法是：没有把科技和理论思想结合起来；结合起来以后，还需要能运转的服务。它是软硬结合。我们还与中央音乐学院音乐治疗室的张鸿懿教授一起设计过不同情境下的音乐。</p>
+<p>当时在北医系统做出来以后，反响很强烈。在感觉隔离的特殊状态下，人更容易进入内在。我一直强调：漂浮把物理层面和心理层面结合起来。药物治疗、手术有其位置，也对人体有负担。精神状态对人体的影响很大。设备如果达不到舒适、温暖、放松、感觉隔离，效果就谈不上；没有理念和服务，同样谈不上。</p>
+<p>死海漂浮、游乐园不算这种漂浮。没有感官限制，再高的盐度也不构成 REST。</p>
+<p>漂浮重新被看见，是因为人们对心理与恢复的认识提高了，技术可以做得更小、更稳，消费条件也和当年不同。它不是唯一的综合方法，但可以把物理与心理放在同一次体验里。这是一个前景远大的方向，针对的是人们最根本的健康负担。</p>
+<p>——胡佩诚，旧稿署名：首席科学官 &amp; 中国漂浮早期推动者</p>
+<hr />
+<h2 id="s-3-历史-从感官剥夺到-REST">3. 历史：从感官剥夺到 REST</h2>
+<p>旧稿学术中心章是全书最值得保留的部分。下文按时间线重写，删掉笔误（如「19 世纪 80 年代」应为 20 世纪），文献只保留可核验的节点。</p>
+<h3 id="s-3-1-更早的低刺激传统">3.1 更早的低刺激传统</h3>
+<p>减少外界刺激并不是 20 世纪实验室的发明。禅修、闭关、洞穴独处、黑暗中的静默，在许多文明里都出现过。它们说明一件事：人在降低外部输入之后，内在体验会改变。<br>这些传统<strong>不是</strong>现代漂浮的疗效证明，只是理解 REST 的文化背景。不要对客户讲成「我们传承了科吉族九年黑暗教养」。</p>
+<h3 id="s-3-2-实验室里的感官剥夺">3.2 实验室里的感官剥夺</h3>
+<p>现代测量出现以前，心理学先做的是刺激超载，再转到黑暗无声房间里的「感官剥夺」。关键人物是加拿大麦吉尔大学的赫布（Donald O. Hebb）与后来在马尼托巴大学建造隔音实验室的祖贝克（John Peter Zubek）。</p>
+<p>早期实验常见现象：先睡，再无聊，再烦躁，部分人出现幻觉、注意与认知受损；出舱后多数不良反应消退，部分情绪可持续数日。这类实验说明：<strong>不可控、长时间、无法离开的剥夺是有害的。</strong> 这正是后来 REST 必须改掉的前提——时程有限、被试可随时终止、体验以可耐受的放松为导向。</p>
+<p>文献里出现过二十多种近义术语：sensory deprivation、perceptual isolation、restricted stimulation、REST 等。对外只需要一个词：<strong>限制环境刺激</strong>，不要把「剥夺」当门店广告语。</p>
+<h3 id="s-3-3-约翰-莉莉与第一台漂浮舱">3.3 约翰·莉莉与第一台漂浮舱</h3>
+<p>1954 年前后，约翰·莉莉（John C. Lilly）把实验室搬到水里：恒温水箱，限制声、光与重力对中枢的输入。他自己长时间待在舱内，描述的是愉悦的深度放松，意识介于清醒与睡眠之间。当时不少同行担心「过度减少刺激必然有害」；莉莉坚持：这与早期剥夺实验不同，过程可由被试控制。</p>
+<p>莉莉对过程的描述（据其后期回顾，供理解体验，不作操作规程）：</p>
+<ol><li>建议时长 45–60 分钟。</li><li>总体是令人愉快的放松。</li><li>刚入舱可能紧张：肌肉抽动、轻微晃动。</li><li>紧张可能升到想离开。</li><li>若留下，紧张会减弱，想象开始活跃。</li><li>后期可能出现视觉意象。</li></ol>
+<p>门店执行不要把第 6 条讲成「人人都会看到隧道」。有人睡着，有人只是安静，都正常。</p>
+<h3 id="s-3-4-REST-三种模式">3.4 REST 三种模式</h3>
+<p>1980 年前后，哥伦比亚大学彼得·苏德费尔德（Peter Suedfeld）将这一取向命名为 <strong>Restricted Environmental Stimulation Therapy（REST）</strong>。按环境分为：</p>
+<div class="table-wrap"><table><thead><tr><th>模式</th><th>环境</th><th>时程量级</th><th>现状</th></tr></thead><tbody><tr><td>小室 REST（Chamber REST / 黑暗疗法）</td><td>隔音暗室，可有床与卫生间</td><td>常以小时到昼夜计</td><td>研究与部分临床在用</td></tr><tr><td>浸没 REST（Immersion REST）</td><td>全身浸没，靠呼吸器具</td><td>实验</td><td>临床基本不用</td></tr><tr><td>漂浮 REST（Flotation REST）</td><td>密闭舱 + 高比重溶液，仰卧于液面</td><td>约 60 分钟</td><td>民用与研究的主流</td></tr></tbody></table></div>
+<p>后来又分出：</p>
+<ul><li><strong>湿漂（REST-WET）：</strong> 皮肤直接接触溶液。门店主流。</li><li><strong>干漂（REST-DRY）：</strong> 人躺在盛液水囊上，隔一层膜。放松感通常弱于湿漂；1991 年 Forgays 等直接比较中，多数被试更倾向湿漂。</li></ul>
+<p>漂浮舱的经典实验室描述：溶液比重显著高于淡水、深度约二十余厘米、温度接近皮肤温度、耳塞、可对讲、可随时终止。<strong>门店具体比重与水温以 SOP 验收为准</strong>，见第 8 章。</p>
+<h3 id="s-3-5-中国落地">3.5 中国落地</h3>
+<ul><li><strong>1992：</strong> 胡佩诚在美国长岛见到漂浮舱。</li><li><strong>1997：</strong> 北京医科大学医学工程相关团队与北京市第二医院合作，研制中国早期漂浮装置，并开展临床观察。</li><li><strong>2017–2018：</strong> 「漂浮治疗」作为章节进入人卫版《心理治疗》教材；中国中医药信息学会漂浮疗法分会成立。教材章节证明的是「这个主题被写入教学」，不是「已成为国家批准适应症」。</li><li><strong>2018：</strong> 行业会议与设备迭代加快。对外机构数、代数、专利数以合同和铭牌为准，本手册不锁。</li><li><strong>2019：</strong> 旧稿记载北京大学、北京中医药大学、学会与漂浮方舟的科研合作意向。合作事实可以讲；「已经建成国家级智能平台并用于国家队」这类升格句，没有锁定材料就不要讲。</li></ul>
+<h3 id="s-3-6-商业简史-对外只需三十秒">3.6 商业简史（对外只需三十秒）</h3>
+<p>1973 年前后出现民用舱（Samadhi）。1979 年洛杉矶出现商业中心。1980 年代美国先热后因水污染恐慌受挫，欧洲受影响较小。2000 年后随名人与社交媒体回温。2013 年贾斯汀·芬斯坦（Justin Feinstein）在劳瑞德脑研究所（LIBR）建立漂浮实验室，把 REST 重新放进严格的临床研究语境。<br>对外三十秒：漂浮不是新概念，已经过商业起落；我们现在讲的是可卫生、可重复、可终止的深度恢复，而不是 1970 年代的神秘箱子。</p>
+<hr />
+<h2 id="s-4-作用路径-减负-降噪-重置-整合">4. 作用路径：减负 — 降噪 — 重置 — 整合</h2>
+<p>漂浮方舟把机制写成四层。这是通识表述，不是单一靶点治疗。</p>
+<h3 id="s-4-1-减负">4.1 减负</h3>
+<p>高比重溶液托住体重，关节、脊柱、筋膜和姿势肌暂时退出对抗重力。本体感觉与防御性肌紧张下降，为后面的神经安静创造前提。<br>适合用来理解：久坐、颈肩腰背负担重、训练后身体「卸不下来」的人，为什么会觉得「终于被托住」。</p>
+<h3 id="s-4-2-降噪">4.2 降噪</h3>
+<p>REST 的关键是减少大脑必须处理的感官信息量。低光、低噪声、低触觉、低空间定向，注意从外部扫描转向内感受。主观上常见：更静、时间感变慢、身体边界变模糊。<br>九条通道（视、听、嗅、味、温度、触、前庭、重力、本体）能关多少，关多少；关不掉的不要假装关掉。</p>
+<h3 id="s-4-3-重置">4.3 重置</h3>
+<p>在低负荷、低输入之后，自主神经有机会从持续的交感动员，转向更适合休息与修复的副交感占优。这是「神经重置」这句话的来源。<br>可以讲：很多人出舱后觉得平静、肌肉不那么紧。<br>不要讲：我们已经用漂浮治好了自主神经紊乱。</p>
+<h3 id="s-4-4-整合">4.4 整合</h3>
+<p>一次体验的价值，往往在出舱后的一段时间里被感觉到：睡眠是否更容易、第二天是否没那么紧。整合发生在生活里，不发生在舱内硬承诺。</p>
+<h3 id="s-4-5-两条机制红线">4.5 两条机制红线</h3>
+<p><strong>主通路是 REST 与卸载，不是把漂浮液当成输液。</strong></p>
+<ul><li><strong>镁：</strong> 溶液提供浮力与皮肤接触。Gröber 等 2017 年在 <em>Nutrients</em> 的综述认为，把透皮补镁说成优于口服、能快速补满细胞镁，科学依据不足。皮肤局部舒适可以讲；「矿物像生物导弹」「一次补硒超 300 µg」不能讲。</li><li><strong>乳酸：</strong> 运动场景里，主观疲劳与酸痛改善更常被报告；血乳酸是否加速清除，研究结果不一致。对外只锁定主观恢复，不给「清除快 50–90%」或教材里的毫克数。</li></ul>
+<p>氢、光、音频、AI 是公司产品模块。<strong>REST 文献覆盖不到这些模块的功效</strong>，不要用综述给产品插件背书。</p>
+<hr />
+<h2 id="s-5-证据-今天科学讲到哪一步">5. 证据：今天科学讲到哪一步</h2>
+<h3 id="s-5-1-证据金字塔-每次都能用">5.1 证据金字塔（每次都能用）</h3>
+<pre class="ascii"><code>        ▲  病种 RCT（厌食住院、纤维肌痛等）
+        │  只对学术/内部：「研究在追问」，不是「我们在治疗」
+        │
+        │  即时状态：开放标签与临床观察
+        │  状态焦虑下降、放松、主观恢复 —— 可对产业/酒店/企业讲，须标明设计
+        │
+        ▼  塔基：卫生标准 + 重复使用安全/可行性
+           每次都能讲；没有这一层就不要往上讲</code></pre>
+<p>升格梯子：案例 / 开放标签 → 可行性·安全性 RCT → 疗效 RCT → 多中心重复 → 系统综述 / 指南。<br><strong>销售默认停在「可行性 + 即时状态」。</strong> 在研试验没有结果，不能当证据。</p>
+<h3 id="s-5-2-现在可以准确引用的节点">5.2 现在可以准确引用的节点</h3>
+<p><strong>Feinstein 等，PLoS ONE 2018</strong>（开放标签，不是 RCT）<br>单次约 1 小时 Floatation-REST；50 名焦虑/应激相关障碍（多数共病抑郁）。状态焦虑大幅下降；压力、肌紧张、疼痛与负性情绪下降；平静与幸福感上升。单次耐受良好。作者要求更大对照试验。NCT03051074。<br>对外句：有开放标签研究观察到单次后状态焦虑显著下降；这不是已批准的精神科治疗。</p>
+<p><strong>Garland、Feinstein 等，PLoS ONE 2024</strong>（安全/可行性 RCT）<br>75 名焦虑抑郁者，随机分到池漂、灵活池漂或零重力椅，各约 6 次。池漂依从约 85% / 89%，椅约 74%；无与干预相关的严重不良事件。证明的是「能做完、较安全、体验以正向为主」，不是治愈焦虑抑郁。</p>
+<p><strong>Choquette 等，eClinicalMedicine 2023</strong>（住院神经性厌食女性 RCT）<br>顶刊级信号，单中心、样本有限。<strong>禁止写成产品适应症。</strong> 学术可以说：REST 对身体意象与状态焦虑被认真研究过。</p>
+<p><strong>Lashgari 等，BMC Complement Med Ther 2025</strong>（系统综述）<br>六十余项、约两千人量级。痛、运动表现、压力、临床焦虑偏正向；睡眠障碍与戒烟证据弱。作者强调机制与方案仍待研究。<br>对外句：系统综述支持「值得认真研究的恢复工具」，不是「已经批准的治疗」。</p>
+<p><strong>Stuart 等，J Pain Res 2026</strong>（慢性痛范围综述）<br>8 项（6 项 RCT）共 401 人。疼痛强度/频次等多报改善，生理指标不一致，异质性大到无法元分析。作者要高质量长随访 RCT。<br>对外：疼痛信号相对更整齐；不能说已确认治疗慢性痛。</p>
+<p><strong>Dierendonck &amp; Nijenhuis，Psychology &amp; Health 2005</strong><br>对多项研究的综合分析，常被用来支持「漂浮作为压力管理工具」。引用时说「压力管理文献簇」，不要说「449 人证明比一切技术都强」。</p>
+<h3 id="s-5-3-旧稿科学基础章怎么用">5.3 旧稿科学基础章怎么用</h3>
+<p>旧稿罗列了网球、射击、射箭、篮球、爵士即兴、经前不适、戒烟、饮酒、贪食等早期研究。这些多数是 1980–1990 年代小样本或会议报告。</p>
+<ul><li><strong>可以：</strong> 作为历史文献簇，说明 REST 长期被用在表现、疼痛、压力上。</li><li><strong>不可以：</strong> 把 1990 年代小样本写成现代指南，或写成漂浮方舟适应症。</li><li><strong>睡眠：</strong> 2025 综述判为证据弱。旧稿「复制国外睡眠实验且效果更好」没有发表数据，不对外。</li><li><strong>Feinstein 神经影像：</strong> 可以说实验室具备漂浮前后影像条件；不要把 2016 开放观察写成「已经用 fMRI 证明治好了岛叶」。</li></ul>
+<h3 id="s-5-4-政策通识-打开问题-不证明疗效">5.4 政策通识（打开问题，不证明疗效）</h3>
+<ul><li>WHO 2025：全球超十亿人生活在精神障碍中；焦虑与抑郁最常见；服务仍不足。</li><li>WHO 中国页量级：抑郁约 5400 万、焦虑约 4100 万。这是需求规模，不是目标客户量。</li><li>中国政策：卫生健康工作从以治病为中心转向以健康为中心；主动健康六支柱含心理与睡眠。</li><li>禁止：把漂浮写成国家基本公卫项目、已纳入医保、或社会心理服务体系指定供应商。</li></ul>
+<hr />
+<h2 id="s-6-谁适合来-人群-不是病谱">6. 谁适合来（人群，不是病谱）</h2>
+<p>旧稿用「亚健康 / 慢性病 / 运动员 / 高压 / 高脑力」五块来写效果。结构可留，<strong>病名全部退出销售菜单</strong>。下面每类都按「主张 → 证据级别 → 不要讲成」写。</p>
+<h3 id="s-6-1-高压与睡眠管理人群">6.1 高压与睡眠管理人群</h3>
+<p><strong>主张：</strong> 给神经系统一个限时、可终止的低刺激环境，许多人会感到平静，主观压力下降；部分人之后睡眠感觉更好。<br><strong>证据：</strong> 即时状态有开放标签与观察支持；睡眠作为功效承诺偏弱，只作体验反馈，不作治愈失眠。<br><strong>不要讲成：</strong> 治疗焦虑症、抑郁症、强迫症、成瘾、孤独症。</p>
+<p>客群翻译（SOP）：周边职场高压者、体检后找非药物选项的人、照护者。他们不需要被教育「为什么关注健康」，只需要「这里有一个可完成的深度恢复」。</p>
+<h3 id="s-6-2-身体负担重的人-久坐-颈肩腰背-训练后">6.2 身体负担重的人（久坐、颈肩腰背、训练后）</h3>
+<p><strong>主张：</strong> 浮力卸载 + 低刺激，有利于主观疼痛与紧绷感下降。<br><strong>证据：</strong> 2025 综述与 2026 慢性痛范围综述显示信号较一致，仍不能当镇痛药替代。<br><strong>不要讲成：</strong> 治疗骨关节炎、类风湿、纤维肌痛、腰椎病。</p>
+<h3 id="s-6-3-运动员与高体力负荷">6.3 运动员与高体力负荷</h3>
+<p><strong>主张：</strong> 赛后或高强度日后，漂浮常被用作恢复环节；主观疲劳、酸痛与放松更常被报告。<br><strong>证据：</strong> 运动心理学与恢复研究文献簇存在（网球、篮球、射击等历史研究；Driller 等当代运动员研究）。乳酸数字不外用。<br><strong>不要讲成：</strong> 加快排酸已测死、提高成绩有保证、已服务某支国家队（除非有授权材料）。</p>
+<h3 id="s-6-4-高脑力负荷">6.4 高脑力负荷</h3>
+<p><strong>主张：</strong> 关掉外部账单之后，有人进入更深的安静，有人觉得思路清楚，有人用来做意象演练。<br><strong>证据：</strong> 创造力、可视化与表现研究多为小样本历史文献。脑波「制造 α / 让 θ 常态化」旧稿写法过满，改为「深度放松时脑电模式可能改变，因人而异」。<br><strong>不要讲成：</strong> 海马体灰质增多、提高智商、保证提分。</p>
+<h3 id="s-6-5-独立门店的身份句">6.5 独立门店的身份句</h3>
+<p>我们是独立运营的健康修复中心。没有医生、没有处方、没有治疗。只有基于研究的、可重复的深度恢复服务。<br>位置若在医院配楼：像医院旁边的健身房，不是科室。</p>
+<p>院内联合诊疗（优浮 / 医学稿）是另一套班子。<strong>同一天不要对同一客户混用「开方治疗」和「不治病」。</strong> 本手册按独立门店写。</p>
+<hr />
+<h2 id="s-7-研究线索与边界">7. 研究线索与边界</h2>
+<p>旧稿「前沿项目」六块，全部降格。内部可以知道我们做过哪些方向；<strong>没有达到可引用证据级别的，不进客户页。</strong></p>
+<h3 id="s-7-1-不孕不育合作观察">7.1 不孕不育合作观察</h3>
+<p>旧稿：天伦医院非介入观察，排除真性器质性因素后，50 余例里近半有正面报告。<br><strong>级别：</strong> 筛选后的观察，不是对照试验，未作为论文锁定。<br><strong>内部：</strong> 压力、睡眠、情绪与生殖健康之间有已知联系；漂浮若有作用，更可能走的是降压应激，而不是「透皮镁保证睾酮」。<br><strong>对外：</strong> 不讲不孕适应症，不讲有效率。</p>
+<h3 id="s-7-2-产后身心恢复">7.2 产后身心恢复</h3>
+<p>旧稿记录了与某产后中心的合作意向，以及「谈话（ACT）+ 漂浮引导」的干预设计（DASS-21、PANAS）。<strong>正文没有给出可引用的统计结论。</strong><br><strong>对外：</strong> 可对产后人群讲休息、睡眠管理、腰背卸载；不讲治疗产后抑郁。哺乳期用药问题引导去问医生，不由漂浮师给方案。<br>孕周窗口以第 8 章禁忌为准，且老板尚未最终锁定时取更严。</p>
+<h3 id="s-7-3-运动体能恢复">7.3 运动体能恢复</h3>
+<p>旧稿「60 名专业运动员 45 分钟后疲劳自评」是内部数据图，本版不公布坐标含义，不写进对外材料。<br>对外只用公开文献簇 + 主观恢复句。温热、浮力、低刺激三条机制可以讲物理，不讲「中和碳化合废弃物」。</p>
+<h3 id="s-7-4-睡眠">7.4 睡眠</h3>
+<p>旧稿后半几乎是在复述一项运动员交叉试验的方法（很像公开的漂浮 vs 对照恢复研究）。没有我司独立发表的结果。<br>对外：体验上有人睡得更深；2025 综述认为睡眠障碍证据弱——所以睡眠是邀请体验的理由，不是功效承诺。</p>
+<h3 id="s-7-5-血压">7.5 血压</h3>
+<p>可引用的历史文献：胡佩诚等，2000，《中国心理卫生杂志》——漂浮合并药物对原发性高血压的初步观察。旧稿「总有效率 69%、对照 14%」来自约 30 人、平均年龄约 63 岁、药物未停的观察。<br><strong>对外：</strong> 可以说「早期中国观察提示血压与情绪量表有变化」；不可以说「我们调节高血压的成功率为 69%」。血压＞160/100 当日拒舱。</p>
+<p>Fine &amp; Turner 1982 等 REST 与血压的早期研究，同样放在「压力管理文献簇」，不放进产品说明书。</p>
+<h3 id="s-7-6-青少年成绩与身高">7.6 青少年成绩与身高</h3>
+<p>旧稿「长期漂浮后成绩差几十分」「12 岁前漂 10 次增高 3–5 cm」<strong>整段停用。</strong><br>对青少年只保留：考试季压力大、需要可终止的深度休息；未成年接待必须符合第 8 章（0–6 岁拒；6–15 岁须评估、医嘱与陪同）。不承诺提分，不承诺增高。</p>
+<hr />
+<h2 id="s-8-如何漂浮">8. 如何漂浮</h2>
+<h3 id="s-8-1-开舱前必拒-取更严">8.1 开舱前必拒（取更严）</h3>
+<p>来源：门店拒客清单。与任何更短的「六条禁忌」同时出现时，取更严。</p>
+<p><strong>必拒</strong></p>
+<ul><li>精神：精神分裂 / 双相发作期、重度抑郁自杀倾向、急性惊恐发作</li><li>心血管：当日血压 ＞160/100、急性心梗或不稳定心绞痛、心衰 Ⅲ–Ⅳ</li><li>呼吸：COPD 加重、气胸 / 肺大疱史</li><li>神经：癫痫频繁发作、卒中未满 3 个月、意识障碍</li><li>感染：开放伤口、脓疱疥疮、流感 / 结核活动期</li><li>肾衰尿毒症、严重电解质紊乱</li><li>酒精或药物影响；尿失禁或体液失控；无法自主行动</li><li>妊娠 1–3 月或 ≥8 月；0–6 岁</li><li>未愈合纹身、重度创口；传染性皮肤病</li></ul>
+<p><strong>须评估并签字后，才可缩短时长或半开盖</strong></p>
+<ul><li>幽闭不适</li><li>稳定慢性病</li><li>孕 4–7 月：书面医嘱 + 陪同（窗口待老板最终锁定前，执行本条）</li><li>6–15 岁与 65 岁以上：评估 + 陪同；儿童与老人漂前主动补水，不等口渴</li></ul>
+<p><strong>当日不接待</strong></p>
+<p>酒后、药物影响、运动结束 30 分钟内、饱餐后、明显饥饿。急性感染先恢复再约，并预留名额。</p>
+<p>旧稿「70 岁以上一律拒」与「特殊人群必须有陪同」一并理解为：高龄以评估+陪同为准，不是广告语「人人可漂」。</p>
+<h3 id="s-8-2-注意事项-对客可贴在更衣区">8.2 注意事项（对客可贴在更衣区）</h3>
+<ul><li>不佩戴隐形眼镜；不化妆进舱</li><li>不吞咽舱液；进眼不揉，用舱内清水 / 干毛巾</li><li>轻度创口用医用敷料遮盖，否则改期</li><li>新染发可能在矿物质溶液中脱色，预先告知</li><li>舱盖可从内部推开；呼叫器位置每次都指给客人；服务人员全程持应答端</li><li>断电时呼叫器应仍可用（以产品手册为准）</li></ul>
+<h3 id="s-8-3-一次体验的顺序">8.3 一次体验的顺序</h3>
+<p>旧稿八步仍然成立，按 SOP 补全：</p>
+<ol><li><strong>接待落地。</strong> 欢迎、稍事休息。验证预约。香氛与草本茶按店内统一配方，不催促。</li><li><strong>问卷与告知。</strong> 健康问卷；重点精神病史、心血管、过敏。不合格当日不开舱。说明呼叫器、开盖权、大约时长。</li><li><strong>淋浴。</strong> 洗净体表清洁剂与汗。耳塞必戴。先让客人看见舱内液体，再进。</li><li><strong>入舱校准。</strong> 一脚+扶手；躺平；头枕调到耳可入水、口鼻离水。可选留一条缝。告诉客人：前几分钟不适可以等一等；超过约 10 分钟仍无法待，按铃我们立刻到。</li><li><strong>关灯进入。</strong> 全黑或留缝由客人决定。不把「必须全黑」当成勇气测试。</li><li><strong>结束前约 5 分钟。</strong> 音乐或提示音，准备结束。</li><li><strong>出舱。</strong> 先坐舱沿再站，防直立性低血压。洗净盐分。体弱者可在舱中坐一会儿。</li><li><strong>复原。</strong> 洗浴后休息 15–30 分钟再离开；不立即驾驶或高危活动。复原区静默；有 HRV 流程的门店：先身体感受，再看前后对比，最后才谈下次。愿意分享体验可以分享，不强迫。</li></ol>
+<p>水温、比重、消杀循环以当日验收为准：独立门店 SOP 写明水温 36±0.5℃、比重 1.23–1.26。话术里的「38 度」、教材里的季节温差、文献里的 34.6℃，<strong>在老板锁定前不对外说死</strong>；执行按 SOP。旧稿「比重约 1.128」不采用。</p>
+<h3 id="s-8-4-舱内不适-出舱-不解释排毒">8.4 舱内不适：出舱，不解释排毒</h3>
+<p><strong>红旗（任一即开盖、扶坐、补水、呼叫同事，必要时急救）：</strong><br>胸痛或胸闷加重、呼吸困难、心悸不止、晕厥或近乎晕厥、视物旋转无法配合、呕吐、恐慌发作、明显血压异常主诉。</p>
+<p>禁止：劝客人「熬一熬就排毒了」；把皮疹、腹泻、发热、旧伤痛说成疗效。发热按禁忌改期。</p>
+<p>对客只说：首次可能较累或更敏感，有不适就出来，我们在。</p>
+<h3 id="s-8-5-卫生是经营信任">8.5 卫生是经营信任</h3>
+<p>国际浮舱主流：紫外、臭氧或组合；高镁溶液里不把泳池氯/溴方案当标准答案。用户之间按制造商规定完成过滤+消杀循环。硫酸镁用约定规格，不私兑来路不明的盐。淋浴、更衣、舱沿防生物膜；粪便/呕吐污染则排空并消毒再注液。</p>
+<p>对客不讲「氯致癌所以必须买我们」。改口：行业本来就不靠泳池氯方案；请看循环、看记录、看出舱后的清洁。</p>
+<hr />
+<h2 id="s-9-对外怎么讲">9. 对外怎么讲</h2>
+<h3 id="s-9-1-口径对照">9.1 口径对照</h3>
+<div class="table-wrap"><table><thead><tr><th>不要说</th><th>说</th></tr></thead><tbody><tr><td>治病、治疗、疗法、康复、处方</td><td>修复、调节、重置、深度恢复、体验配置</td></tr><tr><td>适应症（糖尿病、抑郁、结核……）</td><td>亚健康、疲劳恢复、睡眠管理、压力下的深度休息</td></tr><tr><td>好转反应、排毒、气冲病灶</td><td>首次可能较累；有不适说出舱</td></tr><tr><td>透皮吸收率、一次补硒多少</td><td>高镁溶液提供浮力与皮肤接触</td></tr><tr><td>乳酸清除快百分之几</td><td>主观疲劳与恢复感受常改善</td></tr><tr><td>19 人抑郁统计、个案神奇转归</td><td>不引用</td></tr><tr><td>机构数、专利数、C 端量、58%、2000 项研究</td><td>以合同、铭牌、最新授权材料为准</td></tr><tr><td>富氢浓度、产品插件功效</td><td>未锁定前不讲；REST 文献不给插件背书</td></tr></tbody></table></div>
+<p>结课级要求：随机抽五条，说错两条就补训。</p>
+<h3 id="s-9-2-十秒收回">9.2 十秒收回</h3>
+<p>客户：「你们是不是能治失眠 / 抑郁 / 高血压？」<br>答：失眠和情绪问题很常见，专科医疗该看还是要看。我们提供的是非药物、可重复的深度恢复，帮神经系统降噪重启。要不要先体验一次，再看睡眠和紧绷感有没有变化。——不承诺治愈。</p>
+<p>客户：「把你们培训资料发我。」<br>答：培训是内部教材。我可以给你客户版：漂浮是什么、证据到哪、怎么预约、禁忌是什么。</p>
+<p>客户：「最新研究证明了吧？」<br>答：先说设计（开放标签还是可行性 RCT），再说结果，最后说限度。顺序反了就算失败。</p>
+<h3 id="s-9-3-给三种听众的抽卡">9.3 给三种听众的抽卡</h3>
+<ul><li><strong>产业 / 国企：</strong> 问题规模（WHO）→ 卫生与可行性 → Feinstein 开放标签纠偏 → Garland 2024 → 红线。不讲病种菜单。</li><li><strong>酒店 / 会所：</strong> 睡眠管理入口、即时放松、可完成的 60 分钟。不讲病。</li><li><strong>运动队：</strong> 主观恢复 + 乳酸诚实句。不吹国家队，不吹生化表。</li></ul>
+<hr />
+<h2 id="s-附录-A-推荐文献-精简可核验">附录 A. 推荐文献（精简可核验）</h2>
+<p>手册级只保留能对上 DOI 或公开标准的条目。旧稿里重复著录、页码乱码、把电影截图当文献的，不列。</p>
+<ol><li>Lilly, J. C. (1956). Mental effects of reduction of ordinary levels of physical stimuli on intact, healthy persons. <em>Psychiatric Research Reports</em>, 5, 1–9.</li><li>Suedfeld, P. 关于 Chamber / Flotation REST 的综述与健康应用（引用时核对年份与期刊，旧稿同一条著录了两次）。</li><li>Feinstein, J. S. et al. (2018). Examining the short-term anxiolytic and antidepressant effect of Floatation-REST. <em>PLoS ONE</em>. DOI: 10.1371/journal.pone.0190292</li><li>Garland, M. M. et al. (2024). A randomized, controlled, feasibility RCT of Floatation-REST. <em>PLoS ONE</em>. DOI: 10.1371/journal.pone.0286899</li><li>Choquette, E. M. et al. (2023). The effect of floatation-REST on body image. <em>eClinicalMedicine</em>. DOI: 10.1016/j.eclinm.2023.102173</li><li>Lashgari, E. et al. (2025). A systematic review of flotation-REST. <em>BMC Complement Med Ther</em>. DOI: 10.1186/s12906-025-04973-0</li><li>Stuart, S. J. et al. (2026). Flotation-REST for chronic pain: a scoping review. <em>Journal of Pain Research</em>. DOI: 10.2147/JPR.S565238</li><li>Gröber, U. et al. (2017). Myth or Reality—Transdermal Magnesium? <em>Nutrients</em>, 9(8), 813.</li><li>Dierendonck, D. V., &amp; Nijenhuis, J. T. (2005). Flotation REST as a stress-management tool: A meta-analysis. <em>Psychology &amp; Health</em>, 20(3), 405–412.</li><li>胡佩诚 等. (2000). 漂浮疗法合并药物对原发性高血压治疗的初步观察. <em>中国心理卫生杂志</em>.</li><li>胡佩诚. (2018). <em>心理治疗</em>（第 3 版）. 人民卫生出版社. ——教材含漂浮章节，不等于批准适应症。</li><li>WHO (2025). <em>World mental health today</em>.</li><li>NSF/ANSI/CAN 50；North American Float Tank Standard；NACCHO 浮舱卫生实务.</li></ol>
+<p>运动表现历史文献（Barabasz、Wagaman、Stanley、Morgan、Driller 等）需要时从知识库主题卡抽取，不在封面级文献墙铺开。</p>
+<hr />
+<h2 id="s-附录-B-旧稿停用清单-排版时图注也要扫">附录 B. 旧稿停用清单（排版时图注也要扫）</h2>
+<p>以下句子或数字<strong>不得</strong>出现在新版任何一页、图注、海报或朋友圈转发图：</p>
+<ul><li>漂浮治疗抑郁 / 焦虑症 / 成瘾 / 强迫 / 进食障碍 / 孤独症 / 哮喘 / 脑卒中 / 冠心病</li><li>排除体内垃圾；排毒；好转反应必须熬过去</li><li>海马体灰质增多、杏仁核体积减少（无核验出处）</li><li>透皮吸收率 10%–20%；一次补硒超 300 µg；硫酸镁透皮立即生效</li><li>乳酸下降 7–8 / 20 mg/L；清除快 50–90%</li><li>不孕 50 例近半有效；高血压总有效率 69%（可在内部史料注明来源，不进销售页）</li><li>成绩提高几十分；70% 儿童漂 10 次增高 3–5 cm</li><li>比重 1.128 作为门店标准</li><li>Feinstein 2018 称作 RCT</li><li>在研 NCT 尚无结果却写成「最新证明」</li><li>把培训大纲原件发给客户</li></ul>
+<hr />
+<h2 id="s-附录-C-知识库对照索引">附录 C. 知识库对照索引</h2>
+<div class="table-wrap"><table><thead><tr><th>本章</th><th>主要知识点</th></tr></thead><tbody><tr><td>红线与口径</td><td>KP-TRN-069、071；KP-COM-001～006；KP-SOP-009、013；KP-MEV-102</td></tr><tr><td>定义与机理</td><td>KP-WEB-007；KP-MECH-001～006；KP-COM-018</td></tr><tr><td>历史</td><td>旧稿学术中心章（清洗后）；不重复入库</td></tr><tr><td>证据金字塔</td><td>KP-WEB-001～003、010；KP-COM-011～016</td></tr><tr><td>综述与政策</td><td>KP-COM-007～010、014、015；KP-WEB-008、009</td></tr><tr><td>镁与乳酸</td><td>KP-WEB-005、006；KP-TRN-070</td></tr><tr><td>人群与身份</td><td>KP-SOP-001、002、009</td></tr><tr><td>禁忌与红旗</td><td>KP-SOP-023、024、025</td></tr><tr><td>流程与卫生</td><td>KP-SOP-004、010、015、016；KP-WEB-004、012；KP-MAN-002</td></tr><tr><td>待锁数字</td><td>KP-COM-004；KP-CRAFT-023；KP-SOP-022</td></tr></tbody></table></div>
+<hr />
+<h2 id="s-附录-D-待老板锁定-正文不编造">附录 D. 待老板锁定（正文不编造）</h2>
+<ul><li>对外水温口径（SOP 36±0.5℃ / 话术 38℃ / 教材季节温差）</li><li>孕周窗口是否维持「4–7 月可评估」</li><li>对外机构数、专利数、C 端用户数</li><li>「58% / 睡眠 44% / 全球超 2000 项研究」等展架数字</li><li>富氢浓度与产品插件功效是否对外</li><li>优浮历史价格是否沿用</li><li>可公开的具名案例与回访</li></ul>
+<p>锁定前统一句：以合同、铭牌、最新授权材料为准。</p>
+<hr />
+<p class="lede"><strong>版本：</strong> 内容稿 v0.1<br><strong>依据：</strong> 旧稿 40 页 PDF + 知识库截至 2026-08-24 的已批准通识与 SOP<br><strong>转 PDF：</strong> 用浏览器打开本 HTML → 打印 → 另存为 PDF，勾选「背景图形」。印刷前再扫附录 B。</p>
+    </article>
+  </div>
+  <footer class="note">中友瑞水（北京）科技有限公司 · 内部文件 · 2026-08-29 内容版</footer>
+</body>
+</html>
