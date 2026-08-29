@@ -12,15 +12,17 @@ import {
   AlertTriangle,
   Activity,
   FolderOpen,
+  FileText,
   Menu,
   X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ServerStatus } from "@/components/server-status";
 
-const links = [
+const links: { href: string; label: string; icon: typeof LayoutDashboard; blank?: boolean }[] = [
   { href: "/", label: "首页", icon: LayoutDashboard },
   { href: "/library", label: "知识总库", icon: Library },
+  { href: "/handbook", label: "手册", icon: FileText, blank: true },
   { href: "/library/conflicts", label: "冲突组", icon: AlertTriangle },
   { href: "/sources", label: "来源", icon: FolderOpen },
   { href: "/upload", label: "导入", icon: FileUp },
@@ -50,21 +52,28 @@ export function Nav() {
 
           {/* Desktop nav */}
           <nav className="hidden items-center gap-0.5 lg:flex">
-            {links.map(({ href, label, icon: Icon }) => (
-              <Link
-                key={href}
-                href={href}
-                className={cn(
-                  "flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-sm font-medium transition-colors",
-                  isActive(href)
-                    ? "bg-blue-50 text-blue-700"
-                    : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
-                )}
-              >
-                <Icon className="h-4 w-4" />
-                {label}
-              </Link>
-            ))}
+            {links.map(({ href, label, icon: Icon, blank }) => {
+              const className = cn(
+                "flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-sm font-medium transition-colors",
+                isActive(href)
+                  ? "bg-blue-50 text-blue-700"
+                  : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+              );
+              if (blank) {
+                return (
+                  <a key={href} href={href} target="_blank" rel="noreferrer" className={className}>
+                    <Icon className="h-4 w-4" />
+                    {label}
+                  </a>
+                );
+              }
+              return (
+                <Link key={href} href={href} className={className}>
+                  <Icon className="h-4 w-4" />
+                  {label}
+                </Link>
+              );
+            })}
             <Link
               href="/status"
               className={cn(
@@ -95,22 +104,40 @@ export function Nav() {
       {mobileOpen && (
         <nav className="border-t border-slate-100 bg-white px-4 py-3 lg:hidden">
           <div className="grid grid-cols-2 gap-1">
-            {links.map(({ href, label, icon: Icon }) => (
-              <Link
-                key={href}
-                href={href}
-                onClick={() => setMobileOpen(false)}
-                className={cn(
-                  "flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium",
-                  isActive(href)
-                    ? "bg-blue-50 text-blue-700"
-                    : "text-slate-600 hover:bg-slate-50"
-                )}
-              >
-                <Icon className="h-4 w-4" />
-                {label}
-              </Link>
-            ))}
+            {links.map(({ href, label, icon: Icon, blank }) => {
+              const className = cn(
+                "flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium",
+                isActive(href)
+                  ? "bg-blue-50 text-blue-700"
+                  : "text-slate-600 hover:bg-slate-50"
+              );
+              if (blank) {
+                return (
+                  <a
+                    key={href}
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => setMobileOpen(false)}
+                    className={className}
+                  >
+                    <Icon className="h-4 w-4" />
+                    {label}
+                  </a>
+                );
+              }
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={() => setMobileOpen(false)}
+                  className={className}
+                >
+                  <Icon className="h-4 w-4" />
+                  {label}
+                </Link>
+              );
+            })}
             <Link
               href="/status"
               onClick={() => setMobileOpen(false)}

@@ -2,7 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { readFile } from "fs/promises";
 import path from "path";
 
-const ALLOWED: Record<string, { file: string; type: string }> = {
+const ALLOWED: Record<string, { file: string; type: string; downloadAs?: string }> = {
+  "float-handbook-v2.html": {
+    file: "漂浮知识手册-v2/阅读版.html",
+    type: "text/html; charset=utf-8",
+    downloadAs: "漂浮知识手册.html",
+  },
   "bjhg-intro.pptx": {
     file: "bjhg-intro.pptx",
     type: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
@@ -89,7 +94,7 @@ export async function GET(request: NextRequest) {
     return new NextResponse(buf, {
       headers: {
         "Content-Type": item.type,
-        "Content-Disposition": `attachment; filename*=UTF-8''${encodeURIComponent(item.file)}`,
+        "Content-Disposition": `attachment; filename*=UTF-8''${encodeURIComponent(item.downloadAs || item.file)}`,
         "Cache-Control": "no-store",
       },
     });

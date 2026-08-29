@@ -11,6 +11,7 @@ import {
   Sparkles,
   Layers,
   GraduationCap,
+  FileText,
 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -102,6 +103,12 @@ export default async function HomePage() {
                 </Button>
               </Link>
             )}
+            <a href="/handbook" target="_blank" rel="noreferrer">
+              <Button size="lg" variant="outline" className="border-white/40 bg-white/10 text-white hover:bg-white/20">
+                <FileText className="h-4 w-4" />
+                打开漂浮知识手册
+              </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -125,6 +132,31 @@ export default async function HomePage() {
           href="/upload"
         />
       </div>
+
+      <section className="mb-8">
+        <a
+          href="/handbook"
+          target="_blank"
+          rel="noreferrer"
+          className="block rounded-xl border border-teal-200 bg-teal-50/70 p-6 transition-all hover:border-teal-300 hover:shadow-md"
+        >
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <div className="mb-2 inline-flex items-center gap-2">
+                <FileText className="h-5 w-5 text-teal-800" />
+                <Badge className="bg-teal-100 text-teal-900">内部 · 内容版</Badge>
+              </div>
+              <h2 className="text-lg font-semibold text-slate-900">漂浮知识手册</h2>
+              <p className="mt-1 text-sm text-slate-600">
+                不要在自己电脑上打开 127.0.0.1。点这里用当前知识库网页打开；打开后点「打印 / 另存为 PDF」。
+              </p>
+            </div>
+            <span className="inline-flex items-center text-sm font-medium text-teal-800">
+              打开手册 <ArrowRight className="ml-1 h-4 w-4" />
+            </span>
+          </div>
+        </a>
+      </section>
 
       <section className="mb-8">
         <h2 className="mb-4 text-lg font-semibold text-slate-900">知识库入口</h2>
@@ -364,6 +396,30 @@ export default async function HomePage() {
 
       {/* Export */}
       <section className="mt-8 space-y-4">
+        <div className="rounded-xl border border-teal-200 bg-teal-50/60 p-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h2 className="text-lg font-semibold text-slate-900">漂浮知识手册 · HTML</h2>
+              <p className="mt-1 text-sm text-slate-600">
+                在预览里打开，或下载到电脑后用浏览器「打印 → 另存为 PDF」。
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <a href="/handbook" target="_blank" rel="noreferrer">
+                <Button>
+                  <FileText className="h-4 w-4" />
+                  在网页打开
+                </Button>
+              </a>
+              <a href="/api/download?file=float-handbook-v2.html">
+                <Button variant="outline">
+                  <Download className="h-4 w-4" />
+                  下载 HTML
+                </Button>
+              </a>
+            </div>
+          </div>
+        </div>
         <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>

@@ -64,6 +64,7 @@ export default async function StatusPage() {
           <p>1. 看右上角状态：显示「在线」说明服务正常</p>
           <p>2. Preview 显示 Disconnected → 点 <strong>Reconnect</strong></p>
           <p>3. 仍不行 → 刷新页面，或访问 <Link href="/library" className="underline">知识总库</Link></p>
+          <p>漂浮知识手册：不要用电脑上的 127.0.0.1，请在本预览里点导航「手册」或打开 <Link href="/handbook" className="underline">/handbook</Link></p>
           <p className="text-xs text-amber-700">服务由 keep-alive 脚本守护，崩溃后 2 秒内自动重启</p>
         </CardContent>
       </Card>
