@@ -307,6 +307,7 @@ Vercel 快速部署（GitHub 镜像完成后）：
 │       ├── ai-splitter.ts      AI 拆分（API 模式）
 │       └── document-extractor.ts
 ├── exports/                    ← 编排大纲、手册内容稿（HTML 可转 PDF）
+└── uploads/                    原始文件（不进 Git，换环境会丢）
 ```
 
 ---
