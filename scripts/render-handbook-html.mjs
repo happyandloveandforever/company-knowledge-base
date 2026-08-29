@@ -292,7 +292,7 @@ const html = `<!DOCTYPE html>
       line-height: 1.5;
     }
     nav.toc p { color: var(--gold); letter-spacing: 0.18em; font-size: 11px; margin: 0 0 12px; }
-    nav.toc ol { margin: 0; padding: 0 0 0 18px; color: var(--muted); }
+    nav.toc ul { margin: 0; padding: 0; list-style: none; color: var(--muted); }
     nav.toc a { color: var(--muted); text-decoration: none; }
     nav.toc a:hover { color: var(--teal); }
     article h1 { display: none; }
@@ -364,7 +364,7 @@ const html = `<!DOCTYPE html>
         font-size: 14px;
         padding-top: 12mm;
       }
-      nav.toc ol { columns: 1; }
+      nav.toc ul { columns: 1; }
       .layout { display: block; max-width: none; padding: 0; }
       article h2 { break-after: avoid; }
       article h3 { break-after: avoid; }
@@ -389,7 +389,7 @@ const html = `<!DOCTYPE html>
   <div class="layout">
     <nav class="toc" aria-label="目录">
       <p>CONTENTS</p>
-      <ol>${tocHtml}</ol>
+      <ul>${tocHtml}</ul>
     </nav>
     <article>
 ${body}
