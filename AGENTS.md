@@ -51,6 +51,7 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `PROJECT.md` | **固定协作文档**，每次会话更新状态 |
 | `data/knowledge-points.json` | 核心资产，进 Git |
 | `data/sources.json` | 导入来源记录 |
+| `data/handbooks/float-therapy-manual.html` | 漂浮疗法手册正文，`/handbook` 可视化改字 |
 | `scripts/import-faf-yangpu.mjs` | 杨浦 PDF 拆分参考 |
 | `scripts/import-b2b-yiling.mjs` | B端 PDF 拆分参考 |
 | `scripts/apply-knowledge-layers.mjs` | 通识/公司分层 + 通识前沿卡（幂等） |
