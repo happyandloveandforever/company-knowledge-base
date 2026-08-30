@@ -167,7 +167,7 @@ Vercel 快速部署（GitHub 镜像完成后）：
 
 ## 三、当前库状态
 
-> **最后更新：** 2026-08-24（由 Agent 维护，每次入库后更新此节）
+> **最后更新：** 2026-08-30（由 Agent 维护，每次入库后更新此节）
 
 | 指标 | 数值 |
 |------|------|
@@ -268,6 +268,7 @@ Vercel 快速部署（GitHub 镜像完成后）：
 | 路由 | 功能 |
 |------|------|
 | `/` | 首页：统计、待办、来源列表、分类分布 |
+| `/handbook` | **漂浮疗法手册可视化改字**：点文字即改，自动保存 |
 | `/library` | 知识总库：搜索/筛选/编辑/批准/删除 |
 | `/library/conflicts` | 冲突组并排对比，设首选版本 |
 | `/sources` | 来源管理：**红色「删除」按钮** |
@@ -291,7 +292,8 @@ Vercel 快速部署（GitHub 镜像完成后）：
 │   ├── knowledge-points.json   ★ 核心资产，进 Git
 │   ├── sources.json            ★ 来源记录，进 Git
 │   ├── outlines.json
-│   └── split-queue.json        运行时，待拆分队列
+│   ├── split-queue.json        运行时，待拆分队列
+│   └── handbooks/float-therapy-manual.html  手册可视化编辑正文
 ├── scripts/
 │   ├── import-faf-yangpu.mjs       杨浦 PDF 拆分模板
 │   ├── import-b2b-yiling.mjs       B端 PDF 拆分模板
@@ -343,6 +345,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | `data/sources.json` | ✅ | 导入记录 |
 | `uploads/` | ❌ | 原始 PDF，仅本机；知识点正文已在 JSON |
 | `data/analysis-cache.json` | ❌ | 自动重建 |
+| `data/handbooks/*.html` | ✅ | 手册可视化编辑正文 |
 
 **换对话不会丢库**，只要 Git 里有 `knowledge-points.json`。  
 误删可从 Git 历史恢复（如此前恢复 B端 50 条）。
@@ -415,6 +418,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-24 | 拆分《漂浮培训大纲》8章35节→71条 `KP-TRN-*`；新增 `internalOnly` 硬隔离（编排默认排除、红色禁止外发标）；10 条含适应症/处方/命理/疗效案例留 draft；库 379→450 |
 | 2026-08-24 | 首页补培训入口：第三张「漂浮师培训教材」卡 + 按用途「培训」筛选，避免只显示通识/公司两层时找不到内训 |
 | 2026-08-24 | 补训四份：好转反应、一般适应症、禁忌症、产品使用手册 → TRN-072~094（仅内训）；禁忌与手册另写 SOP-023~025、MAN-001~007；库 450→483 |
+| 2026-08-30 | 漂浮疗法手册紧凑详实版可视化改字：`/handbook` 点文字即改、自动保存到 `data/handbooks/` |
 
 
 ---
@@ -425,6 +429,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 - 「上传了品牌画册，帮我 Claude 精细拆」
 - 「把 B端和一龄相关的知识点全部批准」
 - 「用已批准的知识点，给销售做 90 分钟培训大纲」
+- 「打开漂浮疗法手册，我要改字」
 - 「修复 upload 页 xxx 问题」
 
 ---

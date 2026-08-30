@@ -11,6 +11,7 @@ import {
   Sparkles,
   Layers,
   GraduationCap,
+  PenLine,
 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -105,6 +106,28 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      <a
+        href="/handbook"
+        className="mb-8 block rounded-2xl border border-amber-200 bg-amber-50 px-6 py-5 text-amber-950 shadow-sm transition-all hover:border-amber-300 hover:shadow-md"
+      >
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-start gap-3">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-amber-100 text-amber-800">
+              <PenLine className="h-5 w-5" />
+            </div>
+            <div>
+              <div className="text-base font-semibold">漂浮疗法手册｜紧凑详实版 · 点文字就能改</div>
+              <p className="mt-1 text-sm text-amber-900/80">
+                打开后看到的就是成品排版。点任何字直接改，停一下会自动保存，也可以下载 HTML 或导出 PDF。
+              </p>
+            </div>
+          </div>
+          <span className="inline-flex items-center text-sm font-medium text-amber-800">
+            打开手册改字 <ArrowRight className="ml-1 h-4 w-4" />
+          </span>
+        </div>
+      </a>
 
       {/* Stats grid */}
       <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

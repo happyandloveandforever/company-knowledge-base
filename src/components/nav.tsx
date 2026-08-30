@@ -14,6 +14,7 @@ import {
   FolderOpen,
   Menu,
   X,
+  PenLine,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ServerStatus } from "@/components/server-status";
@@ -65,6 +66,18 @@ export function Nav() {
                 {label}
               </Link>
             ))}
+            <a
+              href="/handbook"
+              className={cn(
+                "flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-sm font-medium transition-colors",
+                pathname === "/handbook"
+                  ? "bg-amber-50 text-amber-800"
+                  : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+              )}
+            >
+              <PenLine className="h-4 w-4" />
+              手册改字
+            </a>
             <Link
               href="/status"
               className={cn(
@@ -111,6 +124,17 @@ export function Nav() {
                 {label}
               </Link>
             ))}
+            <a
+              href="/handbook"
+              onClick={() => setMobileOpen(false)}
+              className={cn(
+                "flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium",
+                pathname === "/handbook" ? "bg-amber-50 text-amber-800" : "text-slate-600 hover:bg-slate-50"
+              )}
+            >
+              <PenLine className="h-4 w-4" />
+              手册改字
+            </a>
             <Link
               href="/status"
               onClick={() => setMobileOpen(false)}

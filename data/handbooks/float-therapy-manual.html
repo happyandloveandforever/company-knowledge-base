@@ -1,0 +1,2065 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>漂浮疗法手册｜紧凑详实版</title>
+  <style>
+    :root{
+      --paper:#f2eee5;
+      --paper-deep:#e5ded1;
+      --ink:#191b18;
+      --muted:#696b64;
+      --rust:#c95738;
+      --rust-dark:#8f3525;
+      --sage:#617469;
+      --sage-pale:#d8dfd7;
+      --violet:#786b88;
+      --yellow:#e6c56a;
+      --line:#b9b2a6;
+      --white:#fffdf8;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:#cbc6bd;color:var(--ink)}
+    body{font-family:"Noto Sans SC","Source Han Sans SC","Microsoft YaHei",sans-serif}
+    button.print-btn{position:fixed;right:20px;top:20px;z-index:99;border:0;background:var(--ink);color:#fff;padding:11px 16px;font-size:13px;letter-spacing:.08em;cursor:pointer}
+    .book{display:flex;flex-direction:column;align-items:center;gap:18px;padding:18px 0 42px}
+    .page{width:210mm;height:297mm;background:var(--paper);position:relative;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.17);page-break-after:always;break-after:page}
+    .page:last-child{page-break-after:auto;break-after:auto}
+    .page::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(25,27,24,.022) 1px,transparent 1px);background-size:100% 9mm;opacity:.18}
+    .inner{position:absolute;inset:0;padding:16mm 17mm 16mm 18mm}
+    .inner.wide{padding-left:13mm;padding-right:13mm}
+    .running{position:absolute;left:18mm;right:17mm;top:8mm;display:flex;justify-content:space-between;align-items:center;font-size:8.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);z-index:5}
+    .running::after{content:"";position:absolute;left:0;right:0;bottom:-3.2mm;border-top:1px solid rgba(25,27,24,.36)}
+    .folio{position:absolute;left:18mm;bottom:7mm;font:700 10px/1 Arial,sans-serif;letter-spacing:.12em;color:var(--muted);z-index:5}
+    .chapter-tab{position:absolute;right:0;top:25mm;width:8mm;min-height:68mm;background:var(--rust);color:#fff;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;font-size:9px;letter-spacing:.18em;font-weight:700;z-index:6}
+    .chapter-tab.sage{background:var(--sage)}
+    .chapter-tab.violet{background:var(--violet)}
+    .chapter-tab.ink{background:var(--ink)}
+    h1,h2,h3,p,figure,blockquote{margin-top:0}
+    h1,h2,.serif{font-family:"Source Han Serif SC","Noto Serif CJK SC","STSong","SimSun",serif}
+    h1{font-size:38px;line-height:1.18;letter-spacing:-.035em;margin-bottom:7mm;font-weight:700}
+    h2{font-size:24px;line-height:1.32;letter-spacing:-.02em;margin-bottom:4mm}
+    h3{font-size:15px;line-height:1.45;margin-bottom:2mm;letter-spacing:.01em}
+    p{font-size:12.8px;line-height:1.78;margin-bottom:3.4mm;text-align:justify}
+    .small{font-size:10.8px;line-height:1.68;color:#4d504a}
+    .tiny{font-size:9px;line-height:1.6;color:var(--muted)}
+    .lead{font-family:"Source Han Serif SC","Noto Serif CJK SC","STSong","SimSun",serif;font-size:17px;line-height:1.7;text-align:left;color:#30322e}
+    .kicker{font:700 10px/1.2 Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);margin-bottom:4mm}
+    .kicker.sage{color:var(--sage)}
+    .display-number{font:900 100px/.82 Arial,sans-serif;letter-spacing:-.08em;color:var(--rust);opacity:.94}
+    .rule{border-top:1px solid var(--ink);padding-top:4mm}
+    .hairline{border-top:1px solid var(--line)}
+    .columns-2{display:grid;grid-template-columns:1fr 1fr;gap:11mm}
+    .columns-3{display:grid;grid-template-columns:repeat(3,1fr);gap:7mm}
+    .split-portrait{display:grid;grid-template-columns:70mm 1fr;gap:11mm}
+    .split-wide{display:grid;grid-template-columns:1.18fr .82fr;gap:11mm}
+    .text-columns{column-count:2;column-gap:10mm;column-rule:1px solid rgba(25,27,24,.18)}
+    .text-columns p{break-inside:avoid}
+    .dropcap::first-letter{font-family:Georgia,"Times New Roman",serif;float:left;font-size:54px;line-height:.78;margin:6px 8px 0 0;color:var(--rust)}
+    .margin-note{border-left:4px solid var(--rust);padding:2mm 0 2mm 4mm;font-size:10.8px;line-height:1.65;color:#4a403b}
+    .note{background:var(--white);border-top:4px solid var(--rust);padding:5mm 6mm}
+    .note.sage{border-color:var(--sage);background:#edf0eb}
+    .note.ink{border-color:var(--ink)}
+    .quote{font-family:"Source Han Serif SC","Noto Serif CJK SC","STSong","SimSun",serif;font-size:22px;line-height:1.58;border-left:1px solid var(--ink);padding-left:7mm;margin:6mm 0}
+    .caption{font-size:9px;line-height:1.5;color:var(--muted);margin-top:2mm}
+    .source-no{font:700 8px/1 Arial,sans-serif;vertical-align:super;color:var(--rust)}
+    .section-label{display:inline-block;background:var(--ink);color:#fff;padding:2mm 3mm;font-size:9px;letter-spacing:.13em;font-weight:700;margin-bottom:5mm}
+    .photo{width:100%;height:100%;object-fit:cover;display:block}
+    .photo.mono{filter:grayscale(1) contrast(1.05)}
+    .photo-frame{overflow:hidden;background:#d8d3ca;position:relative}
+    .photo-frame::after{content:"";position:absolute;inset:0;border:1px solid rgba(25,27,24,.25);pointer-events:none}
+    .image-label{position:absolute;left:0;bottom:0;background:var(--paper);padding:2mm 3mm;font-size:8.5px;letter-spacing:.08em;font-weight:700}
+    .index-list{display:grid;grid-template-columns:14mm 1fr 12mm;align-items:start;border-top:1px solid var(--line);padding:3.4mm 0}
+    .index-list:last-child{border-bottom:1px solid var(--line)}
+    .index-no{font:700 12px/1.4 Arial;color:var(--rust)}
+    .index-page{font:700 10px/1.7 Arial;text-align:right;color:var(--muted)}
+    .definition{display:grid;grid-template-columns:24mm 1fr;gap:6mm;padding:4mm 0;border-top:1px solid var(--line)}
+    .definition:last-child{border-bottom:1px solid var(--line)}
+    .term{font-size:11px;font-weight:800;color:var(--rust);letter-spacing:.04em}
+    .ledger{display:grid;grid-template-columns:34mm 1fr;border-top:1px solid var(--line)}
+    .ledger>div{padding:4mm 0;border-bottom:1px solid var(--line)}
+    .ledger .label{font-weight:800;font-size:11px;color:var(--rust);padding-right:5mm}
+    .ledger .copy{font-size:12.2px;line-height:1.7}
+    .evidence-row{display:grid;grid-template-columns:29mm 1fr 26mm;gap:5mm;padding:4mm 0;border-top:1px solid var(--line);align-items:start}
+    .evidence-row:last-child{border-bottom:1px solid var(--line)}
+    .evidence-tag{font:800 9px/1.35 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--rust)}
+    .evidence-grade{font:800 9px/1.4 Arial,sans-serif;text-align:right;color:var(--sage)}
+    .timeline-item{display:grid;grid-template-columns:30mm 1fr;gap:7mm;position:relative;padding:0 0 7mm}
+    .timeline-item::before{content:"";position:absolute;left:28mm;top:3mm;bottom:-1mm;border-left:1px solid var(--line)}
+    .timeline-item:last-child::before{display:none}
+    .timeline-year{font:800 15px/1.25 Arial;color:var(--rust);padding-top:1mm}
+    .timeline-copy{padding-left:5mm;position:relative}
+    .timeline-copy::before{content:"";position:absolute;left:-2.4mm;top:2mm;width:4.5mm;height:4.5mm;background:var(--paper);border:1.5px solid var(--rust);border-radius:50%}
+    .archive-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5mm}
+    .archive-grid figure{margin:0}
+    .archive-grid .portrait{height:45mm;overflow:hidden;background:#ddd7cd}
+    .archive-grid .portrait img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.08)}
+    .archive-grid figcaption{font-size:8.8px;line-height:1.45;margin-top:2mm;color:var(--muted)}
+    .stat{border-top:6px solid var(--rust);padding-top:4mm}
+    .stat .number{font:900 46px/.95 Arial;color:var(--ink);letter-spacing:-.05em}
+    .stat .meta{font-size:10px;line-height:1.5;color:var(--muted);margin-top:2mm}
+    .myth{display:grid;grid-template-columns:35mm 1fr;gap:6mm;border-top:1px solid var(--line);padding:4mm 0}
+    .myth:last-child{border-bottom:1px solid var(--line)}
+    .myth .claim{font-weight:800;color:var(--rust-dark);font-size:12px}
+    .steps{counter-reset:step}
+    .step{counter-increment:step;display:grid;grid-template-columns:17mm 1fr;gap:5mm;padding:4mm 0;border-top:1px solid var(--line)}
+    .step::before{content:counter(step,decimal-leading-zero);font:800 18px/1.2 Arial;color:var(--rust)}
+    .step:last-child{border-bottom:1px solid var(--line)}
+    .check{display:grid;grid-template-columns:6mm 1fr;gap:3mm;margin-bottom:3mm;font-size:12px;line-height:1.65}
+    .check::before{content:"";width:3.5mm;height:3.5mm;border:1px solid var(--ink);margin-top:1.2mm}
+    .stop{display:grid;grid-template-columns:28mm 1fr;gap:6mm;padding:4mm 0;border-top:1px solid var(--line)}
+    .stop:last-child{border-bottom:1px solid var(--line)}
+    .stop strong{color:var(--rust-dark)}
+    .faq{display:grid;grid-template-columns:12mm 1fr;gap:5mm;padding:4mm 0;border-top:1px solid var(--line)}
+    .faq:last-child{border-bottom:1px solid var(--line)}
+    .faq .q{font:900 18px/1.2 Georgia,serif;color:var(--rust)}
+    .ref{font-size:9.4px;line-height:1.55;padding:2.2mm 0;border-top:1px solid rgba(25,27,24,.18);word-break:break-word}
+    .ref a{color:inherit;text-decoration:none}
+    .old-version{display:none!important}
+    .dual{display:grid;grid-template-columns:1fr 1fr;gap:8mm;align-items:start}
+    .study{border-top:4px solid var(--rust);padding-top:4mm;break-inside:avoid}
+    .study.sage{border-color:var(--sage)}
+    .study h2{font-size:20px;margin-bottom:3mm}
+    .study p{font-size:11.6px;line-height:1.72;margin-bottom:2.6mm}
+    .study-meta{font:800 9px/1.5 Arial,sans-serif;letter-spacing:.08em;color:var(--rust);margin-bottom:3mm}
+    .study-result{font-family:"Source Han Serif SC","Noto Serif CJK SC","STSong","SimSun",serif;font-size:16px!important;line-height:1.62!important;text-align:left!important}
+    .source-line{font-size:8.8px!important;line-height:1.5!important;color:var(--muted);border-top:1px solid var(--line);padding-top:2.5mm;margin-top:3mm}
+    .metric-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm;margin:5mm 0}
+    .metric-strip>div{border-top:5px solid var(--rust);padding-top:3mm}
+    .metric-strip b{font:900 27px/1 Arial,sans-serif;display:block;letter-spacing:-.04em}
+    .metric-strip span{display:block;font-size:9.5px;line-height:1.45;color:var(--muted);margin-top:2mm}
+    .paper{background:#fffdf8;border:1px solid var(--line);padding:5mm 6mm;box-shadow:2mm 2mm 0 rgba(25,27,24,.08)}
+    .paper .journal{font:800 9px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--rust);margin-bottom:2mm}
+    .paper h3{font-family:Georgia,"Times New Roman",serif;font-size:13px;line-height:1.35}
+    .image-credit{position:absolute;right:4mm;bottom:3mm;background:rgba(25,27,24,.78);color:#fff;padding:1.5mm 2mm;font-size:7.5px;line-height:1.25;max-width:75%}
+    .tail-band{margin-top:8mm;border-top:1px solid var(--line);padding-top:6mm}
+    .tail-dark{background:var(--ink);color:var(--paper);padding:8mm 9mm;border:0}
+    .tail-sage{background:#dfe6df;padding:7mm 8mm;border-left:6px solid var(--sage)}
+    .fact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5mm}
+    .fact-grid>div{border-top:4px solid var(--rust);padding-top:3mm}
+    .fact-grid b{display:block;font:900 20px/1.1 Arial,sans-serif;margin-bottom:2mm}
+    .fact-grid span{display:block;font-size:9.8px;line-height:1.5;color:var(--muted)}
+    .record-grid{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+    .record-grid>div{min-height:32mm;padding:4mm;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .record-grid b{display:block;font-size:10px;color:var(--rust);margin-bottom:3mm}
+    .record-grid span{font-size:9px;line-height:1.45;color:var(--muted)}
+    #c04 .inner>.photo-frame{height:112mm!important}
+    #c06 .study .photo-frame{height:108mm!important}
+    #c07 .split-portrait>.photo-frame{height:84mm!important}
+    #c08 .study>.photo-frame{height:86mm!important}
+    #c08 .archive-grid .portrait{height:78mm!important}
+    #c09 .study>.photo-frame{height:112mm!important}
+    #c10 .inner>.photo-frame{height:135mm!important}
+    #c11 .inner>.photo-frame{height:113mm!important}
+    #c12 .inner>.photo-frame{height:123mm!important}
+    #c13 .inner>.photo-frame{height:88mm!important}
+    #c14 .inner>.photo-frame{height:112mm!important}
+    #c15 .inner>.photo-frame{height:100mm!important}
+    #c16 .inner>.photo-frame{height:108mm!important}
+    #c18 .inner>.photo-frame,#c19 .inner>.photo-frame{height:106mm!important}
+    #c21 .inner>.photo-frame{height:108mm!important}
+    #c22 .inner>.photo-frame{height:124mm!important}
+    #c24 .inner>.photo-frame{height:108mm!important}
+    #c27 .inner>.photo-frame{height:128mm!important}
+    #c33 .ref{font-size:10.4px;line-height:1.65;padding:4.3mm 0}
+    #c32 h1{font-size:39px;line-height:1.12;margin-bottom:4mm}
+    #c32 .lead{font-size:15px;line-height:1.62;margin-bottom:4mm!important}
+    #c32 .study{padding-top:3mm}
+    #c32 .study h2{font-size:18px;margin-bottom:2mm}
+    #c32 .study p{font-size:10.6px;line-height:1.55;margin-bottom:2mm}
+    #c32 .study-result{font-size:14px!important;line-height:1.5!important}
+    #c32 .definition{grid-template-columns:20mm 1fr;gap:4mm;padding:2.5mm 0}
+    #c32 .definition h3{font-size:15px;margin-bottom:1mm}
+    #c32 .definition .small{font-size:10px;line-height:1.43}
+    #c32 .tail-band{margin-top:5mm;padding-top:4mm}
+    #c32 .tail-sage{padding:4mm 5mm}
+    #c32 .tail-sage p.small{font-size:9.3px;line-height:1.38}
+    #c32 .source-line{font-size:7.8px;line-height:1.4;margin-top:2.5mm}
+    #c17 .tail-dark{min-height:103mm}
+    #c20 .inner>.photo-frame{height:88mm!important}
+    #c23 .metric-strip:last-child{min-height:96mm;align-items:center}
+    #c25 .record-grid>div,#c29 .record-grid>div{min-height:62mm}
+    .dark{background:var(--ink);color:var(--paper)}
+    .dark::before{opacity:.04}
+    .dark .running,.dark .folio,.dark .caption,.dark .small,.dark .tiny{color:#c7c1b7}
+    .dark .running::after,.dark .hairline{border-color:rgba(255,255,255,.28)}
+    .dark .quote{border-color:rgba(255,255,255,.55)}
+    .rust-page{background:var(--rust);color:#fff9ef}
+    .rust-page .running,.rust-page .folio,.rust-page .small,.rust-page .caption{color:#f1d8cd}
+    .rust-page .running::after{border-color:rgba(255,255,255,.4)}
+    .sage-page{background:var(--sage);color:#fffdf7}
+    .sage-page .running,.sage-page .folio,.sage-page .small,.sage-page .caption{color:#dce4dd}
+    .sage-page .running::after{border-color:rgba(255,255,255,.4)}
+    svg text{font-family:"Noto Sans SC","Microsoft YaHei",sans-serif}
+    @media print{
+      @page{size:A4;margin:0}
+      html,body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+      .book{display:block;padding:0}
+      .page{box-shadow:none;margin:0}
+      .print-btn{display:none!important}
+    }
+    @media(max-width:900px){.book{align-items:flex-start}.print-btn{right:8px;top:8px}}
+  </style>
+</head>
+<body>
+  <button class="print-btn" onclick="window.print()">导出 PDF</button>
+  <main class="book compact-version">
+
+    <section class="page" id="c01">
+      <div style="position:absolute;inset:0;display:grid;grid-template-rows:61% 39%">
+        <div class="photo-frame">
+          <img class="photo" src="assets/user-supplied/cover-ai-interior.png" alt="现代漂浮疗法空间与漂浮舱" style="object-position:43% center" />
+          <span class="image-credit">漂浮方舟空间效果图</span>
+        </div>
+        <div style="background:var(--ink);color:var(--paper);padding:12mm 18mm;display:grid;grid-template-columns:1.3fr .7fr;gap:12mm;align-items:end">
+          <div><div class="kicker" style="color:#d9a48f">FLOTATION-REST · 2026</div><h1 style="font-size:52px;margin:0">漂浮疗法手册</h1><p style="font-size:14px;text-align:left;color:#d7d0c6;margin:4mm 0 0">历史、放松机制与临床研究中的真实好处</p></div>
+          <div style="border-left:1px solid #777;padding-left:8mm"><p class="small" style="color:#d7d0c6;margin:0">给第一次了解漂浮的人<br />也给希望读懂证据的人</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="c02">
+      <div class="running"><span>漂浮疗法手册</span><span>READING GUIDE</span></div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">先给结论</div>
+        <h1>漂浮不是神秘体验，<br />而是一套可以解释、可以测量的低刺激恢复方法</h1>
+        <div class="dual">
+          <div>
+            <p class="lead">人在高浮力、恒温、低光、低声的水环境中，不必持续支撑身体，也少回应一部分外界变化。身体负担下降、警觉水平回落，为放松、入睡准备、疼痛缓解和情绪恢复创造条件。</p>
+            <div class="note"><h3>这本手册重点回答</h3><p class="small" style="margin:0">它从哪里来？为什么能让人放松？世界研究已经观察到哪些好处？不同人群如何使用？第一次体验怎样更安全、有效？</p></div>
+          </div>
+          <div class="photo-frame" style="height:150mm">
+            <img class="photo" src="assets/research-open-license/P16_Floatation_REST_CC-BY-4.0.jpg" alt="临床研究开放式漂浮池" style="object-position:center" />
+            <span class="image-credit">Laureate临床研究漂浮池｜Feinstein et al., 2018｜CC BY 4.0</span>
+          </div>
+        </div>
+      </div><div class="folio">02</div>
+    </section>
+
+    <section class="page dark" id="c03">
+      <div class="running"><span>CONTENTS</span><span>35 PAGES</span></div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker" style="color:#d9a48f">阅读路径</div><h1>六部分，读懂漂浮疗法</h1>
+        <div style="margin-top:9mm">
+          <div class="index-list"><span class="index-no">01</span><div><h3>漂浮是什么</h3><p class="small">环境、浮力与一次体验的基本过程</p></div><span class="index-page">04—05</span></div>
+          <div class="index-list"><span class="index-no">02</span><div><h3>它怎样发展而来</h3><p class="small">从感官研究到现代临床探索</p></div><span class="index-page">06—09</span></div>
+          <div class="index-list"><span class="index-no">03</span><div><h3>为什么能让人放松</h3><p class="small">身体减负、刺激减少与内感受</p></div><span class="index-page">10—12</span></div>
+          <div class="index-list"><span class="index-no">04</span><div><h3>研究发现了哪些好处</h3><p class="small">焦虑、疼痛、睡眠、运动恢复与临床辅助</p></div><span class="index-page">13—23</span></div>
+          <div class="index-list"><span class="index-no">05</span><div><h3>怎样把一次漂浮做好</h3><p class="small">应用、疗程、体验步骤、安全与常见问题</p></div><span class="index-page">24—31</span></div>
+          <div class="index-list"><span class="index-no">06</span><div><h3>世界漂浮学会为什么重要</h3><p class="small">科研、标准、教育与国际协作</p></div><span class="index-page">32</span></div>
+        </div>
+        <div class="photo-frame tail-band" style="height:43mm;margin-top:6mm;padding-top:0;border-top:0">
+          <img class="photo" src="assets/brand-water-detail.png" alt="漂浮方舟水面与光影细节" style="object-position:center 48%" />
+          <span class="image-credit">漂浮方舟水面细节｜公司品牌图片</span>
+        </div>
+      </div><div class="folio">03</div>
+    </section>
+
+    <section class="page" id="c04">
+      <div class="running"><span>01 · 漂浮是什么</span><span>ENVIRONMENT</span></div>
+      <div class="inner" style="padding-top:24mm">
+        <h1>一页看懂：高浮力承托身体，低刺激环境减少外界负担</h1>
+        <div class="dual">
+          <div class="study">
+            <div class="study-meta">身体条件</div><h2>高浓度盐水让人无需游泳也能稳定浮起</h2>
+            <p>硫酸镁提高水的密度，支撑力分散到更大的体表。颈、背、髋和四肢不必持续寻找支点，局部压迫和姿势肌工作量随之下降。</p>
+            <p class="study-result">最明确的作用是浮力与承托，不需要依靠“经皮补镁”才能解释放松。</p>
+          </div>
+          <div class="study sage">
+            <div class="study-meta">环境条件</div><h2>低光、低声与接近皮肤温度，减少持续变化</h2>
+            <p>漂浮并没有关闭所有感官，而是减少视觉变化、环境噪声、冷热波动和承重压力。呼吸、心跳、水的触感与自己的想法仍然存在。</p>
+            <p class="study-result">现代研究因此更常使用REST：限制或减少环境刺激技术。</p>
+          </div>
+        </div>
+        <div class="photo-frame" style="height:82mm;margin-top:8mm">
+          <img class="photo" src="assets/user-supplied/float-posture.jpg" alt="体验者仰卧于高浮力水体" style="object-position:center 52%" />
+          <span class="image-credit">仰卧漂浮体验图｜用户提供</span>
+        </div>
+      </div><div class="folio">04</div>
+    </section>
+
+    <section class="page" id="c05">
+      <div class="running"><span>01 · 漂浮是什么</span><span>ONE SESSION</span></div>
+      <div class="inner" style="padding-top:24mm">
+        <h1>一次漂浮通常经历三个阶段；评价功效也要分三个层次</h1>
+        <div class="dual">
+          <div>
+            <div class="timeline-item"><div class="timeline-year">0—15′</div><div class="timeline-copy"><h3>适应</h3><p class="small">寻找姿势、确认空间和安全感，思绪可能很多。</p></div></div>
+            <div class="timeline-item"><div class="timeline-year">15—50′</div><div class="timeline-copy"><h3>安静</h3><p class="small">外界变化减少，呼吸、身体感觉与时间感更明显。</p></div></div>
+            <div class="timeline-item"><div class="timeline-year">50—60′</div><div class="timeline-copy"><h3>返回</h3><p class="small">灯光或音乐恢复，重新适应站立和日常环境。</p></div></div>
+          </div>
+          <div>
+            <div class="definition"><div class="term">体验</div><p class="small">“身体更松、脑子更安静”是主观结果，真实但因人而异。</p></div>
+            <div class="definition"><div class="term">机制</div><p class="small">浮力减负、刺激减少和内感受增强，是有研究支持的解释路径。</p></div>
+            <div class="definition"><div class="term">疗效</div><p class="small">是否改善某种疾病，需要对照研究、样本量、疗程与随访共同判断。</p></div>
+            <div class="note sage" style="margin-top:7mm"><p class="small" style="margin:0">没睡着、没“放空”、没有特殊体验，都不等于失败。漂浮首先提供条件，而不是规定结果。</p></div>
+          </div>
+        </div>
+        <div class="photo-frame tail-band" style="height:90mm;padding-top:0;border-top:0">
+          <img class="photo" src="assets/brand-fa-d-front.jpg" alt="漂浮方舟设备与体验空间" style="object-position:center 56%" />
+          <span class="image-credit">漂浮方舟体验设备｜公司品牌图片</span>
+        </div>
+      </div><div class="folio">05</div>
+    </section>
+
+    <section class="page" id="c06">
+      <div class="running"><span>02 · 发展历史</span><span>1950s</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>现代漂浮的起点，是20世纪对“人需要多少外界刺激”的研究</h1>
+        <div class="dual">
+          <div class="study">
+            <div class="study-meta">第一条线：单调刺激实验</div><h2>Donald Hebb团队观察刺激减少后的注意与认知变化</h2>
+            <p>早期实验使用护目镜、手套、耳机和限制活动的环境，研究长期单调输入对认知、情绪与感知的影响。它与今天舒适、短时、可退出的漂浮并不相同，却提出了后来的核心问题。</p>
+            <div class="photo-frame" style="height:78mm"><img class="photo mono" src="assets/page-14-04.jpg" alt="早期感官研究被试" /><span class="image-credit">漂浮档案</span></div>
+          </div>
+          <div class="study sage">
+            <div class="study-meta">第二条线：环境控制</div><h2>研究者开始把视觉、声音、触觉和活动分别控制</h2>
+            <p>早期研究发现，真正影响体验的不是“什么都没有”，而是刺激的强度、变化、持续时间以及人是否拥有控制权。这一区分后来成为REST与强制隔离最重要的分界。</p>
+            <div class="photo-frame" style="height:78mm"><img class="photo mono" src="assets/page-15-02.jpg" alt="早期感官研究实验室" /><span class="image-credit">漂浮档案</span></div>
+          </div>
+        </div>
+      </div><div class="folio">06</div>
+    </section>
+
+    <section class="page" id="c07">
+      <div class="running"><span>02 · 发展历史</span><span>1954—1970s</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>John C. Lilly把实验带入恒温水箱，后来才演变为水平高浮力漂浮</h1>
+        <div class="split-portrait">
+          <div>
+            <div class="photo-frame" style="height:76mm"><img class="photo mono" src="assets/research-open-license/P11_John_C_Lilly_free-use.jpg" alt="John C. Lilly" /><span class="image-credit">John C. Lilly｜Wikimedia Commons</span></div>
+            <div class="photo-frame" style="height:74mm;margin-top:6mm"><img class="photo mono" src="assets/page-16-01.jpg" alt="早期恒温水箱结构图" /><span class="image-credit">漂浮档案</span></div>
+          </div>
+          <div>
+            <div class="study"><div class="study-meta">1954</div><h2>最初装置不是今天的漂浮舱</h2><p>早期装置让人垂直浸入恒温水中并借助呼吸面罩，目的是控制重力、温度与外部刺激，而不是提供大众放松服务。它证明了水环境可以成为可重复的实验条件。</p></div>
+            <div class="study sage" style="margin-top:9mm"><div class="study-meta">1970s</div><h2>高浓度硫酸镁与水平仰卧，建立现代基本形态</h2><p>当人体能够自然浮在水面，呼吸面罩不再需要，舒适性、安全性和可重复性明显提高。漂浮由此从实验原型走向公众可使用的个人恢复环境。</p></div>
+            <div class="note" style="margin-top:9mm"><p class="small" style="margin:0">历史意义不在于“发明神奇疗法”，而在于逐步找到一个既能减少刺激、又让人保持清醒和自主的环境。</p></div>
+          </div>
+        </div>
+      </div><div class="folio">07</div>
+    </section>
+
+    <section class="page" id="c08">
+      <div class="running"><span>02 · 发展历史</span><span>1970s—2000s</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>REST让研究回到“可控刺激减少”；商业中心让漂浮进入日常生活</h1>
+        <div class="dual">
+          <div class="study">
+            <div class="study-meta">术语转变</div><h2>Peter Suedfeld等人推动REST概念</h2>
+            <p>Restricted Environmental Stimulation Technique强调：人不是被剥夺所有感官，而是在安全、时间有限、可以退出的条件下减少环境刺激。研究由此更容易比较不同形式、时长和人群。</p>
+            <div class="photo-frame" style="height:64mm"><img class="photo mono" src="assets/page-16-02.png" alt="Peter Suedfeld" /><span class="image-credit">漂浮档案</span></div>
+          </div>
+          <div class="study sage">
+            <div class="study-meta">行业转变</div><h2>公众使用扩大，也倒逼卫生与表达规范</h2>
+            <p>1970—1980年代漂浮中心兴起，漂浮与减压、冥想、创造力及运动恢复联系起来。随后，夸大宣传、运营成本和卫生标准不一致造成行业低谷；重新发展后，水循环、消毒、筛查和应急退出成为信任基础。</p>
+            <div class="archive-grid" style="grid-template-columns:1fr 1fr">
+              <figure><div class="portrait"><img src="assets/page-18-02.jpg" alt="早期Samadhi漂浮舱" /></div><figcaption>早期民用漂浮舱</figcaption></figure>
+              <figure><div class="portrait"><img src="assets/page-18-03.jpg" alt="搬运早期漂浮舱" /></div><figcaption>设备走向商业化</figcaption></figure>
+            </div>
+          </div>
+        </div>
+        <div class="tail-band fact-grid">
+          <div><b>1950s</b><span>以可控实验研究外界刺激减少</span></div>
+          <div><b>1970s</b><span>REST重新界定安全、自愿和可退出</span></div>
+          <div><b>1980s</b><span>商业中心把漂浮带入大众恢复场景</span></div>
+          <div><b>今天</b><span>卫生标准与临床测量共同推动规范化</span></div>
+        </div>
+      </div><div class="folio">08</div>
+    </section>
+
+    <section class="page" id="c09">
+      <div class="running"><span>02 · 发展历史</span><span>CHINA · CLINICAL ERA</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>从1997年第一台国产设备，到“中式漂浮”的跨学科发展</h1>
+        <div class="dual">
+          <div class="study">
+            <div class="study-meta">1997 · 医学心理与中西医结合</div><h2>胡佩诚教授参与研制我国第一台漂浮治疗仪</h2>
+            <p>胡佩诚教授与北京医科大学医学工程室邓伯庄教授、朱燕工程师共同完成设备研制，随后开展漂浮相关研究并发表论文。此后，他持续推动漂浮进入医学心理学教学、行业交流与中西医结合实践。</p>
+            <p class="source-line">资料来源：北京大学新闻网，2021。</p>
+            <div class="photo-frame" style="height:68mm"><img class="photo" src="assets/page-18-01.jpg" alt="胡佩诚教授" style="object-position:center top" /><span class="image-credit">漂浮档案</span></div>
+          </div>
+          <div class="study sage">
+            <div class="study-meta">2010s—2023 · 中医护理与信息化</div><h2>段红梅与胡佩诚共同推进“中式漂浮”跨学科发展</h2>
+            <p>在医学心理与中西医结合基础上，段红梅教授把中医药理论、护理健康促进、服务流程和信息化建设带入漂浮体系。她担任漂浮疗法分会会长，与北大合作创建首个漂浮疗法智能云平台，并任2023年《漂浮疗法》副主编。</p>
+            <p class="source-line">资料来源：北京中医药大学护理学院，2025。</p>
+            <div class="photo-frame" style="height:68mm"><img class="photo" src="assets/official-sources/duan-hongmei-official-bucm.png" alt="段红梅教授官方肖像" style="object-position:center 24%" /><span class="image-credit">段红梅教授｜北京中医药大学护理学院官网</span></div>
+          </div>
+        </div>
+        <div class="paper" style="margin-top:7mm"><div class="journal">CHINESE FLOATING THERAPY</div><p class="small" style="margin:0"><b>中式漂浮不是给REST加一个文化标签，</b>而是在现代低刺激与高浮力环境基础上，把体验前评估、个体化方案、心理支持、中医养护、体验后反馈与数字记录连接成可复制的服务流程。</p></div>
+      </div><div class="folio">09</div>
+    </section>
+
+    <section class="page sage-page" id="c10">
+      <div class="running"><span>03 · 为什么会放松</span><span>BODY · ENVIRONMENT</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>放松不是一个神秘开关，而是“身体减负”与“外界降噪”同时发生</h1>
+        <div class="dual">
+          <div class="study" style="border-color:#dfe8e1">
+            <div class="study-meta" style="color:#f0c5b5">01 · 身体减负</div><h2>浮力减少承重、局部压迫与姿势调整</h2>
+            <p>陆地上即使躺着，身体仍要处理支撑面的压力和细微姿势修正。高浮力液体把承托分散到更大体表，颈、背、髋和四肢更容易处于省力位置，肌肉张力因此有条件下降。</p>
+          </div>
+          <div class="study" style="border-color:#dfe8e1">
+            <div class="study-meta" style="color:#f0c5b5">02 · 外界降噪</div><h2>稳定环境减少注意系统持续“值班”</h2>
+            <p>屏幕、谈话、交通、温度、姿势和社会信号不断要求大脑回应。漂浮减少变化与突发信息，注意系统少处理一部分外部任务，警觉水平更容易逐步回落。</p>
+          </div>
+        </div>
+        <div class="photo-frame" style="height:88mm;margin-top:9mm"><img class="photo" src="assets/float-pool-branded.png" alt="漂浮方舟开放式漂浮池" style="object-position:center 60%" /><span class="image-credit">漂浮方舟开放式漂浮池｜公司品牌图片</span></div>
+      </div><div class="folio">10</div>
+    </section>
+
+    <section class="page" id="c11">
+      <div class="running"><span>03 · 为什么会放松</span><span>INTEROCEPTION · PHYSIOLOGY</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>外界安静后，内部感觉更清楚；血压、呼吸和肌肉紧张也出现可测变化</h1>
+        <div class="dual">
+          <div class="study">
+            <div class="study-meta">内感受｜n=31｜交叉对照</div><h2>更容易察觉呼吸和心跳，同时焦虑与肌肉紧张下降</h2>
+            <p>2018年研究比较漂浮与放松自然影片。高焦虑敏感参与者漂浮后更放松、更安宁，状态焦虑和肌肉紧张下降更多，并对心肺内部感觉有更清晰的觉察。</p>
+            <p class="source-line">Feinstein et al., Biological Psychiatry, 2018.</p>
+          </div>
+          <div class="study sage">
+            <div class="study-meta">生理反应｜n=57｜交叉对照</div><h2>漂浮期间舒张压、收缩压和呼吸频率低于影片条件</h2>
+            <p>与自然影片相比，漂浮时收缩压平均低约3.40 mmHg，舒张压低约8.54 mmHg，呼吸频率低约0.76次/分钟；多数变化在最初15分钟出现。</p>
+            <p class="source-line">Flux et al., Frontiers in Neuroscience, 2022.</p>
+          </div>
+        </div>
+        <div class="photo-frame" style="height:86mm;margin-top:7mm"><img class="photo" src="assets/research-open-license/P40_Frontiers_2022_Fig2_cardio_CC-BY-4.0.webp" alt="漂浮期间心血管和呼吸变化图" style="object-fit:contain;background:#fff" /><span class="image-credit">论文Figure 2｜Flux et al., 2022｜CC BY 4.0</span></div>
+      </div><div class="folio">11</div>
+    </section>
+
+    <section class="page" id="c12">
+      <div class="running"><span>03 · 为什么会放松</span><span>SLEEP PREPARATION</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>漂浮对睡眠最重要的作用，是先把“难以入睡的身体状态”降下来</h1>
+        <div class="dual">
+          <div class="study">
+            <div class="study-meta">机制一</div><h2>降低睡前高唤醒</h2>
+            <p>许多入睡困难并不是“没有睡意”，而是身体仍紧、思绪仍快、警觉系统仍在工作。漂浮减少外部任务，让呼吸、心率、肌肉张力和心理唤醒逐步回落，为睡眠发生创造条件。</p>
+          </div>
+          <div class="study sage">
+            <div class="study-meta">机制二</div><h2>减少疼痛和压力对睡眠的干扰</h2>
+            <p>疼痛、焦虑和压力会互相强化，并在夜间延长入睡时间。漂浮研究中反复出现的短时减压、肌肉放松和疼痛缓解，正好作用于这些常见睡眠障碍因素。</p>
+          </div>
+        </div>
+        <div class="photo-frame" style="height:90mm;margin-top:8mm"><img class="photo" src="assets/user-supplied/sleep-transition.png" alt="安静低刺激环境中的休息状态" style="object-position:center 55%" /><span class="image-credit">低刺激休息场景｜用户提供</span></div>
+        <p class="tiny" style="margin-top:3mm">本页说明机制；第20页集中呈现睡眠研究结果。漂浮可改善睡眠发生条件，但不能替代失眠的规范诊断与治疗。</p>
+      </div><div class="folio">12</div>
+    </section>
+
+    <section class="page dark" id="c13">
+      <div class="running"><span>04 · 对人的好处</span><span>2025 SYSTEMATIC REVIEW</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <div class="kicker" style="color:#d9a48f">证据总览</div><h1>63项研究、1,838人：哪些效果反复出现，数字已经给出轮廓</h1>
+        <div class="metric-strip" style="grid-template-columns:repeat(4,1fr)">
+          <div><b style="color:#fff">9/9</b><span>定量疼痛研究<br />报告显著变化</span></div>
+          <div><b style="color:#fff">4/4</b><span>定量压力研究<br />报告显著变化</span></div>
+          <div><b style="color:#fff">4/4</b><span>临床焦虑研究<br />均报告积极结果</span></div>
+          <div><b style="color:#fff">7/8</b><span>运动研究<br />报告显著变化</span></div>
+        </div>
+        <div class="dual" style="margin-top:12mm">
+          <div class="paper" style="color:var(--ink)"><div class="journal">BMC COMPLEMENTARY MEDICINE AND THERAPIES · 2025</div><h3>A systematic review of flotation-restricted environmental stimulation therapy (REST)</h3><p class="small">疼痛、运动、生理、压力与焦虑研究总体呈积极信号；但唯一安慰剂对照疼痛试验中，真实与模拟漂浮结果相近。</p></div>
+          <div><p class="lead" style="color:#ece6dd">急性减压、减焦虑与身体卸载较一致；<b>长期效果仍要看疗程、对照和随访。</b></p></div>
+        </div>
+        <div class="tail-band fact-grid" style="border-color:#5d615b">
+          <div><b style="color:#fff">17.5%</b><span style="color:#d8d6d0">纳入研究聚焦疼痛<br />11 / 63项</span></div>
+          <div><b style="color:#fff">12.7%</b><span style="color:#d8d6d0">聚焦运动恢复<br />8 / 63项</span></div>
+          <div><b style="color:#fff">12.7%</b><span style="color:#d8d6d0">记录生理反应<br />8 / 63项</span></div>
+          <div><b style="color:#fff">6.3%</b><span style="color:#d8d6d0">临床焦虑研究<br />4 / 63项</span></div>
+        </div>
+        <div class="photo-frame" style="height:64mm;margin-top:8mm;background:#fff">
+          <img class="photo" src="assets/research-open-license/P29_PLOS_2018_Fig5_mood_affect_CC-BY-4.0.png" alt="漂浮前后情绪状态的论文数据图" style="object-fit:contain;background:#fff" />
+          <span class="image-credit">临床焦虑人群急性情绪变化｜Feinstein et al., PLOS ONE, 2018｜CC BY 4.0</span>
+        </div>
+      </div><div class="folio">13</div>
+    </section>
+
+    <section class="page" id="c14">
+      <div class="running"><span>04 · 对人的好处</span><span>ANXIETY · STRESS</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>焦虑与压力：一次漂浮后的变化，可以落到效应量和毫米汞柱</h1>
+        <div class="dual">
+          <div class="study">
+            <div class="study-meta">n=31｜交叉对照｜90分钟</div><h2>焦虑与肌肉紧张均 p&lt;.001；舒张压平均下降12.8 mmHg</h2>
+            <p>同一批参与者分别完成漂浮和自然影片。漂浮后舒张压平均下降12.8 mmHg，影片条件仅下降1.4 mmHg；31人全部出现下降。</p>
+            <p class="study-result">焦虑、肌肉紧张下降，安宁与放松上升，均 p&lt;.001。</p>
+          </div>
+          <div class="study sage">
+            <div class="study-meta">n=50｜开放标签｜60分钟</div><h2>状态焦虑效应量 d&gt;2；13项身心指标均 p&lt;.0001</h2>
+            <p>样本覆盖5类焦虑及压力相关障碍，46人同时患抑郁。一次漂浮后，负性症状下降，放松、精力和幸福感上升。</p>
+            <p class="study-result">状态焦虑 d&gt;2，多项指标 p&lt;.0001；研究没有对照组。</p>
+          </div>
+        </div>
+        <div class="photo-frame" style="height:81mm;margin-top:7mm"><img class="photo" src="assets/research-open-license/P29_PLOS_2018_Fig5_mood_affect_CC-BY-4.0.png" alt="漂浮前后情绪变化图" style="object-fit:contain;background:#fff" /><span class="image-credit">Feinstein et al., PLOS ONE, 2018｜CC BY 4.0</span></div>
+      </div><div class="folio">14</div>
+    </section>
+
+    <section class="page" id="c15">
+      <div class="running"><span>04 · 对人的好处</span><span>GAD · ACCEPTABILITY</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>重复漂浮：焦虑缓解率、睡眠改善率和依从率都有可比较的数据</h1>
+        <div class="dual">
+          <div class="study">
+            <div class="study-meta">随机对照｜n=50｜12次/7周</div><h2>完全缓解37% vs 14%；“良好睡眠者”43% vs 27%</h2>
+            <p>漂浮组24人中9人完全缓解，等候组22人中3人；抑郁缓解率42% vs 9%。</p>
+            <p class="study-result">19名6个月随访者中，焦虑与睡眠改善仍维持；抑郁改善未维持。</p>
+            <p class="source-line">Jonsson & Kjellgren, 2016. 小样本、非盲法、等候组对照。</p>
+          </div>
+          <div class="study sage">
+            <div class="study-meta">随机可行性研究｜n=75｜6次</div><h2>漂浮依从率85%—89%，平均完成5.1—5.3次</h2>
+            <p>固定漂浮、偏好漂浮与椅式REST依从率分别为85%、89%和74%。</p>
+            <p class="study-result">未出现严重不良事件；本研究主要评价安全与可行性。</p>
+            <p class="source-line">Garland et al., PLOS ONE, 2024. 主要评价安全与可行性。</p>
+          </div>
+        </div>
+        <div class="photo-frame" style="height:72mm;margin-top:6mm"><img class="photo" src="assets/research-open-license/P31_PLOS_2024_Fig7_experiences_CC-BY-4.0.png" alt="REST正向和负向体验" style="object-fit:contain;background:#fff" /><span class="image-credit">Garland et al., PLOS ONE, 2024｜CC BY 4.0</span></div>
+      </div><div class="folio">15</div>
+    </section>
+
+    <section class="page" id="c16">
+      <div class="running"><span>04 · 对人的好处</span><span>CHRONIC PAIN · MUSCLE TENSION</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>疼痛：8项研究、401人之后，改善信号与证据边界都更清楚</h1>
+        <div class="dual">
+          <div class="study">
+            <div class="study-meta">2026范围综述｜8项研究｜401人</div><h2>6项随机试验、2项单组研究；疗程从1次到33次</h2>
+            <p>疼痛强度、频率、部位或耐受在多数研究中改善；测量焦虑的研究全部报告下降。</p>
+            <p class="study-result">研究差异较大，尚不能合并出统一减痛比例。</p>
+          </div>
+          <div class="study sage">
+            <div class="study-meta">随机对照｜n=37｜9次/3周</div><h2>20人漂浮、17人对照；严重疼痛下降，低强度疼痛未变</h2>
+            <p>9次后，严重疼痛、焦虑、抑郁和入睡困难改善；低水平疼痛没有明显变化。</p>
+            <p class="study-result">效果更集中于最困扰的疼痛与紧张伴随症状。</p>
+          </div>
+        </div>
+        <div class="photo-frame" style="height:80mm;margin-top:7mm"><img class="photo" src="assets/user-supplied/red-float-session.png" alt="暖色灯光中的漂浮体验" style="object-position:center 50%" /><span class="image-credit">漂浮舱体验图｜用户提供</span></div>
+      </div><div class="folio">16</div>
+    </section>
+
+    <section class="page" id="c17">
+      <div class="running"><span>04 · 对人的好处</span><span>STRESS-RELATED PAIN · WORK</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>压力相关疼痛与工作人群：12次之后，疼痛下降幅度达到38.3%</h1>
+        <div class="dual">
+          <div class="study">
+            <div class="study-meta">随机对照｜n=70｜12次×45分钟</div><h2>35人漂浮、35人对照；多数改善维持4个月</h2>
+            <p>12次后，疼痛、压力、焦虑和抑郁下降，睡眠与乐观程度上升。</p>
+            <p class="study-result">研究支持疗程性改善，但未报告统一减痛比例。</p>
+          </div>
+          <div class="study sage">
+            <div class="study-meta">随机对照｜n=65｜三家公司</div><h2>最重疼痛64.29→39.70，下降38.3%</h2>
+            <p>漂浮组37人、等候组28人；对照组最重疼痛64.76→55.15，组间差异 p=.023。漂浮组压力、焦虑和睡眠也改善。</p>
+            <p class="study-result">38.3%的下降，比“感觉轻松”更直接。</p>
+          </div>
+        </div>
+        <div class="paper" style="margin-top:10mm">
+          <div class="journal">THERAPY NEEDS A DOSE</div>
+          <h3>37人漂浮 vs 28人等候；12次×45分钟；最重疼痛组间交互 p=.023。</h3>
+          <p class="small" style="margin:0">这不是固定处方，但说明持续改善需要记录疗程与对照。</p>
+        </div>
+        <div class="tail-band tail-dark" style="display:grid;grid-template-columns:43mm 1fr;gap:9mm;align-items:center">
+          <div><b style="display:block;font:900 34px/1 Arial,sans-serif;color:#d9a48f">−38.3%</b><span class="tiny" style="color:#d8d6d0">工作人群最重疼痛</span></div>
+          <div class="fact-grid" style="grid-template-columns:repeat(4,1fr);gap:4mm">
+            <div><b style="font-size:14px;color:#fff">12次</b><span style="color:#d8d6d0">每次45分钟</span></div>
+            <div><b style="font-size:14px;color:#fff">37 / 28</b><span style="color:#d8d6d0">漂浮 / 等候</span></div>
+            <div><b style="font-size:14px;color:#fff">p=.023</b><span style="color:#d8d6d0">疼痛组间交互</span></div>
+            <div><b style="font-size:14px;color:#fff">4个月</b><span style="color:#d8d6d0">另一研究随访</span></div>
+          </div>
+        </div>
+      </div><div class="folio">17</div>
+    </section>
+
+    <section class="page" id="c18">
+      <div class="running"><span>04 · 对人的好处</span><span>PAIN: WHAT WE KNOW</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>疼痛研究也告诉我们：短时舒缓较可靠，长期特异疗效要看疗程与对照</h1>
+        <div class="dual">
+          <div class="study">
+            <div class="study-meta">安慰剂对照｜n=99｜5次</div><h2>单次疼痛−17/100、放松+23.9/100；长期组间差异不显著</h2>
+            <p>真实漂浮单次前后，疼痛下降17分、焦虑下降10.1分、放松上升23.9分；模拟漂浮也有相近变化。</p>
+            <p class="study-result">1、12和24周均无显著组间差异：短时舒缓明确，长期特异疗效未证实。</p>
+            <p class="source-line">Löwe et al., JAMA Network Open, 2021.</p>
+          </div>
+          <div class="study sage">
+            <div class="study-meta">探索性观察｜n=81｜5国｜3次×60分钟</div><h2>81人完成3次漂浮，但没有随机对照组</h2>
+            <p>疼痛、紧张、压力和焦虑短时下降，放松与精力上升，并出现一定累积趋势。</p>
+            <p class="study-result">无对照设计，不能排除期待与时间效应。</p>
+            <p class="source-line">观察性研究，证据等级低于随机对照试验。</p>
+          </div>
+        </div>
+        <div class="photo-frame" style="height:76mm;margin-top:8mm"><img class="photo" src="assets/compact-real/Float_tank_Galim_CC-BY-SA-3.0.jpg" alt="开放式漂浮池" style="object-position:center 58%;filter:grayscale(.8) contrast(1.04)" /><span class="image-credit">真实漂浮空间｜rl2011 / Wikimedia Commons｜CC BY-SA 3.0</span></div>
+      </div><div class="folio">18</div>
+    </section>
+
+    <section class="page" id="c19">
+      <div class="running"><span>04 · 对人的好处</span><span>MENTAL HEALTH · BODY IMAGE</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>情绪与身体意象：漂浮可以快速降低焦虑，也能成为临床治疗的辅助工具</h1>
+        <div class="dual">
+          <div class="study">
+            <div class="study-meta">焦虑与抑郁样本｜n=50｜一次60分钟</div><h2>一次60分钟后，状态焦虑效应量 d&gt;2</h2>
+            <p>负性症状下降，安宁、放松、精力与幸福感上升；症状越重者，急性变化通常越大。</p>
+            <p class="study-result">效应量大，但无对照组，不能全部归因于漂浮。</p>
+          </div>
+          <div class="study sage">
+            <div class="study-meta">神经性厌食随机试验｜n=68｜8次/4周</div><h2>当次焦虑大幅下降，身体不满意度改善延续至6个月</h2>
+            <p>45人接受漂浮加常规治疗，23人仅常规治疗。每次漂浮后状态焦虑平均下降15.75分，d=1.52。</p>
+            <p class="study-result">6个月时身体不满意度仍改善，d=.53。</p>
+            <p class="source-line">Choquette et al., eClinicalMedicine, 2023. 无试验相关不良事件。</p>
+          </div>
+        </div>
+        <div class="photo-frame" style="height:125mm;margin-top:8mm;background:#101829"><img class="photo" src="assets/user-supplied/page19-float-video-still.jpg" alt="漂浮疗法科普视频画面" style="object-fit:contain;object-position:center 50%" /><span class="image-credit">漂浮疗法科普画面</span></div>
+      </div><div class="folio">19</div>
+    </section>
+
+    <section class="page rust-page" id="c20">
+      <div class="running"><span>04 · 对人的好处</span><span>SLEEP</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>睡眠：9项研究有改善信号，但直接针对失眠的样本仍然很小</h1>
+        <div class="dual">
+          <div class="study" style="border-color:#fff3e8">
+            <div class="study-meta" style="color:#ffe2d5">2020综述｜9项研究</div><h2>9/9至少出现1项睡眠信号；2项维持4或6个月</h2>
+            <p>结局包括睡眠质量、入睡困难和睡眠效率；但直接研究睡眠障碍的项目很少。</p>
+            <p class="study-result">对部分人有效，证据仍属初步。</p>
+          </div>
+          <div class="study" style="border-color:#fff3e8">
+            <div class="study-meta" style="color:#ffe2d5">确诊失眠｜n=6｜12次/7周</div><h2>3人改善主要失眠症状，2人提高睡眠效率</h2>
+            <p>3人入睡或夜间清醒改善，2人睡眠效率提高，2人无改善；总睡眠时长没有增加。</p>
+            <p class="study-result">漂浮更可能降低睡前唤醒，而非增加总睡眠时长。</p>
+          </div>
+        </div>
+        <div class="note" style="background:#fff7ef;color:var(--ink);margin-top:8mm">
+          <h3>睡眠获益可用三组数字理解</h3>
+          <p class="small" style="margin:0;color:#4d4039">GAD疗程中“良好睡眠者”为43% vs 27%；6人失眠研究中3人改善、2人无改善。高浮力、低刺激与自主控制有助降低睡前高唤醒，但不能替代CBT-I或睡眠疾病诊疗。</p>
+        </div>
+        <div class="photo-frame" style="height:55mm;margin-top:6mm"><img class="photo" src="assets/page-17-03.jpg" alt="真实漂浮体验者" style="object-position:center 58%" /><span class="image-credit">漂浮档案</span></div>
+        <p class="tiny" style="margin-top:2mm;color:#f3dcd2">说明：睡眠结局的测量质量在早期研究中不一；漂浮可作为睡眠恢复支持，但不替代CBT-I、药物或睡眠疾病诊疗。</p>
+      </div><div class="folio">20</div>
+    </section>
+
+    <section class="page" id="c21">
+      <div class="running"><span>04 · 对人的好处</span><span>SPORT RECOVERY</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>运动恢复：减少酸痛和主观疲劳，是目前最实用的使用方向之一</h1>
+        <div class="dual">
+          <div class="study">
+            <div class="study-meta">随机交叉｜n=19｜运动后60分钟</div><h2>睡眠质量 p=.001；表现指标效应量 d=.21—.68</h2>
+            <p>漂浮后12小时，疼痛耐受更高，酸痛与疲劳更低；部分冲刺和跳跃恢复更好。</p>
+            <p class="study-result">睡眠效应量最高 d=.87；皮质醇无显著差异。</p>
+          </div>
+          <div class="study sage">
+            <div class="study-meta">交叉研究｜n=20｜漂浮60分钟 vs 午睡60分钟</div><h2>两种方式对短时HRV影响都很小，午睡副交感反应更强</h2>
+            <p>午睡更明显增强副交感活动；漂浮更明显改善主观幸福感。两者均未显著提升短时HRV。</p>
+            <p class="study-result">午睡偏睡眠恢复，漂浮偏身体卸载与主观焕新。</p>
+          </div>
+        </div>
+        <div class="photo-frame" style="height:80mm;margin-top:7mm"><img class="photo" src="assets/research-open-license/P14_FloatLab_Orange_CC-BY-SA-4.0.jpg" alt="真实漂浮实验室" style="object-position:center 55%" /><span class="image-credit">FloatLab真实设备｜Wikimedia Commons｜CC BY-SA 4.0</span></div>
+      </div><div class="folio">21</div>
+    </section>
+
+    <section class="page" id="c22">
+      <div class="running"><span>04 · 对人的好处</span><span>PHYSIOLOGICAL RECOVERY</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>生理恢复与身心觉察：漂浮让放松既能被感觉，也能被测量</h1>
+        <div class="dual">
+          <div class="study">
+            <div class="study-meta">随机交叉｜n=57｜漂浮 vs 自然影片</div><h2>舒张压低8.54 mmHg，效应量 d=.84</h2>
+            <p>与影片相比，漂浮时收缩压低3.40 mmHg、舒张压低8.54 mmHg，呼吸每分钟少0.76次；心率差异不显著。</p>
+          </div>
+          <div class="study sage">
+            <div class="study-meta">心理—身体整合｜n=31 / n=50</div><h2>呼吸与心跳觉察均 p&lt;.001，焦虑效应量 d&gt;2</h2>
+            <p>漂浮后对呼吸、心跳与身体状态的觉察增强，同时焦虑、压力和肌肉紧张下降。</p>
+          </div>
+        </div>
+        <div class="photo-frame" style="height:100mm;margin-top:8mm"><img class="photo" src="assets/research-open-license/P29_PLOS_2018_Fig6_effect_sizes_CC-BY-4.0.png" alt="漂浮效应量图" style="object-fit:contain;background:#fff" /><span class="image-credit">急性效应量｜Feinstein et al., PLOS ONE, 2018｜CC BY 4.0</span></div>
+      </div><div class="folio">22</div>
+    </section>
+
+    <section class="page dark" id="c23">
+      <div class="running"><span>04 · 对人的好处</span><span>BENEFIT MAP</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>八类好处，用研究中的具体数字来表达</h1>
+        <div class="dual">
+          <div>
+            <div class="definition"><div class="term">焦虑</div><p class="small">一次60分钟后，状态焦虑效应量 d&gt;2（n=50，开放标签）。</p></div>
+            <div class="definition"><div class="term">疼痛</div><p class="small">单次疼痛−17/100；5次后长期组间差异不显著（n=99）。</p></div>
+            <div class="definition"><div class="term">睡眠</div><p class="small">GAD疗程后“良好睡眠者”43% vs 27%；小型失眠研究3/6改善。</p></div>
+            <div class="definition"><div class="term">运动</div><p class="small">睡眠质量 p=.001；冲刺与跳跃效应量 d=.21—.68（n=19）。</p></div>
+          </div>
+          <div>
+            <div class="definition"><div class="term">压力</div><p class="small">12次后压力 p&lt;.001；等候组 p=.867（37人 vs 28人）。</p></div>
+            <div class="definition"><div class="term">情绪</div><p class="small">GAD研究抑郁缓解42% vs 9%，但6个月时未维持。</p></div>
+            <div class="definition"><div class="term">工作</div><p class="small">最重疼痛64.29→39.70，下降38.3%；组间交互 p=.023。</p></div>
+            <div class="definition"><div class="term">临床辅助</div><p class="small">厌食症焦虑−15.75分，d=1.52；身体意象6个月 d=.53。</p></div>
+          </div>
+        </div>
+        <div class="quote" style="margin-top:12mm">数字说明的是特定样本、特定疗程和特定量表中的平均变化；它们比笼统承诺更可信，也不等于每个人都会获得相同幅度。</div>
+        <div class="metric-strip" style="grid-template-columns:repeat(4,1fr);margin-top:10mm">
+          <div><b style="color:#fff;font-size:18px">d&gt;2</b><span>一次漂浮<br />状态焦虑</span></div>
+          <div><b style="color:#fff;font-size:18px">−17</b><span>单次疼痛强度<br />100分量表</span></div>
+          <div><b style="color:#fff;font-size:18px">−8.54</b><span>舒张压差<br />mmHg</span></div>
+          <div><b style="color:#fff;font-size:18px">7/8</b><span>运动研究<br />显著结果</span></div>
+        </div>
+      </div><div class="folio">23</div>
+    </section>
+
+    <section class="page" id="c24">
+      <div class="running"><span>05 · 应用与体验</span><span>WHERE IT FITS</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>漂浮已被用于四类场景：减压、疼痛管理、运动恢复与临床辅助</h1>
+        <div class="dual">
+          <div>
+            <div class="study"><div class="study-meta">日常与工作</div><h2>高压力、脑力过载、长期紧绷</h2><p>适合需要暂时退出信息输入、恢复注意力和身体感受的人。疗程目标是降低基线紧张，而不是追求每次都出现特殊体验。</p></div>
+            <div class="study sage" style="margin-top:8mm"><div class="study-meta">疼痛与康复</div><h2>肌肉紧张、慢性疼痛的恢复性辅助</h2><p>可与康复训练、疼痛教育和医生方案并行。若疼痛来源未明确、近期加重或伴神经症状，应先就医。</p></div>
+          </div>
+          <div>
+            <div class="study"><div class="study-meta">运动与训练</div><h2>高强度训练后、赛前或赛后恢复</h2><p>适合减少承重、酸痛和心理兴奋。应根据训练周期安排，不把漂浮当作替代睡眠、营养和主动恢复。</p></div>
+            <div class="study sage" style="margin-top:8mm"><div class="study-meta">临床与心理</div><h2>焦虑、身体意象和情绪调节的辅助</h2><p>应由专业人员评估适用性，保留灯光、开门和提前退出选择。严重精神症状或不稳定期不宜自行尝试。</p></div>
+          </div>
+        </div>
+        <div class="photo-frame" style="height:74mm;margin-top:8mm"><img class="photo" src="assets/user-supplied/applications-blue-pod.png" alt="体验者进入蓝光漂浮舱" style="object-position:center 52%" /><span class="image-credit">漂浮体验准备图｜用户提供</span></div>
+      </div><div class="folio">24</div>
+    </section>
+
+    <section class="page" id="c25">
+      <div class="running"><span>05 · 应用与体验</span><span>DOSE · COURSE</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>一次负责认识状态，连续疗程才更有机会改变基线</h1>
+        <div class="dual">
+          <div>
+            <div class="timeline-item"><div class="timeline-year">1次</div><div class="timeline-copy"><h3>判断是否适合</h3><p class="small">熟悉环境、姿势和退出方式，观察当次放松、疼痛和睡眠反应。</p></div></div>
+            <div class="timeline-item"><div class="timeline-year">3—4次</div><div class="timeline-copy"><h3>减少适应成本</h3><p class="small">身体更快找到姿势，注意力不再反复检查环境，进入安静的时间通常提前。</p></div></div>
+            <div class="timeline-item"><div class="timeline-year">8—12次</div><div class="timeline-copy"><h3>观察疗程变化</h3><p class="small">焦虑、压力、疼痛、睡眠和恢复感更适合在连续记录中判断。</p></div></div>
+          </div>
+          <div>
+            <div class="paper"><div class="journal">RESEARCH PROTOCOL</div><h3>多个焦虑、压力与疼痛研究采用12次、7周、每次45分钟。</h3><p class="small">神经性厌食试验采用8次、4周、每次60分钟；运动恢复研究常测试一次45分钟的急性效果。</p></div>
+            <div class="note sage" style="margin-top:8mm"><h3>更合理的建议</h3><p class="small" style="margin:0">首次体验后，根据目标、反应与专业建议决定频率。不要承诺“几次必然见效”，但也不应把有疗程依据的项目只卖成一次性的放松消费。</p></div>
+          </div>
+        </div>
+        <div class="tail-band">
+          <div class="kicker">每次体验都记录同一组指标</div>
+          <div class="record-grid">
+            <div><b>焦虑 / 压力</b><span>体验前 __ /10<br />体验后 __ /10</span></div>
+            <div><b>疼痛 / 紧张</b><span>最明显部位 ______<br />强度 __ /10</span></div>
+            <div><b>入睡</b><span>当晚用时 ____ 分钟<br />夜醒 ____ 次</span></div>
+            <div><b>精力</b><span>次日精神 __ /10<br />困倦 __ /10</span></div>
+            <div><b>恢复感</b><span>训练或工作状态<br />__ /10</span></div>
+          </div>
+        </div>
+      </div><div class="folio">25</div>
+    </section>
+
+    <section class="page" id="c26">
+      <div class="running"><span>05 · 应用与体验</span><span>BEFORE</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>体验前：减少干扰，也排除不适合当天漂浮的情况</h1>
+        <div class="dual">
+          <div>
+            <div class="steps">
+              <div class="step"><div><h3>提前进食但不要过饱</h3><p class="small">避免强烈饥饿、饱胀和大量咖啡因影响放松。</p></div></div>
+              <div class="step"><div><h3>当天避免刮毛和刺激性护肤</h3><p class="small">高盐水会让细小伤口产生明显刺痛。</p></div></div>
+              <div class="step"><div><h3>说明健康状况和用药</h3><p class="small">尤其是癫痫、心血管问题、感染、近期手术、妊娠或精神症状。</p></div></div>
+              <div class="step"><div><h3>先确认灯光、开门和呼叫方式</h3><p class="small">知道自己随时可以调整或退出，会直接提高安全感。</p></div></div>
+            </div>
+          </div>
+          <div>
+            <div class="stop"><strong>当天暂缓</strong><p class="small">发热、传染性疾病、开放性伤口、皮肤感染、腹泻、醉酒或药物影响意识。</p></div>
+            <div class="stop"><strong>先问医生</strong><p class="small">控制不佳的癫痫、严重心血管疾病、近期手术、妊娠特殊情况或复杂慢病。</p></div>
+            <div class="stop"><strong>需要支持</strong><p class="small">严重幽闭恐惧、急性精神症状、躁狂、精神病性症状或自伤风险。</p></div>
+            <div class="note" style="margin-top:8mm"><p class="small" style="margin:0">筛查不是拒绝客户，而是把“谁适合、什么时候适合、需要什么支持”说清楚。</p></div>
+          </div>
+        </div>
+        <div class="dual tail-band">
+          <div class="tail-sage"><div class="kicker sage">现场可调</div><h3>灯光、门、音乐、时长与颈部支撑</h3><p class="small" style="margin:0">第一次体验者不必一步到位。保留光线、留门缝或缩短时间，都可以降低陌生环境带来的警觉。</p></div>
+          <div class="paper"><div class="journal">THE FIRST FIVE MINUTES</div><h3>入水前确认：怎样开灯、怎样开门、怎样呼叫、怎样提前结束。</h3><p class="small" style="margin:0">真正的安全感来自“我知道自己随时可以做什么”。</p></div>
+        </div>
+      </div><div class="folio">26</div>
+    </section>
+
+    <section class="page" id="c27">
+      <div class="running"><span>05 · 应用与体验</span><span>ENTER · POSTURE</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>进入后的前十几分钟，先完成定位；姿势没有唯一标准</h1>
+        <div class="dual">
+          <div class="study">
+            <div class="study-meta">先确认安全</div><h2>检查空间、灯光、门和身体接触点</h2>
+            <p>进入后不急着“放空”。先感受水温、耳塞、头部支撑和舱门位置；有需要就开灯、开门或呼叫。安全感不是附加条件，而是放松机制的一部分。</p>
+          </div>
+          <div class="study sage">
+            <div class="study-meta">再寻找省力姿势</div><h2>手臂可以放身体两侧、腹部或头顶</h2>
+            <p>颈部紧张时可尝试轻微下巴回收、改变手臂位置或使用颈枕。不要为了“标准姿势”忍耐不适；身体真正省力，注意力才会慢慢从姿势检查中退出。</p>
+          </div>
+        </div>
+        <div class="photo-frame" style="height:96mm;margin-top:8mm"><img class="photo" src="assets/pod-in-use.png" alt="真实漂浮姿势示例" style="object-position:center 58%" /><span class="image-credit">漂浮姿势资料图｜项目素材</span></div>
+      </div><div class="folio">27</div>
+    </section>
+
+    <section class="page" id="c28">
+      <div class="running"><span>05 · 应用与体验</span><span>THOUGHTS · BREATH</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>思绪多，不是失败；呼吸也不需要被“控制成功”</h1>
+        <div class="dual">
+          <div>
+            <div class="quote">外界安静以后，脑子里的声音可能先变大，再慢慢失去紧迫感。</div>
+            <p>不要强迫自己没有念头。可以把注意放在水对后脑、肩、髋和脚跟的承托，或只是辨认“我现在在想工作”“我在担心时间”。看见念头，比压住念头更容易让它过去。</p>
+          </div>
+          <div>
+            <div class="study sage"><div class="study-meta">呼吸</div><h2>让呼气自然变长，而不是刻意憋气</h2><p>漂浮开始后，呼吸可能一度变明显。只需允许节奏自行变慢；如果刻意深呼吸造成头晕，就恢复自然呼吸。</p></div>
+            <div class="study" style="margin-top:8mm"><div class="study-meta">不舒服时</div><h2>先调整，再决定是否继续</h2><p>开灯、开门、改变姿势、擦掉眼睛里的盐水或提前结束，都属于正常使用方式。自主控制能够降低恐惧和警觉。</p></div>
+          </div>
+        </div>
+        <div class="note sage" style="margin-top:12mm"><p class="small" style="margin:0">有人会浅睡、出现似梦意象、时间感变化或身体边界变淡；也有人只觉得安静、温暖甚至有点无聊。这些都属于可出现的体验差异。</p></div>
+        <div class="photo-frame tail-band" style="height:78mm;padding-top:0;border-top:0">
+          <img class="photo" src="assets/brand-water-detail.png" alt="漂浮水面与身体承托细节" style="object-position:center 48%" />
+          <span class="image-credit">漂浮方舟水面细节｜公司品牌图片</span>
+        </div>
+      </div><div class="folio">28</div>
+    </section>
+
+    <section class="page" id="c29">
+      <div class="running"><span>05 · 应用与体验</span><span>EXIT · AFTER</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>结束不是突然站起；漂浮后的两小时仍是恢复的一部分</h1>
+        <div class="dual">
+          <div>
+            <div class="steps">
+              <div class="step"><div><h3>先活动手脚</h3><p class="small">确认方向感，再缓慢坐起和站立。</p></div></div>
+              <div class="step"><div><h3>彻底冲洗盐水</h3><p class="small">特别注意耳朵、头发和皮肤褶皱。</p></div></div>
+              <div class="step"><div><h3>补水并留一点安静时间</h3><p class="small">避免立刻进入高强度驾驶、会议或训练。</p></div></div>
+            </div>
+          </div>
+          <div>
+            <div class="study"><div class="study-meta">记录什么</div><h2>不要只问“放松了吗”</h2><p>可以记录入水前后焦虑、疼痛、肌肉紧张、精力和困倦；当晚记录入睡时间、夜醒和次日恢复感。连续几次后，个人模式会比一次印象更清楚。</p></div>
+            <div class="study sage" style="margin-top:8mm"><div class="study-meta">何时停止</div><h2>持续头晕、胸闷、皮肤异常或明显心理不适</h2><p>应及时停止，并根据症状联系工作人员或专业人员。漂浮后的短暂轻盈、困倦或安静感较常见，但不应掩盖持续异常。</p></div>
+          </div>
+        </div>
+        <div class="tail-band">
+          <div class="kicker">24小时反应记录</div>
+          <div class="record-grid" style="grid-template-columns:repeat(4,1fr)">
+            <div><b>出舱即刻</b><span>焦虑 __ /10<br />疼痛 __ /10</span></div>
+            <div><b>两小时后</b><span>精力 __ /10<br />困倦 __ /10</span></div>
+            <div><b>当晚</b><span>入睡 ____ 分钟<br />夜醒 ____ 次</span></div>
+            <div><b>次日上午</b><span>恢复感 __ /10<br />异常反应 ______</span></div>
+          </div>
+        </div>
+      </div><div class="folio">29</div>
+    </section>
+
+    <section class="page" id="c30">
+      <div class="running"><span>05 · 应用与体验</span><span>HYGIENE · SAFETY</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>高盐水不是天然消毒；真正的安全来自完整、可记录的运行流程</h1>
+        <div class="dual">
+          <div>
+            <div class="definition"><div class="term">水处理</div><p class="small">循环过滤、消毒、换水与设备维护按照当地规范和设备要求执行。</p></div>
+            <div class="definition"><div class="term">人员筛查</div><p class="small">传染性疾病、伤口、意识受影响和高风险健康状况需要暂缓或评估。</p></div>
+            <div class="definition"><div class="term">现场支持</div><p class="small">工作人员知道何时联系体验者，如何处理呼叫、跌倒、眼睛进盐水与心理惊恐。</p></div>
+          </div>
+          <div>
+            <div class="definition"><div class="term">自主退出</div><p class="small">舱门不能形成锁闭风险，灯光、开门、呼叫和提前结束始终可用。</p></div>
+            <div class="definition"><div class="term">记录</div><p class="small">保留水质、清洁、维护、异常事件和客户筛查记录，才能形成可核验的安全体系。</p></div>
+            <div class="note" style="margin-top:8mm"><h3>客户看不到的部分，决定客户是否值得信任</h3><p class="small" style="margin:0">设备外形只是第一印象；稳定水质、标准操作和工作人员判断才是疗法能够长期使用的底座。</p></div>
+          </div>
+        </div>
+        <p class="source-line">参考：CDC & NACCHO, Safely Managing Floatation Tanks, 2023；Washington State Department of Health Float Tank Guidelines.</p>
+        <div class="dual tail-band" style="grid-template-columns:1.1fr .9fr;align-items:stretch">
+          <div class="photo-frame" style="height:86mm"><img class="photo" src="assets/brand-purification-main.png" alt="漂浮方舟水处理与控制设备" style="object-fit:contain;background:#fff" /><span class="image-credit">漂浮方舟水处理系统｜公司品牌图片</span></div>
+          <div class="tail-sage"><div class="kicker sage">客户可以核验</div><h3>水质记录 · 循环过滤 · 消毒维护 · 异常事件</h3><p class="small">专业运营不是一句“高盐水很干净”，而是每个环节有标准、有人员、有时间、有记录。</p><p class="tiny" style="margin-bottom:0">建议现场公开说明水处理流程与两位客户之间的清洁步骤。</p></div>
+        </div>
+      </div><div class="folio">30</div>
+    </section>
+
+    <section class="page" id="c31">
+      <div class="running"><span>05 · 应用与体验</span><span>FAQ</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>第一次漂浮最常见的问题</h1>
+        <div class="dual">
+          <div>
+            <div class="faq"><div class="q">Q</div><div><h3>不会游泳可以吗？</h3><p class="small">可以。高密度盐水提供浮力，不需要游泳动作。</p></div></div>
+            <div class="faq"><div class="q">Q</div><div><h3>会不会幽闭？</h3><p class="small">可以开灯、开门或选择开放式设备；强烈恐惧者应先短时适应。</p></div></div>
+            <div class="faq"><div class="q">Q</div><div><h3>必须关灯吗？</h3><p class="small">不是。安全感优先，适应后再决定是否降低光线。</p></div></div>
+            <div class="faq"><div class="q">Q</div><div><h3>睡着安全吗？</h3><p class="small">仰卧高浮力环境通常会保持口鼻在水面，但仍须遵守筛查和现场管理。</p></div></div>
+          </div>
+          <div>
+            <div class="faq"><div class="q">Q</div><div><h3>一次就有效吗？</h3><p class="small">焦虑、压力和肌肉紧张可能当次改善；更稳定的睡眠、疼痛或情绪变化通常需要连续观察。</p></div></div>
+            <div class="faq"><div class="q">Q</div><div><h3>能治疗失眠或抑郁吗？</h3><p class="small">研究支持部分人群获益，但漂浮是辅助方法，不替代规范诊疗。</p></div></div>
+            <div class="faq"><div class="q">Q</div><div><h3>盐水能补镁或排毒吗？</h3><p class="small">最明确作用是增加浮力；经皮补镁和“排毒”没有可靠临床依据。</p></div></div>
+            <div class="faq"><div class="q">Q</div><div><h3>怎样知道适不适合我？</h3><p class="small">完成一次规范体验，记录24小时反应，再结合目标和健康状况决定。</p></div></div>
+          </div>
+        </div>
+        <div class="photo-frame tail-band" style="height:72mm;padding-top:0;border-top:0">
+          <img class="photo" src="assets/user-supplied/faq-blue-floatpod.jpg" alt="体验者在蓝光漂浮舱中仰卧" style="object-position:center 55%" />
+          <span class="image-credit">蓝光漂浮舱体验图｜用户提供</span>
+        </div>
+        <div class="note sage" style="margin-top:5mm"><p class="small" style="margin:0"><b>第一次的合理目标：</b>熟悉空间、找到舒适姿势、知道如何调整与退出，并观察24小时内身体和睡眠的变化。</p></div>
+      </div><div class="folio">31</div>
+    </section>
+
+    <section class="page" id="c32">
+      <div class="running"><span>06 · 世界漂浮学会</span><span>FROM PRACTICE TO DISCIPLINE</span></div>
+      <div class="inner wide" style="padding-top:20mm">
+        <div class="kicker">World Floatation Society · WFS</div>
+        <h1>让分散的漂浮实践，<br />走向可研究、可比较、可协作的体系</h1>
+        <p class="lead" style="max-width:none;margin-bottom:7mm">世界漂浮学会于 2026 年 5 月 13 日在法国登记成立，是一个面向国际会员的非营利协会。它不是某一品牌的营销机构，而是围绕科研、伦理、安全、教育与国际交流建立公共协作平台。</p>
+
+        <div class="fact-grid" style="grid-template-columns:1.05fr .95fr 1fr;gap:5mm;margin-bottom:5mm">
+          <div><b style="font-size:19px">2026.05.13</b><span>法国正式申报成立</span></div>
+          <div><b style="font-size:19px">W793005494</b><span>法国协会 RNA 编号</span></div>
+          <div><b style="font-size:19px">NON-PROFIT</b><span>章程明确非营利属性</span></div>
+        </div>
+
+        <div class="dual" style="grid-template-columns:.93fr 1.07fr;gap:9mm">
+          <div>
+            <div class="study sage">
+              <div class="study-meta">为什么需要学会</div>
+              <h2>共同语言，是疗法走向成熟的第一步</h2>
+              <p>不同国家和机构在术语、设备、水质、筛查、疗程、结局指标与数据记录上仍有差异。一家机构的经验若不能被另一家复现，一项研究也很难与下一项直接比较。</p>
+              <p class="study-result">学会的核心意义，是把分散经验转化为可讨论、可验证、可逐步统一的规则。</p>
+            </div>
+            <div class="photo-frame" style="height:53mm;margin-top:5mm">
+              <img class="photo" src="assets/wfs/official-journal-announcement.png" alt="法国官方公报中的世界漂浮学会成立公告" style="object-position:center 72%" />
+              <span class="image-credit">法国官方公报成立公告｜公告编号 2875</span>
+            </div>
+          </div>
+          <div>
+            <div class="definition"><div class="term">研究证据</div><div><h3>让“有效”回到可检验的数据</h3><p class="small">推动跨学科、跨国研究，完善伦理审查、知情同意、共同结局指标与真实世界登记，使研究能够复核和积累。</p></div></div>
+            <div class="definition"><div class="term">安全标准</div><div><h3>把安全写成可执行的流程</h3><p class="small">围绕设备、水质、筛查、人员培训、自主退出和异常事件记录，逐步形成可核验的操作底线。</p></div></div>
+            <div class="definition"><div class="term">教育传播</div><div><h3>把神秘叙事改写为公共知识</h3><p class="small">建设多语知识体系，组织会议、培训与科普，让公众、从业者和研究人员使用更清楚、更克制的语言。</p></div></div>
+            <div class="definition"><div class="term">国际协作</div><div><h3>连接研究者、机构与制造者</h3><p class="small">促进中法及更多地区在研究协议、设备实践与中式漂浮研究上的交流，把本土经验放进国际可理解的框架。</p></div></div>
+          </div>
+        </div>
+
+        <div class="tail-band" style="display:grid;grid-template-columns:62mm 1fr;gap:6mm;align-items:stretch">
+          <div class="photo-frame" style="height:38mm"><img class="photo" src="assets/wfs/wfs-plaque.png" alt="世界漂浮学会牌匾" style="object-position:center" /><span class="image-credit">世界漂浮学会｜机构资料图</span></div>
+          <div class="tail-sage" style="padding:6mm 7mm">
+            <div class="kicker sage">从成立到落地</div>
+            <p class="small" style="margin:0 0 2.5mm"><b>已经明确：</b>法国登记、非营利属性、国际会员机制，以及章程中的科学委员会、伦理与数据保护原则。</p>
+            <p class="small" style="margin:0 0 2.5mm"><b>正在建设：</b>多语文件、白皮书、专家协作网络与面向公众的科学传播框架。</p>
+            <p class="small" style="margin:0"><b>计划推进：</b>多中心研究、安全协议、自愿认证、国际论坛与真实世界数据库；每一项都需经过科学、伦理和合规程序逐步落地。</p>
+          </div>
+        </div>
+        <p class="source-line">依据：法国官方公报第 2875 号（申报日 2026-05-13）；《世界漂浮学会章程》；《世界漂浮学会发展规划报告（2026—2028）》。规划事项不代表已经完成。</p>
+      </div><div class="folio">32</div>
+    </section>
+
+    <section class="page" id="c33">
+      <div class="running"><span>参考文献</span><span>01 / 02</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>主要研究与指南</h1>
+        <div class="dual">
+          <div>
+            <div class="ref"><b>1.</b> Lashgari E, et al. A systematic review of flotation-REST. <i>BMC Complement Med Ther.</i> 2025. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12224670/">PMC12224670</a></div>
+            <div class="ref"><b>2.</b> Feinstein JS, et al. Examining the short-term anxiolytic and antidepressant effect of Floatation-REST. <i>PLOS ONE.</i> 2018. <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0190292">doi:10.1371/journal.pone.0190292</a></div>
+            <div class="ref"><b>3.</b> Feinstein JS, et al. Floatation-REST in anxious individuals. <i>Biological Psychiatry.</i> 2018. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6040829/">PMC6040829</a></div>
+            <div class="ref"><b>4.</b> Jonsson K, Kjellgren A. GAD pilot randomized trial. 2016. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4807536/">PMC4807536</a></div>
+            <div class="ref"><b>5.</b> Garland EL, et al. Safety and feasibility of reduced environmental stimulation therapy. <i>PLOS ONE.</i> 2024. <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0286899">doi:10.1371/journal.pone.0286899</a></div>
+            <div class="ref"><b>6.</b> Choquette EM, et al. Floatation therapy in anorexia nervosa. <i>eClinicalMedicine.</i> 2023. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10626164/">PMC10626164</a></div>
+            <div class="ref"><b>7.</b> Floatation-REST for chronic pain: a scoping review. 2026. <a href="https://pubmed.ncbi.nlm.nih.gov/41710285/">PMID 41710285</a></div>
+          </div>
+          <div>
+            <div class="ref"><b>8.</b> Kjellgren A, et al. Muscle tension pain and flotation-REST. <i>J Clin Psychol Med Settings.</i> 2001. <a href="https://pubmed.ncbi.nlm.nih.gov/11854763/">PMID 11854763</a></div>
+            <div class="ref"><b>9.</b> Bood SÅ, et al. Stress-related pain randomized trial. 2006. <a href="https://doi.org/10.1037/1072-5245.13.2.154">doi:10.1037/1072-5245.13.2.154</a></div>
+            <div class="ref"><b>10.</b> Kjellgren A, Westman J. Preventive health care intervention. <i>BMC Complement Altern Med.</i> 2014. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4219027/">PMC4219027</a></div>
+            <div class="ref"><b>11.</b> Löwe B, et al. Flotation-REST for chronic pain. <i>JAMA Netw Open.</i> 2021. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8122226/">PMC8122226</a></div>
+            <div class="ref"><b>12.</b> Flux MC, et al. Cardiovascular effects of Floatation-REST. <i>Front Neurosci.</i> 2022. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9780456/">PMC9780456</a></div>
+            <div class="ref"><b>13.</b> Norell-Clarke A, et al. Flotation-REST as an insomnia treatment. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8906387/">PMC8906387</a></div>
+            <div class="ref"><b>14.</b> Does flotation-REST have an effect on sleep? Systematic review. <i>Eur J Integr Med.</i> 2020. <a href="https://doi.org/10.1016/j.eujim.2019.101047">doi:10.1016/j.eujim.2019.101047</a></div>
+          </div>
+        </div>
+        <div class="tail-band tail-sage">
+          <div class="kicker sage">读研究时记住五件事</div>
+          <div class="fact-grid" style="grid-template-columns:repeat(5,1fr);gap:4mm">
+            <div><b style="font-size:14px">谁</b><span>健康人还是临床人群</span></div>
+            <div><b style="font-size:14px">几次</b><span>单次急性效应还是完整疗程</span></div>
+            <div><b style="font-size:14px">比什么</b><span>等待、休息或有效对照</span></div>
+            <div><b style="font-size:14px">测什么</b><span>量表、睡眠、疼痛或生理指标</span></div>
+            <div><b style="font-size:14px">多久</b><span>当次结果还是随访维持</span></div>
+          </div>
+        </div>
+      </div><div class="folio">33</div>
+    </section>
+
+    <section class="page" id="c34">
+      <div class="running"><span>参考文献与图片</span><span>02 / 02</span></div>
+      <div class="inner wide" style="padding-top:22mm">
+        <h1>运动、安全、中国发展与图片来源</h1>
+        <div class="dual">
+          <div>
+            <div class="ref"><b>15.</b> Morgan PM, et al. Floatation-REST for recovery from exercise. <i>Performance Enhancement & Health.</i> 2019. doi:10.1016/j.peh.2019.100149.</div>
+            <div class="ref"><b>16.</b> Floatation-REST versus napping on HRV and recovery. <i>BMJ Open Sport Exerc Med.</i> 2024. <a href="https://bmjopensem.bmj.com/content/10/4/e002292">bmjopensem.bmj.com/content/10/4/e002292</a></div>
+            <div class="ref"><b>17.</b> CDC & NACCHO. Safely Managing Floatation Tanks. 2023. <a href="https://stacks.cdc.gov/view/cdc/153390">stacks.cdc.gov/view/cdc/153390</a></div>
+            <div class="ref"><b>18.</b> Washington State Department of Health. Floatation Systems Guidelines.</div>
+            <div class="ref"><b>19.</b> Gröber U, et al. Myth or Reality—Transdermal Magnesium? <i>Nutrients.</i> 2017. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5579607/">PMC5579607</a></div>
+            <div class="ref"><b>20.</b> 北京大学新闻网. 胡佩诚：为心理健康事业而奋斗. 2021. <a href="https://news.pku.edu.cn/xwzh/0dc43e6b63094c7b98d6b66a041df1be.htm">news.pku.edu.cn</a></div>
+            <div class="ref"><b>21.</b> 北京中医药大学护理学院. 段红梅教授官方简介. 2025. <a href="https://huli.bucm.edu.cn/jyjx/yjsjy/ds/64831.htm">huli.bucm.edu.cn</a></div>
+            <div class="ref"><b>22.</b> 法国官方公报. WORLD FLOATATION SOCIETY 成立公告，第 2875 号，申报日 2026-05-13，RNA W793005494.</div>
+            <div class="ref"><b>23.</b> 世界漂浮学会. 《章程》与《发展规划报告（2026—2028）》. 2026.</div>
+            <div class="note sage" style="margin-top:7mm"><p class="small" style="margin:0">所有数字均按原研究的研究对象、疗程和测量条件表述。消费者版本不应把急性变化改写为疾病治愈，也不应把辅助治疗改写为替代治疗。</p></div>
+          </div>
+          <div>
+            <h2>开放许可真实图片</h2>
+            <p class="small">Wikimedia Commons：rl2011、Floatguru、SeanMack、Trogain、FloatLab；论文图表：Feinstein et al.（PLOS ONE，CC BY 4.0）、Garland et al.（PLOS ONE，CC BY 4.0）、Flux et al.（Frontiers，CC BY 4.0）。</p>
+            <p class="small">完整作者、页面、许可证链接和改编要求见：</p>
+            <div class="paper"><div class="journal">LOCAL LICENSE RECORDS</div><p class="tiny">assets/compact-real/LICENSES.txt<br />assets/research-open-license/LICENSES.txt</p></div>
+            <h2 style="margin-top:9mm">人物与历史档案图</h2>
+            <p class="small">段红梅教授肖像取自北京中医药大学护理学院官网；胡佩诚教授及部分早期历史图片来自漂浮档案。正式商业发布前，应分别确认人物肖像、原始摄影者、年份与使用授权。</p>
+          </div>
+        </div>
+        <div class="archive-grid tail-band" style="grid-template-columns:repeat(4,1fr);gap:5mm">
+          <figure><div class="portrait" style="height:58mm"><img src="assets/page-14-01.png" alt="早期感官研究档案" /></div><figcaption>早期感官研究</figcaption></figure>
+          <figure><div class="portrait" style="height:58mm"><img src="assets/page-15-01.png" alt="John C. Lilly档案" /></div><figcaption>John C. Lilly</figcaption></figure>
+          <figure><div class="portrait" style="height:58mm"><img src="assets/page-16-01.jpg" alt="早期漂浮水箱档案" /></div><figcaption>早期水箱形态</figcaption></figure>
+          <figure><div class="portrait" style="height:58mm"><img src="assets/page-18-01.jpg" alt="胡佩诚教授" /></div><figcaption>胡佩诚教授</figcaption></figure>
+        </div>
+      </div><div class="folio">34</div>
+    </section>
+
+    <section class="page" id="c35">
+      <div style="position:absolute;inset:0;display:grid;grid-template-columns:56% 44%">
+        <div class="photo-frame"><img class="photo" src="assets/research-open-license/P14_FloatLab_Orange_CC-BY-SA-4.0.jpg" alt="真实漂浮舱" style="object-position:center 54%" /><span class="image-credit">FloatLab / Wikimedia Commons｜CC BY-SA 4.0</span></div>
+        <div style="background:var(--ink);color:var(--paper);padding:18mm 13mm;display:flex;flex-direction:column;justify-content:space-between">
+          <div style="font:800 10px/1.5 Arial;letter-spacing:.15em">FLOTATION-REST<br />EVIDENCE HANDBOOK</div>
+          <div><div class="quote" style="font-size:25px;border-color:#aaa">让外界暂时退远，<br />让身体重新进入<br />可以恢复的状态。</div><p class="small">漂浮的意义，不是制造神奇，而是稳定地提供减负、降噪、觉察与整合。</p></div>
+          <div><img src="assets/logo.png" alt="漂浮方舟" style="width:42mm;filter:brightness(0) invert(1);opacity:.92" /><p class="tiny" style="margin-top:6mm">漂浮疗法客户知识手册<br />紧凑详实版 · 2026</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <template id="previous-version-archive">
+
+    <!-- 01 Cover -->
+    <section class="page" id="p01">
+      <div style="position:absolute;inset:0;display:grid;grid-template-columns:43% 57%">
+        <div style="background:var(--rust);padding:20mm 13mm 18mm 18mm;color:#fff9ef;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <div style="font:800 10px/1.4 Arial;letter-spacing:.2em">FLOATATION REST</div>
+            <div style="border-top:1px solid rgba(255,255,255,.55);margin-top:5mm;padding-top:5mm;font-size:10px;line-height:1.6">限制环境刺激疗法<br />客户知识版 · 2026</div>
+          </div>
+          <div>
+            <h1 style="font-size:55px;line-height:1.06;letter-spacing:-.055em;margin-bottom:7mm">漂浮<br />疗法<br />手册</h1>
+            <p style="font-size:14px;line-height:1.7;text-align:left;margin:0">从实验室历史、体验机制到现代研究证据，理解人在低刺激水环境中可能发生什么。</p>
+          </div>
+          <div style="font-size:9px;line-height:1.6;letter-spacing:.08em">A FIELD GUIDE TO<br />FLOTATION-REST</div>
+        </div>
+        <div style="display:grid;grid-template-rows:62% 38%">
+          <div class="photo-frame"><img class="photo" src="assets/cover-float.png" alt="现代漂浮体验" style="object-position:center 46%" /></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr">
+            <div class="photo-frame"><img class="photo mono" src="assets/page-15-01.png" alt="John C. Lilly" style="object-position:center 22%" /><span class="image-label">1950s · JOHN C. LILLY</span></div>
+            <div style="background:var(--paper-deep);padding:10mm 8mm;display:flex;align-items:flex-end">
+              <p class="serif" style="font-size:18px;line-height:1.55;margin:0;text-align:left">不是把感官彻底拿走，<br />而是暂时减少必须回应的世界。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Preface -->
+    <section class="page" id="p02">
+      <div class="running"><span>漂浮疗法手册</span><span>READING NOTE</span></div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">Before we begin</div>
+        <div class="columns-2" style="grid-template-columns:.72fr 1.28fr;align-items:start">
+          <div>
+            <div class="display-number">00</div>
+            <div class="photo-frame" style="height:113mm;margin-top:10mm"><img class="photo mono" src="assets/brand-water-detail.png" alt="漂浮水体" /></div>
+            <div class="caption">高浓度硫酸镁溶液首先是一种“浮力介质”。它让身体自然浮在水面，不需要游泳。</div>
+          </div>
+          <div>
+            <h1>先把它理解为一种环境，<br />再谈它可能带来的体验</h1>
+            <p class="lead dropcap">漂浮疗法常被称为感官剥夺、漂浮舱、无重力体验或 Flotation-REST。名称不同，核心都指向一件事：人在安全、可退出的条件下，进入一个声音、光线、温差和身体支撑负担都较少的水环境。</p>
+            <p>这本手册不把漂浮写成“神奇治疗”。它更关心三个问题：环境究竟改变了什么；人可能感受到什么；目前研究能够支持到哪一步。你会看到历史、物理、心理生理、体验方法、安全卫生和证据边界，而不是一串功效口号。</p>
+            <div class="note" style="margin-top:7mm">
+              <h3>使用边界</h3>
+              <p class="small" style="margin:0">本手册用于一般知识与体验准备，不替代医生诊断、药物、心理治疗或康复计划。若你正处于疾病急性期、严重情绪危机或对自身状况没有把握，请先咨询相应专业人员。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="folio">02</div>
+    </section>
+
+    <!-- 03 Evidence legend -->
+    <section class="page" id="p03">
+      <div class="running"><span>漂浮疗法手册</span><span>HOW TO READ</span></div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">Four kinds of statements</div>
+        <h1>不是所有听起来合理的话，<br />都有同样强度的证据</h1>
+        <div class="split-wide">
+          <div>
+            <div class="definition"><div class="term">研究发现</div><div><h3>在特定样本和设计中观察到的结果</h3><p class="small">例如系统综述、随机试验或开放研究。结果可以提供方向，但仍受样本量、对照条件、测量方式和研究质量影响。</p></div></div>
+            <div class="definition"><div class="term">合理机制</div><div><h3>符合物理或生理知识，但不等于疗效已被证明</h3><p class="small">浮力减少支撑负担、声光减少降低外界输入，这些机制可解释体验，却不能直接推导出“治疗某种疾病”。</p></div></div>
+            <div class="definition"><div class="term">体验描述</div><div><h3>真实但高度个体化</h3><p class="small">有人感到时间变慢、身体边界变淡或思绪增多；也有人只是觉得舒服、无聊或没有明显变化。</p></div></div>
+            <div class="definition"><div class="term">未经证实</div><div><h3>不应被包装成确定结论</h3><p class="small">“大量透皮补镁”“排出毒素”“重启大脑”“治愈失眠”等说法，目前不能作为可靠功效承诺。</p></div></div>
+          </div>
+          <div>
+            <div class="note sage">
+              <h2 style="font-size:21px">本手册的编辑原则</h2>
+              <p>客户需要的是足够完整的知识，而不是被大量术语说服。因此，我们保留复杂性，也保留“不确定”。</p>
+              <p>当研究结果不一致时，会同时呈现积极信号与反例；当一种说法只来自经验，会明确写成经验；当风险需要专业判断，会直接提示暂停或咨询。</p>
+            </div>
+            <div style="margin-top:9mm;border-top:1px solid var(--ink);padding-top:6mm">
+              <div class="kicker sage">A useful question</div>
+              <div class="quote" style="font-size:20px">这句话是在解释一种体验，<br />还是在承诺一个治疗结果？</div>
+              <p class="small">两者经常被混在一起。阅读漂浮信息时，先把它们拆开，判断会更清楚。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="folio">03</div>
+    </section>
+
+    <!-- 04 Contents -->
+    <section class="page dark" id="p04">
+      <div class="running"><span>漂浮疗法手册</span><span>CONTENTS</span></div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker" style="color:var(--yellow)">Contents</div>
+        <h1 style="font-size:48px">七章，理解一次漂浮</h1>
+        <div class="columns-2" style="gap:15mm;margin-top:10mm">
+          <div>
+            <div class="index-list" style="border-color:#696c64"><div class="index-no">01</div><div><h3>漂浮疗法是什么</h3><p class="tiny">定义、浮力、低刺激环境与 REST 术语</p></div><div class="index-page">05</div></div>
+            <div class="index-list" style="border-color:#696c64"><div class="index-no">02</div><div><h3>它从哪里来</h3><p class="tiny">实验室历史、John Lilly 与现代转向</p></div><div class="index-page">09</div></div>
+            <div class="index-list" style="border-color:#696c64"><div class="index-no">03</div><div><h3>环境如何改变体验</h3><p class="tiny">身体卸载、感官输入、注意与唤醒水平</p></div><div class="index-page">14</div></div>
+            <div class="index-list" style="border-color:#696c64"><div class="index-no">04</div><div><h3>研究说了什么</h3><p class="tiny">压力、焦虑、疼痛、睡眠与运动恢复</p></div><div class="index-page">19</div></div>
+          </div>
+          <div>
+            <div class="index-list" style="border-color:#696c64"><div class="index-no">05</div><div><h3>怎样完成一次体验</h3><p class="tiny">准备、入舱、姿势、呼吸与出舱</p></div><div class="index-page">25</div></div>
+            <div class="index-list" style="border-color:#696c64"><div class="index-no">06</div><div><h3>安全与卫生</h3><p class="tiny">适合、暂缓、停止信号与水处理</p></div><div class="index-page">31</div></div>
+            <div class="index-list" style="border-color:#696c64"><div class="index-no">07</div><div><h3>常见问题与参考来源</h3><p class="tiny">第一次体验最常问的问题、研究文献</p></div><div class="index-page">34</div></div>
+            <div style="height:70mm;margin-top:12mm;display:grid;grid-template-columns:1fr 1fr;gap:4mm">
+              <div class="photo-frame"><img class="photo mono" src="assets/page-16-01.jpg" alt="早期漂浮装置" /></div>
+              <div class="photo-frame"><img class="photo" src="assets/pod-in-use.png" alt="现代漂浮体验" /></div>
+            </div>
+            <div class="caption">从早期研究装置到今天的可控体验空间，变化的不只是设备，也包括伦理、安全与证据标准。</div>
+          </div>
+        </div>
+      </div>
+      <div class="folio">04</div>
+    </section>
+
+    <!-- 05 Chapter 1 opener -->
+    <section class="page rust-page" id="p05">
+      <div class="running"><span>CHAPTER 01</span><span>WHAT IS FLOATATION-REST</span></div>
+      <div class="inner" style="padding-top:25mm">
+        <div class="display-number" style="color:#ffd9cb;font-size:128px">01</div>
+        <div style="position:absolute;left:18mm;right:17mm;bottom:20mm;display:grid;grid-template-columns:1.08fr .92fr;gap:10mm;align-items:end">
+          <div>
+            <div class="kicker" style="color:#ffe5da">What is it?</div>
+            <h1 style="font-size:52px;margin-bottom:7mm">漂浮疗法<br />究竟是什么</h1>
+            <p class="lead" style="color:#fff9ef">一套通过高浮力水体和可控环境，主动减少外界刺激与身体支撑负担的方法。</p>
+          </div>
+          <div class="photo-frame" style="height:132mm"><img class="photo" src="assets/pod-in-use.png" alt="漂浮者仰卧于高浮力水中" /></div>
+        </div>
+      </div>
+      <div class="folio">05</div>
+    </section>
+
+    <!-- 06 Four reductions -->
+    <section class="page" id="p06">
+      <div class="running"><span>01 · 漂浮疗法是什么</span><span>FOUR REDUCTIONS</span></div>
+      <div class="chapter-tab">01 定义</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">A controlled low-stimulation environment</div>
+        <h1>现代漂浮减少的是四类输入，<br />不是把感官“彻底关闭”</h1>
+        <div class="columns-2" style="gap:12mm">
+          <div>
+            <svg viewBox="0 0 600 520" style="width:100%;height:145mm;display:block;background:#e8e1d6;border:1px solid var(--line)" role="img" aria-label="漂浮环境四类输入示意">
+              <rect x="76" y="68" width="448" height="360" fill="#f7f2e9" stroke="#191b18" stroke-width="2"/>
+              <path d="M118 330 Q300 275 482 330 L482 390 L118 390 Z" fill="#b6c8bd"/>
+              <ellipse cx="300" cy="317" rx="123" ry="30" fill="#d4866e" opacity=".92"/>
+              <circle cx="192" cy="311" r="29" fill="#d4866e"/>
+              <path d="M62 118 L115 118" stroke="#c95738" stroke-width="5"/><text x="62" y="102" font-size="21" font-weight="700" fill="#8f3525">光线</text><text x="62" y="144" font-size="15" fill="#555">可调暗或关闭</text>
+              <path d="M485 118 L538 118" stroke="#c95738" stroke-width="5"/><text x="478" y="102" font-size="21" font-weight="700" fill="#8f3525">声音</text><text x="458" y="144" font-size="15" fill="#555">隔声与耳塞减少输入</text>
+              <path d="M64 430 L125 386" stroke="#617469" stroke-width="5"/><text x="52" y="468" font-size="21" font-weight="700" fill="#4e6156">支撑负担</text><text x="52" y="495" font-size="15" fill="#555">浮力承担身体重量</text>
+              <path d="M536 430 L474 387" stroke="#617469" stroke-width="5"/><text x="452" y="468" font-size="21" font-weight="700" fill="#4e6156">温差</text><text x="414" y="495" font-size="15" fill="#555">水温接近皮肤温度</text>
+              <text x="300" y="40" text-anchor="middle" font-size="15" letter-spacing="2" fill="#555">REDUCED ENVIRONMENTAL STIMULATION</text>
+            </svg>
+            <div class="caption">现代装置仍然存在触觉、听觉、身体内部感觉和自我意识。“限制刺激”比“完全剥夺”更准确。</div>
+          </div>
+          <div>
+            <div class="ledger">
+              <div class="label">光线</div><div class="copy">舱内照明可以逐渐调暗或关闭。第一次体验也可以留光、开盖或保留缝隙，舒适和自主权优先。</div>
+              <div class="label">声音</div><div class="copy">安静房间、隔声结构与耳塞减少背景声音，但呼吸、心跳、水声和设备细微声仍可能被听见。</div>
+              <div class="label">温差</div><div class="copy">水温通常接近皮肤中性温度，目的是减少“冷”“热”持续提醒身体，而不是追求高温出汗。</div>
+              <div class="label">机械负担</div><div class="copy">盐水提高密度，让身体无需划水即可仰卧。姿势肌和关节不必像站立、坐着时那样持续维持身体。</div>
+            </div>
+            <div class="margin-note" style="margin-top:7mm">研究文献常用 Flotation-REST：Restricted Environmental Stimulation Therapy/Technique，即“漂浮式限制环境刺激疗法／技术”。<span class="source-no">1</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="folio">06</div>
+    </section>
+
+    <!-- 07 Physics -->
+    <section class="page" id="p07">
+      <div class="running"><span>01 · 漂浮疗法是什么</span><span>BUOYANCY</span></div>
+      <div class="chapter-tab">01 浮力</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">The body does not need to swim</div>
+        <h1>漂浮成立的第一步，是让水变得足够“托人”</h1>
+        <div class="split-wide" style="grid-template-columns:1.22fr .78fr">
+          <div>
+            <svg viewBox="0 0 760 470" style="width:100%;height:133mm;background:#e4ded3;border:1px solid var(--line)" role="img" aria-label="浮力与重力示意图">
+              <rect width="760" height="470" fill="#e9e3d8"/>
+              <path d="M0 255 Q95 242 190 255 T380 255 T570 255 T760 255 L760 470 L0 470 Z" fill="#a9c0b4"/>
+              <path d="M128 248 C190 215 270 209 353 228 C412 241 469 267 544 251 C575 244 605 222 633 225 C657 227 671 246 659 260 C641 280 590 284 537 285 C446 288 370 276 282 275 C220 275 170 279 133 269 C115 264 111 256 128 248 Z" fill="#cd7a61"/>
+              <circle cx="126" cy="252" r="38" fill="#cd7a61"/>
+              <path d="M340 118 L340 214" stroke="#191b18" stroke-width="5" marker-end="url(#arrow)"/>
+              <path d="M340 376 L340 291" stroke="#fffdf8" stroke-width="5" marker-end="url(#arrowWhite)"/>
+              <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#191b18"/></marker><marker id="arrowWhite" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#fffdf8"/></marker></defs>
+              <text x="358" y="139" font-size="22" font-weight="700" fill="#191b18">重力向下</text>
+              <text x="358" y="373" font-size="22" font-weight="700" fill="#fffdf8">浮力向上</text>
+              <text x="38" y="56" font-size="18" font-weight="700" fill="#8f3525">高密度盐水</text>
+              <text x="38" y="84" font-size="15" fill="#555">密度增加 → 同体积水提供更大浮力</text>
+              <text x="562" y="424" font-size="15" fill="#fffdf8">无需划水 · 面部自然露出水面</text>
+            </svg>
+            <div class="caption">示意图不按比例。漂浮者仰卧时，口鼻保持在水面以上；不会游泳通常不构成障碍。</div>
+            <p style="margin-top:7mm" class="dropcap">当溶液密度高于普通水，身体排开相同体积液体时会获得更大的向上浮力。公共卫生指南常见的参考范围约为比重 1.23–1.30，水温约 33.3–35.6°C；具体设备应以制造商参数和当地规范为准。<span class="source-no">9</span></p>
+          </div>
+          <div>
+            <div class="stat"><div class="number">≈1.27</div><div class="meta">一项慢性疼痛随机试验中，常规漂浮条件的平均水体密度为 1.27 kg/L，平均水温为 35.0°C。<span class="source-no">6</span></div></div>
+            <div class="rule" style="margin-top:10mm">
+              <h3>盐的明确作用</h3>
+              <p class="small">提高水体密度，让不同体型的人更容易稳定仰卧；同时改变水处理方式和设备维护要求。</p>
+            </div>
+            <div class="rule" style="margin-top:7mm">
+              <h3>它不等于“补镁疗程”</h3>
+              <p class="small">经完整皮肤大量吸收镁的说法缺少可靠证据。盐水首先是工程与体验介质，不应被写成确定的营养补充方式。<span class="source-no">7</span></p>
+            </div>
+            <div class="note ink" style="margin-top:8mm">
+              <h3>不会游泳也可以吗？</h3>
+              <p class="small" style="margin:0">通常可以。你不需要踢腿、划水或保持游泳姿势。入舱前仍应了解如何坐起、开盖和呼叫。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="folio">07</div>
+    </section>
+
+    <!-- 08 Terminology -->
+    <section class="page" id="p08">
+      <div class="running"><span>01 · 漂浮疗法是什么</span><span>WORDS MATTER</span></div>
+      <div class="chapter-tab">01 术语</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">Sensory deprivation or REST?</div>
+        <h1>“感官剥夺”广为人知，<br />“限制环境刺激”更接近今天的实践</h1>
+        <div class="columns-2">
+          <div>
+            <p class="lead dropcap">早期研究曾把人长时间放在单调或隔离环境中，观察认知、情绪和知觉变化。那类实验与今天自愿、限时、随时可退出的漂浮并不是同一件事。</p>
+            <p>现代体验不会消除全部感觉。你仍会感觉水的托举、呼吸起伏、心跳、皮肤微小触感和自己的思绪。变化在于：外界“抢走注意力”的信息减少了，内部感觉因此更容易被注意到。</p>
+            <div class="quote">少，不等于空。<br />安静，也不等于失去控制。</div>
+          </div>
+          <div>
+            <div class="definition"><div class="term">感官剥夺</div><div><p style="margin:0">大众媒体常用名称，容易让人联想到被动、强迫或完全失去感觉。</p></div></div>
+            <div class="definition"><div class="term">感觉隔离</div><div><p style="margin:0">描述环境隔绝程度，但仍不能体现体验者的自主选择。</p></div></div>
+            <div class="definition"><div class="term">REST</div><div><p style="margin:0">20 世纪 70 年代末由 Peter Suedfeld 与 Roderick Borrie 推动使用，强调“减少环境信息”，并用于研究和压力管理。<span class="source-no">1</span></p></div></div>
+            <div class="definition"><div class="term">漂浮疗法</div><div><p style="margin:0">中文常用表达。这里的“疗法”指一种辅助性的身心放松方法，不代表它获得了针对某种疾病的治疗适应症。</p></div></div>
+            <div class="note sage" style="margin-top:8mm">
+              <h3>现代体验的四个伦理条件</h3>
+              <p class="small" style="margin:0">自愿进入 · 可随时退出 · 知情说明 · 有人应答。任何要求体验者忍耐恐慌、疼痛或不适的做法，都偏离了这一前提。</p>
+            </div>
+          </div>
+        </div>
+        <div class="photo-frame" style="height:58mm;margin-top:9mm"><img class="photo mono" src="assets/page-14-04.jpg" alt="早期感官限制实验" style="object-position:center 48%" /><span class="image-label">ARCHIVE · EARLY RESEARCH</span></div>
+      </div>
+      <div class="folio">08</div>
+    </section>
+
+    <!-- 09 Chapter 2 opener -->
+    <section class="page dark" id="p09">
+      <div class="running"><span>CHAPTER 02</span><span>A SHORT HISTORY</span></div>
+      <div class="inner wide" style="padding-top:25mm">
+        <div style="display:grid;grid-template-columns:1.08fr .92fr;gap:5mm;height:207mm">
+          <div class="photo-frame"><img class="photo mono" src="assets/page-15-02.jpg" alt="早期隔离实验室" /></div>
+          <div style="display:grid;grid-template-rows:1fr 1fr;gap:5mm">
+            <div class="photo-frame"><img class="photo mono" src="assets/page-15-01.png" alt="John C. Lilly" /></div>
+            <div class="photo-frame"><img class="photo mono" src="assets/page-16-01.jpg" alt="早期漂浮设备" /></div>
+          </div>
+        </div>
+        <div style="position:absolute;left:18mm;right:17mm;bottom:18mm;background:var(--rust);padding:8mm 9mm;color:#fff">
+          <div class="kicker" style="color:#ffe0d4">1950s–today</div>
+          <h1 style="font-size:43px;margin-bottom:3mm">它先是一项关于“人需要多少刺激”的实验</h1>
+          <p style="margin:0;text-align:left;color:#ffe9df">后来才成为可被普通人使用的放松环境，并逐步进入压力、疼痛、运动和心理健康研究。</p>
+        </div>
+      </div>
+      <div class="folio">09</div>
+    </section>
+
+    <!-- 10 Early lab -->
+    <section class="page" id="p10">
+      <div class="running"><span>02 · 它从哪里来</span><span>1950s · THE LAB</span></div>
+      <div class="chapter-tab sage">02 历史</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker sage">Before the float tank</div>
+        <h1>最初的问题并不温柔：<br />当外界变得单调，人会怎样？</h1>
+        <div class="split-portrait">
+          <div>
+            <div class="photo-frame" style="height:75mm"><img class="photo mono" src="assets/page-14-02.png" alt="Donald O. Hebb" /></div>
+            <div class="caption">Donald O. Hebb。20 世纪 50 年代，麦吉尔大学相关团队开展了早期知觉限制研究。</div>
+            <div class="photo-frame" style="height:67mm;margin-top:8mm"><img class="photo mono" src="assets/page-14-01.png" alt="John Peter Zubek" /></div>
+            <div class="caption">John Peter Zubek 后续继续研究感觉限制与认知变化。</div>
+          </div>
+          <div>
+            <p class="lead dropcap">1950 年代的实验常使用隔音房、半透明护目镜、白噪声和限制触觉的装置。受试者可能在其中停留数小时甚至数天。研究者关心注意、暗示性、思维和知觉会发生怎样的变化。</p>
+            <p>这些实验揭示了两个方向：持续、强迫、长时间的隔离可能令人不安，甚至损害认知；但短时、自愿、可控的刺激减少，也可能带来放松和内省。后来漂浮研究真正有价值的转折，正是把“剥夺”改造成“有边界的减少”。</p>
+            <div class="note">
+              <h3>不要把早期实验与现代漂浮混为一谈</h3>
+              <p class="small" style="margin:0">两者在时长、设备、知情同意、退出权、研究目的和支持条件上都不同。现代漂浮不以制造认知混乱为目标。</p>
+            </div>
+            <div class="timeline-item" style="margin-top:9mm"><div class="timeline-year">1953</div><div class="timeline-copy"><h3>麦吉尔实验公开发表</h3><p class="small">早期实验研究单调环境与感觉输入减少的影响。相关工作成为感觉限制研究史的重要起点。<span class="source-no">10</span></p></div></div>
+            <div class="timeline-item"><div class="timeline-year">1954</div><div class="timeline-copy"><h3>水中隔离装置出现</h3><p class="small">John C. Lilly 在美国国家心理健康研究机构探索以恒温水减少外界刺激。</p></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="folio">10</div>
+    </section>
+
+    <!-- 11 Lilly -->
+    <section class="page" id="p11">
+      <div class="running"><span>02 · 它从哪里来</span><span>JOHN C. LILLY</span></div>
+      <div class="chapter-tab sage">02 水中</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="split-wide" style="grid-template-columns:.9fr 1.1fr">
+          <div>
+            <div class="photo-frame" style="height:153mm"><img class="photo mono" src="assets/page-15-01.png" alt="John C. Lilly" style="object-position:center 18%" /></div>
+            <div class="caption">John C. Lilly（1915–2001），医生与神经科学研究者。早期装置需要面罩，与今天仰卧在盐水表面的形态不同。</div>
+          </div>
+          <div>
+            <div class="kicker">1954 · Water immersion</div>
+            <h1>把身体放进恒温水中，<br />是一次关键的技术变化</h1>
+            <p class="lead dropcap">在水里，研究者可以同时减少视觉、声音、温差、支撑面与重力相关的触觉信息。Lilly 的早期装置让人完全浸入水中，并通过面罩呼吸；现代漂浮舱则利用高密度盐水，让面部自然露在水面。</p>
+            <p>这项变化把“低刺激环境”从房间改造成水体。它也让身体卸载成为漂浮的独特部分：人不只是看不见、听得少，还暂时不必依靠床垫、椅背或肌肉维持姿势。</p>
+            <div class="quote" style="font-size:19px">现代漂浮的基本形态，<br />来自“恒温水＋高浮力＋低声光”的组合。</div>
+            <p class="small">历史研究同时提醒我们：Lilly 后来的个人探索带有强烈的主观与反文化色彩，不应替代现代临床证据。今天评价漂浮，要回到可重复的研究设计、安全记录与公共卫生标准。</p>
+          </div>
+        </div>
+        <div class="photo-frame" style="height:50mm;margin-top:9mm"><img class="photo mono" src="assets/page-16-01.jpg" alt="早期漂浮水箱设计" style="object-position:center 55%" /><span class="image-label">EARLY TANK DESIGN</span></div>
+      </div>
+      <div class="folio">11</div>
+    </section>
+
+    <!-- 12 REST and public -->
+    <section class="page" id="p12">
+      <div class="running"><span>02 · 它从哪里来</span><span>FROM DEPRIVATION TO REST</span></div>
+      <div class="chapter-tab sage">02 转向</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker sage">A change in language, purpose and design</div>
+        <h1>从实验工具到恢复方式，<br />经历了三次重要转向</h1>
+        <div class="columns-3" style="margin-top:9mm">
+          <div class="stat"><div class="number">01</div><h3 style="margin-top:4mm">从强迫到自愿</h3><p class="small">体验者知道将发生什么，可以决定开灯、开盖、调整姿势或提前结束。自主感成为安全的一部分。</p></div>
+          <div class="stat" style="border-color:var(--sage)"><div class="number">02</div><h3 style="margin-top:4mm">从长时到限时</h3><p class="small">现代常见体验约 45–60 分钟。研究方案可能延长至 90 分钟，但不以长时间隔离为目标。</p></div>
+          <div class="stat" style="border-color:var(--violet)"><div class="number">03</div><h3 style="margin-top:4mm">从“剥夺”到 REST</h3><p class="small">Peter Suedfeld 等人在 1970 年代末推动 REST 一词，强调环境信息减少及其潜在应用。<span class="source-no">1</span></p></div>
+        </div>
+        <div class="archive-grid" style="margin-top:13mm">
+          <figure><div class="portrait"><img src="assets/page-16-02.png" alt="Peter Suedfeld" /></div><figcaption><b>Peter Suedfeld</b><br />推动 REST 研究框架</figcaption></figure>
+          <figure><div class="portrait"><img src="assets/page-18-02.jpg" alt="Samadhi 民用漂浮舱" /></div><figcaption><b>1970s</b><br />民用漂浮设备出现</figcaption></figure>
+          <figure><div class="portrait"><img src="assets/page-18-03.jpg" alt="早期民用漂浮设备运输" /></div><figcaption><b>Public access</b><br />设备逐渐走出实验室</figcaption></figure>
+          <figure><div class="portrait"><img src="assets/brand-fa-d-front.jpg" alt="现代漂浮设备" /></div><figcaption><b>Today</b><br />卫生、应答与体验控制成为系统的一部分</figcaption></figure>
+        </div>
+        <div class="note sage" style="margin-top:11mm">
+          <h3>REST 是一个研究框架，不是一张“万能适应症清单”</h3>
+          <p class="small" style="margin:0">它描述的是如何减少环境刺激。至于对压力、疼痛、睡眠或运动恢复的影响，需要逐项看研究，而不能从名称本身推导疗效。</p>
+        </div>
+      </div>
+      <div class="folio">12</div>
+    </section>
+
+    <!-- 13 China -->
+    <section class="page" id="p13">
+      <div class="running"><span>02 · 它从哪里来</span><span>CHINA · 1990s–TODAY</span></div>
+      <div class="chapter-tab sage">02 中国</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="split-portrait">
+          <div>
+            <div class="photo-frame" style="height:94mm"><img class="photo mono" src="assets/page-18-01.jpg" alt="胡佩诚教授" /></div>
+            <div class="caption">胡佩诚教授，中国漂浮早期研究与传播的重要推动者之一。</div>
+          </div>
+          <div>
+            <div class="kicker sage">Local adaptation</div>
+            <h1>进入中国之后，<br />漂浮开始面对本土化问题</h1>
+            <p class="lead dropcap">旧版史料记录，20 世纪 90 年代前后，中国高校与专业团队开始讨论漂浮装置、心理学应用和本土服务环境。设备是否适合中国人的空间、卫生习惯和服务方式，逐渐成为新的课题。</p>
+            <p>这段历史的意义，不在于证明漂浮已经获得某种医疗资格，而在于说明：一种国外方法进入中国后，需要重新处理语言、设备、伦理、安全与使用场景。把“感觉剥夺”改写为可理解的恢复体验，也是本土传播的一部分。</p>
+            <div class="margin-note">历史合作、教材收录或专家参与，只能说明该主题被研究和讨论，不能等同于国家批准的疾病治疗适应症。</div>
+          </div>
+        </div>
+        <div class="archive-grid" style="margin-top:11mm">
+          <figure><div class="portrait" style="height:42mm"><img src="assets/page-17-02.jpg" alt="中国早期漂浮装置" /></div><figcaption>中国早期装置资料图</figcaption></figure>
+          <figure><div class="portrait" style="height:42mm"><img src="assets/page-17-03.jpg" alt="早期漂浮舱" /></div><figcaption>设备逐步小型化</figcaption></figure>
+          <figure><div class="portrait" style="height:42mm"><img src="assets/page-18-02.jpg" alt="早期民用漂浮舱" /></div><figcaption>早期民用形态</figcaption></figure>
+          <figure><div class="portrait" style="height:42mm"><img src="assets/brand-fa-o-open.jpg" alt="现代开放式漂浮设备" /></div><figcaption>今天更强调可观察与自主开合</figcaption></figure>
+        </div>
+        <div class="quote" style="font-size:20px;margin-top:9mm">一种疗法真正成熟，不是故事变得更传奇，<br />而是边界变得更清楚。</div>
+      </div>
+      <div class="folio">13</div>
+    </section>
+
+    <!-- 14 Chapter 3 -->
+    <section class="page sage-page" id="p14">
+      <div class="running"><span>CHAPTER 03</span><span>HOW THE ENVIRONMENT WORKS</span></div>
+      <div class="inner" style="padding-top:25mm">
+        <div class="display-number" style="color:#bfcfc4;font-size:128px">03</div>
+        <div style="position:absolute;left:18mm;right:17mm;bottom:20mm;display:grid;grid-template-columns:1fr 76mm;gap:12mm;align-items:end">
+          <div>
+            <div class="kicker" style="color:#dae8df">Mechanisms and experience</div>
+            <h1 style="font-size:49px">环境改变后，<br />身体与注意会怎样</h1>
+            <p class="lead" style="color:#fff">不是按下一个“神经开关”，而是同时减少多种持续负担，让放松更容易发生。</p>
+          </div>
+          <div class="photo-frame" style="height:142mm"><img class="photo" src="assets/brand-neural-reset.png" alt="低刺激漂浮环境" /></div>
+        </div>
+      </div>
+      <div class="folio">14</div>
+    </section>
+
+    <!-- 15 Body unloading -->
+    <section class="page" id="p15">
+      <div class="running"><span>03 · 环境如何改变体验</span><span>BODY UNLOADING</span></div>
+      <div class="chapter-tab violet">03 身体</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">Effortless support</div>
+        <h1>“不必维持身体”，<br />是漂浮与普通躺卧最大的差别之一</h1>
+        <div class="split-wide">
+          <div>
+            <p class="lead dropcap">站立时，足底、腿、骨盆、脊柱和颈部持续参与姿势控制；坐着和躺在床上，身体也会不断接收支撑面的压力与边界信息。漂浮让这些输入显著减少。</p>
+            <p>当身体被均匀托住，肩、腰、髋和膝不必寻找一个“受力点”。有些人会很快感到肌肉松开；有些人反而先注意到原来被忙碌遮住的紧张、酸痛或不对称。后者并不说明“毒素排出”，更可能是注意力转向身体后，对原有感觉变得敏锐。</p>
+            <div class="note sage">
+              <h3>放松不是瘫软，也不需要主动用力</h3>
+              <p class="small" style="margin:0">更实用的做法是找到一个不必持续调整的姿势，让下巴、肩、手指和腹部自然松开。若颈部不舒服，可更换手臂位置或使用合适的头部支撑。</p>
+            </div>
+          </div>
+          <div>
+            <svg viewBox="0 0 480 600" style="width:100%;height:154mm;background:#e7e0d5;border:1px solid var(--line)" role="img" aria-label="身体支撑输入对比">
+              <rect width="480" height="600" fill="#e7e0d5"/>
+              <line x1="45" y1="480" x2="435" y2="480" stroke="#191b18" stroke-width="2"/>
+              <g transform="translate(110,50)"><circle cx="70" cy="52" r="28" fill="#c95738"/><path d="M70 83 L70 230 M70 130 L15 190 M70 130 L125 188 M70 230 L35 365 M70 230 L105 365" stroke="#c95738" stroke-width="24" stroke-linecap="round" fill="none"/><path d="M70 390 L70 455" stroke="#191b18" stroke-width="3" stroke-dasharray="7 7"/><text x="-10" y="500" font-size="18" font-weight="700">站立：持续姿势控制</text></g>
+              <g transform="translate(290,75)"><path d="M-55 325 Q0 290 60 320 L60 390 L-55 390 Z" fill="#9fb7aa"/><circle cx="-30" cy="307" r="22" fill="#786b88"/><path d="M-10 310 C35 300 68 320 90 336" stroke="#786b88" stroke-width="19" stroke-linecap="round" fill="none"/><path d="M80 340 C110 350 122 370 135 392" stroke="#786b88" stroke-width="17" stroke-linecap="round" fill="none"/><path d="M40 325 C65 355 63 382 58 410" stroke="#786b88" stroke-width="15" stroke-linecap="round" fill="none"/><path d="M5 390 L5 472" stroke="#fff" stroke-width="3" stroke-dasharray="7 7"/><text x="-82" y="505" font-size="18" font-weight="700">漂浮：支撑分散</text></g>
+              <text x="240" y="36" text-anchor="middle" font-size="15" letter-spacing="2" fill="#555">POSTURAL LOAD</text>
+            </svg>
+            <div class="caption">示意图。漂浮并不消除重力，而是让高密度水体承担更多身体重量，改变压力与本体感觉输入。</div>
+          </div>
+        </div>
+        <div class="margin-note" style="margin-top:8mm">慢性疼痛研究中，短期放松和疼痛变化可以出现，但高质量随机试验没有发现 5 次漂浮带来长期优于安慰对照的疼痛收益。<span class="source-no">6</span></div>
+      </div>
+      <div class="folio">15</div>
+    </section>
+
+    <!-- 16 Sensory attention -->
+    <section class="page" id="p16">
+      <div class="running"><span>03 · 环境如何改变体验</span><span>FROM OUTSIDE TO INSIDE</span></div>
+      <div class="chapter-tab violet">03 感觉</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">Exteroception · proprioception · interoception</div>
+        <h1>外界退远后，<br />内部感觉会变得更“响”</h1>
+        <div class="columns-2" style="grid-template-columns:1.08fr .92fr">
+          <div>
+            <svg viewBox="0 0 620 560" style="width:100%;height:149mm;background:#1b1d1a" role="img" aria-label="外感、本体感觉和内感受示意">
+              <circle cx="310" cy="280" r="103" fill="#f0eadf"/>
+              <circle cx="310" cy="280" r="164" fill="none" stroke="#786b88" stroke-width="2" stroke-dasharray="8 9"/>
+              <circle cx="310" cy="280" r="225" fill="none" stroke="#c95738" stroke-width="2" stroke-dasharray="8 9"/>
+              <text x="310" y="268" text-anchor="middle" font-size="25" font-weight="700" fill="#191b18">内感受</text><text x="310" y="302" text-anchor="middle" font-size="16" fill="#555">呼吸 · 心跳 · 饥饿 · 情绪唤醒</text>
+              <text x="310" y="104" text-anchor="middle" font-size="22" font-weight="700" fill="#c9bdcf">本体感觉</text><text x="310" y="132" text-anchor="middle" font-size="15" fill="#c9bdcf">姿势 · 关节位置 · 肌肉张力</text>
+              <text x="310" y="38" text-anchor="middle" font-size="22" font-weight="700" fill="#e8977e">外感</text><text x="310" y="66" text-anchor="middle" font-size="15" fill="#e8977e">光 · 声 · 温度 · 触碰</text>
+              <path d="M70 280 H175" stroke="#c95738" stroke-width="4"/><path d="M445 280 H550" stroke="#c95738" stroke-width="4"/>
+              <text x="70" y="262" font-size="15" fill="#fff">输入减少</text><text x="482" y="262" font-size="15" fill="#fff">注意转向</text>
+            </svg>
+            <div class="caption">当外感和姿势输入减少，内感受并没有增加“信号强度”，但它在注意中的相对占比可能上升。</div>
+          </div>
+          <div>
+            <p class="lead dropcap">我们平时的大部分注意力都在外面：屏幕、声音、任务、他人表情、身体与椅子的接触。漂浮改变的是注意力竞争关系。</p>
+            <p><b>外感受</b>告诉你外界发生什么；<b>本体感觉</b>告诉你身体位于哪里；<b>内感受</b>则包括呼吸、心跳、胃部感觉、温度、紧张和情绪唤醒。低刺激环境让前两类输入变少，第三类感觉便更容易进入意识。</p>
+            <p>因此，有人会突然发现自己的呼吸很浅、肩膀一直绷着；也有人感到心跳明显而担心。知道这种注意转移是常见现象，往往能减少误解。若感觉引发持续恐慌，应开灯、开盖、坐起并联系工作人员。</p>
+            <div class="note">
+              <h3>身体边界变淡，是感觉整合的变化</h3>
+              <p class="small" style="margin:0">水温接近皮肤温度、压力较均匀、视觉线索减少时，身体与环境的分界可能没那么突出。这可以很舒服，也可能陌生。无需追求。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="folio">16</div>
+    </section>
+
+    <!-- 17 Arousal -->
+    <section class="page" id="p17">
+      <div class="running"><span>03 · 环境如何改变体验</span><span>AROUSAL & AUTONOMIC STATE</span></div>
+      <div class="chapter-tab violet">03 唤醒</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">A gradual shift, not a switch</div>
+        <h1>放松通常是一个下降过程，<br />不是“交感关掉、副交感打开”</h1>
+        <div class="split-wide">
+          <div>
+            <p class="lead dropcap">自主神经系统持续调节心率、呼吸、血管、消化和警觉。交感与副交感不是简单的敌人，也不是只能二选一；它们会根据情境共同变化。</p>
+            <p>低刺激、稳定温度、身体支撑和安全感，可能减少继续维持高警觉的必要。研究中曾观察到呼吸减慢、舒张压下降、皮质醇或主观紧张变化等信号，但结果并非每项研究都一致。<span class="source-no">2</span></p>
+            <p>更准确的表达是：漂浮为唤醒水平下降提供条件。体验者是否真的放松，还会受到当日睡眠、咖啡因、疼痛、焦虑、环境信任和个人经验影响。</p>
+            <div class="note sage">
+              <h3>安全感是一种生理条件</h3>
+              <p class="small" style="margin:0">知道盖子能推开、有人应答、灯可以保留，会减少“我被困住”的解释。控制感本身常常比全黑、全静更重要。</p>
+            </div>
+          </div>
+          <div>
+            <svg viewBox="0 0 520 550" style="width:100%;height:146mm;background:#e6e0d5;border:1px solid var(--line)" role="img" aria-label="漂浮期间唤醒水平变化示意">
+              <rect width="520" height="550" fill="#e6e0d5"/>
+              <line x1="70" y1="455" x2="470" y2="455" stroke="#191b18" stroke-width="2"/>
+              <line x1="70" y1="90" x2="70" y2="455" stroke="#191b18" stroke-width="2"/>
+              <path d="M72 165 C135 130 150 220 203 235 C267 254 288 327 356 335 C400 340 430 322 470 310" fill="none" stroke="#c95738" stroke-width="8"/>
+              <path d="M72 168 C140 158 170 205 208 218" fill="none" stroke="#191b18" stroke-width="2" stroke-dasharray="7 7"/>
+              <text x="16" y="103" font-size="16" fill="#555">高唤醒</text><text x="16" y="450" font-size="16" fill="#555">低唤醒</text>
+              <text x="82" y="492" font-size="16">进入</text><text x="235" y="492" font-size="16">适应</text><text x="404" y="492" font-size="16">结束</text>
+              <text x="92" y="128" font-size="15" fill="#8f3525">可能先关注陌生感</text>
+              <text x="267" y="380" font-size="15" fill="#4e6156">逐渐稳定</text>
+              <text x="260" y="55" text-anchor="middle" font-size="15" letter-spacing="2" fill="#555">A POSSIBLE AROUSAL CURVE</text>
+            </svg>
+            <div class="caption">示意曲线，不代表每个人。第一次体验者可能先短暂提高警觉，熟悉环境后再下降。</div>
+            <div class="margin-note" style="margin-top:8mm">把所有健康问题都归因于“自主神经失衡”，再宣称漂浮可以迅速纠正，是过度简化。</div>
+          </div>
+        </div>
+      </div>
+      <div class="folio">17</div>
+    </section>
+
+    <!-- 18 Mental phenomena -->
+    <section class="page" id="p18">
+      <div class="running"><span>03 · 环境如何改变体验</span><span>TIME · THOUGHT · IMAGERY</span></div>
+      <div class="chapter-tab violet">03 意识</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">Common, not compulsory</div>
+        <h1>时间、身体和思绪，<br />可能以不同方式进入意识</h1>
+        <div class="columns-3" style="margin-top:8mm">
+          <div class="rule"><h2>时间感改变</h2><p class="small">缺少钟表、光线变化和外部事件后，时间线索变少。有人觉得 60 分钟很短，也有人觉得很长。</p></div>
+          <div class="rule"><h2>身体边界变淡</h2><p class="small">均匀温度与压力、视觉信息减少，会让身体轮廓不那么明确。这是一种知觉变化，不是“灵魂离体”。</p></div>
+          <div class="rule"><h2>意象更鲜明</h2><p class="small">闭眼、安静和低输入时，视觉想象、颜色、记忆片段或似梦体验可能更明显。保持好奇即可。</p></div>
+          <div class="rule"><h2>思绪先变多</h2><p class="small">外界安静不代表头脑立即安静。刚进入时想到工作、关系和待办事项很常见，不需要压制。</p></div>
+          <div class="rule"><h2>浅睡或打盹</h2><p class="small">有人会进入类似入睡前的朦胧状态，也有人全程清醒。睡着并不是成功标准。</p></div>
+          <div class="rule"><h2>没有特别感受</h2><p class="small">只觉得身体舒服、安静或有点无聊也完全正常。疗法价值不应建立在“必须出现奇异体验”上。</p></div>
+        </div>
+        <div class="photo-frame" style="height:63mm;margin-top:11mm"><img class="photo" src="assets/brand-system-studio.png" alt="安静的漂浮空间" style="object-position:center 52%" /></div>
+        <div class="columns-2" style="margin-top:7mm">
+          <p class="small">2025 年系统综述汇总的意识研究中，多项研究报告了深度放松、时间知觉变化及视觉或听觉意象，但该领域定量研究仍少。<span class="source-no">2</span></p>
+          <p class="small">如果意象、回忆或身体感觉引发强烈不安，不必继续“观察”。开灯、改变姿势、开盖并呼叫，是正确的自我照顾。</p>
+        </div>
+      </div>
+      <div class="folio">18</div>
+    </section>
+
+    <!-- 19 Chapter 4 -->
+    <section class="page dark" id="p19">
+      <div class="running"><span>CHAPTER 04</span><span>WHAT RESEARCH SAYS</span></div>
+      <div class="inner" style="padding-top:25mm">
+        <div style="position:absolute;left:18mm;right:17mm;top:28mm">
+          <div class="display-number" style="color:#454842;font-size:128px">04</div>
+          <div class="kicker" style="color:var(--yellow);margin-top:9mm">Evidence, not promises</div>
+          <h1 style="font-size:52px">研究给出的是地图，<br />不是保证书</h1>
+          <p class="lead" style="color:#f2eee5;max-width:130mm">漂浮研究已积累七十余年，但样本量、对照方式和干预次数差异很大。阅读结果时，既要看“有没有变化”，也要看“与什么相比、持续多久”。</p>
+        </div>
+        <div style="position:absolute;left:18mm;right:17mm;bottom:21mm;display:grid;grid-template-columns:repeat(3,1fr);gap:8mm">
+          <div class="stat" style="border-color:var(--yellow)"><div class="number" style="color:#fff">63</div><div class="meta">2025 系统综述纳入的研究数量</div></div>
+          <div class="stat" style="border-color:var(--yellow)"><div class="number" style="color:#fff">1,838</div><div class="meta">综述中合计参与者</div></div>
+          <div class="stat" style="border-color:var(--yellow)"><div class="number" style="color:#fff">9+</div><div class="meta">压力、疼痛、运动、睡眠等研究方向</div></div>
+        </div>
+      </div>
+      <div class="folio">19</div>
+    </section>
+
+    <!-- 20 Evidence map -->
+    <section class="page" id="p20">
+      <div class="running"><span>04 · 研究说了什么</span><span>EVIDENCE MAP</span></div>
+      <div class="chapter-tab ink">04 证据</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">Systematic review through May 2024</div>
+        <h1>积极信号集中在“当下状态”，<br />长期疗效和最佳方案仍不清楚</h1>
+        <div class="evidence-row"><div class="evidence-tag">Stress<br />Anxiety</div><div><h3>压力、主观焦虑与放松</h3><p class="small">多项小样本研究观察到一次或多次漂浮后的短期改善。临床焦虑方向较有希望，但仍需更大、更严格的独立试验。</p></div><div class="evidence-grade">较多积极信号</div></div>
+        <div class="evidence-row"><div class="evidence-tag">Pain</div><div><h3>疼痛与肌肉紧张</h3><p class="small">早期研究和综述有积极结果；一项高质量随机安慰对照试验未发现 5 次漂浮的长期特异性收益。</p></div><div class="evidence-grade">结果混合</div></div>
+        <div class="evidence-row"><div class="evidence-tag">Sport</div><div><h3>运动恢复与表现</h3><p class="small">有研究提示主观酸痛、疲劳、睡眠或部分表现指标改善，方案和样本差异较大，不足以给出统一处方。</p></div><div class="evidence-grade">初步信号</div></div>
+        <div class="evidence-row"><div class="evidence-tag">Sleep</div><div><h3>睡眠</h3><p class="small">体验当下的困倦和休息感较常见，但针对睡眠障碍的研究少，2025 综述认为收益有限或不一致。</p></div><div class="evidence-grade">证据有限</div></div>
+        <div class="evidence-row"><div class="evidence-tag">Mind</div><div><h3>意识、创造力与内省</h3><p class="small">时间感、意象和深度放松经常被报告；创造力任务有正有负，不能概括为“提升大脑潜能”。</p></div><div class="evidence-grade">探索阶段</div></div>
+        <div class="evidence-row"><div class="evidence-tag">Disease</div><div><h3>疾病治疗、免疫、排毒、抗衰</h3><p class="small">没有足够证据支持漂浮替代疾病诊疗，也不能把不适反应解释为“排毒”或“好转反应”。</p></div><div class="evidence-grade" style="color:var(--rust-dark)">不支持承诺</div></div>
+        <div class="margin-note" style="margin-top:7mm">系统综述共纳入 63 项研究、1,838 名参与者；作者同时强调研究数量少、设计差异大和可推广性有限。<span class="source-no">2</span></div>
+      </div>
+      <div class="folio">20</div>
+    </section>
+
+    <!-- 21 Anxiety -->
+    <section class="page" id="p21">
+      <div class="running"><span>04 · 研究说了什么</span><span>STRESS & ANXIETY</span></div>
+      <div class="chapter-tab ink">04 压力</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">The most promising research direction</div>
+        <h1>压力与焦虑研究显示希望，<br />但“辅助”仍是关键词</h1>
+        <div class="columns-3" style="margin-top:8mm">
+          <div class="stat"><div class="number">50</div><h3 style="margin-top:4mm">一次体验</h3><p class="small">2018 年开放标签研究纳入 50 名焦虑和压力相关障碍参与者。一次漂浮后，主观焦虑、压力、肌肉紧张与情绪指标出现变化。因为缺少对照，只能视为初步信号。<span class="source-no">4</span></p></div>
+          <div class="stat" style="border-color:var(--sage)"><div class="number">12</div><h3 style="margin-top:4mm">连续体验</h3><p class="small">2016 年广泛性焦虑障碍小型随机先导试验比较 12 次漂浮与等待名单，观察到症状改善；样本来自自评 GAD，研究者明确要求进一步验证。<span class="source-no">5</span></p></div>
+          <div class="stat" style="border-color:var(--violet)"><div class="number">6</div><h3 style="margin-top:4mm">安全性方案</h3><p class="small">2024 年随机安全性与可行性试验让焦虑与抑郁参与者完成 6 次体验，结果支持可行、耐受和总体安全，但研究不是疗效定论。<span class="source-no">3</span></p></div>
+        </div>
+        <div class="split-wide" style="margin-top:12mm">
+          <div>
+            <h2>可能为什么有帮助</h2>
+            <p>低声光环境减少外部警报线索，浮力减少身体紧张，体验者又可以控制灯光、盖子和结束时间。这些条件可能让持续高警觉的人短暂练习“不必马上回应”。</p>
+            <p>但焦虑并非只有一个机制。严重焦虑、惊恐、创伤后反应或抑郁需要专业评估；漂浮最多作为已建立治疗旁边的辅助选择。</p>
+          </div>
+          <div class="note">
+            <h3>尤其需要谨慎的情况</h3>
+            <p class="small">近期有自伤或自杀风险、精神病性症状、躁狂发作、严重惊恐失控或创伤回闪的人，不应依靠一般商业漂浮自行处理。先联系心理健康专业人员。</p>
+          </div>
+        </div>
+        <div class="quote" style="font-size:20px">研究支持的是：某些人可能在漂浮后感觉更平静。<br />研究没有支持：漂浮可以治愈焦虑或抑郁。</div>
+      </div>
+      <div class="folio">21</div>
+    </section>
+
+    <!-- 22 Pain -->
+    <section class="page" id="p22">
+      <div class="running"><span>04 · 研究说了什么</span><span>PAIN & MUSCLE RECOVERY</span></div>
+      <div class="chapter-tab ink">04 疼痛</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">A useful example of mixed evidence</div>
+        <h1>短期觉得舒服，<br />不一定等于产生了长期治疗作用</h1>
+        <div class="split-wide">
+          <div>
+            <p class="lead dropcap">漂浮时身体被托住、姿势肌不必持续用力，温度稳定，注意力也从外界任务移开。因此，肌肉放松和短期疼痛缓解在体验上很合理，也经常被报告。</p>
+            <p>问题在于：改善来自漂浮的哪一部分？是无压力支撑、温热、安静、期待，还是多种因素共同作用？如果要证明“疗法的特异性”，必须设置足够可信的对照。</p>
+            <div class="note sage">
+              <h3>2021 年 JAMA Network Open 随机试验</h3>
+              <p class="small">99 名慢性疼痛患者被分到常规漂浮、尽量相似的安慰对照或等待名单。常规组短期疼痛、放松和焦虑改善，但 1 周、12 周与 24 周主要结果没有显示长期组间优势；安慰对照也出现相近短期变化。<span class="source-no">6</span></p>
+            </div>
+          </div>
+          <div>
+            <svg viewBox="0 0 520 520" style="width:100%;height:132mm;background:#e5dfd4;border:1px solid var(--line)" role="img" aria-label="短期体验与长期疗效的区别">
+              <rect width="520" height="520" fill="#e5dfd4"/>
+              <line x1="70" y1="430" x2="470" y2="430" stroke="#191b18" stroke-width="2"/><line x1="70" y1="80" x2="70" y2="430" stroke="#191b18" stroke-width="2"/>
+              <path d="M80 330 C140 220 175 185 230 260 C290 340 340 350 465 356" fill="none" stroke="#c95738" stroke-width="8"/>
+              <path d="M80 345 C145 250 182 215 235 275 C300 345 355 352 465 360" fill="none" stroke="#617469" stroke-width="6" stroke-dasharray="11 8"/>
+              <text x="98" y="158" font-size="18" fill="#8f3525" font-weight="700">体验后短期变化</text>
+              <text x="300" y="335" font-size="16" fill="#4e6156">安慰对照也有变化</text>
+              <text x="76" y="465" font-size="15">体验</text><text x="222" y="465" font-size="15">1周</text><text x="340" y="465" font-size="15">12周</text><text x="438" y="465" font-size="15">24周</text>
+              <text x="255" y="42" text-anchor="middle" font-size="15" letter-spacing="2" fill="#555">ILLUSTRATIVE, NOT RAW DATA</text>
+            </svg>
+            <div class="caption">概念示意，不是原始数据图。它说明“当下舒服”和“长期优于对照”是两个不同研究问题。</div>
+            <div class="margin-note" style="margin-top:7mm">若有持续疼痛、麻木、无力、夜间痛或近期损伤，应先获得医学或康复评估。漂浮不能替代病因诊断。</div>
+          </div>
+        </div>
+        <div class="quote" style="font-size:19px">最可信的说法是“支持放松与恢复感”，<br />而不是“修复关节、治愈慢性疼痛”。</div>
+      </div>
+      <div class="folio">22</div>
+    </section>
+
+    <!-- 23 Sleep Sport -->
+    <section class="page" id="p23">
+      <div class="running"><span>04 · 研究说了什么</span><span>SLEEP & SPORT</span></div>
+      <div class="chapter-tab ink">04 恢复</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">Restfulness is not the same as sleep treatment</div>
+        <h1>困倦、休息感、睡眠改善，<br />是三个不同层次</h1>
+        <div class="columns-2">
+          <div>
+            <div class="photo-frame" style="height:78mm"><img class="photo" src="assets/brand-sports-recovery.png" alt="运动恢复场景" /></div>
+            <div class="caption">运动人群使用漂浮，常关注主观酸痛、疲劳、睡眠和表现恢复。</div>
+            <h2 style="margin-top:7mm">睡眠：研究仍少</h2>
+            <p>低刺激和不必维持姿势，容易让人进入朦胧、浅睡或深度休息感。但针对失眠或睡眠障碍的研究很少。2025 年系统综述认为，睡眠相关收益有限或不一致，不能把漂浮写成失眠治疗。<span class="source-no">2</span></p>
+            <p class="small">更稳妥的目标是观察体验后当晚的入睡感受与次日状态，而不是追求“必须睡着”。长期失眠应接受规范睡眠评估。</p>
+          </div>
+          <div>
+            <h2>运动恢复：有信号，尚无统一处方</h2>
+            <p>早期研究提示漂浮可能影响主观肌肉酸痛、疲劳、放松、部分运动表现或睡眠质量。2024 年一项活跃人群研究比较 1 小时漂浮和常规小睡，继续探索心率变异性与恢复差异；该领域仍需要更大样本和更一致的训练负荷控制。<span class="source-no">11</span></p>
+            <div class="ledger" style="margin-top:7mm">
+              <div class="label">适合观察</div><div class="copy">主观酸痛、心理疲劳、放松程度、睡眠感受、第二天训练准备度。</div>
+              <div class="label">不能保证</div><div class="copy">乳酸“快速排空”、损伤修复、肌肉增长、竞技表现必然提高。</div>
+              <div class="label">安排原则</div><div class="copy">高强度训练后先补水、降温并恢复正常心率；不要在明显脱水、头晕或急性损伤时立即漂浮。</div>
+            </div>
+            <div class="note" style="margin-top:8mm">
+              <h3>个人追踪比口号更有用</h3>
+              <p class="small" style="margin:0">记录体验前后的疲劳、酸痛、睡眠和训练表现。连续 3–5 次若没有稳定的主观收益，就不必因为“疗程”概念勉强继续。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="folio">23</div>
+    </section>
+
+    <!-- 24 Claims boundaries -->
+    <section class="page" id="p24">
+      <div class="running"><span>04 · 研究说了什么</span><span>WHAT NOT TO CLAIM</span></div>
+      <div class="chapter-tab ink">04 边界</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">Four common overstatements</div>
+        <h1>下面这些说法很常见，<br />但不适合写进可信的疗法手册</h1>
+        <div class="myth"><div class="claim">“大量透皮补镁”</div><div><h3>溶液提供浮力，不等于完成营养补充</h3><p class="small">2017 年综述认为，经完整皮肤补镁的营销说法缺乏科学支持；少量研究规模小、结果不稳定。<span class="source-no">7</span></p></div></div>
+        <div class="myth"><div class="claim">“排毒反应”</div><div><h3>头晕、恶心、心悸或皮疹首先是不适信号</h3><p class="small">不应解释为毒素排出，更不能要求体验者坚持。应停止、离开水体、补充安全措施，并根据严重程度寻求医疗帮助。</p></div></div>
+        <div class="myth"><div class="claim">“重启神经系统”</div><div><h3>可以作为比喻，不能作为医学机制</h3><p class="small">更准确的表达是：低刺激和安全感可能帮助部分人降低当下唤醒水平，回到更稳定的主观状态。</p></div></div>
+        <div class="myth"><div class="claim">“治愈失眠、抑郁、慢性病”</div><div><h3>漂浮不能替代诊断和规范治疗</h3><p class="small">研究主要支持短期放松、压力和焦虑方向的潜力；针对疾病的证据不足，且不同人群需要不同风险管理。</p></div></div>
+        <div class="split-wide" style="margin-top:10mm">
+          <div class="note sage">
+            <h3>如果体验后出现不舒服</h3>
+            <p class="small" style="margin:0">把它当作信息，而不是“好转证明”。轻微盐刺激可冲洗皮肤；持续眩晕、胸痛、呼吸困难、意识异常或严重情绪波动需要及时评估。</p>
+          </div>
+          <div>
+            <div class="quote" style="font-size:18px;margin:0">真正的专业，不是把每一种反应都解释成疗效。</div>
+          </div>
+        </div>
+      </div>
+      <div class="folio">24</div>
+    </section>
+
+    <!-- 25 Chapter 5 -->
+    <section class="page rust-page" id="p25">
+      <div class="running"><span>CHAPTER 05</span><span>THE EXPERIENCE</span></div>
+      <div class="inner wide" style="padding-top:24mm">
+        <div class="photo-frame" style="height:178mm"><img class="photo" src="assets/brand-fa-o-room.jpg" alt="漂浮体验空间" style="object-position:center 45%" /></div>
+        <div style="position:absolute;left:18mm;right:17mm;bottom:18mm;background:var(--paper);color:var(--ink);padding:9mm 10mm;display:grid;grid-template-columns:24mm 1fr;gap:7mm">
+          <div class="display-number" style="font-size:63px">05</div>
+          <div><div class="kicker">Before · during · after</div><h1 style="font-size:42px;margin-bottom:3mm">怎样完成一次漂浮</h1><p style="margin:0;text-align:left">没有需要征服的黑暗，也没有必须达到的状态。准备充分、保留选择、注意身体反馈，体验才会真正属于你。</p></div>
+        </div>
+      </div>
+      <div class="folio">25</div>
+    </section>
+
+    <!-- 26 Before -->
+    <section class="page" id="p26">
+      <div class="running"><span>05 · 怎样完成一次体验</span><span>BEFORE THE FLOAT</span></div>
+      <div class="chapter-tab">05 准备</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">Reduce avoidable discomfort</div>
+        <h1>体验前的准备，<br />是在替未来的一小时减少干扰</h1>
+        <div class="columns-2">
+          <div>
+            <div class="steps">
+              <div class="step"><div><h3>提前抵达</h3><p class="small">给自己留出 10–15 分钟，不在奔跑、争执或刚结束会议后直接入舱。</p></div></div>
+              <div class="step"><div><h3>说明当日状态</h3><p class="small">主动告知发热、伤口、皮肤问题、近期手术、心肺疾病、癫痫、妊娠、惊恐或用药情况。</p></div></div>
+              <div class="step"><div><h3>避免酒精与影响判断的物质</h3><p class="small">饮酒、镇静药物滥用或娱乐性药物会增加失去判断、跌倒和溺水风险。研究已记录与酒精或药物共用相关的死亡事件。<span class="source-no">3</span></p></div></div>
+              <div class="step"><div><h3>别在太饱或太饿时开始</h3><p class="small">大餐后可能腹胀不适，空腹过久又可能分散注意。选择自己熟悉、轻松的进食节奏。</p></div></div>
+            </div>
+          </div>
+          <div>
+            <div class="photo-frame" style="height:80mm"><img class="photo" src="assets/brand-fa-o-open.jpg" alt="可自主开合的漂浮舱" /></div>
+            <div class="caption">入舱前亲手试一次开盖、灯光和呼叫方式，比口头保证更能建立控制感。</div>
+            <div class="check" style="margin-top:7mm">当天不要剃须、脱毛或做可能产生细小创口的护理，盐水会明显刺痛。</div>
+            <div class="check">取下隐形眼镜、首饰和不防水的可穿戴设备。</div>
+            <div class="check">先如厕，再按场所要求淋浴并彻底冲净体表用品。</div>
+            <div class="check">耳塞按说明佩戴；细小划伤可按场所指引使用隔离膏。</div>
+            <div class="check">决定是否关灯、关盖。第一次可以从留光、留缝开始。</div>
+            <div class="note" style="margin-top:6mm">
+              <h3>问清三件事</h3>
+              <p class="small" style="margin:0">如何退出？如何呼叫？工作人员会在什么情况下主动联系你？</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="folio">26</div>
+    </section>
+
+    <!-- 27 First 15 min -->
+    <section class="page" id="p27">
+      <div class="running"><span>05 · 怎样完成一次体验</span><span>THE FIRST 15 MINUTES</span></div>
+      <div class="chapter-tab">05 入舱</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">Orientation before relaxation</div>
+        <h1>最初十几分钟的任务，<br />不是放空，而是完成定位</h1>
+        <div class="split-wide">
+          <div>
+            <svg viewBox="0 0 720 500" style="width:100%;height:128mm;background:#e6dfd4;border:1px solid var(--line)" role="img" aria-label="漂浮前15分钟适应过程">
+              <rect width="720" height="500" fill="#e6dfd4"/>
+              <line x1="80" y1="275" x2="650" y2="275" stroke="#191b18" stroke-width="2"/>
+              <circle cx="100" cy="275" r="17" fill="#c95738"/><circle cx="275" cy="275" r="17" fill="#c95738"/><circle cx="460" cy="275" r="17" fill="#617469"/><circle cx="635" cy="275" r="17" fill="#617469"/>
+              <text x="100" y="230" text-anchor="middle" font-size="20" font-weight="700">进入水体</text><text x="100" y="322" text-anchor="middle" font-size="14">扶稳 · 坐下 · 仰卧</text>
+              <text x="275" y="230" text-anchor="middle" font-size="20" font-weight="700">确认控制</text><text x="275" y="322" text-anchor="middle" font-size="14">灯 · 盖 · 呼叫</text>
+              <text x="460" y="230" text-anchor="middle" font-size="20" font-weight="700">调整姿势</text><text x="460" y="322" text-anchor="middle" font-size="14">颈 · 肩 · 手臂</text>
+              <text x="635" y="230" text-anchor="middle" font-size="20" font-weight="700">减少动作</text><text x="635" y="322" text-anchor="middle" font-size="14">让水面自己稳定</text>
+              <text x="80" y="72" font-size="15" letter-spacing="2" fill="#555">ARRIVE → ORIENT → ADJUST → SETTLE</text>
+              <path d="M100 392 C245 352 358 417 635 372" fill="none" stroke="#c95738" stroke-width="5" stroke-dasharray="10 8"/>
+              <text x="356" y="444" text-anchor="middle" font-size="15" fill="#8f3525">熟悉感逐渐增加，动作自然减少</text>
+            </svg>
+            <div class="caption">第一次体验先建立方向感和控制感，再谈深度放松。</div>
+          </div>
+          <div>
+            <div class="steps">
+              <div class="step"><div><h3>扶稳进入，先坐下</h3><p class="small">不要一步跨入或急着躺倒。手扶边缘，坐下后再缓慢仰卧。</p></div></div>
+              <div class="step"><div><h3>让耳朵进入水中</h3><p class="small">头后仰，面部自然朝上。不要用脖子“托住”头，也不要刻意抬下巴。</p></div></div>
+              <div class="step"><div><h3>重新确认退出方式</h3><p class="small">亲手碰一下盖子、灯键或呼叫装置。大脑知道“我能离开”，更容易停止警戒。</p></div></div>
+              <div class="step"><div><h3>等水面安静</h3><p class="small">每次摆动都会产生回波。找到姿势后停下来几十秒，水和身体会一起稳定。</p></div></div>
+            </div>
+            <div class="note sage" style="margin-top:8mm"><h3>盐水进入眼睛怎么办？</h3><p class="small" style="margin:0">不要揉眼。用舱内清水或离开水体后充分冲洗；确认舒适再决定是否继续。</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="folio">27</div>
+    </section>
+
+    <!-- 28 Position and breath -->
+    <section class="page" id="p28">
+      <div class="running"><span>05 · 怎样完成一次体验</span><span>POSITION & BREATH</span></div>
+      <div class="chapter-tab">05 姿势</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">Comfort before technique</div>
+        <h1>姿势没有标准答案，<br />呼吸也不需要被“控制成功”</h1>
+        <div class="columns-3" style="margin-top:8mm">
+          <div>
+            <svg viewBox="0 0 220 300" style="width:100%;height:72mm;background:#e5ded3;border:1px solid var(--line)"><ellipse cx="110" cy="192" rx="76" ry="21" fill="#adc0b5"/><circle cx="58" cy="185" r="19" fill="#c95738"/><path d="M77 187 Q124 169 168 189" stroke="#c95738" stroke-width="17" stroke-linecap="round" fill="none"/><path d="M112 181 L77 215 M120 181 L154 215" stroke="#c95738" stroke-width="11" stroke-linecap="round"/><text x="110" y="260" text-anchor="middle" font-size="17" font-weight="700">手臂放在身体两侧</text></svg>
+            <p class="small" style="margin-top:3mm">动作最少，适合多数人；若肩部向前紧张，可换姿势。</p>
+          </div>
+          <div>
+            <svg viewBox="0 0 220 300" style="width:100%;height:72mm;background:#e5ded3;border:1px solid var(--line)"><ellipse cx="110" cy="192" rx="76" ry="21" fill="#adc0b5"/><circle cx="58" cy="185" r="19" fill="#786b88"/><path d="M77 187 Q124 169 168 189" stroke="#786b88" stroke-width="17" stroke-linecap="round" fill="none"/><path d="M106 180 Q78 140 58 112 M120 180 Q145 140 168 112" stroke="#786b88" stroke-width="11" stroke-linecap="round" fill="none"/><text x="110" y="260" text-anchor="middle" font-size="17" font-weight="700">手臂举过头顶</text></svg>
+            <p class="small" style="margin-top:3mm">可能减轻肩颈牵拉；若手麻或肩不适，立即放回。</p>
+          </div>
+          <div>
+            <svg viewBox="0 0 220 300" style="width:100%;height:72mm;background:#e5ded3;border:1px solid var(--line)"><ellipse cx="110" cy="192" rx="76" ry="21" fill="#adc0b5"/><circle cx="58" cy="185" r="19" fill="#617469"/><path d="M77 187 Q124 169 168 189" stroke="#617469" stroke-width="17" stroke-linecap="round" fill="none"/><path d="M106 180 L83 148 L61 170 M120 180 L145 148 L166 170" stroke="#617469" stroke-width="11" stroke-linecap="round" fill="none"/><text x="110" y="260" text-anchor="middle" font-size="17" font-weight="700">“仙人掌”姿势</text></svg>
+            <p class="small" style="margin-top:3mm">在身体两侧与头顶之间折中，常有助于胸肩展开。</p>
+          </div>
+        </div>
+        <div class="columns-2" style="margin-top:10mm">
+          <div>
+            <h2>颈部不舒服时</h2>
+            <p>先放松下巴，试着改变手臂位置。若仍需用力维持头部，可使用专用漂浮头环或请工作人员协助。不要为了“适应”而忍住持续疼痛。</p>
+          </div>
+          <div>
+            <h2>呼吸只需要自然</h2>
+            <p>不要反复深吸气、憋气或强行达到每分钟某个次数。过度换气会造成头晕、手麻和胸闷。更简单的做法是让呼气稍微完整，随后允许下一次吸气自然发生。</p>
+          </div>
+        </div>
+        <div class="note" style="margin-top:8mm">
+          <h3>一个温和的起点</h3>
+          <p style="margin:0">只观察三次呼吸：气息从哪里开始？胸口还是腹部先动？呼气结束时，身体有没有多沉下一点？观察即可，不必修正。</p>
+        </div>
+      </div>
+      <div class="folio">28</div>
+    </section>
+
+    <!-- 29 Attention -->
+    <section class="page" id="p29">
+      <div class="running"><span>05 · 怎样完成一次体验</span><span>WHAT TO DO WITH YOUR MIND</span></div>
+      <div class="chapter-tab">05 注意</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">You do not need to empty the mind</div>
+        <h1>思绪多的时候，<br />不必把自己变成“没有念头的人”</h1>
+        <div class="split-wide">
+          <div>
+            <p class="lead dropcap">越努力要求自己放空，越容易继续监控“我放空了吗”。这会把漂浮变成另一项任务。</p>
+            <div class="ledger">
+              <div class="label">回到身体</div><div class="copy">从额头、下巴、肩、手指到脚趾，依次问一句：“这里需要继续用力吗？”</div>
+              <div class="label">回到声音</div><div class="copy">把呼吸、水声和远处设备声当作环境的一部分，不评价它们是否破坏安静。</div>
+              <div class="label">给思绪命名</div><div class="copy">轻轻说“计划”“回忆”“担心”，然后把注意交回身体，不继续追问内容。</div>
+              <div class="label">允许无聊</div><div class="copy">无聊常是刺激突然减少后的过渡感。先给它几分钟；如果持续难受，也可以结束。</div>
+            </div>
+            <div class="note sage" style="margin-top:7mm">
+              <h3>不追求“深度”</h3>
+              <p class="small" style="margin:0">漂浮没有从浅到深的统一等级。安静、发呆、睡着、思考或只是休息，都可以是一场完整体验。</p>
+            </div>
+          </div>
+          <div>
+            <div class="photo-frame" style="height:107mm"><img class="photo" src="assets/cover-float.png" alt="安静漂浮" style="object-position:center 45%" /></div>
+            <div class="caption">如果闭眼后不舒服，可以睁眼、开灯、开盖。减少刺激不是比赛。</div>
+            <div class="stop" style="margin-top:8mm"><strong>轻微陌生</strong><span class="small">先睁眼、触碰舱壁、确认方向，再决定是否继续。</span></div>
+            <div class="stop"><strong>明显焦虑</strong><span class="small">开灯、开盖、坐起，用正常呼吸恢复方向感。</span></div>
+            <div class="stop"><strong>恐慌升级</strong><span class="small">立即呼叫并离开水体，不把坚持当作疗效条件。</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="folio">29</div>
+    </section>
+
+    <!-- 30 After -->
+    <section class="page" id="p30">
+      <div class="running"><span>05 · 怎样完成一次体验</span><span>RETURN & INTEGRATE</span></div>
+      <div class="chapter-tab">05 出舱</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">The session ends gradually</div>
+        <h1>结束不是突然站起来，<br />而是让方向感一点点回来</h1>
+        <div class="columns-2">
+          <div>
+            <div class="steps">
+              <div class="step"><div><h3>听到提示后先动手脚</h3><p class="small">轻微活动手指、脚趾，重新感觉身体边界。</p></div></div>
+              <div class="step"><div><h3>侧身或直接缓慢坐起</h3><p class="small">让头部适应姿势变化；若头晕，先坐着不要站。</p></div></div>
+              <div class="step"><div><h3>扶稳离开水体</h3><p class="small">地面可能湿滑。动作放慢，使用扶手或请工作人员协助。</p></div></div>
+              <div class="step"><div><h3>充分冲洗盐分</h3><p class="small">冲洗皮肤、头发和耳周；按场所说明处理耳塞与耳道残水。</p></div></div>
+              <div class="step"><div><h3>留出复原时间</h3><p class="small">补水、坐一会儿。若仍困倦或方向感迟缓，不要立即驾驶或进行高风险操作。</p></div></div>
+            </div>
+          </div>
+          <div>
+            <div class="photo-frame" style="height:92mm"><img class="photo" src="assets/brand-system-studio.png" alt="漂浮后休息空间" /></div>
+            <div class="caption">安静的过渡空间有助于身体从低刺激状态回到日常。</div>
+            <h2 style="margin-top:8mm">可以记录什么</h2>
+            <div class="check">体验前后紧张程度（0–10）</div>
+            <div class="check">身体最明显的三个感觉</div>
+            <div class="check">当晚入睡与次日精神</div>
+            <div class="check">有没有不适、何时出现、如何缓解</div>
+            <div class="note" style="margin-top:7mm"><h3>不要急着解释</h3><p class="small" style="margin:0">一次体验后的情绪、梦境或身体感受，不需要立即被解释成“深层释放”。先记录，再看是否反复出现。</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="folio">30</div>
+    </section>
+
+    <!-- 31 Suitability -->
+    <section class="page dark" id="p31">
+      <div class="running"><span>CHAPTER 06</span><span>SAFETY FIRST</span></div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker" style="color:var(--yellow)">Who may consider it</div>
+        <h1 style="font-size:45px">适合，不是因为你“有病”，<br />而是因为你想尝试一种低刺激恢复方式</h1>
+        <div class="columns-2" style="margin-top:8mm">
+          <div>
+            <div class="rule" style="border-color:#777b73"><h2>可能适合尝试</h2></div>
+            <div class="check">近期压力较大，希望获得一段完整、无任务的休息时间。</div>
+            <div class="check">高脑力工作后难以从警觉状态退出，愿意观察低刺激环境对自己的影响。</div>
+            <div class="check">运动或长时间工作后，想尝试身体卸载和主观恢复支持。</div>
+            <div class="check">对冥想不熟悉，但愿意从身体感觉和安静环境开始。</div>
+            <div class="check">能够理解操作、独立进出或获得适当协助，并能在不适时表达与退出。</div>
+          </div>
+          <div>
+            <div class="photo-frame" style="height:108mm"><img class="photo" src="assets/brand-rehab-center.png" alt="专业恢复空间" /></div>
+            <div class="caption">适合与否取决于当日状态、基础疾病、环境安全和支持方式，而不是一张营销式“适应症清单”。</div>
+            <div class="note" style="margin-top:8mm;background:#2a2d29;border-color:var(--yellow)">
+              <h3>最重要的筛查问题</h3>
+              <p class="small" style="color:#d7d3cb;margin:0">今天的你是否清醒、稳定，能够理解说明、做出决定、独立退出或及时获得帮助？</p>
+            </div>
+          </div>
+        </div>
+        <div class="quote" style="font-size:21px;margin-top:10mm">漂浮不是对意志力的考验。<br />任何时候，退出都比坚持更专业。</div>
+      </div>
+      <div class="folio">31</div>
+    </section>
+
+    <!-- 32 Pause consult stop -->
+    <section class="page" id="p32">
+      <div class="running"><span>06 · 安全与卫生</span><span>PAUSE · CONSULT · STOP</span></div>
+      <div class="chapter-tab ink">06 安全</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">A practical safety screen</div>
+        <h1>有些情况应暂缓，<br />有些需要先问医生</h1>
+        <div class="columns-2">
+          <div>
+            <div class="section-label">今天先不要漂</div>
+            <div class="stop"><strong>酒精或药物影响</strong><span class="small">醉酒、使用娱乐性药物、滥用镇静药或任何影响判断和行动的状态。</span></div>
+            <div class="stop"><strong>急性感染</strong><span class="small">发热、呕吐、腹泻、传染性皮肤病或其他可能传播的疾病。</span></div>
+            <div class="stop"><strong>开放性伤口</strong><span class="small">明显破损、出血、近期纹身或术口尚未稳定，盐水会刺激且增加卫生风险。</span></div>
+            <div class="stop"><strong>无法安全进出</strong><span class="small">意识不清、严重眩晕、无法理解操作，或场所不能提供所需协助。</span></div>
+            <div class="stop"><strong>严重情绪危机</strong><span class="small">近期自伤／自杀风险、躁狂、精神病性症状或难以控制的创伤回闪。</span></div>
+          </div>
+          <div>
+            <div class="section-label" style="background:var(--sage)">先咨询专业人员</div>
+            <div class="stop"><strong>心血管问题</strong><span class="small">严重或不稳定高血压、心绞痛、心力衰竭、近期心梗、反复晕厥。</span></div>
+            <div class="stop"><strong>呼吸问题</strong><span class="small">严重哮喘、COPD、近期呼吸困难，尤其对密闭和高湿环境敏感者。</span></div>
+            <div class="stop"><strong>癫痫</strong><span class="small">未控制发作或近期发作；现代研究常把癫痫列为排除条件。<span class="source-no">6</span></span></div>
+            <div class="stop"><strong>妊娠或近期手术</strong><span class="small">由专业人员结合孕周、恢复阶段、设备环境和医生建议，判断当前是否适合。</span></div>
+            <div class="stop"><strong>肾脏及复杂疾病</strong><span class="small">严重肾病、复杂慢病、正在接受肿瘤治疗或身体状况不稳定。</span></div>
+          </div>
+        </div>
+        <div class="note" style="margin-top:8mm">
+          <h3>体验中立即停止并呼叫</h3>
+          <p class="small" style="margin:0">胸痛、明显呼吸困难、持续心悸、严重头晕、接近晕厥、失去方向、恐慌持续升级、突然无力或任何让你认为“不安全”的感觉。</p>
+        </div>
+        <p class="tiny" style="margin-top:5mm">以上为一般风险框架，不是完整医学禁忌清单。场所应根据设备、人员、当地法规和个体情况执行更具体的筛查。</p>
+      </div>
+      <div class="folio">32</div>
+    </section>
+
+    <!-- 33 Hygiene -->
+    <section class="page" id="p33">
+      <div class="running"><span>06 · 安全与卫生</span><span>WATER & OPERATION</span></div>
+      <div class="chapter-tab ink">06 卫生</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker">Safety is a system</div>
+        <h1>高盐不是“天然消毒”，<br />卫生依赖完整的运行流程</h1>
+        <div class="split-wide">
+          <div>
+            <svg viewBox="0 0 650 590" style="width:100%;height:150mm;background:#e5dfd4;border:1px solid var(--line)" role="img" aria-label="漂浮水处理循环">
+              <rect width="650" height="590" fill="#e5dfd4"/>
+              <circle cx="325" cy="295" r="100" fill="#617469"/><text x="325" y="285" text-anchor="middle" font-size="25" font-weight="700" fill="#fff">每位体验者之间</text><text x="325" y="322" text-anchor="middle" font-size="18" fill="#e6eee8">完成规定循环与记录</text>
+              <g fill="#f8f4ec" stroke="#191b18" stroke-width="2"><circle cx="325" cy="90" r="57"/><circle cx="525" cy="225" r="57"/><circle cx="448" cy="470" r="57"/><circle cx="202" cy="470" r="57"/><circle cx="125" cy="225" r="57"/></g>
+              <g font-size="18" font-weight="700" text-anchor="middle" fill="#191b18"><text x="325" y="86">预先淋浴</text><text x="325" y="110" font-size="14" font-weight="400">减少污染负荷</text><text x="525" y="221">表面清洁</text><text x="525" y="245" font-size="14" font-weight="400">舱体与接触面</text><text x="448" y="466">过滤循环</text><text x="448" y="490" font-size="14" font-weight="400">按规定周转</text><text x="202" y="466">消毒控制</text><text x="202" y="490" font-size="14" font-weight="400">有效浓度与时间</text><text x="125" y="221">监测记录</text><text x="125" y="245" font-size="14" font-weight="400">温度与水质</text></g>
+              <path d="M365 133 Q470 146 496 183 M509 277 Q515 383 482 426 M400 492 Q325 546 250 492 M168 426 Q132 355 140 278 M155 179 Q218 120 283 127" fill="none" stroke="#c95738" stroke-width="5" stroke-dasharray="10 8"/>
+            </svg>
+            <div class="caption">流程示意。具体过滤、消毒、水质和周转要求应遵循当地法规、设备说明和运营记录。</div>
+          </div>
+          <div>
+            <p class="lead dropcap">漂浮水含盐量高，但微生物风险不会因此自动消失。皮肤、头发、体液和环境接触仍可能带入污染。</p>
+            <p>CDC 与公共卫生机构把漂浮系统视为需要专门管理的水体：强调过滤和消毒、设备维护、使用者淋浴、健康排除、监测与记录，而不是只依赖“高盐”。<span class="source-no">8</span></p>
+            <div class="ledger" style="margin-top:6mm">
+              <div class="label">体验前</div><div class="copy">淋浴、排除传染性疾病和开放性伤口，遵守体表用品要求。</div>
+              <div class="label">两人之间</div><div class="copy">按设备和规范完成足够的水循环、过滤、消毒与接触面清洁。</div>
+              <div class="label">每日／定期</div><div class="copy">记录水温、水质、消毒参数、维护和异常事件；按计划更换或深度处理水体。</div>
+              <div class="label">客户可问</div><div class="copy">上一位结束后做了什么？水体如何过滤消毒？异常情况如何记录与处理？</div>
+            </div>
+          </div>
+        </div>
+        <div class="photo-frame" style="height:48mm;margin-top:8mm"><img class="photo" src="assets/brand-purification-main.png" alt="漂浮水处理设备" style="object-fit:contain;background:#fff" /><span class="image-label">FILTRATION & CONTROL</span></div>
+      </div>
+      <div class="folio">33</div>
+    </section>
+
+    <!-- 34 FAQ -->
+    <section class="page" id="p34">
+      <div class="running"><span>CHAPTER 07</span><span>FIRST-TIME FAQ</span></div>
+      <div class="chapter-tab sage">07 问答</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker sage">Eight practical questions</div>
+        <h1>第一次漂浮，<br />最常见的八个问题</h1>
+        <div class="columns-2" style="gap:12mm">
+          <div>
+            <div class="faq"><div class="q">1</div><div><h3>不会游泳可以吗？</h3><p class="small">通常可以。高密度水让身体自然仰卧，不需要游泳动作。</p></div></div>
+            <div class="faq"><div class="q">2</div><div><h3>会不会沉下去？</h3><p class="small">正常仰卧时口鼻在水面以上。仍需清醒、理解操作，并遵守健康筛查。</p></div></div>
+            <div class="faq"><div class="q">3</div><div><h3>幽闭怎么办？</h3><p class="small">开盖、留缝、留灯，或选择开放式设备。不要强迫自己全黑。</p></div></div>
+            <div class="faq"><div class="q">4</div><div><h3>一定会睡着吗？</h3><p class="small">不一定。清醒、发呆、浅睡或思考都正常；睡着不是疗效标准。</p></div></div>
+          </div>
+          <div>
+            <div class="faq"><div class="q">5</div><div><h3>耳朵会进水吗？</h3><p class="small">耳朵通常会浸入水中。按说明佩戴耳塞，体验后冲洗耳周并处理残水。</p></div></div>
+            <div class="faq"><div class="q">6</div><div><h3>多久一次？</h3><p class="small">没有适合所有人的固定处方。可先做一次，根据目标、反应和专业建议决定。</p></div></div>
+            <div class="faq"><div class="q">7</div><div><h3>盐水能补镁吗？</h3><p class="small">明确作用是提供浮力。大量经皮补镁的证据不足，不把它当营养疗法。</p></div></div>
+            <div class="faq"><div class="q">8</div><div><h3>能替代治疗吗？</h3><p class="small">不能。漂浮可作为放松和恢复支持，不能替代医疗、心理治疗或康复。</p></div></div>
+          </div>
+        </div>
+        <div class="photo-frame" style="height:60mm;margin-top:10mm"><img class="photo" src="assets/brand-fa-o-open.jpg" alt="开放式漂浮设备" style="object-position:center 58%" /></div>
+        <div class="quote" style="font-size:19px;margin-top:7mm">好的第一次体验，不是“坚持到最后”，<br />而是始终知道自己有选择。</div>
+      </div>
+      <div class="folio">34</div>
+    </section>
+
+    <!-- 35 References -->
+    <section class="page" id="p35">
+      <div class="running"><span>漂浮疗法手册</span><span>REFERENCES</span></div>
+      <div class="chapter-tab sage">07 文献</div>
+      <div class="inner" style="padding-top:24mm">
+        <div class="kicker sage">Selected sources</div>
+        <h1>主要参考资料</h1>
+        <div class="columns-2" style="gap:10mm">
+          <div>
+            <div class="ref"><b>1.</b> APA Dictionary of Psychology. Restricted Environmental Stimulation Technique (REST).<br /><a href="https://dictionary.apa.org/restricted-environmental-stimulation-technique">dictionary.apa.org/restricted-environmental-stimulation-technique</a></div>
+            <div class="ref"><b>2.</b> Lashgari E, Chen E, Gregory J, Maoz U. A systematic review of flotation-restricted environmental stimulation therapy (REST). <i>BMC Complement Med Ther.</i> 2025;25:230.<br /><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12224670/">pmc.ncbi.nlm.nih.gov/articles/PMC12224670/</a></div>
+            <div class="ref"><b>3.</b> Garland MM, et al. A randomized controlled safety and feasibility trial of floatation-REST in anxious and depressed individuals. <i>PLOS ONE.</i> 2024;19:e0286899.<br /><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0286899">doi:10.1371/journal.pone.0286899</a></div>
+            <div class="ref"><b>4.</b> Feinstein JS, et al. Examining the short-term anxiolytic and antidepressant effect of Floatation-REST. <i>PLOS ONE.</i> 2018;13:e0190292.<br /><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0190292">doi:10.1371/journal.pone.0190292</a></div>
+            <div class="ref"><b>5.</b> Jonsson K, Kjellgren A. Promising effects of flotation-REST as an intervention for generalized anxiety disorder: a randomized controlled pilot trial. <i>BMC Complement Altern Med.</i> 2016;16:108.<br /><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4807536/">pmc.ncbi.nlm.nih.gov/articles/PMC4807536/</a></div>
+            <div class="ref"><b>6.</b> Loose LF, et al. Flotation Restricted Environmental Stimulation Therapy for Chronic Pain: A Randomized Clinical Trial. <i>JAMA Netw Open.</i> 2021;4:e219627.<br /><a href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2779871">jamanetwork.com/.../2779871</a></div>
+          </div>
+          <div>
+            <div class="ref"><b>7.</b> Gröber U, Werner T, Vormann J, Kisters K. Myth or Reality—Transdermal Magnesium? <i>Nutrients.</i> 2017;9(8):813.<br /><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5579607/">pmc.ncbi.nlm.nih.gov/articles/PMC5579607/</a></div>
+            <div class="ref"><b>8.</b> CDC & NACCHO. Safely Managing Floatation Tanks: A Quick Guide for Health Departments and Operators. 2023.<br /><a href="https://stacks.cdc.gov/view/cdc/153390">stacks.cdc.gov/view/cdc/153390</a></div>
+            <div class="ref"><b>9.</b> Washington State Department of Health. Float Tanks: Guidelines for Regulating Floatation Systems as Special Use Pools.<br /><a href="https://doh.wa.gov/Portals/1/Documents/Pubs/333-219.pdf">doh.wa.gov/.../333-219.pdf</a></div>
+            <div class="ref"><b>10.</b> Early history sources: APA REST definition; UBC profile of Peter Suedfeld; John Lilly historical review.<br /><a href="https://psych.ubc.ca/profile/peter-suedfeld/">psych.ubc.ca/profile/peter-suedfeld/</a><br /><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6899429/">pmc.ncbi.nlm.nih.gov/articles/PMC6899429/</a></div>
+            <div class="ref"><b>11.</b> Comparison of 1-hour floatation-REST versus conventional napping on heart rate variability in active individuals. <i>BMJ Open Sport Exerc Med.</i> 2024;10:e002292.<br /><a href="https://bmjopensem.bmj.com/content/10/4/e002292">bmjopensem.bmj.com/content/10/4/e002292</a></div>
+            <div class="note sage" style="margin-top:7mm">
+              <h3>如何继续查证</h3>
+              <p class="small" style="margin:0">优先查看原始论文、系统综述和公共卫生指南；注意研究对象、样本量、对照条件、体验次数、结局指标和随访时间。</p>
+            </div>
+          </div>
+        </div>
+        <p class="tiny" style="position:absolute;left:18mm;right:17mm;bottom:16mm">版本说明：本手册为一般公众知识读物。研究结论与公共卫生规范可能更新；使用前请结合当地法规、设备说明和个人专业建议。</p>
+      </div>
+      <div class="folio">35</div>
+    </section>
+
+    <!-- 36 Back -->
+    <section class="page" id="p36">
+      <div style="position:absolute;inset:0;display:grid;grid-template-columns:62% 38%">
+        <div class="photo-frame"><img class="photo" src="assets/cover-float.png" alt="漂浮" style="object-position:center 44%" /></div>
+        <div style="background:var(--sage);color:#fff;padding:18mm 12mm;display:flex;flex-direction:column;justify-content:space-between">
+          <div style="font:800 10px/1.5 Arial;letter-spacing:.16em">FLOTATION-REST<br />KNOWLEDGE EDITION</div>
+          <div>
+            <div class="quote" style="border-color:#dfe8e1;font-size:24px;padding-left:6mm">减少一点外界，<br />重新听见身体。</div>
+            <p style="font-size:12px;text-align:left;color:#eef4ef">漂浮的价值，不在于制造神奇体验，而在于提供一个足够稳定、足够安静、又始终可以退出的环境。</p>
+          </div>
+          <div>
+            <img src="assets/logo.png" alt="漂浮方舟" style="width:39mm;height:auto;filter:brightness(0) invert(1);opacity:.9;margin-bottom:6mm" />
+            <p class="tiny" style="color:#e2ebe4;margin:0">知识编写支持：漂浮方舟<br />www.float-ark.com<br />400-8869-783</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </template>
+</body>
+</html>

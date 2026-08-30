@@ -45,5 +45,8 @@ yarn-error.log*
 # claude split queue (runtime)
 /data/split-queue.json
 
+# handbook editor last-save backup
+/data/handbooks/*.bak.html
+
 # data runtime (keep seed in git, but allow local overrides)
 # data is committed with seed data
