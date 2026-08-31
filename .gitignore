@@ -37,6 +37,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# GitHub Pages 构建产物（由 Actions 发布）
+/public-site
+
 # uploads (user files)
 /uploads
 

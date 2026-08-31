@@ -69,36 +69,36 @@ git push -u github main
 **GitHub 上无限制调取数据（公开仓库）：**
 
 ```text
-# 全部知识点 JSON（浏览器或程序直接 GET）
-https://raw.githubusercontent.com/你的用户名/company-knowledge-base/main/data/knowledge-points.json
+# 给人看的网页（GitHub Pages，不用再注册）
+https://happyandloveandforever.github.io/company-knowledge-base/
 
-# 来源记录
-https://raw.githubusercontent.com/你的用户名/company-knowledge-base/main/data/sources.json
+# 给外部 AI 的 JSON（不要发仓库主页，会触发 GitHub 登录）
+https://happyandloveandforever.github.io/company-knowledge-base/knowledge-external.json
 
-# HTML 总库（需在本地或部署后生成；或从网页下载后上传到 GitHub Releases）
+# 备用 CDN（也不是 github.com，不需要授权）
+https://cdn.jsdelivr.net/gh/happyandloveandforever/company-knowledge-base@main/data/knowledge-points.json
 ```
 
 **方式 D — 部署在线网页（随时随地打开总库 UI）**
 
-| 平台 | 免费 | 上传/编辑 | 说明 |
-|------|------|-----------|------|
-| **Vercel** | ✅ | ❌ 只读* | 连 GitHub 自动部署，适合浏览/搜索/导出 |
-| **Railway / Render** | 有限免费 | ✅ | 有持久磁盘，可完整运行（上传+编辑） |
-| **本地 npm run serve** | ✅ | ✅ | 仅本机或 Cloud Agent Preview |
+已经开通（推送 `main` 后自动更新）：**GitHub Pages 只读站**，见上面链接。无需再注册别的平台。
 
-\* Vercel 无持久磁盘，网页上的写入重启后丢失；**编辑仍通过 Cursor Agent → Git push**，Vercel 自动重新部署。
+可选再做一个 `*.vercel.app`（域名更不像 GitHub，部分 AI 更肯抓）：
 
-Vercel 快速部署（GitHub 镜像完成后）：
-1. 登录 [vercel.com](https://vercel.com) → Import GitHub 仓库  
-2. Framework 选 Next.js，Build：`npm run build`，Output 默认  
-3. 部署完成后获得 `https://xxx.vercel.app`，`/library` 随时访问  
+1. 打开 https://vercel.com/signup  
+2. 选 **Continue with GitHub**（同一个 GitHub 账号，大约 1 分钟）  
+3. Import 仓库 `company-knowledge-base` → Deploy  
+4. 得到 `https://xxxx.vercel.app` ，打开 `/library` 就是总库；给 AI 用 `/api/knowledge`
+
+\* Vercel 无持久磁盘，网页上的写入重启后丢失；**编辑仍通过 Cursor Agent → Git push**，Vercel 会自动重新部署。  
 
 | 平台 | 费用 | 适合 |
 |------|------|------|
 | **Cursor Origin** | 免费（已有） | Cloud Agent 编辑 + 入库 |
 | **GitHub 公开** | 免费 | **代码+JSON 无限制调取**、API 集成 |
 | **GitHub 私有** | 免费 | 备份、需登录访问 |
-| **Vercel** | 免费 | 在线浏览总库（只读） |
+| **GitHub Pages** | 免费 | **公开网页+JSON**，给人和外部 AI 看 |
+| **Vercel** | 免费 | 完整总库 UI（只读，需再点一次 GitHub 登录） |
 | **Gitee** | 免费 | 国内 clone 更快 |
 
 ### 代码交接清单（给新 Agent）
@@ -422,6 +422,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-24 | 首页补培训入口：第三张「漂浮师培训教材」卡 + 按用途「培训」筛选，避免只显示通识/公司两层时找不到内训 |
 | 2026-08-24 | 补训四份：好转反应、一般适应症、禁忌症、产品使用手册 → TRN-072~094（仅内训）；禁忌与手册另写 SOP-023~025、MAN-001~007；库 450→483 |
 | 2026-08-31 | 精细拆分三份迷走/综合干预综述并直接批准：机制报告 22（KP-VGMECH）+ 综合干预专业版 18（KP-CIS，展开 V7-021~023）+ VNS 手段地图 16（KP-VNSMAP）；库 483→539。器械获批适应症均标注不得外推到漂浮舱 |
+| 2026-08-31 | 公开只读站：GitHub Actions 把总库发到 Pages。给人看网页，给外部 AI 发 `knowledge-external.json`（不含内训），避免 GitHub 登录插件 |
 
 
 ---
