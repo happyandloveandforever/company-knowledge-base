@@ -69,11 +69,11 @@ git push -u github main
 **GitHub 上无限制调取数据（公开仓库）：**
 
 ```text
-# 给人看的网页（GitHub Pages，不用再注册）
+# 给人看、也给只能抓 HTML 的 AI 看（不要发 JSON）
 https://happyandloveandforever.github.io/company-knowledge-base/
 
-# 给外部 AI 的 JSON（不要发仓库主页，会触发 GitHub 登录）
-https://happyandloveandforever.github.io/company-knowledge-base/knowledge-external.json
+# 迷走/综合干预专页（更短，优先给 AI）
+https://happyandloveandforever.github.io/company-knowledge-base/vagus.html
 
 # 备用 CDN（也不是 github.com，不需要授权）
 https://cdn.jsdelivr.net/gh/happyandloveandforever/company-knowledge-base@main/data/knowledge-points.json
@@ -422,7 +422,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-24 | 首页补培训入口：第三张「漂浮师培训教材」卡 + 按用途「培训」筛选，避免只显示通识/公司两层时找不到内训 |
 | 2026-08-24 | 补训四份：好转反应、一般适应症、禁忌症、产品使用手册 → TRN-072~094（仅内训）；禁忌与手册另写 SOP-023~025、MAN-001~007；库 450→483 |
 | 2026-08-31 | 精细拆分三份迷走/综合干预综述并直接批准：机制报告 22（KP-VGMECH）+ 综合干预专业版 18（KP-CIS，展开 V7-021~023）+ VNS 手段地图 16（KP-VNSMAP）；库 483→539。器械获批适应症均标注不得外推到漂浮舱 |
-| 2026-08-31 | 公开只读站：GitHub Actions 把总库发到 Pages。给人看网页，给外部 AI 发 `knowledge-external.json`（不含内训），避免 GitHub 登录插件 |
+| 2026-08-31 | 公开只读站改为把正文写进 HTML（Pages），给只能抓网页的 AI 用；并自动开通 GitHub Pages |
 
 
 ---
