@@ -45,7 +45,7 @@ const comBodies = com.map((p) => `${p.title}\n${p.summary}\n${p.body}`).join("\n
 check("通识新卡不写疗效承诺数字", !/治愈率\s*\d|治疗率\s*\d/.test(comBodies));
 check("通识新卡包含 WHO 2025", /WHO 2025|World mental health today/.test(comBodies));
 check("通识新卡包含 Garland 可行性培训", /可行性RCT/.test(comBodies));
-check("库总量不少于 450", points.length >= 450, String(points.length));
+check("库总量不少于 539", points.length >= 539, String(points.length));
 
 // ── 培训教材隔离 ─────────────────────────────────────
 const trn = points.filter((p) => p.id.startsWith("KP-TRN-"));
@@ -100,6 +100,27 @@ const indOps = points.filter(
   (p) => p.usage === "ops" && /一般适应症分系统|类风湿性关节炎/.test(`${p.title}\n${p.body}`)
 );
 check("适应症病谱没有写进运营卡", indOps.length === 0, indOps.map((p) => p.id).join(","));
+
+const vagusSrc = ["SRC-VG-MECH", "SRC-CIS-PRO", "SRC-VNS-MAP"];
+check(
+  "三份迷走/综合干预来源已记录",
+  vagusSrc.every((id) => sources.some((s) => s.id === id && s.status === "done"))
+);
+check("KP-VGMECH 至少 22 条", points.filter((p) => p.id.startsWith("KP-VGMECH-")).length >= 22);
+check("KP-CIS 至少 18 条", points.filter((p) => p.id.startsWith("KP-CIS-")).length >= 18);
+check("KP-VNSMAP 至少 16 条", points.filter((p) => p.id.startsWith("KP-VNSMAP-")).length >= 16);
+const resetRa = points.find((p) => p.id === "KP-VNSMAP-007");
+check(
+  "RESET-RA 卡声明不是漂浮适应症",
+  !!resetRa && /不是漂浮|严禁外推|禁止外推/.test(`${resetRa.summary}\n${resetRa.body}`)
+);
+check("KP-CIS-013 五步流程为 ops", points.find((p) => p.id === "KP-CIS-013")?.usage === "ops");
+const vagusNew = points.filter((p) => /^(KP-VGMECH|KP-CIS|KP-VNSMAP)-/.test(p.id));
+check("新三套全部 approved", vagusNew.length === 56 && vagusNew.every((p) => p.status === "approved"), String(vagusNew.length));
+check(
+  "新三套每条都有 layer/usage",
+  vagusNew.every((p) => layers.has(p.layer) && usages.has(p.usage))
+);
 
 if (failed) {
   console.log(`\n${failed} failed`);
