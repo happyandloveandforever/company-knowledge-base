@@ -122,6 +122,12 @@ check(
   vagusNew.every((p) => layers.has(p.layer) && usages.has(p.usage))
 );
 
+const publicOnly = points.filter((p) => p.internalOnly !== true);
+const internal = points.filter((p) => p.internalOnly === true);
+check("可外发页不含仅内训卡", publicOnly.every((p) => p.internalOnly !== true));
+check("仅内训卡都是 training", internal.every((p) => p.usage === "training"));
+check("可外发数量 = 总量 - 仅内训", publicOnly.length === points.length - internal.length, `${publicOnly.length} vs ${points.length}-${internal.length}`);
+
 if (failed) {
   console.log(`\n${failed} failed`);
   process.exit(1);

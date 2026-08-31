@@ -57,7 +57,8 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/import-float-training.mjs` | 漂浮培训大纲 71 条内训卡（幂等，全部 internalOnly） |
 | `scripts/import-training-supplements.mjs` | 好转反应/适应症/禁忌症/产品手册补训（幂等，禁忌与手册另写运营卡） |
 | `scripts/import-vagus-three-reports.mjs` | 迷走机制/综合干预专业版/VNS手段地图（幂等，直接批准） |
-| `scripts/export-public-site.mjs` | 生成 GitHub Pages 只读站（网页 + JSON） |
+| `scripts/export-public-site.mjs` | 生成 GitHub Pages 静态站（需管理员开通 Pages） |
+| `/open` | Vercel 上的公开只读 HTML，不含内训 |
 | `scripts/test-knowledge-layers.mjs` | 分层与培训隔离回归测试 |
 | `scripts/process-split-queue.mjs` | 查看待拆分队列 |
 | `src/app/api/upload/route.ts` | 网页上传逻辑 |

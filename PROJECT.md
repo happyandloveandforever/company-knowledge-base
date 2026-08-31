@@ -69,16 +69,24 @@ git push -u github main
 **GitHub 上无限制调取数据（公开仓库）：**
 
 ```text
-# 给外部 AI（真正的 HTML 网页，text/html，抓取工具能读正文）优先这一条：
+# 给外部 AI 优先（HTML 正文，不走 GitHub 登录）
+https://company-knowledge-base-nine.vercel.app/open/vagus
 https://raw.githack.com/happyandloveandforever/company-knowledge-base/main/docs/vagus.html
 
-# 可外发总库全文网页
+# 可外发总库全文
+https://company-knowledge-base-nine.vercel.app/open
 https://raw.githack.com/happyandloveandforever/company-knowledge-base/main/docs/index.html
+
+# JSON
+https://company-knowledge-base-nine.vercel.app/open/knowledge-external.json
+
+# GitHub Pages（需管理员在 Settings → Pages 选择 GitHub Actions）
+https://happyandloveandforever.github.io/company-knowledge-base/
 ```
 
 **方式 D — 部署在线网页（随时随地打开总库 UI）**
 
-已经开通（推送 `main` 后自动更新）：**GitHub Pages 只读站**，见上面链接。无需再注册别的平台。
+已经开通：**Vercel `/open`**（随 main 更新，不含内训）以及仓库里的 `docs/*.html`（raw.githack）。GitHub Pages 需要仓库管理员在 Settings → Pages 选择 GitHub Actions；Actions 令牌没有权限自己开通。
 
 可选再做一个 `*.vercel.app`（域名更不像 GitHub，部分 AI 更肯抓）：
 
@@ -276,6 +284,8 @@ https://raw.githack.com/happyandloveandforever/company-knowledge-base/main/docs/
 | `/upload` | 多格式上传，默认 Cursor Claude 拆分说明 |
 | `/compose` | 选题 + 演讲逻辑 → 大纲 / PPT |
 | `/status` | 系统状态 |
+| `/open` | 公开只读 HTML（不含仅内训），给外部 AI 抓正文 |
+| `/open/vagus` | 迷走/综合干预专页 |
 | `/api/health` | 健康检查 |
 
 ---
@@ -420,6 +430,8 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-24 | 补训四份：好转反应、一般适应症、禁忌症、产品使用手册 → TRN-072~094（仅内训）；禁忌与手册另写 SOP-023~025、MAN-001~007；库 450→483 |
 | 2026-08-31 | 精细拆分三份迷走/综合干预综述并直接批准：机制报告 22（KP-VGMECH）+ 综合干预专业版 18（KP-CIS，展开 V7-021~023）+ VNS 手段地图 16（KP-VNSMAP）；库 483→539。器械获批适应症均标注不得外推到漂浮舱 |
 | 2026-08-31 | 公开只读站改为把正文写进 HTML（Pages），给只能抓网页的 AI 用；并自动开通 GitHub Pages |
+| 2026-08-31 | 公开 HTML 提交到 `docs/`，用 raw.githack 给外部 AI 抓网页 |
+| 2026-08-31 | Pages 部署失败：Actions 令牌不能创建站点。公开只读页同时走 Vercel `/open`；Pages 工作流在未开通时不再把 main 打红 |
 
 
 ---
