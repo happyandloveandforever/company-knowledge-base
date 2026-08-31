@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>漂浮方舟迷走神经与综合干预知识点</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;max-width:920px;margin:0 auto;padding:1.25rem;line-height:1.55;color:#1f2937;background:#f8fafc}
+h1{font-size:1.5rem}
+h2{font-size:1.05rem;margin:0 0 .35rem}
+h2 small{font-weight:400;color:#6b7280;font-size:.8rem}
+nav a{margin-right:.8rem}
+.stats{color:#334155;margin:.6rem 0 1rem}
+.toc{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:1rem 1.2rem;margin:1rem 0}
+.toc li{margin:.2rem 0;font-size:.9rem}
+article{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:1rem 1.1rem;margin:0 0 .9rem}
+.meta,.src{color:#6b7280;font-size:.82rem}
+.summary{color:#374151}
+.body{margin:.6rem 0;white-space:normal}
+footer{color:#6b7280;font-size:.8rem;margin:2rem 0;text-align:center}
+</style>
+</head>
+<body>
+<h1>漂浮方舟迷走神经与综合干预知识点</h1>
+<p>含作用机制报告、综合干预专业版、VNS 手段地图，以及库内既有机理/v7 相关卡。给外部 AI 优先抓这一页。</p>
+<nav><a href="./">可外发总库</a><a href="./vagus.html">迷走/综合干预专页</a></nav>
+<p class="stats">本页 96 条 · 通识 39 · 公司 57 · 不含仅内训卡</p>
+<nav class="toc">
+<p><strong>目录</strong></p>
+<ol>
+<li><a href="#KP-MECH-001">KP-MECH-001 漂浮方舟作用机理总览：减负—降噪—重置—整合</a></li>
+<li><a href="#KP-MECH-002">KP-MECH-002 摘要证据定位：疼痛与心理福祉信号较一致</a></li>
+<li><a href="#KP-MECH-003">KP-MECH-003 研究背景：REST 与漂浮方舟的实现形式</a></li>
+<li><a href="#KP-MECH-004">KP-MECH-004 第一层机理：浮力减负与机械去负荷</a></li>
+<li><a href="#KP-MECH-005">KP-MECH-005 第二层机理：感官降噪与注意转向内感受</a></li>
+<li><a href="#KP-MECH-006">KP-MECH-006 第三层机理：自主神经从交感应激切至副交感修复</a></li>
+<li><a href="#KP-MECH-007">KP-MECH-007 第四层机理：脑状态整合与 theta/alpha 变化</a></li>
+<li><a href="#KP-MECH-008">KP-MECH-008 第五层机理：疼痛与心理福祉的证据最一致</a></li>
+<li><a href="#KP-MECH-009">KP-MECH-009 第六层机理：分子氢辅助的氧化压力支持</a></li>
+<li><a href="#KP-MECH-010">KP-MECH-010 六层机理递进关系：由外而内的恢复链条</a></li>
+<li><a href="#KP-MECH-011">KP-MECH-011 结论：由外而内递进，证据边界与研究缺口</a></li>
+<li><a href="#KP-MECH-012">KP-MECH-012 关键文献锚点：flotation-REST 与分子氢综述</a></li>
+<li><a href="#KP-MECH-013">KP-MECH-013 对客话术：用六层机理解释「为什么有效」</a></li>
+<li><a href="#KP-V7-001">KP-V7-001 漂浮方舟v7定位：心理健康主动干预系统</a></li>
+<li><a href="#KP-V7-002">KP-V7-002 政策背景：十五五健康中国与主动健康转向</a></li>
+<li><a href="#KP-V7-003">KP-V7-003 对企业五条降本增效价值</a></li>
+<li><a href="#KP-V7-004">KP-V7-004 职场生态数据：睡眠困扰48.5%、焦虑54.9%</a></li>
+<li><a href="#KP-V7-005">KP-V7-005 员工心理健康三大主症与三个关键发现</a></li>
+<li><a href="#KP-V7-006">KP-V7-006 量化损失：睡眠不足约占中国GDP 4.62%</a></li>
+<li><a href="#KP-V7-007">KP-V7-007 精神健康经济负担：全社会年度成本5900亿元</a></li>
+<li><a href="#KP-V7-008">KP-V7-008 职业倦怠隐性产出损失约5万亿元/年</a></li>
+<li><a href="#KP-V7-009">KP-V7-009 慢性神经过载：熟悉症状背后的统一机制</a></li>
+<li><a href="#KP-V7-010">KP-V7-010 自主神经系统：应激与恢复的切换开关</a></li>
+<li><a href="#KP-V7-011">KP-V7-011 油门与刹车失衡：五类症状同一系统表现</a></li>
+<li><a href="#KP-V7-012">KP-V7-012 恢复前提：环境工程让身体敢于放松</a></li>
+<li><a href="#KP-V7-013">KP-V7-013 神经重置窗口：重力剥夺、感官降噪、低频共振</a></li>
+<li><a href="#KP-V7-014">KP-V7-014 从漂浮疗法到漂浮方舟：三大工程化升级</a></li>
+<li><a href="#KP-V7-016">KP-V7-016 六类困扰共用开关：迷走张力偏低</a></li>
+<li><a href="#KP-V7-017">KP-V7-017 为什么现在可以做：政策、治理、人才三类价值</a></li>
+<li><a href="#KP-V7-018">KP-V7-018 国际证据速览：FDA、EHJ、Karolinska、Nature</a></li>
+<li><a href="#KP-V7-020">KP-V7-020 六大签约合作伙伴矩阵</a></li>
+<li><a href="#KP-V7-021">KP-V7-021 六大模块矩阵：方舟枢纽+氢光营养恢复评估</a></li>
+<li><a href="#KP-V7-022">KP-V7-022 模块协同逻辑：漂浮分别叠加氢、光、营养等</a></li>
+<li><a href="#KP-V7-023">KP-V7-023 三类产品线与五步标准服务流程</a></li>
+<li><a href="#KP-V7-024">KP-V7-024 刚需定义：关不掉的大脑与停不下来的交感</a></li>
+<li><a href="#KP-V7-025">KP-V7-025 标准调理中心产能：6台设备服务规模测算</a></li>
+<li><a href="#KP-V7-026">KP-V7-026 盈利模式：面向集团年/月付费，不做零售会员</a></li>
+<li><a href="#KP-V7-027">KP-V7-027 五大壁垒与三重锁定：为什么难复制</a></li>
+<li><a href="#KP-V7-028">KP-V7-028 决策清单：试点投入产出与容错免责依据</a></li>
+<li><a href="#KP-V7-029">KP-V7-029 v7销售叙事主线：损失—机制—系统—试点</a></li>
+<li><a href="#KP-VGMECH-001">KP-VGMECH-001 报告定位：医学综述型学术商务稿，不是产品说明书</a></li>
+<li><a href="#KP-VGMECH-002">KP-VGMECH-002 摘要口径：改善迷走张力相关指标，不说直接治疗疾病</a></li>
+<li><a href="#KP-VGMECH-003">KP-VGMECH-003 通识：现代压力问题的共同基础是自主神经失衡</a></li>
+<li><a href="#KP-VGMECH-004">KP-VGMECH-004 通识：迷走张力高 ≈ 压力后恢复力、心率稳定、炎症控制更好</a></li>
+<li><a href="#KP-VGMECH-005">KP-VGMECH-005 通识：Flotation-REST = 隔光、低噪、恒温、高浮力的限制环境刺激</a></li>
+<li><a href="#KP-VGMECH-006">KP-VGMECH-006 循证方向：压力、疼痛、焦虑趋势正向；HRV/皮质醇为客观线索</a></li>
+<li><a href="#KP-VGMECH-007">KP-VGMECH-007 关键区分：环境式间接提升迷走张力 ≠ 植入式电刺激</a></li>
+<li><a href="#KP-VGMECH-008">KP-VGMECH-008 机制一：感觉输入减少，促使中枢降噪</a></li>
+<li><a href="#KP-VGMECH-009">KP-VGMECH-009 机制二：失重漂浮解除肌肉骨骼持续应激</a></li>
+<li><a href="#KP-VGMECH-010">KP-VGMECH-010 机制三：呼吸自然减缓，高频 HRV 上升</a></li>
+<li><a href="#KP-VGMECH-011">KP-VGMECH-011 机制四：应激激素下降，HPA 轴负荷减轻</a></li>
+<li><a href="#KP-VGMECH-012">KP-VGMECH-012 系统优势：可重复训练平台 + 可接医学数据，而不只是一次舒压</a></li>
+<li><a href="#KP-VGMECH-013">KP-VGMECH-013 五类场景：压力、睡眠、焦虑辅助、运动恢复、整合医学合作</a></li>
+<li><a href="#KP-VGMECH-014">KP-VGMECH-014 合规红线：健康促进与辅助工具；禁止「治疗疾病」和「直接刺激迷走」</a></li>
+<li><a href="#KP-VGMECH-015">KP-VGMECH-015 本报告禁忌：幽闭、开放伤口、急性皮肤感染、未控癫痫、重症心血管不稳</a></li>
+<li><a href="#KP-VGMECH-016">KP-VGMECH-016 一句话本质：激活人体内建恢复系统的环境医学工具</a></li>
+<li><a href="#KP-VGMECH-017">KP-VGMECH-017 15分钟开场稿：稀缺的不是休息时间，是切换回副交感的能力</a></li>
+<li><a href="#KP-VGMECH-018">KP-VGMECH-018 本报告参考文献清单：正式对外前须核到作者原文级别</a></li>
+<li><a href="#KP-VGMECH-019">KP-VGMECH-019 通识：共振呼吸约 4.5–6 次/分（0.1Hz）时 HRV 出现峰值</a></li>
+<li><a href="#KP-VGMECH-020">KP-VGMECH-020 共振呼吸动作要领：腹式、鼻吸鼻呼、5+5 或 4+6，轻柔不屏气</a></li>
+<li><a href="#KP-VGMECH-021">KP-VGMECH-021 共振呼吸 4 周方案：从每天 15 分钟到生活化 20 分钟</a></li>
+<li><a href="#KP-VGMECH-022">KP-VGMECH-022 双轨协议：漂浮前 5 分钟、舱内自然减缓、疗程间隙居家 10–20 分钟</a></li>
+<li><a href="#KP-CIS-001">KP-CIS-001 综合体系定位：方舟从单舱升级为恢复医学中枢平台</a></li>
+<li><a href="#KP-CIS-002">KP-CIS-002 升级理由：单次漂浮覆盖不了高净值/疲劳/炎症/术后的全部机制</a></li>
+<li><a href="#KP-CIS-003">KP-CIS-003 三层模型：神经调节层 / 细胞能量层 / 系统恢复层</a></li>
+<li><a href="#KP-CIS-004">KP-CIS-004 六模块：方舟枢纽 + 氢、光、营养、恢复调节、数字评估</a></li>
+<li><a href="#KP-CIS-005">KP-CIS-005 增效① 方舟+氢疗：踩刹车（神经）+ 修发动机（线粒体/抗炎）</a></li>
+<li><a href="#KP-CIS-006">KP-CIS-006 增效② 方舟+PBM：神经安静 + 细胞充能</a></li>
+<li><a href="#KP-CIS-007">KP-CIS-007 增效③ 方舟+镁：外部镁场 + 口服，不把盐水讲成输液</a></li>
+<li><a href="#KP-CIS-008">KP-CIS-008 增效④ 方舟+共振呼吸：把被动放松升级为可训练的迷走能力</a></li>
+<li><a href="#KP-CIS-009">KP-CIS-009 增效⑤ 方舟+冷热：训练「唤醒—释放—恢复」的自主神经弹性</a></li>
+<li><a href="#KP-CIS-010">KP-CIS-010 增效⑥ 方舟+肠脑轴：情绪恢复要管菌群与迷走双向通信</a></li>
+<li><a href="#KP-CIS-011">KP-CIS-011 三类产品线：旗舰型 / 医学合作型 / 运动恢复型</a></li>
+<li><a href="#KP-CIS-012">KP-CIS-012 客户四型：压力过载 / 睡眠障碍 / 炎症疲劳 / 运动恢复</a></li>
+<li><a href="#KP-CIS-013">KP-CIS-013 五步流程：初筛 → 分层 → 组合 → 4/8/12 周疗程 → 复评闭环</a></li>
+<li><a href="#KP-CIS-014">KP-CIS-014 统一理论句：从高交感高炎症低恢复，带回高副交感高恢复高稳态</a></li>
+<li><a href="#KP-CIS-015">KP-CIS-015 结果表达四句替换：不说治病、神奇、做一次就好、功能堆砌</a></li>
+<li><a href="#KP-CIS-016">KP-CIS-016 标准结论：方舟最有价值的升级是成为综合恢复系统的中枢节点</a></li>
+<li><a href="#KP-CIS-017">KP-CIS-017 专业版证据方向：漂浮/氢/PBM/镁/冷热/肠脑轴各有公开综述，级别不同</a></li>
+<li><a href="#KP-CIS-018">KP-CIS-018 与 v7 模块卡的关系：专业版展开，短版对外仍可用 V7-021~023</a></li>
+<li><a href="#KP-VNSMAP-001">KP-VNSMAP-001 手段地图定位：梳理主流激活路径，论证方舟的差异化而不是替代手术</a></li>
+<li><a href="#KP-VNSMAP-002">KP-VNSMAP-002 通识：植入式 VNS 证据最强，但手术、成本高、不适合健康管理铺开</a></li>
+<li><a href="#KP-VNSMAP-003">KP-VNSMAP-003 通识：taVNS 走耳甲耳支，研究覆盖睡眠、焦虑、抑郁、炎症</a></li>
+<li><a href="#KP-VNSMAP-004">KP-VNSMAP-004 通识：tcVNS 已用于偏头痛/丛集性头痛；超声 VNS 仍是下一代方向</a></li>
+<li><a href="#KP-VNSMAP-005">KP-VNSMAP-005 通识：慢呼吸、冥想、耐力运动、冷暴露可间接增强迷走张力</a></li>
+<li><a href="#KP-VNSMAP-006">KP-VNSMAP-006 漂浮在地图上的位置：不是电刺激，而是多通路整合激活</a></li>
+<li><a href="#KP-VNSMAP-007">KP-VNSMAP-007 前沿① 2025 FDA：VNS 进入炎症免疫，批准的是刺激器不是漂浮舱</a></li>
+<li><a href="#KP-VNSMAP-008">KP-VNSMAP-008 前沿② 2025：VNS 联合暴露疗法，部分难治 PTSD 停治疗后仍维持</a></li>
+<li><a href="#KP-VNSMAP-009">KP-VNSMAP-009 前沿③ 2025 EHJ：非侵入 VNS 1 周后最大摄氧量上升、炎症下降</a></li>
+<li><a href="#KP-VNSMAP-010">KP-VNSMAP-010 前沿④ 2024–2026：VNS 用于卒中/脊髓损伤康复，属神经科器械研究</a></li>
+<li><a href="#KP-VNSMAP-011">KP-VNSMAP-011 产业启示：迷走激活已是平台型叙事；方舟应升级为环境式副交感系统</a></li>
+<li><a href="#KP-VNSMAP-012">KP-VNSMAP-012 雷达图五维：循证、效力、安全、多通路、可及性（报告自绘示意）</a></li>
+<li><a href="#KP-VNSMAP-013">KP-VNSMAP-013 四条可直接念的结论：赛道扩展、非侵入主流、系统方案、场景优势</a></li>
+<li><a href="#KP-VNSMAP-014">KP-VNSMAP-014 手段地图参考源：正式版须补 DOI；现在只是扩展清单</a></li>
+<li><a href="#KP-VNSMAP-015">KP-VNSMAP-015 总红线：把 VNS 获批适应症念给客户时，必须当场声明「不是我们的舱」</a></li>
+<li><a href="#KP-VNSMAP-016">KP-VNSMAP-016 与 KP-V7-018 并存：V7 是速览，本系列把「不是我们的证据」写清楚</a></li>
+</ol>
+</nav>
+<article id="KP-MECH-001" data-layer="commons" data-usage="both">
+<h2>漂浮方舟作用机理总览：减负—降噪—重置—整合 <small>KP-MECH-001</small></h2>
+<p class="meta">通识层 · 汇报+培训 · approved · 作用机理、flotation-REST、总览</p>
+<p class="summary">漂浮方舟（flotation-REST）以低刺激环境与浮力支持为核心，作用路径可概括为「减负—降噪—重置—整合」。</p>
+<div class="body">文件定位：漂浮方舟作用机理文件<br>副标题：基于浮力减负、感官降噪与自主神经重置的综合机制阐释<br>核心路径：减负 —— 降噪 —— 重置 —— 整合<br>干预属性：整体状态调节型干预，而非单一靶点治疗</div>
+<p class="src">来源：方舟机理.pdf · 摘要 / 第 1 页</p>
+</article>
+<article id="KP-MECH-002" data-layer="commons" data-usage="both">
+<h2>摘要证据定位：疼痛与心理福祉信号较一致 <small>KP-MECH-002</small></h2>
+<p class="meta">通识层 · 汇报+培训 · approved · 系统综述、证据、异质性</p>
+<p class="summary">研究表明 flotation-REST 可能通过降低机械负荷、减少感官输入、调节自主神经与改善主观压力体验产生积极影响；2025–2026 综述显示疼痛与心理福祉信号较一致，睡眠与生物标志物仍有异质性。</p>
+<div class="body">可能路径：降低机械负荷 · 减少感官输入 · 调节自主神经活动 · 改善主观压力体验<br>可能获益域：疼痛、焦虑、情绪负荷、恢复质量<br>2025–2026 系统综述/范围综述要点：<br>· 浮疗对慢性疼痛与心理福祉的改善信号较为一致<br>· 睡眠、生理指标及生物标志物结果仍存在异质性<br>定位提示：更适合作为整体状态调节型干预，而非单一靶点治疗</div>
+<p class="src">来源：方舟机理.pdf · 摘要 / 第 1 页</p>
+</article>
+<article id="KP-MECH-003" data-layer="commons" data-usage="both">
+<h2>研究背景：REST 与漂浮方舟的实现形式 <small>KP-MECH-003</small></h2>
+<p class="meta">通识层 · 汇报+培训 · approved · REST、研究背景、低刺激</p>
+<p class="summary">REST 强调降低外界刺激，使机体退出高唤醒、持续应激模式；漂浮方舟用高浮力盐水与封闭低刺激空间削弱视觉、听觉、触觉与姿势维持负担。</p>
+<div class="body">REST（Restricted Environmental Stimulation Therapy）：通过降低外界刺激，使机体退出高唤醒、持续应激的工作模式。<br>漂浮方舟作为 REST 典型实现：高浮力盐水 + 封闭式低刺激空间，最大限度削弱视觉、听觉、触觉与姿势维持等外部负担。<br>设计目的：并非仅为「放松感」，而是让神经系统从持续外部应答中撤离，进入更适合恢复的内在调节状态。</div>
+<p class="src">来源：方舟机理.pdf · 第 1 节 / 第 1 页</p>
+</article>
+<article id="KP-MECH-004" data-layer="commons" data-usage="both">
+<h2>第一层机理：浮力减负与机械去负荷 <small>KP-MECH-004</small></h2>
+<p class="meta">通识层 · 汇报+培训 · approved · 浮力减负、第一层、慢性疼痛</p>
+<p class="summary">浮力显著支持体重，关节、脊柱、筋膜和肌肉暂时退出对抗重力；去负荷降低本体感觉输入与防御性肌紧张，为神经系统松动创造前提。</p>
+<div class="body">层级：第一层 · 浮力减负<br>直接改变：机体所承受的重力与姿势控制压力<br>组织效应：关节、脊柱、筋膜和肌肉不再持续对抗重力，长期紧张组织从机械性负荷中暂时退出<br>适用人群提示：慢性疼痛、肌筋膜紧张、姿势性疲劳及高压职业人群尤为重要<br>后续意义：降低本体感觉输入与防御性肌紧张，为后续神经系统松动创造前提</div>
+<p class="src">来源：方舟机理.pdf · 第 2 页</p>
+</article>
+<article id="KP-MECH-005" data-layer="commons" data-usage="both">
+<h2>第二层机理：感官降噪与注意转向内感受 <small>KP-MECH-005</small></h2>
+<p class="meta">通识层 · 汇报+培训 · approved · 感官降噪、第二层、REST</p>
+<p class="summary">REST 关键是减少大脑必须处理的感官信息量；低光、低噪声、低触觉与低空间定向刺激使注意从外部扫描转向内部感受。</p>
+<div class="body">层级：第二层 · 感官降噪<br>关键：不是「少做事」，而是减少大脑必须处理的感官信息量<br>手段：低光、低噪声、低触觉、低空间定向刺激，显著削弱外界传入信号<br>注意转向：从外部扫描转向内部感受<br>主观体验：更深层宁静、时间感减弱、身体边界感模糊、心身松沉<br>系统效应：持续维持警觉的感觉整合系统被逐步安静下来</div>
+<p class="src">来源：方舟机理.pdf · 第 2 页</p>
+</article>
+<article id="KP-MECH-006" data-layer="commons" data-usage="both">
+<h2>第三层机理：自主神经从交感应激切至副交感修复 <small>KP-MECH-006</small></h2>
+<p class="meta">通识层 · 汇报+培训 · approved · 自主神经、第三层、副交感</p>
+<p class="summary">感官输入下降与肌肉防御松解后，更易从交感神经主导的应激模式切换至副交感主导的修复模式，资源分配给循环、消化、睡眠、免疫与组织恢复。</p>
+<div class="body">层级：第三层 · 自主神经重置<br>切换：交感神经主导的应激模式 → 副交感神经主导的修复模式<br>意义：机体不再优先「应对外界」，开始分配资源给循环、消化、睡眠、免疫与组织恢复<br>研究提示：flotation-REST 与焦虑减轻、压力下降、情绪稳定和睡眠改善相关<br>定位：可作为自主神经再平衡工具</div>
+<p class="src">来源：方舟机理.pdf · 第 2–3 页</p>
+</article>
+<article id="KP-MECH-007" data-layer="commons" data-usage="both">
+<h2>第四层机理：脑状态整合与 theta/alpha 变化 <small>KP-MECH-007</small></h2>
+<p class="meta">通识层 · 汇报+培训 · approved · 脑状态、第四层、EEG、theta、alpha</p>
+<p class="summary">低刺激条件下 EEG 显示 theta 与 alpha 活动可显著变化，提示大脑进入更内在、更整合的活动状态，有助于情绪加工、内感受重建与自我调节。</p>
+<div class="body">层级：第四层 · 脑状态整合<br>EEG 线索：theta 与 alpha 活动在放松、冥想与感官输入降低时可出现显著变化<br>机制含义：促使大脑进入更内在、更整合的活动状态<br>功能收益：情绪加工、内感受重建、自我调节能力恢复<br>体验现象解释：部分体验者出现灵感涌现、记忆浮现或情绪松动</div>
+<p class="src">来源：方舟机理.pdf · 第 3 页</p>
+</article>
+<article id="KP-MECH-008" data-layer="commons" data-usage="both">
+<h2>第五层机理：疼痛与心理福祉的证据最一致 <small>KP-MECH-008</small></h2>
+<p class="meta">通识层 · 汇报+培训 · approved · 疼痛、心理福祉、第五层、系统综述</p>
+<p class="summary">证据最一致地支持浮疗在疼痛与心理福祉方面的价值；2025 年系统综述（63 项研究、约 1838 人）总体积极；2026 范围综述多数改善疼痛与焦虑抑郁指标，但生理标志物尚不一致。</p>
+<div class="body">层级：第五层 · 疼痛与心理福祉<br>2025 系统综述：纳入 63 项研究、约 1,838 名参与者；flotation-REST 在疼痛、压力、心理健康和临床焦虑方面总体呈积极结果<br>2026 范围综述：8 项纳入研究中，多数在疼痛强度、疼痛位置数量、疼痛耐受和焦虑抑郁指标上观察到改善<br>异质性：生理与生物标志物结果尚不一致<br>机制定位：作用更偏整体调节，而非单一路径干预</div>
+<p class="src">来源：方舟机理.pdf · 第 3 页</p>
+</article>
+<article id="KP-MECH-009" data-layer="company" data-usage="both">
+<h2>第六层机理：分子氢辅助的氧化压力支持 <small>KP-MECH-009</small></h2>
+<p class="meta">公司自有层 · 汇报+培训 · approved · 分子氢、第六层、氧化压力、抗氧化</p>
+<p class="summary">若漂浮系统配合分子氢，机制可扩展到氧化压力管理；分子氢具有选择性抗氧化，尤其作用于羟自由基和过氧亚硝酸盐，并具抗炎、抗凋亡与调节能量代谢潜力。</p>
+<div class="body">层级：第六层 · 氧化压力支持（可选扩展）<br>条件：漂浮系统配合分子氢相关支持<br>分子氢特性：选择性抗氧化，尤其可作用于羟自由基和过氧亚硝酸盐等高反应性氧化分子；兼具抗炎、抗凋亡和调节能量代谢潜力<br>严谨表述：在漂浮所创造的低负荷状态中，氢分子等辅助因素可帮助降低氧化应激，为组织恢复提供更稳定的内环境</div>
+<p class="src">来源：方舟机理.pdf · 第 3–4 页</p>
+</article>
+<article id="KP-MECH-010" data-layer="commons" data-usage="both">
+<h2>六层机理递进关系：由外而内的恢复链条 <small>KP-MECH-010</small></h2>
+<p class="meta">通识层 · 汇报+培训 · approved · 六层机理、递进、框架</p>
+<p class="summary">六层机理按由外而内递进：浮力减负→感官降噪→自主神经重置→脑状态整合→疼痛与心理福祉→（可选）氧化压力支持。</p>
+<div class="body">递进链条：<br>1. 浮力减负（机械去负荷）<br>2. 感官降噪（减少传入）<br>3. 自主神经重置（交感→副交感）<br>4. 脑状态整合（theta/alpha 与内感受）<br>5. 疼痛与心理福祉（证据最一致的临床获益域）<br>6. 氧化压力支持（分子氢等辅助，扩展内环境稳定性）<br>销售/培训可用一句话：先卸掉身体负担，再关掉外界噪音，然后让神经切换到修复档，最后整合脑状态与情绪—疼痛系统。</div>
+<p class="src">来源：方舟机理.pdf · 全书结构</p>
+</article>
+<article id="KP-MECH-011" data-layer="commons" data-usage="both">
+<h2>结论：由外而内递进，证据边界与研究缺口 <small>KP-MECH-011</small></h2>
+<p class="meta">通识层 · 汇报+培训 · approved · 结论、RCT、研究缺口</p>
+<p class="summary">机制是由外而内的递进过程；证据最支持疼痛缓解、焦虑减轻与整体心理福祉；仍需更多高质量 RCT、标准化方案与长期随访明确疗效边界。</p>
+<div class="body">机制总结：解除机械负荷 → 削弱感官输入 → 重置自主神经 → 促成脑状态整合与情绪—疼痛系统再平衡<br>证据最支持：疼痛缓解、焦虑减轻、整体心理福祉改善<br>研究仍需：更多高质量随机对照试验、标准化干预方案、长期随访，以明确疗效边界与稳定性</div>
+<p class="src">来源：方舟机理.pdf · 第 9 节 / 第 4 页</p>
+</article>
+<article id="KP-MECH-012" data-layer="commons" data-usage="training">
+<h2>关键文献锚点：flotation-REST 与分子氢综述 <small>KP-MECH-012</small></h2>
+<p class="meta">通识层 · 培训 · approved · 参考文献、GAD、慢性疼痛、分子氢</p>
+<p class="summary">机理文件引用 flotation-REST 治疗广泛性焦虑的 RCT 试点、系统综述、范围综述、慢性疼痛可行性 RCT，以及分子氢抗氧化与营养治疗综述。</p>
+<div class="body">代表性文献方向（文件所列）：<br>1. flotation-REST 治疗广泛性焦虑障碍（GAD）的随机对照试点试验<br>2. flotation-REST 综合系统综述<br>3. flotation-REST 范围综述（Scoping Review）<br>4. floatation-REST 用于慢性疼痛的安全性与可行性 RCT<br>5–7. 分子氢作为治疗性抗氧化剂 / 新型营养疗法 / 抗氧化获益综述<br>用途：对外学术沟通、方案背书与合规话术时引用证据层级，避免过度医疗宣称</div>
+<p class="src">来源：方舟机理.pdf · 参考文献 / 第 4 页</p>
+</article>
+<article id="KP-MECH-013" data-layer="company" data-usage="both">
+<h2>对客话术：用六层机理解释「为什么有效」 <small>KP-MECH-013</small></h2>
+<p class="meta">公司自有层 · 汇报+培训 · approved · 销售话术、机理、B端</p>
+<p class="summary">向客户解释效果时，可按六层递进讲清：先减负、再降噪、再切副交感、再整合脑状态，证据最硬的是疼痛与心理福祉；分子氢是可选增强，不替代主体机制。</p>
+<div class="body">推荐对客顺序：<br>1. 你不是「多休息一下」——身体一直在对抗重力、处理噪音（痛点）<br>2. 浮力先把机械负担卸掉（第一层）<br>3. 低刺激环境让大脑少处理外界信息（第二层）<br>4. 神经从「打仗」切到「修复」（第三层）<br>5. 脑电与内感受进入更整合状态（第四层）<br>6. 文献里最一致的改善是疼痛与心理福祉（第五层）<br>7. 若系统含分子氢，可额外支持氧化压力管理（第六层，辅助）<br>注意：表述为整体状态调节，不承诺单一疾病治愈。</div>
+<p class="src">来源：方舟机理.pdf · 全书应用</p>
+</article>
+<article id="KP-V7-001" data-layer="company" data-usage="pitch">
+<h2>漂浮方舟v7定位：心理健康主动干预系统 <small>KP-V7-001</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · v7、定位、主动健康、非药物</p>
+<p class="summary">漂浮方舟定位为心理健康和精神卫生服务的主动干预系统，强调已被 FDA、Nature、《European Heart Journal》等验证的非药物主动健康技术。</p>
+<div class="body">标题：漂浮方舟<br>定位：心理健康和精神卫生服务 · 主动干预系统<br>背书表述：一项已被 FDA、Nature、《European Heart Journal》验证的非药物主动健康技术<br>出品：漂浮方舟研发战略部 · 2026</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 1 页</p>
+</article>
+<article id="KP-V7-002" data-layer="commons" data-usage="pitch">
+<h2>政策背景：十五五健康中国与主动健康转向 <small>KP-V7-002</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · 十五五、健康中国、政策、新质生产力</p>
+<p class="summary">在十五五健康中国与新质生产力导向下，心理健康非药物主动干预被明确鼓励；项目路径为 AI 数字孪生评估 + 专有设备体系 + 产学研医一体 SOP。</p>
+<div class="body">政策方向：心理健康 · 非药物主动干预<br>战略转向：从「被动治疗」到「主动健康管理」<br>项目构成：AI 数字孪生评估系统 + 专有设备体系 + 产学研医一体 SOP<br>项目意义：在全民高压时代，帮企业把人的潜力真正用出来<br>落地建议：以一个调理中心试点，现有政策框架内先行验证后再扩展</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 3 页</p>
+</article>
+<article id="KP-V7-003" data-layer="company" data-usage="pitch">
+<h2>对企业五条降本增效价值 <small>KP-V7-003</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 降本增效、企业价值、HRV、ESG</p>
+<p class="summary">对企业实际意义包括减少决策失误、降低人才流失、提升单位时间产出、减少隐性误工，以及把健康投入变成可量化人力资本资产。</p>
+<div class="body">01 减少决策失误成本：神经过载管理者判断力下降，一次有效神经恢复可比开一天会更能提升决策质量<br>02 降低核心人才流失率：替换成本通常是年薪 50%–150%<br>03 提升单位时间产出：睡眠不足约损失每天 2–3 小时有效工作时间<br>04 减少病假与隐性误工：亚健康「在岗不在状态」可干预<br>05 健康投入变资产：以 HRV 等指标追踪，支撑 ESG 与雇主品牌</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 3 页</p>
+</article>
+<article id="KP-V7-004" data-layer="commons" data-usage="pitch">
+<h2>职场生态数据：睡眠困扰48.5%、焦虑54.9% <small>KP-V7-004</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · 职场数据、睡眠、焦虑、本土数据</p>
+<p class="summary">本土数据显示中国职工睡眠困扰率 48.5%、职场人焦虑烦躁 54.9%、75.1% 认为主因工作压力，日均工时&gt;10 小时者抑郁风险显著偏高。</p>
+<div class="body">48.5% 中国职工睡眠困扰率（中国疾控中心 · 2025 睡眠健康调查）<br>54.9% 职场人存在焦虑烦躁（智联招聘 · 2025）<br>75.1% 认为主因是工作压力大（智联 · 仅 18.2% 无情绪压力）<br>&gt;10 小时日均工时者抑郁风险显著偏高（中科院心理所蓝皮书 2023–2024，17 万份问卷）</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 4 页</p>
+</article>
+<article id="KP-V7-005" data-layer="commons" data-usage="pitch">
+<h2>员工心理健康三大主症与三个关键发现 <small>KP-V7-005</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · 职业倦怠、焦虑抑郁、职场</p>
+<p class="summary">三大主症为职业倦怠、焦虑抑郁、高压但不被看见；关键发现含城市焦虑风险最高、工时超 10 小时抑郁风险上升、近半数睡眠困扰且九成未被干预。</p>
+<div class="body">三大主症：职业倦怠；焦虑与抑郁；高压但不被看见（极少主动寻求干预）。<br>三个关键发现：<br>01 城市职场人焦虑风险最高（快节奏、高竞争、信息过载）<br>02 工作超 10 小时：抑郁风险成倍上升<br>03 近半数人睡眠受困扰，九成人未被干预（北大人民医院：睡眠科门诊 4 年增长 29%）<br>结论：问题已客观存在——缺的是可落地的干预方案。</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 4 页</p>
+</article>
+<article id="KP-V7-006" data-layer="commons" data-usage="pitch">
+<h2>量化损失：睡眠不足约占中国GDP 4.62% <small>KP-V7-006</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · 经济损失、睡眠、GDP</p>
+<p class="summary">清华+北大研究指出睡眠不足经济代价约占中国 GDP 4.62%（约 4500 亿美元/年）；2018 年损失达 6282 亿美元，较 2010 年增长超 3 倍。</p>
+<div class="body">来源：清华大学社会学系 + 北京大学人民医院，《全球健康期刊》2024 · Yan, Han et al.<br>关键数字：睡眠不足代价 ≈ 中国 GDP 的 4.62%，约 4,500 亿美元/年<br>趋势：2010 年 1,918 亿 → 2018 年 6,282 亿美元，8 年增长超 3 倍，且随劳动人口老龄化仍在扩大</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 5 页</p>
+</article>
+<article id="KP-V7-007" data-layer="commons" data-usage="pitch">
+<h2>精神健康经济负担：全社会年度成本5900亿元 <small>KP-V7-007</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · 精神健康、经济负担、柳叶刀</p>
+<p class="summary">北大精神卫生研究所研究显示精神健康问题全社会年度总成本 5900 亿元，超过当年全国卫生总支出 15%；2005–2013 年增长 4 倍。</p>
+<div class="body">来源：北京大学精神卫生研究所，《柳叶刀》系列 · 中国精神障碍经济负担研究<br>关键数字：5,900 亿元全社会年度总成本；超过当年全国卫生总支出的 15%<br>趋势：2005 年 1,470 亿 → 2013 年 5,900 亿，8 年增长 4 倍<br>构成：直接医疗成本、误工损失、照护负担</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 5 页</p>
+</article>
+<article id="KP-V7-008" data-layer="commons" data-usage="pitch">
+<h2>职业倦怠隐性产出损失约5万亿元/年 <small>KP-V7-008</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · 职业倦怠、隐性损失、制造业</p>
+<p class="summary">制造业倦怠检出率 60.4%，74% 员工选择带病上班；粗略估算中国职业倦怠隐性产出损失约 5 万亿元/年。</p>
+<div class="body">60.4% 制造业员工职业倦怠检出率<br>管理人员职业紧张风险是生产人员的 3.4 倍（中国疾控 · 2024）<br>74% 中国员工选择「带病上班」；倦怠员工产出约为正常 45–60%<br>粗略估算：4 亿城镇就业 × 60% 倦怠率 × 人均年薪 8 万 × 产出损耗 30% ≈ 5 万亿元/年<br>特征：高任务压力 + 压抑文化 + 极低干预率，损失内化不显账</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 5 页</p>
+</article>
+<article id="KP-V7-009" data-layer="commons" data-usage="pitch">
+<h2>慢性神经过载：熟悉症状背后的统一机制 <small>KP-V7-009</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · 慢性神经过载、皮质醇、级联损伤</p>
+<p class="summary">睡够仍累、思绪停不下、靠咖啡硬撑、易烦躁、小毛病不断等症状，背后是神经系统慢性过载；皮质醇长期高位引发睡眠、疲劳、免疫、认知级联损伤。</p>
+<div class="body">熟悉状态：睡够仍累；脑子停不下；靠咖啡硬撑；一点小事就烦躁；查不出原因的小毛病；休息再久也补不回精力。<br>机制命名：Chronic Neural Overload（慢性神经过载）——大脑和神经系统长期超出设计容量运行。<br>核心激素：皮质醇长期高位引发级联：①睡眠障碍（N3 无法启动）②慢性疲劳（记忆情绪脑区萎缩约 8%）③免疫下降 ④智力下降（β-淀粉样蛋白堆积）⑤专注力/学习力/决策效率下降。</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 6 页</p>
+</article>
+<article id="KP-V7-010" data-layer="commons" data-usage="pitch">
+<h2>自主神经系统：应激与恢复的切换开关 <small>KP-V7-010</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · 自主神经、迷走神经、HRV</p>
+<p class="summary">自主神经决定应激与恢复切换；长期压力导致交感过度兴奋、迷走张力下降，恢复能力变差，表现为失眠焦虑与慢性疲劳。</p>
+<div class="body">组成：交感神经与副交感神经相互制衡；迷走神经是副交感中最关键的恢复通路。<br>链条：长期压力 → 交感过度兴奋 → 迷走张力下降 → 恢复能力变差 → 失眠焦虑/慢性疲劳。<br>结论：问题不只是「累了」，而是神经系统刹车失灵；需要重置神经调节系统。<br>相关指标：RMSSD / HRV 作为身体预警与恢复能力线索。</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 7 页</p>
+</article>
+<article id="KP-V7-011" data-layer="commons" data-usage="pitch">
+<h2>油门与刹车失衡：五类症状同一系统表现 <small>KP-V7-011</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · 交感神经、迷走神经、症状</p>
+<p class="summary">交感是油门、迷走是刹车；失衡后睡眠、情绪、消化、心血管、恢复能力五类问题其实是同一系统失灵的五种表现。</p>
+<div class="body">交感神经（油门）：应激、警觉、资源动员；现代工作使其近乎 24 小时轻度激活。<br>迷走神经（刹车）：放慢心率、促成深睡、恢复消化免疫；长期压力下常年无法接管。<br>五类表现：睡眠（入睡难/睡不深/不解乏）；情绪（紧张烦躁）；消化紊乱；心血管紧绷；疲劳难恢复。<br>链条：交感持续过载 → 迷走无法接管 → 恢复系统长期失灵 → 症状反复。</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 8 页</p>
+</article>
+<article id="KP-V7-012" data-layer="company" data-usage="pitch">
+<h2>恢复前提：环境工程让身体敢于放松 <small>KP-V7-012</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 安全感、低刺激、环境工程</p>
+<p class="summary">大脑仍在扫描威胁时交感不会退出；需足够安全、低刺激、可预测的环境，迷走才易接管。漂浮方舟以少刺激、稳承托、强可控、不中断形成恢复前提。</p>
+<div class="body">原则：不是人在决定放松，而是环境工程让身体具备「敢于放松」的生理前提。<br>少刺激：低光、低声、恒温，降低感官处理负担<br>稳承托：高浓度矿物水浮力抵消重力，减少姿势动员<br>强可控：私密封闭、参数稳定，消除不可预测警觉<br>不中断：深度隔绝外部干扰，给足切换时间窗口</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 9 页</p>
+</article>
+<article id="KP-V7-013" data-layer="company" data-usage="pitch">
+<h2>神经重置窗口：重力剥夺、感官降噪、低频共振 <small>KP-V7-013</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 神经重置窗口、0.1Hz、梅尔波</p>
+<p class="summary">神经重置窗口靠三大物理路径打开：重力剥夺、感官降噪、低频共振；外部振动对准约 0.1Hz 梅尔波共振，强化迷走张力。</p>
+<div class="body">对比药物：药物作用在信号层面，未改变系统状态——像关报错弹窗但 CPU 仍空转。真正需要：关机 · 冷却 · 重启。<br>窗口效应：皮质醇骤降、副交感接管；脑电从 Beta 滑落至 Theta(4–8Hz)；淋巴系统启动清理代谢废物。<br>三大路径：01 重力剥夺；02 感官降噪；03 低频共振。<br>共振靶点：心脏≈1Hz、呼吸≈0.25Hz、梅尔波≈0.1Hz；外部振动对准 0.1Hz 强化迷走张力——给修复系统重新通电。</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 10 页</p>
+</article>
+<article id="KP-V7-014" data-layer="company" data-usage="pitch">
+<h2>从漂浮疗法到漂浮方舟：三大工程化升级 <small>KP-V7-014</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · Flotation-REST、工程化、HRV</p>
+<p class="summary">Flotation-REST 有约 70 年科学基础；漂浮方舟将其工程化为被动→主动、单一→协同、体验→量化的可控系统，并强调无创多通路激活迷走神经。</p>
+<div class="body">历史：上世纪 50 年代 REST——黑暗隔音高盐水，心跳变慢、压力激素下降。<br>三大升级：被动→主动（实时 HRV，AI 调参）；单一→协同（低频振动+声音共振）；体验→量化（数字化报告）。<br>迷走张力：越高自我修复越强；越低则慢性炎症、焦虑、失眠、免疫下降。<br>HRV：衡量迷走张力与修复能力的金标准。<br>差异化：相较植入式 VNS、穿戴式 taVNS，环境工程让身体自己找到修复状态——无创、多通路、体验感强。</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 11 页</p>
+</article>
+<article id="KP-V7-016" data-layer="company" data-usage="pitch">
+<h2>六类困扰共用开关：迷走张力偏低 <small>KP-V7-016</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 睡眠、疲劳、疼痛、迷走神经</p>
+<p class="summary">睡眠、疲劳、疼痛、情绪、代谢、压力六类困扰背后是迷走张力偏低；把开关打开后多方向可同时改善。</p>
+<div class="body">六类困扰：睡眠；疲劳；疼痛；情绪；代谢；压力。<br>共同根源：迷走神经张力偏低——刹车系统常年没机会工作。<br>关键句：不是六种不同的病，而是同一套系统失衡的六种表现。<br>一次漂浮后线索：出舱像重启；当晚入睡改善；持续后情绪稳、精力足、思维清晰。</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 13 页</p>
+</article>
+<article id="KP-V7-017" data-layer="company" data-usage="pitch">
+<h2>为什么现在可以做：政策、治理、人才三类价值 <small>KP-V7-017</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 入场时机、政策窗口、人才价值</p>
+<p class="summary">政策价值命中主动健康与新质生产力；治理价值形成可展示样板；人才价值是保住核心人才的低成本方式；叠加需求与技术窗口。</p>
+<div class="body">01 政策价值：十五五主动健康、非药物干预、卫生健康新质生产力、康复护理扩容<br>02 治理价值：医工融合案例 + 持续现金流 + 营商民生窗口，能自我造血<br>03 人才价值：为管理层与骨干配置神经恢复，比替换成本低得多<br>三窗口：政策（被动治疗→主动健康）；需求（过载、倦怠、隐性压力）；技术（环境干预、HRV、迷走调节工程化成熟）</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 14 页</p>
+</article>
+<article id="KP-V7-018" data-layer="commons" data-usage="pitch">
+<h2>国际证据速览：FDA、EHJ、Karolinska、Nature <small>KP-V7-018</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · FDA、证据、皮质醇、Theta</p>
+<p class="summary">国际证据包括 FDA 2025 迷走刺激用于类风湿、EHJ 摄氧量提升、洛桑大学 HRV+45%、Karolinska 皮质醇-27%、Frontiers 焦虑改善、Nature Mental Health Theta 增强等。</p>
+<div class="body">FDA · 2025 RESET-RA：迷走神经刺激获批用于类风湿性关节炎<br>European Heart Journal · 2025：非侵入式迷走激活 1 周后最大摄氧量显著提高、炎症下降<br>瑞士洛桑大学 · 2025：40–80Hz 体感振动，HRV 综合指数 +45%<br>Karolinska · 2024：单次 45 分钟漂浮后唾液皮质醇 -27%，副交感上升<br>Frontiers in Psychology · 2024：浮动疗法对状态性焦虑、抑郁评分一致性改善<br>Nature Mental Health · 2025：感官输入降低后 Beta→Theta(4–8Hz)</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 15 页</p>
+</article>
+<article id="KP-V7-020" data-layer="company" data-usage="pitch">
+<h2>六大签约合作伙伴矩阵 <small>KP-V7-020</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 合作伙伴、秦皇岛、京东方、国药</p>
+<p class="summary">合作伙伴覆盖秦皇岛国家综合训练基地、俞梦孙人民健康系统工程、京东方健康、中国旅游集团、国药集团、中国数字文化集团。</p>
+<div class="body">秦皇岛国家综合训练基地：体能修复与国家级运动康复实证<br>俞梦孙人民健康系统工程：环境干预模块与主动预防研究<br>京东方健康：生理数据物联网闭环<br>中国旅游集团：文旅康养疗愈空间<br>国药集团：临床级供应链与漂浮液安全<br>中国数字文化集团：光影声场沉浸式疗愈文化</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 17 页</p>
+</article>
+<article id="KP-V7-021" data-layer="company" data-usage="pitch">
+<h2>六大模块矩阵：方舟枢纽+氢光营养恢复评估 <small>KP-V7-021</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 模块矩阵、氢疗、光波、数字孪生</p>
+<p class="summary">体系以漂浮方舟为核心枢纽，协同氢疗、光波、营养支持、恢复调节与数字化评估五大模块。</p>
+<div class="body">核心枢纽：漂浮方舟<br>B 氢疗：饮用氢水 / 吸氢 / 氢浴<br>C 光波：红光 / 石墨烯 / 光生物调节<br>D 营养：微量元素 / Omega-3 / 肠道菌群<br>E 恢复调节：共振呼吸 / 冷热交替 / 节律震动<br>F 数字化评估：HRV / 睡眠 / 炎症指标 / 数字孪生</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 19 页</p>
+</article>
+<article id="KP-V7-022" data-layer="company" data-usage="pitch">
+<h2>模块协同逻辑：漂浮分别叠加氢、光、营养等 <small>KP-V7-022</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 协同、氢疗、光波、呼吸</p>
+<p class="summary">漂浮+氢疗（刹车+修发动机）、+光波（神经安静+细胞充能）、+营养、+共振呼吸、+冷热恢复，并由数字化评估贯穿闭环。</p>
+<div class="body">漂浮+氢疗：降交感过载；分子氢清自由基 → 疲劳↓ 恢复↑ 脑清晰↑<br>漂浮+光波：神经安静 + 线粒体充能 → 体能恢复、酸痛减轻<br>漂浮+营养：外部矿物场 + 口服补充 → 睡眠更深、焦虑更低<br>漂浮+共振呼吸：被动放松与可训练能力互相强化<br>漂浮+冷热：训练唤醒-释放-恢复切换弹性<br>数字化评估：HRV/睡眠/炎症贯穿，单次体验变可追踪疗程</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 20 页</p>
+</article>
+<article id="KP-V7-023" data-layer="company" data-usage="pitch">
+<h2>三类产品线与五步标准服务流程 <small>KP-V7-023</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 产品线、疗程、SOP</p>
+<p class="summary">旗舰型、医学合作型、运动恢复型三类产品线，配套初筛评估→分层建模→模块组合→疗程交付→结果复评五步流程。</p>
+<div class="body">旗舰型：方舟+氢疗+光波舱+HRV —— 高净值/医疗酒店<br>医学合作型：方舟+训练+营养剂+睡眠跟踪 —— 医院/睡眠中心/康复科<br>运动恢复型：方舟+PBM+冷热+氢疗 —— 运动员/高管/企业家<br>标准流程：Step1 初筛评估 → Step2 分层建模 → Step3 模块组合 → Step4 疗程交付（4/8/12 周）→ Step5 结果复评闭环</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 21 页</p>
+</article>
+<article id="KP-V7-024" data-layer="company" data-usage="pitch">
+<h2>刚需定义：关不掉的大脑与停不下来的交感 <small>KP-V7-024</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 刚需、市场空白、目标人群</p>
+<p class="summary">真正刚需不是「想放松」，而是神经系统无法自主切回恢复模式；覆盖高压职场、高净值、亚健康、运动高绩效与睡眠障碍人群。</p>
+<div class="body">目标人群：高压职场；高净值健康管理；亚健康慢性疲劳（城市白领 70%+）；运动高绩效；睡眠障碍（成人障碍率 38.2% 表述）。<br>空白地带：交感过度激活——不是疾病、不是单纯心理问题、不是普通疲劳。<br>核心句：我们解决的是「关不掉的大脑、停不下来的交感神经」——复购驱动力强于软性「想放松」。</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 22 页</p>
+</article>
+<article id="KP-V7-025" data-layer="company" data-usage="pitch">
+<h2>标准调理中心产能：6台设备服务规模测算 <small>KP-V7-025</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 产能、调理中心、会员规模</p>
+<p class="summary">6 台方舟+辅助设备的标准中心：日均 70–90 人次、月 1800–2300 人次、稳定会员 500–800 人，可匹配约 2000–3000 人单位高压岗位群体。</p>
+<div class="body">配置：6 台漂浮方舟 + 氢疗/光波等辅助<br>产能：约 70–90 人/天；1800–2300 人次/月；稳定会员 500–800 人（人均月 3–4 次）<br>适配：约 2000–3000 人单位（高压岗位 15–25%≈300–700 人）；5000–8000 人单位可作重点群体福利；园区/集团可多单位共享<br>效益：员工福祉、人力资本保值、运营现金流、HRV 可视化健康档案</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 23 页</p>
+</article>
+<article id="KP-V7-026" data-layer="company" data-usage="pitch">
+<h2>盈利模式：面向集团年/月付费，不做零售会员 <small>KP-V7-026</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 盈利模式、集团服务、B2B</p>
+<p class="summary">面向中大型集团按规模收取年/月服务费；不做会员制、不做零售、不面向个人；收入来自本集团、系统内兄弟企业、紧密外部集团三条。</p>
+<div class="body">原则：固定付费服务组织；不做会员制 · 不做零售 · 不面向个人<br>收入 01：本中心直接服务本集团及下属单位<br>收入 02：向系统内兄弟企业/其他地域单位输出标准化运营<br>收入 03：向关系紧密的外部大型集团输出完整方案（向外延伸唯一形式）<br>核心逻辑：服务有深度合作关系的组织，长期稳定，不可替代</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 24 页</p>
+</article>
+<article id="KP-V7-027" data-layer="company" data-usage="pitch">
+<h2>五大壁垒与三重锁定：为什么难复制 <small>KP-V7-027</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 护城河、壁垒、锁定</p>
+<p class="summary">护城河含技术、内容、知识、运营、品牌五大壁垒，并以体验锁定、数据锁定、关系锁定形成客户迁移成本。</p>
+<div class="body">五大壁垒：技术（专有设备/配方/±0.1°C 控温）；内容（医学化+数字孪生报告）；知识（医学语言机理与医院合作渠道）；运营（12 周疗程化 SOP，更高 LTV）；品牌（参照私人教练而非按摩椅）。<br>三重锁定：体验锁定（水温精度/配方/隔音难复制）；数据锁定（HRV/睡眠/疗程档案）；关系锁定（疗程顾问+医学认证，健康管理合伙人）。</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 25 页</p>
+</article>
+<article id="KP-V7-028" data-layer="company" data-usage="pitch">
+<h2>决策清单：试点投入产出与容错免责依据 <small>KP-V7-028</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 决策清单、试点、容错免责</p>
+<p class="summary">建议小规模试点：6 台方舟+辅助配一个标准中心；产出日均 70–90 人次；政策对应国资委令第 46 号容错情形与十五五主动健康；设退出路径与阶段性复核。</p>
+<div class="body">一 投入：6 台漂浮方舟 + 氢疗/光波等，一个标准调理中心，规模可分期<br>二 产出：日均 70–90、月 1800–2300、会员 500–800，匹配约 2000–3000 人单位高压岗位；另有示范与民生窗口非现金价值<br>三 政策：国资委令第 46 号「六大容错免责」中组织科技研发/战略性新兴产业/先行先试；十五五主动健康与新质生产力<br>四 风险兜底：试点立项、程序合规、明确退出与复核节点<br>五 下一步：批复可研→选址与单位规模→明确责任人→按「初筛—分层—组合—交付—复评」推进</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 第 26 页</p>
+</article>
+<article id="KP-V7-029" data-layer="company" data-usage="pitch">
+<h2>v7销售叙事主线：损失—机制—系统—试点 <small>KP-V7-029</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 销售话术、v7、叙事</p>
+<p class="summary">建议叙事：政策与企业损失量化 → 慢性神经过载与自主神经机制 → 重置窗口与多模态系统 → 证据与专家伙伴 → 产品化盈利与试点决策。</p>
+<div class="body">1. 开场：政策主动健康 + 企业五条降本增效<br>2. 痛点数据：职场睡眠/焦虑 + GDP/精神负担/倦怠隐性损失<br>3. 机制：慢性神经过载 → 油门刹车失衡 → 环境安全感 → 神经重置窗口<br>4. 方案：REST 工程化 + M1–M7 + 六大模块协同 + 三类产品线<br>5. 信任：国际证据 + 专家 + 六大伙伴<br>6. 商务：刚需人群 + 中心产能 + 集团付费模式 + 壁垒锁定<br>7. 收口：决策清单试点立项</div>
+<p class="src">来源：漂浮方舟_v7.pdf · 全书</p>
+</article>
+<article id="KP-VGMECH-001" data-layer="company" data-usage="pitch">
+<h2>报告定位：医学综述型学术商务稿，不是产品说明书 <small>KP-VGMECH-001</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 迷走神经、报告定位、医院合作、投资尽调</p>
+<p class="summary">本报告是 Flotation-REST 对迷走神经调节通路潜在影响的医学综述型学术商务稿，适用投资决策、医院合作、高管汇报。不是设备说明书，也不是已获批的医疗适应症清单。</p>
+<div class="body">文件：漂浮方舟作用机制研究报告<br>副题：Flotation-REST 对迷走神经调节通路的潜在影响<br>版本：V1.0｜发布方：漂浮方舟研究团队<br>适用：投资决策 / 医院合作 / 高管汇报<br>性质：医学综述 + 商业应用价值分析<br><br>怎么用：给合作医院评估、康复科研合作、高净值健康项目尽调、企业高管健康管理方案做「可解释的机制底稿」。<br>怎么不用：当产品注册证、临床适应症、或「已证明直接刺激迷走神经」的证据。<br>对接：机理总览仍以 KP-MECH-001 的减负—降噪—重置—整合为准；本报告把「迷走张力」这一条写深。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 封面 / 版本信息</p>
+</article>
+<article id="KP-VGMECH-002" data-layer="commons" data-usage="pitch">
+<h2>摘要口径：改善迷走张力相关指标，不说直接治疗疾病 <small>KP-VGMECH-002</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · 摘要、HF-HRV、皮质醇、证据边界</p>
+<p class="summary">现有公开资料支持：漂浮-REST 可通过减少感觉输入、降低中枢警觉、调整自主神经平衡，改善迷走张力相关指标（高频 HRV、皮质醇、血压、主观焦虑）。最稳妥的对外句是「支持自主神经重平衡」，不是「治疗疾病」。</p>
+<div class="body">稿内摘要主张：<br>- 手段：消除外部感觉输入 + 近似失重 → 深度放松的非侵入干预<br>- 观察方向：高频心率变异性提升、皮质醇下降、血压正常化、主观焦虑评分改善<br>- 产品整合：硫酸镁离子环境 + 水温控制 + 声学隔离 → 系统化副交感激活环境<br><br>本报告自己的稳妥句（必须保留）：现阶段不是「直接治疗疾病」，而是「支持自主神经重平衡，改善与压力相关的身心状态」。<br><br>引用纪律（对接 KP-COM-005）：摘要里的指标变化是综述口径，不是我司临床试验终点。Karolinska 皮质醇等数字以 KP-V7-018 / KP-WEB-* 核对后再上 PPT，不要把稿内「可观察到」写成「我司测到」。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 【摘要】</p>
+</article>
+<article id="KP-VGMECH-003" data-layer="commons" data-usage="pitch">
+<h2>通识：现代压力问题的共同基础是自主神经失衡 <small>KP-VGMECH-003</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · 自主神经、交感过载、压力医学、通识</p>
+<p class="summary">高信息密度、高压力、高警觉使交感长期占优、迷走相对受抑，表现为慢性应激、睡眠障碍、焦虑、注意力下降、免疫调节异常。共同基础不只是「累」，而是自主神经系统失衡。</p>
+<div class="body">稿内问题定义：<br>暴露：高信息密度 + 高压力 + 高警觉<br>结果：交感持续高活跃，副交感尤其是迷走功能相对受抑<br>表现：慢性应激、睡眠障碍、焦虑、注意力下降、免疫调节异常<br>医学视角金句：这类问题的共同基础并不只是「累」，而是自主神经系统失衡。谁能帮助机体从交感主导切换回副交感主导，谁就更接近现代压力医学与恢复医学的核心。<br><br>对接：KP-V7-010（切换开关）、KP-V7-011（油门与刹车）。本卡用综述语言，不新增我司数字。<br>不要讲成：漂浮已经解决了「免疫系统疾病」。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 1.1 现代社会的自主神经失衡问题</p>
+</article>
+<article id="KP-VGMECH-004" data-layer="commons" data-usage="pitch">
+<h2>通识：迷走张力高 ≈ 压力后恢复力、心率稳定、炎症控制更好 <small>KP-VGMECH-004</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · 迷走神经、迷走张力、抗炎、通识</p>
+<p class="summary">迷走神经是最重要的副交感通路之一，支配心脏、肺、胃肠道和免疫系统。张力越高，通常压力后恢复越强、心率调节越稳、炎症控制越好、情绪更稳。非侵入式迷走干预是功能医学、心身医学、睡眠医学与整合康复的热点。</p>
+<div class="body">解剖与功能要点（综述口径）：<br>- 支配：心脏、肺、胃肠道、免疫系统<br>- 张力含义：压力后恢复能力、心率调节稳定性、炎症控制、情绪稳定性<br>- 领域：功能医学、心身医学、睡眠医学、整合康复<br><br>对外可用：围绕迷走神经做非侵入健康干预，是国际正在认真做的方向。<br>禁止：把「热点方向」讲成「漂浮已进入这些学科的标准治疗路径」。<br>对接：KP-V7-016（六类困扰共用开关）是公司叙事；本卡只讲 anatom 与张力含义。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 1.2 迷走神经的医学意义</p>
+</article>
+<article id="KP-VGMECH-005" data-layer="commons" data-usage="pitch">
+<h2>通识：Flotation-REST = 隔光、低噪、恒温、高浮力的限制环境刺激 <small>KP-VGMECH-005</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · Flotation-REST、定义、低刺激、通识</p>
+<p class="summary">漂浮疗法通常归类为 Flotation-REST：个体在隔光、低噪、恒温、高浮力盐水中，最大限度减少外界感觉输入，使中枢从持续处理外界刺激，转入更低耗能、更高恢复性的状态。</p>
+<div class="body">操作定义（稿内）：<br>环境：隔光、低噪、恒温、高浮力盐水<br>目的：减少外界感觉输入<br>状态切换：持续处理外界刺激 → 低耗能、高恢复<br><br>对接：KP-WEB-007 REST 九通道、KP-MECH-003、KP-TRN-001（对内「漂浮疗愈」一词不对外）。<br>对外只用 Flotation-REST / 漂浮 / 深度恢复，不用「疗愈治疗」。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 2.1 漂浮疗法的定义</p>
+</article>
+<article id="KP-VGMECH-006" data-layer="commons" data-usage="pitch">
+<h2>循证方向：压力、疼痛、焦虑趋势正向；HRV/皮质醇为客观线索 <small>KP-VGMECH-006</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · 循证、焦虑、疼痛、HRV、证据边界</p>
+<p class="summary">公开资料中漂浮研究主要在焦虑缓解、疼痛管理、睡眠支持、压力恢复和自主神经调节。系统综述与行业汇总认为安全性较高、起效较快，适合作为辅助干预。部分研究见到 HRV 改善、皮质醇下降、平均动脉压下降。</p>
+<div class="body">研究集中方向：焦虑缓解、疼痛管理、睡眠支持、压力恢复、自主神经调节<br>行业口径：安全性较高、起效较快、适合辅助干预的非药物方案<br>客观线索（部分研究，非全部同质）：心率变异性改善、皮质醇下降、平均动脉压下降<br><br>稿内三条要点：<br>1 压力、疼痛、焦虑结局有较一致正向趋势<br>2 部分研究有 HRV / 皮质醇 / 平均动脉压变化<br>3 最稳妥表述不是「直接治疗疾病」<br><br>对接：疼痛与心理福祉较一致见 KP-MECH-002；Feinstein 开放标签见 KP-WEB-001；Garland 可行性 RCT 见 KP-WEB-002。睡眠与生物标志物仍有异质性，不要用本卡盖掉异质性。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 2.2 循证研究的总体方向</p>
+</article>
+<article id="KP-VGMECH-007" data-layer="company" data-usage="pitch">
+<h2>关键区分：环境式间接提升迷走张力 ≠ 植入式电刺激 <small>KP-VGMECH-007</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 机制、非电刺激、环境工程、口径</p>
+<p class="summary">漂浮方舟不像植入式 VNS 那样用电脉冲直接打在神经本体，而是营造副交感重新占优的整体环境，间接提升迷走张力相关指标。机制概括为四条并行通路。这是本报告最重要的合规区分。</p>
+<div class="body">直接通路（别人的器械）：植入式 / 经皮电刺激，脉冲作用于迷走神经。<br>本报告主张的通路：整体环境 → 副交感占优 → 迷走张力相关指标改善。<br>四条并行：<br>1 感觉输入减少，中枢降噪<br>2 失重漂浮，解除肌肉骨骼持续应激<br>3 呼吸自然减缓，HF-HRV 上升<br>4 应激激素下降，HPA 轴负荷减轻<br><br>对外必讲的一句：我们不是给神经一个外力，而是通过环境工程让身体自己回到修复模式。<br>红线：禁止说「漂浮方舟是无创版 VNS 治疗仪」或「等效于 FDA 批准的迷走神经刺激」。器械对照见 KP-VNSMAP-*。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 三、漂浮方舟启动迷走神经的作用机制（总述）</p>
+</article>
+<article id="KP-VGMECH-008" data-layer="company" data-usage="pitch">
+<h2>机制一：感觉输入减少，促使中枢降噪 <small>KP-VGMECH-008</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 中枢降噪、感官限制、交感回落</p>
+<p class="summary">隔绝光线、噪音、温差和姿势负荷，减少视听躯体与本体感觉输入。前额叶与边缘系统警觉负荷下降，交感高警戒回落；「战或逃」解除后，副交感才有机会重新主导。</p>
+<div class="body">减少的输入：视觉、听觉、躯体感觉、本体感觉（隔光、低噪、恒温、卸姿势负荷）<br>中枢变化：大脑不再持续处理大量外部信息 → 前额叶与边缘系统警觉负荷下降<br>自主神经：交感高警戒回落 → 副交感获得主导机会 → 迷走相关恢复功能更容易启动<br><br>讲法：先把「一直在值班的警报系统」关掉，刹车才接得上。<br>对接：KP-MECH 第二层感官降噪、KP-V7-013 感官降噪路径。<br>不要讲成：已经用脑成像证明前额叶关闭了多少百分比。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 3.1 机制一</p>
+</article>
+<article id="KP-VGMECH-009" data-layer="company" data-usage="pitch">
+<h2>机制二：失重漂浮解除肌肉骨骼持续应激 <small>KP-VGMECH-009</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 浮力、卸载、本体感觉、硫酸镁</p>
+<p class="summary">高密度硫酸镁盐水的高浮力让人体近失重漂浮，脊柱、关节、颈肩与深层肌群不再持续抗重力。肌梭、本体感受器及疼痛通路传入减少，进一步削弱交感兴奋。这是身体端、不只是心理放松。</p>
+<div class="body">物理：高密度硫酸镁盐水 → 高浮力 → 近似失重<br>卸载部位：脊柱、关节、颈肩、深层肌群<br>传入下降：肌肉梭、本体感受器、疼痛相关通路 → 交感兴奋被削弱<br>稿内金句：漂浮方舟不仅是「心理放松」，更是通过物理卸载降低躯体性应激，从身体端帮助迷走神经恢复。<br><br>对接：KP-MECH 第一层浮力减负；失重舱构想不可混称见 KP-MEDW-002。<br>红线：不承诺椎间盘复位、不承诺治疗骨科病（KP-MEDW-008）。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 3.2 机制二</p>
+</article>
+<article id="KP-VGMECH-010" data-layer="commons" data-usage="pitch">
+<h2>机制三：呼吸自然减缓，高频 HRV 上升 <small>KP-VGMECH-010</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · HRV、RSA、呼吸、迷走张力</p>
+<p class="summary">深度安静和安全感下呼吸频率通常自然减慢，提升呼吸性窦性心律不齐（RSA），带动高频 HRV 上升。HF-HRV 是最常用的迷走张力间接指标之一，也是本报告认为最可信的「启动」证据路径。</p>
+<div class="body">链条：安全感 + 深度安静 → 呼吸减慢 → RSA（呼吸性窦性心律不齐）增强 → 高频 HRV 上升<br>指标地位：高频 HRV ≈ 目前最常用的迷走张力间接指标之一<br>稿内判断：从生理监测角度看，漂浮对迷走的「启动」，最可信的证据路径之一就是 HRV 改善。<br><br>注意：<br>- HRV 是间接指标，不是迷走神经放电的直接记录<br>- 单次舱内 HRV 上升 ≠ 基线迷走张力已被「治愈」<br>- 共振呼吸把这条路径变成可训练能力，见 KP-VGMECH-019~022<br>对接：KP-V7-014 把 HRV 称作金标准——对外请同时说「间接指标」。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 3.3 机制三</p>
+</article>
+<article id="KP-VGMECH-011" data-layer="company" data-usage="pitch">
+<h2>机制四：应激激素下降，HPA 轴负荷减轻 <small>KP-VGMECH-011</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · HPA轴、皮质醇、焦虑、恶性循环</p>
+<p class="summary">多项研究与行业资料提到漂浮后皮质醇、平均动脉压及主观焦虑下降。可能打断「交感过活—皮质醇偏高—更难放松」的循环；HPA 负荷减轻后，副交感恢复空间扩大。</p>
+<div class="body">观察线索（稿内转述，须核具体研究）：皮质醇下降、平均动脉压下降、主观焦虑评分下降<br>循环：交感神经过度活跃 → 皮质醇偏高 → 更难放松 → 再推高交感<br>机制四的意义：不只改变当下感受，还可能给这条循环松绑<br>下游：副交感恢复空间扩大，机体更容易进入休息、修复与合成代谢<br><br>对接：Karolinska 单次 45 分钟唾液皮质醇见 KP-V7-018，对外引用前核原文，勿把「行业资料提到」写成我司 N 例数据。<br>不要讲成：已经证明永久压低皮质醇或治疗肾上腺疾病。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 3.4 机制四</p>
+</article>
+<article id="KP-VGMECH-012" data-layer="company" data-usage="pitch">
+<h2>系统优势：可重复训练平台 + 可接医学数据，而不只是一次舒压 <small>KP-VGMECH-012</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 疗程化、HRV、数据接口、康养场景</p>
+<p class="summary">价值应从「一次舒压体验」升级为可标准化、可重复、可疗程化的副交感训练平台。与 HRV、血氧、睡眠、压力评分联动后，才能从主观放松变成可追踪模块，适配功能医学、睡眠、体检、康复、医疗酒店与高净值会员。</p>
+<div class="body">4.1 训练平台：单次 → 即时放松；多次连续 → 才有机会谈基线迷走张力的长期改善（「有机会」不是「已证实」）。<br>4.2 数据接口：联动 HRV、血氧、睡眠、压力评分 → 可量化、可解释、可追踪。对医院与投资方：这决定它不是单纯 SPA，而是可接入整合医学 / 睡眠管理 / 康复评估的功能模块。<br>4.3 场景：功能医学中心、睡眠医学中心、高端体检、康复医院、医疗酒店、高净值会员健康管理。卖点是体验感 + 可解释的医学叙事，形成差异化。<br><br>边界：数据接口是产品设计方向（对接 KP-CRAFT-001 第 2 层），不要把「如果将…联动」讲成已经全国上线的物联网闭环，除非合同写明。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 4.1–4.3 系统优势</p>
+</article>
+<article id="KP-VGMECH-013" data-layer="company" data-usage="pitch">
+<h2>五类场景：压力、睡眠、焦虑辅助、运动恢复、整合医学合作 <small>KP-VGMECH-013</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 场景、压力管理、睡眠、运动恢复</p>
+<p class="summary">稿内列出五类场景：高压职业压力管理、非药物睡眠支持的一部分、焦虑紧张脑疲劳的辅助干预、运动员与高绩效/术后特定阶段的运动恢复、与营养呼吸心理 HRV 监测的整合医学合作。全部是辅助与支持，不是独立治疗。</p>
+<div class="body">• 压力管理：高压高管、企业家、医生、金融从业者等长期交感过激人群<br>• 睡眠支持：作为非药物睡眠管理方案的一部分（不是替代睡眠科诊疗）<br>• 焦虑辅助干预：焦虑、紧张、脑疲劳、注意力耗竭的亚健康群体（「辅助」「亚健康」，不是精神科适应症）<br>• 运动恢复：运动员、高绩效人士和术后恢复阶段的特定人群（术后须医疗机构主导）<br>• 整合医学合作：营养干预、呼吸训练、心理放松训练、HRV 监测联合方案<br><br>红线：场景名单 ≠ 适应症清单。糖尿病、抑郁症、类风湿等病名不要从这里长出来（对接 KP-TRN-079、KP-SOP-009）。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 五、临床与商业应用场景</p>
+</article>
+<article id="KP-VGMECH-014" data-layer="company" data-usage="both">
+<h2>合规红线：健康促进与辅助工具；禁止「治疗疾病」和「直接刺激迷走」 <small>KP-VGMECH-014</small></h2>
+<p class="meta">公司自有层 · 汇报+培训 · approved · 合规、红线、辅助干预、医院合作</p>
+<p class="summary">严格医学角度应定义为健康促进和辅助干预工具，而非独立治疗设备。证据支持压力管理、睡眠支持、焦虑缓解和疼痛辅助管理的应用价值，但不宜宣称治疗疾病或直接刺激迷走神经。</p>
+<div class="body">定义：健康促进 + 辅助干预工具 ≠ 独立治疗设备<br>可说的价值域：压力管理、睡眠支持、焦虑缓解、疼痛辅助管理<br>禁止：治疗疾病；直接刺激迷走神经<br><br>稿内推荐的严谨句（对外优先用这句）：<br>「漂浮方舟通过减少环境刺激与促进副交感神经占优，可能改善迷走神经张力相关指标。」<br><br>为什么这句好：符合现有证据级别，也更利于医院合作和合规传播。<br>对接：KP-SOP-009 用语铁律、KP-COM-006、KP-TRN-005。冲突时门店执行以 SOP 为准。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 六、医学边界与风险提示</p>
+</article>
+<article id="KP-VGMECH-015" data-layer="company" data-usage="both">
+<h2>本报告禁忌：幽闭、开放伤口、急性皮肤感染、未控癫痫、重症心血管不稳 <small>KP-VGMECH-015</small></h2>
+<p class="meta">公司自有层 · 汇报+培训 · approved · 禁忌、安全、筛查</p>
+<p class="summary">报告列出：严重幽闭恐惧、开放性伤口、急性皮肤感染、未控制癫痫、需特殊监测的重症心血管不稳定人群。门店执行以更完整的 SOP/培训禁忌为准，本卡只记录该报告的名单，不替代开舱筛查表。</p>
+<div class="body">本报告名单：<br>- 严重幽闭恐惧者<br>- 开放性伤口患者<br>- 急性皮肤感染患者<br>- 未控制癫痫患者<br>- 需特殊监测的重症心血管不稳定人群<br><br>执行纪律：<br>- 独立门店拒客清单以 KP-SOP-023 / KP-SOP-025 为准（更全，含孕周等）<br>- 内训详版见 KP-TRN-080~085<br>- 本卡用于对照「医院汇报稿写了哪些」；现场筛查不得只背这五条<br>冲突说明：报告名单短于培训禁忌，取更严。水温、孕周仍待老板锁的条目继续待锁。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 六、禁忌与注意人群</p>
+</article>
+<article id="KP-VGMECH-016" data-layer="company" data-usage="pitch">
+<h2>一句话本质：激活人体内建恢复系统的环境医学工具 <small>KP-VGMECH-016</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 金句、医院、投资人、高管</p>
+<p class="summary">医学本质不是替代医疗，而是激活人体内建恢复系统的环境医学工具。医院要的是非药物模块，投资人要的是可体验可量化可复购的热门叙事，高管要的是高效率低副作用可持续的恢复方式。</p>
+<div class="body">一句话：它不是「替代医疗」的产品，而是「激活人体内建恢复系统」的环境医学工具。路径：降低外界刺激和体内应激负荷 → 为迷走主导的副交感修复创造条件 → 从高压警觉切回深度恢复。<br><br>三类受众：<br>- 合作医院：为睡眠、康复、压力医学和整合医学提供新的非药物干预模块<br>- 投资人：把「迷走神经调节」这一全球热门医学叙事，转化为可体验、可量化、可复购的商业模型<br>- 高管客户：高效率、低副作用、可持续的恢复方式<br><br>最有说服力的表达：不强调神秘，强调可解释——不是直接给神经一个外力，而是通过环境工程让身体自己重新回到正确的神经模式。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 七、结论与商务表达建议</p>
+</article>
+<article id="KP-VGMECH-017" data-layer="company" data-usage="pitch">
+<h2>15分钟开场稿：稀缺的不是休息时间，是切换回副交感的能力 <small>KP-VGMECH-017</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 开场稿、演讲、15分钟</p>
+<p class="summary">附录提供可直接用的开场：不是简单放松产品，而是围绕自主神经修复的环境医学方案。现代人稀缺的不是休息时间，而是从交感过载切回副交感恢复的能力。</p>
+<div class="body">建议开场（可按现场删减）：<br>各位领导、各位专家，今天汇报的不是一个简单的放松产品，而是一套围绕自主神经修复展开的环境医学解决方案。现代人真正稀缺的，不只是休息时间，而是让身体从交感神经过载状态切换回副交感恢复状态的能力。<br><br>漂浮方舟的核心价值：通过隔绝外界刺激、营造近失重环境、降低中枢警觉负荷，帮助人体重新启动以迷走神经为代表的副交感调节系统。换句话说，它不是替人体恢复，而是给人体一个重新恢复的机会。<br><br>医学视角：感觉输入减少、肌肉骨骼卸载、呼吸减缓、HRV 提升和皮质醇下降等可解释生理链路。<br>商业视角：医院和康养机构的差异化服务模块；高端会员健康管理中高复购、高附加值的核心产品。<br><br>使用注意：开场后立刻接 KP-VGMECH-014 的边界句，避免听众听成医疗承诺。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 附录：15分钟商务汇报开场稿</p>
+</article>
+<article id="KP-VGMECH-018" data-layer="commons" data-usage="training">
+<h2>本报告参考文献清单：正式对外前须核到作者原文级别 <small>KP-VGMECH-018</small></h2>
+<p class="meta">通识层 · 培训 · approved · 参考文献、引用纪律</p>
+<p class="summary">稿内文献为方向性清单（Clinical Floatation、GWI、PMC VNS 综述、Feinstein、HRV、Porges 多重迷走、镁综述），多数无 DOI。正式 PPT 必须核到作者、年份、设计与限度，禁止用清单当已经读过全文的假象。</p>
+<div class="body">稿内列出：<br>1 Clinical Floatation / Clinical Float Research Collective 证据汇总<br>2 Global Wellness Institute. Flotation Therapy Evidence Review<br>3 PMC：Vagus Nerve Stimulation overview and autonomic regulation<br>4 Feinstein JS et al. flotation-REST and anxiety（正确标签见 KP-WEB-001：开放标签，不是 RCT）<br>5 HRV and vagal tone / neurocardiac regulation reviews<br>6 Polyvagal Theory，Stephen Porges（理论框架，不是临床试验）<br>7 Magnesium and nervous system reviews（Nutrients 等；透皮限度见 KP-WEB-005）<br><br>纪律：对接 KP-COM-005。清单项 1–2 是行业汇总不是顶刊 RCT；Porges 可作讲法框架，不可当疗效证据。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 参考文献（建议正式版补充）</p>
+</article>
+<article id="KP-VGMECH-019" data-layer="commons" data-usage="both">
+<h2>通识：共振呼吸约 4.5–6 次/分（0.1Hz）时 HRV 出现峰值 <small>KP-VGMECH-019</small></h2>
+<p class="meta">通识层 · 汇报+培训 · approved · 共振呼吸、0.1Hz、压力感受器、HRV</p>
+<p class="summary">当呼吸降到约每分钟 4.5–6 次（约 0.1Hz）时，呼吸节律与心跳、压力感受器（baroreflex）自然振荡同步，迷走对心脏的调控效应最大化，HRV 出现峰值。多数健康成人个体共振频率在 0.07–0.11Hz，约 5–6 次/分。</p>
+<div class="body">定义：Resonance Frequency Breathing<br>靶频率：约 4.5–6 次/分钟 ≈ 0.1Hz<br>机制：呼吸节律与心跳、压力感受器自然振荡同步共振 → 心脏迷走调控最大化 → HRV 峰值<br>个体差异：多数健康成人 0.07–0.11Hz（约 5–6 次/分）<br><br>对接：KP-V7-013 把外部振动对准 0.1Hz 梅尔波——那是产品振动叙事；本卡讲的是人自己的呼吸频率。两套 0.1Hz 不要混成「我们已经用振动代替了呼吸训练」。<br>稿内引用标记为二次转述（frontiersin 等），对外上 PPT 须补正式文献。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 附录：什么是共振呼吸</p>
+</article>
+<article id="KP-VGMECH-020" data-layer="company" data-usage="both">
+<h2>共振呼吸动作要领：腹式、鼻吸鼻呼、5+5 或 4+6，轻柔不屏气 <small>KP-VGMECH-020</small></h2>
+<p class="meta">公司自有层 · 汇报+培训 · approved · 共振呼吸、动作、腹式呼吸、SOP</p>
+<p class="summary">姿势坐直或仰躺，腹式膈肌呼吸，鼻吸鼻呼，吸 5 秒呼 5 秒不屏气；可改为吸 4 呼 6 以延长副交感。力度像轻闻花朵，不要吸到胀满。这是进入 4 周疗程前的入门标准。</p>
+<div class="body">姿势：坐直，脊柱自然竖立，放松肩膀，不塌腰；也可仰躺<br>部位：腹式（膈肌），一手放腹部确认吸气隆起、呼气回落；胸肩尽量不动<br>节奏：鼻吸鼻呼，吸气 5 秒 + 呼气 5 秒，不屏气<br>力度：轻柔，像轻轻闻一朵花，不要用力吸到胀满<br>进阶：呼气略长于吸气，如 4 秒吸 + 6 秒呼，延长副交感激活<br><br>安全：第一周可能觉得节奏怪、轻微头晕——稿称与 CO₂ 轻微调整有关，应减轻力度而不是硬撑。有心血管疾病、妊娠、眩晕史者先问医生，不把本卡当处方。<br>用途：漂浮前引导、会员居家作业、销售演示（当场带做 1 分钟）。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 附录：基础动作要领</p>
+</article>
+<article id="KP-VGMECH-021" data-layer="company" data-usage="both">
+<h2>共振呼吸 4 周方案：从每天 15 分钟到生活化 20 分钟 <small>KP-VGMECH-021</small></h2>
+<p class="meta">公司自有层 · 汇报+培训 · approved · 共振呼吸、4周、疗程、HRV生物反馈</p>
+<p class="summary">稿内给出循序 4 周：第1周建立 6 次/分节律（约 15 分钟/天）；第2周拉长并加入 4:6；第3周加入感知与可选 HRV App；第4周整合到晨间、压力峰值、运动后、睡前。这是会员协议设计，不是漂浮临床 RCT。</p>
+<div class="body">稿内转述：2022 年 PMC 有研究称每天 20 分钟、坚持 4 周，HRV 可显著提升、对照组无明显变化——正式引用须核原文，不把「稿内转述」写成我司试验。<br><br>第 1 周 建立节律感（约 15 分钟/天）<br>- 晨：5 分钟，5+5，仰躺或坐直<br>- 傍晚：5 分钟同上<br>- 睡前：5 分钟可躺床上<br>- 注意：节奏奇怪、轻头晕属可能现象，轻柔坚持，不要用力过猛<br><br>第 2 周 延长 + 呼气加长（约 20 分钟/天）<br>- 晨 10 分钟 4+6；晚 10 分钟 5+5 或 4:6<br>- 稿称部分人入睡更快、醒来更清醒，只作早期信号描述<br><br>第 3 周 专注感知<br>- 晨 10 分钟 4+6，注意呼气「松沉」<br>- 晚 10 分钟可配合无歌词轻音乐或冥想<br>- 可选 Elite HRV、Welltory 看练习前后变化（第三方 App，非我司医疗器械）<br>- 稿引台湾中国医药大学：第 3 次疗程后 HRV 疗效开始显著——二次转述，须核<br><br>第 4 周 生活化<br>- 晨 20 分钟完整练习（研究标准量）<br>- 工作压力峰值：5 分钟「急救式」<br>- 运动恢复后 10 分钟<br>- 睡前 5–10 分钟替代滑手机<br><br>产品化：可写入会员「疗程化健康协议」，不要写成医疗处方。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 附录：4 周训练方案</p>
+</article>
+<article id="KP-VGMECH-022" data-layer="company" data-usage="both">
+<h2>双轨协议：漂浮前 5 分钟、舱内自然减缓、疗程间隙居家 10–20 分钟 <small>KP-VGMECH-022</small></h2>
+<p class="meta">公司自有层 · 汇报+培训 · approved · 双轨、共振呼吸、会员协议、证据边界</p>
+<p class="summary">4 周呼吸训练文献趋势是 HRV 基线、睡眠、DASS-21、轻度血压与注意力改善；2026 年 88 人 RCT 支持个体化共振频率与固定 0.1Hz 相当。这些是呼吸/HRV 生物反馈的结果，不是漂浮舱 RCT。与方舟的联动是产品协议。</p>
+<div class="body">稿内「4 周后预期」（呼吸训练文献趋势，不是漂浮终点）：<br>- HRV（尤其 RMSSD、SDNN）基线提升<br>- 入睡加快、睡眠主观质量改善<br>- 焦虑/压力/抑郁评分（DASS-21）下降<br>- 心率和收缩压轻度降低<br>- 注意力与认知灵活性改善<br><br>2026 年稿引 RCT：88 名参与者，4 周 HRV 生物反馈 vs 对照，压力焦虑抑郁改善；个体化共振频率与 0.1Hz 固定频率效果相当 → 大多数人可直接用 6 次/分钟。来源标记为 ebiotrade 二次转述，对外必须补 DOI，禁止说成「漂浮方舟 88 人临床试验」。<br><br>联动协议（公司产品设计）：<br>- 漂浮前：5 分钟共振呼吸，缩短「大脑停不下来」<br>- 漂浮中：舱内自然呼吸减缓，趋近共振频率，叠加 HRV<br>- 疗程间隙：每日 10–20 分钟居家维持，使张力改善在舱外累积<br>商务句：「漂浮方舟 + 共振呼吸训练 = 迷走神经系统性激活双轨方案」→ 会员疗程协议，不是医疗器械组合批准。</div>
+<p class="src">来源：漂浮方舟迷走神经作用机制研究报告.docx · 附录：4 周后预期 + 与漂浮方舟联动</p>
+</article>
+<article id="KP-CIS-001" data-layer="company" data-usage="pitch">
+<h2>综合体系定位：方舟从单舱升级为恢复医学中枢平台 <small>KP-CIS-001</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 综合干预、平台、整合医学、执行摘要</p>
+<p class="summary">专业综述版不再把漂浮方舟定义为单一放松设备，而是围绕 ANS 重平衡、线粒体能量、炎症与氧化应激、肠脑轴的综合干预平台。漂浮负责神经降噪与副交感激活，其他模块做机制叠加。</p>
+<div class="body">版本：专业综述版 V1.0｜对象：投资人 / 合作医院 / 高管汇报<br>中枢载体：漂浮方舟<br>升级定义：自主神经（ANS）重平衡 + 线粒体能量支持 + 炎症与氧化应激控制 + 肠脑轴优化<br>设计逻辑：漂浮完成神经系统降噪与副交感激活；分子氢、光生物调节、镁营养、冷/热恢复、呼吸训练形成机制叠加；从「短期放松」走到「系统恢复」。<br><br>四层理论（不是单点治疗）：<br>- 神经：迷走张力与 HRV<br>- 细胞：线粒体、氧化还原、ATP<br>- 炎症：迷走抗炎反射与细胞因子下调<br>- 行为：可疗程化的健康训练<br><br>适合场景：高净值健康管理、功能医学中心、睡眠医学中心、医疗酒店、康复中心、企业高管恢复。<br>对接：KP-V7-021 是短矩阵；本系列是专业版展开。<br>边界：平台是方案设计，不是已经获批的「多模态医疗器械系统」。</div>
+<p class="src">来源：漂浮方舟综合干预体系方案_专业版.docx · 封面 / 执行摘要</p>
+</article>
+<article id="KP-CIS-002" data-layer="company" data-usage="pitch">
+<h2>升级理由：单次漂浮覆盖不了高净值/疲劳/炎症/术后的全部机制 <small>KP-CIS-002</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 升级、闭环、主轴</p>
+<p class="summary">单一漂浮已有限制环境刺激、副交感占优、HRV/焦虑/睡眠/压力恢复的价值；但对高净值、慢性疲劳、炎症负荷高、术后/运动恢复人群，一种干预很难覆盖全部核心机制。故需恢复医学闭环，方舟做主轴。</p>
+<div class="body">已经成立的（单舱）：降中枢警觉、副交感占优、改善 HRV/焦虑/睡眠/压力恢复。<br>覆盖不足的人群：高净值客户、慢性疲劳、炎症负荷较高、术后/运动恢复。<br>闭环三游：<br>- 上游：降低氧化应激与炎症<br>- 中游：重置自主神经（方舟主轴）<br>- 下游：支持睡眠、代谢、免疫与情绪恢复<br>金句：真正高端且有医院合作潜力的方案，不应停留在「一个项目」，而应构建恢复医学闭环。其他模块围绕主轴增效，而不是一堆并行 SPA。</div>
+<p class="src">来源：漂浮方舟综合干预体系方案_专业版.docx · 一、为什么要从单设备升级为综合体系</p>
+</article>
+<article id="KP-CIS-003" data-layer="company" data-usage="pitch">
+<h2>三层模型：神经调节层 / 细胞能量层 / 系统恢复层 <small>KP-CIS-003</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 三层模型、架构、迷走、线粒体</p>
+<p class="summary">第一层神经调节：方舟 + 共振呼吸 + 冷/热，目标提高迷走张力、改善 HRV、降低交感过载。第二层细胞能量：分子氢 + PBM + 镁。第三层系统恢复：睡眠、肠脑轴、抗炎膳食、疗程管理、数字化评估。</p>
+<div class="body">第一层 神经调节层<br>核心：漂浮方舟、共振呼吸、冷/热恢复<br>目标：提高迷走神经张力、改善 HRV、降低交感过载<br><br>第二层 细胞能量层<br>核心：分子氢、光生物调节（红光/近红外/光波）、镁营养支持<br>目标：改善线粒体功能、抗氧化损伤、提升能量代谢效率<br><br>第三层 系统恢复层<br>核心：睡眠支持、肠脑轴营养、抗炎膳食、疗程管理、数字化评估<br>目标：把一次体验转化为持续结果<br><br>讲法：先讲层，再讲模块。层是机制，模块是交付。不要一上来报六种设备名。</div>
+<p class="src">来源：漂浮方舟综合干预体系方案_专业版.docx · 二、1 核心定位：一个三层模型</p>
+</article>
+<article id="KP-CIS-004" data-layer="company" data-usage="pitch">
+<h2>六模块：方舟枢纽 + 氢、光、营养、恢复调节、数字评估 <small>KP-CIS-004</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 六模块、氢疗、PBM、数字孪生</p>
+<p class="summary">A 漂浮方舟核心枢纽；B 氢疗（氢水 / H2-O2 Revitalizer / 氢浴）；C 光波（红光、近红外、全身 PBM、石墨烯波舱）；D 营养（镁、Omega-3、菌群、睡眠营养）；E 恢复调节（共振呼吸、冷热、红外热疗/桑拿、轻运动）；F 数字化评估（HRV、睡眠、压力、炎症与代谢、会员数字孪生）。</p>
+<div class="body">A 漂浮方舟（核心枢纽）<br>B 氢疗：饮用氢水 / H2-O2 Revitalizer / 氢浴<br>C 光波：红光、近红外、全身光生物调节、石墨烯波舱等<br>D 营养：镁、Omega-3、肠道菌群支持、睡眠营养<br>E 恢复调节：共振呼吸、冷热交替、红外热疗/桑拿、轻运动恢复<br>F 数字化评估：HRV、睡眠、压力评分、炎症与代谢指标、会员数字孪生<br><br>对接：KP-V7-021 短版矩阵。本卡补了 H2-O2 Revitalizer、石墨烯波舱、轻运动、数字孪生等专业版用词。<br>数字未锁：具体设备型号、氢浓度、光功率一律以合同/铭牌为准（KP-COM-004、KP-CHAMP-023）。</div>
+<p class="src">来源：漂浮方舟综合干预体系方案_专业版.docx · 二、2 体系模块建议</p>
+</article>
+<article id="KP-CIS-005" data-layer="company" data-usage="pitch">
+<h2>增效① 方舟+氢疗：踩刹车（神经）+ 修发动机（线粒体/抗炎） <small>KP-CIS-005</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 氢疗、分子氢、氧化应激、肠脑轴</p>
+<p class="summary">分子氢选择性清除羟自由基与过氧亚硝酸盐，并调节氧化还原、神经炎症与肠脑轴。方舟降交感与中枢噪音，氢疗减细胞氧化与炎症信号。形态：漂浮前氢水、后 H2-O2 吸入、高端疗程 Herbal H2 Bath。</p>
+<div class="body">氢的特点（稿引 2025–2026 综述口径）：对羟自由基与过氧亚硝酸盐等高反应性氧化分子选择性清除；调节氧化还原信号；降低神经炎症；改善肠脑轴紊乱。潜力方向：氧化应激、神经炎症、疲劳、中枢神经系统功能障碍。<br><br>分工：方舟 = 踩刹车（神经降速）；氢疗 = 修发动机（减轻氧化、支持线粒体）<br>形态：漂浮前饮用氢水；漂浮后 H2-O2 吸入；高端疗程 Herbal H2 Bath<br>预期（方案语言，非临床试验终点）：疲劳感下降、恢复速度、脑清晰度、抗炎与抗氧化支持<br><br>对接：KP-MECH-006 第六层氧化压力支持；教材富氢数字未锁见 KP-TRN 相关卡与 KP-COM-004。<br>红线：不说氢疗已批准治疗中枢神经系统疾病；不把 10000 ppb 等未锁参数写进对外稿。</div>
+<p class="src">来源：漂浮方舟综合干预体系方案_专业版.docx · 三、1 漂浮方舟 + 氢疗</p>
+</article>
+<article id="KP-CIS-006" data-layer="company" data-usage="pitch">
+<h2>增效② 方舟+PBM：神经安静 + 细胞充能 <small>KP-CIS-006</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · PBM、红光、近红外、线粒体</p>
+<p class="summary">红光/近红外光生物调节影响细胞色素 c 氧化酶、改善电子传递与 ATP、改善局部循环，部分研究见 HRV 改善、心率下降、副交感趋势。方舟让神经安静，光波让细胞重新点亮。</p>
+<div class="body">PBM / Photobiomodulation：红光与近红外 → 细胞色素 c 氧化酶 → 线粒体电子传递效率 → ATP → 局部循环；部分研究：HRV 改善、心率下降、副交感活性趋势。全身 PBMT 在运动/疲劳恢复中对自主神经有正向信号。<br><br>分工：方舟 = 中枢降噪；光波 = 线粒体能量与修复信号。一静一动。<br>形态：漂浮前局部红光预处理；漂浮后 Graphene Wave Cabin 或全身光波舱；睡前低照度红光辅助睡眠<br>预期：体能恢复、主观精力、肌肉酸痛、睡眠质量<br><br>边界：PBM 是另一条公开研究线，不是漂浮舱自带的「已验证疗效」。设备以现场配置为准。不要说红光治疗抑郁症或替代康复科。</div>
+<p class="src">来源：漂浮方舟综合干预体系方案_专业版.docx · 三、2 漂浮方舟 + 光波/光生物调节</p>
+</article>
+<article id="KP-CIS-007" data-layer="company" data-usage="pitch">
+<h2>增效③ 方舟+镁：外部镁场 + 口服，不把盐水讲成输液 <small>KP-CIS-007</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 镁、GABA、睡眠、透皮限度</p>
+<p class="summary">镁与 GABA、睡眠、焦虑相关。2024 综述与 Meta 显示口服镁对轻中度焦虑与失眠有一定帮助，尤其低镁人群。高密度硫酸镁是「外部镁场」，再加口服形成环境+营养双重支持。透皮补镁不得升格为输液。</p>
+<div class="body">理论：镁参与 NMDA 受体调节、GABA 通路、睡眠与神经稳定。<br>形态：晚间甘氨酸镁或苏糖酸镁；漂浮疗程配套睡眠营养包。<br>预期：睡眠更深、焦虑更低、肌肉紧张度下降、恢复更稳。<br><br>必须并列的限度（对接 KP-WEB-005）：<br>- 2024 综述/Meta 讲的是口服补充，尤其低镁状态<br>- 把盐浴/透皮说成「几乎 100% 吸收、优于口服」缺乏可靠支持<br>- 对外：高镁溶液提供浮力与皮肤接触；神经支持主通路是 REST 与卸载，不是把漂浮液当输液<br>- 「外部镁场」是方案修辞，不是已测透皮药代动力学<br><br>冲突组：本卡 vs 教材透皮吸收率表（KP-TRN-057 draft）。对外以 WEB-005 为准。</div>
+<p class="src">来源：漂浮方舟综合干预体系方案_专业版.docx · 三、3 漂浮方舟 + 镁营养支持</p>
+</article>
+<article id="KP-CIS-008" data-layer="company" data-usage="pitch">
+<h2>增效④ 方舟+共振呼吸：把被动放松升级为可训练的迷走能力 <small>KP-CIS-008</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 共振呼吸、HF-HRV、疗程化</p>
+<p class="summary">每分钟约 5–6 次呼吸增强 RSA、提升 HF-HRV，是最成熟的非器械迷走训练之一。漂浮环境天然让呼吸放慢，呼吸训练又让人更快入舱。两者整合，漂浮从体验项目变成可追踪的自主神经训练方案。</p>
+<div class="body">理论：慢呼吸与 HRV 生物反馈可提升心脏迷走调控和压力反射敏感性。<br>形态：漂浮前 5 分钟呼吸引导；漂浮中音频节律引导；居家 App 日常巩固。<br>预期：更快进入深放松、更好的 HRV 提升、疗程效果更持久。<br><br>详细动作与 4 周计划见 KP-VGMECH-019~022，本卡只讲产品逻辑。<br>金句：被动放松（舱）+ 可训练能力（呼吸）= 疗程化，而不是「做一次就好」。</div>
+<p class="src">来源：漂浮方舟综合干预体系方案_专业版.docx · 三、4 漂浮方舟 + 共振呼吸</p>
+</article>
+<article id="KP-CIS-009" data-layer="company" data-usage="pitch">
+<h2>增效⑤ 方舟+冷热：训练「唤醒—释放—恢复」的自主神经弹性 <small>KP-CIS-009</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 冷暴露、桑拿、潜水反射、HRV</p>
+<p class="summary">冷刺激经潜水反射和面颈部感受器促进副交感；热疗/桑拿在恢复期提升 HRV、增强副交感回归。目的不是制造刺激，而是训练从高唤醒切回恢复的能力。与方舟搭配形成唤醒—释放—恢复序列。</p>
+<div class="body">理论：冷暴露与桑拿恢复期均与副交感活性增强及 HRV 改善相关。<br>形态：轻冷面部刺激 / 冷雾 + 漂浮 + 红外热疗或恢复桑拿。<br>预期：恢复弹性、运动后恢复、精神清晰度。<br><br>安全：冷热是额外负荷。心血管不稳、未控高血压、妊娠、开放性伤口按禁忌排除。不要上冰水挑战或极端低温。执行以现场 SOP 为准，本卡是方案逻辑不是操作规程。</div>
+<p class="src">来源：漂浮方舟综合干预体系方案_专业版.docx · 三、5 漂浮方舟 + 冷热恢复</p>
+</article>
+<article id="KP-CIS-010" data-layer="company" data-usage="pitch">
+<h2>增效⑥ 方舟+肠脑轴：情绪恢复要管菌群与迷走双向通信 <small>KP-CIS-010</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 肠脑轴、菌群、Omega-3、抗炎膳食</p>
+<p class="summary">肠道菌群经代谢物、免疫、色氨酸代谢及迷走神经与大脑双向沟通。长期焦虑、慢性炎症、脑疲劳客户只做现场项目往往不足，需要饮食与菌群支持。</p>
+<div class="body">理论：肠脑轴通过迷走神经、短链脂肪酸与炎症信号影响情绪和自主神经。稿指向 Nature 与 Physiological Reviews 综述方向。<br>形态：高纤维抗炎膳食、Omega-3、益生元/益生菌、减少酒精与超加工食品。<br>预期：情绪稳定性、腹胀与睡眠、长期疗程复发率（方案语言）。<br><br>边界：营养建议属健康管理，不是消化科/精神科处方。不宣称益生菌治疗抑郁症。现场有营养师按资质讲，销售只讲「要管这一层」。</div>
+<p class="src">来源：漂浮方舟综合干预体系方案_专业版.docx · 三、6 漂浮方舟 + 肠脑轴营养</p>
+</article>
+<article id="KP-CIS-011" data-layer="company" data-usage="pitch">
+<h2>三类产品线：旗舰型 / 医学合作型 / 运动恢复型 <small>KP-CIS-011</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 产品线、医疗酒店、睡眠中心、运动恢复</p>
+<p class="summary">旗舰型：方舟+氢疗+光波舱+HRV，面向高净值与医疗酒店。医学合作型：方舟+呼吸训练+镁营养+睡眠跟踪，面向医院、睡眠中心、康复科。运动恢复型：方舟+PBM+冷热+氢疗，面向运动员、高管、企业家。</p>
+<div class="body">旗舰型｜神经恢复舱疗程<br>组合：漂浮方舟 + 氢疗 + 光波舱 + HRV 数字评估<br>对象：高净值客户与医疗酒店<br><br>医学合作型｜睡眠与压力恢复门诊方案<br>组合：漂浮方舟 + 呼吸训练 + 镁营养 + 睡眠跟踪<br>对象：医院、睡眠中心、康复科<br>注意：门诊方案仍是非药物支持模块，合作协议里写清不替代诊疗<br><br>运动恢复型｜高绩效恢复协议<br>组合：漂浮方舟 + PBM + 冷热恢复 + 氢疗<br>对象：运动员、高管、企业家<br><br>对接：KP-V7-023 短版。本卡补了「神经恢复舱疗程 / 睡眠与压力恢复门诊方案 / 高绩效恢复协议」产品名。名称是方案命名，不是注册证通用名。</div>
+<p class="src">来源：漂浮方舟综合干预体系方案_专业版.docx · 四、1 三类产品线</p>
+</article>
+<article id="KP-CIS-012" data-layer="company" data-usage="both">
+<h2>客户四型：压力过载 / 睡眠障碍 / 炎症疲劳 / 运动恢复 <small>KP-CIS-012</small></h2>
+<p class="meta">公司自有层 · 汇报+培训 · approved · 分层、客户分型、疗程</p>
+<p class="summary">初筛后将客户分为压力过载型、睡眠障碍型、炎症疲劳型、运动恢复型，再按型组合方舟+氢+光+营养+呼吸。这是运营分层，不是医学诊断分型。</p>
+<div class="body">四型（方案用，不是 ICD 诊断）：<br>1 压力过载型<br>2 睡眠障碍型<br>3 炎症疲劳型<br>4 运动恢复型<br><br>用法：Step2 分层建模 → Step3 按型选模块。避免所有人同一套「全上六模块」。<br>合规：<br>- 「睡眠障碍型」对外说睡眠管理/入睡困难主诉，不说诊断失眠症<br>- 「炎症疲劳型」不说确诊自身免疫病<br>- 有红旗症状转诊，不在门店分层里消化掉</div>
+<p class="src">来源：漂浮方舟综合干预体系方案_专业版.docx · 四、2 Step2 分层建模</p>
+</article>
+<article id="KP-CIS-013" data-layer="company" data-usage="ops">
+<h2>五步流程：初筛 → 分层 → 组合 → 4/8/12 周疗程 → 复评闭环 <small>KP-CIS-013</small></h2>
+<p class="meta">公司自有层 · 运营SOP · approved · SOP、疗程、HRV、闭环</p>
+<p class="summary">Step1 初筛评估（HRV、睡眠、压力、疲劳、炎症与代谢）；Step2 分层建模；Step3 模块组合；Step4 疗程交付 4/8/12 周会员化；Step5 复测形成数字化闭环。</p>
+<div class="body">Step 1 初筛评估：HRV、睡眠、压力、疲劳、炎症与代谢指标<br>Step 2 分层建模：四型见 KP-CIS-012<br>Step 3 模块组合：按人群选择方舟 + 氢疗 + 光波 + 营养 + 呼吸协议<br>Step 4 疗程交付：4 周、8 周、12 周，会员化管理<br>Step 5 结果复评：复测 HRV、睡眠、主观压力、疲劳、体成分及炎症指标<br><br>对接：KP-V7-023。本卡 usage=ops，给运营排期；对外 PPT 用短版即可。<br>未锁：具体抽血炎症指标、体成分仪型号以合作机构能力为准，不要在销售口头承诺全套三甲检验。</div>
+<p class="src">来源：漂浮方舟综合干预体系方案_专业版.docx · 四、2 一个标准服务流程</p>
+</article>
+<article id="KP-CIS-014" data-layer="company" data-usage="pitch">
+<h2>统一理论句：从高交感高炎症低恢复，带回高副交感高恢复高稳态 <small>KP-CIS-014</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 金句、多模态、操作系统</p>
+<p class="summary">一句话：通过降低环境刺激、优化氧化还原、提升线粒体效率、增强迷走张力与改善肠脑轴通信，把机体从「高交感、高炎症、低恢复」带回「高副交感、高恢复、高稳态」。</p>
+<div class="body">学术语言：不是单一治疗，而是「多模态整合恢复医学平台」。<br>商业语言：不是几个项目拼盘，而是一套「可评估、可分层、可疗程、可复购」的高端健康管理操作系统。<br><br>五个机制动词（汇报时按这个顺序）：降低环境刺激 → 优化氧化还原平衡 → 提升线粒体能量效率 → 增强迷走神经张力 → 改善肠脑轴通信。<br><br>不要把「操作系统」讲成已经上线的软件商标，除非产品确有该名称。</div>
+<p class="src">来源：漂浮方舟综合干预体系方案_专业版.docx · 五、理论依据的统一表述</p>
+</article>
+<article id="KP-CIS-015" data-layer="company" data-usage="both">
+<h2>结果表达四句替换：不说治病、神奇、做一次就好、功能堆砌 <small>KP-CIS-015</small></h2>
+<p class="meta">公司自有层 · 汇报+培训 · approved · 话术、合规、高端表达</p>
+<p class="summary">四组替换：治病→改善自主神经平衡与恢复能力和炎症负荷相关指标；神奇疗法→多模态整合、基于机制的恢复医学协议；做一次就好→疗程化训练提升基线；功能堆砌→围绕迷走、线粒体、炎症与肠脑轴的模块化设计。</p>
+<div class="body">• 不说「治病」，说「改善自主神经平衡、恢复能力和炎症负荷相关指标」。<br>• 不说「神奇疗法」，说「多模态整合干预、基于机制的恢复医学协议」。<br>• 不说「做一次就好」，说「疗程化训练可提升基线 HRV、睡眠质量、恢复速度与主观能量水平」。<br>• 不说「功能堆砌」，说「围绕同一底层逻辑——迷走神经、线粒体、炎症与肠脑轴——形成模块化系统设计」。<br><br>对接：KP-SOP-009、KP-VGMECH-014。本卡是专业版对外修辞，不是放松用语纪律。</div>
+<p class="src">来源：漂浮方舟综合干预体系方案_专业版.docx · 六、结果要怎么表达</p>
+</article>
+<article id="KP-CIS-016" data-layer="company" data-usage="pitch">
+<h2>标准结论：方舟最有价值的升级是成为综合恢复系统的中枢节点 <small>KP-CIS-016</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 投资人、医院、结论、中枢节点</p>
+<p class="summary">不要继续打「单一漂浮设备」价格战，而要把方舟做成综合恢复系统的中枢：氢管氧化炎症，光管线粒体，镁与营养管睡眠底层，呼吸与冷热管自主神经训练，方舟提供神经降噪和副交感启动环境。</p>
+<div class="body">分工一句表：<br>- 氢疗：氧化应激与炎症负荷<br>- 光波：线粒体与修复信号<br>- 镁与营养：神经抑制与睡眠底层支持<br>- 呼吸与冷热：自主神经训练<br>- 漂浮方舟：最关键的神经降噪和副交感启动环境<br><br>平台六可：机制上自洽，产品上可组合，运营上可疗程化，商业上可会员化，品牌上可高端化，医学表达上更容易获得合作医院与专业人士认可。<br><br>这是方向结论，不是已签约医院清单。已签约伙伴仍以 KP-V7-020 为准，不要把本结论里的「更容易获得认可」说成已经进院。</div>
+<p class="src">来源：漂浮方舟综合干预体系方案_专业版.docx · 七、建议输出给投资人/医院的标准结论</p>
+</article>
+<article id="KP-CIS-017" data-layer="commons" data-usage="training">
+<h2>专业版证据方向：漂浮/氢/PBM/镁/冷热/肠脑轴各有公开综述，级别不同 <small>KP-CIS-017</small></h2>
+<p class="meta">通识层 · 培训 · approved · 参考文献、PBM、分子氢、肠脑轴</p>
+<p class="summary">各模块都指向公开综述方向，但证据级别不同：漂浮偏 REST 临床与 GWI 汇总；氢与 PBM 是相邻领域综述；镁 2024 系统综述主要支持口服；冷热是 HRV 相关；肠脑轴是基础科学综述。禁止把六条综述捆成「本体系已获临床验证」。</p>
+<div class="body">稿内方向：<br>- 漂浮与自主神经/HRV：Clinical Float、GWI、相关临床研究（对接 WEB-001/002、MECH-002）<br>- 分子氢：2025–2026 综述，氧化应激、神经炎症、肠脑轴<br>- 光生物调节：PBM/LLLT 对线粒体、循环与自主神经的调节潜力<br>- 镁：2024 系统综述，睡眠与焦虑，尤其低镁状态（口服）<br>- 冷热：冷暴露与桑拿恢复期影响 HRV、促副交感回归<br>- 肠脑轴：Nature 与 Physiological Reviews，菌群-迷走-大脑双向通信<br><br>升格禁止：六份邻域文献 ≠ 漂浮方舟综合体系的多中心 RCT。对外按模块分别说「有公开研究在看」，不要说「我们这套协议已经被顶刊验证」。</div>
+<p class="src">来源：漂浮方舟综合干预体系方案_专业版.docx · 参考依据</p>
+</article>
+<article id="KP-CIS-018" data-layer="company" data-usage="training">
+<h2>与 v7 模块卡的关系：专业版展开，短版对外仍可用 V7-021~023 <small>KP-CIS-018</small></h2>
+<p class="meta">公司自有层 · 培训 · approved · 对接、V7、编排</p>
+<p class="summary">KP-V7-021/022/023 是短矩阵，适合 1 页 PPT。KP-CIS-* 是专业综述展开，适合医院尽调与深度汇报。两套并存，不互相覆盖。对外数字与设备参数仍一律未锁。</p>
+<div class="body">并存规则：<br>- 15 分钟路演：V7-021 矩阵 + V7-022 协同 + V7-023 产品线<br>- 医院/投资深度会：CIS-003 三层 → CIS-005~010 各增效 → CIS-011 产品线 → CIS-015 表达纪律<br>- 不要两套各念一遍造成「你们是不是有两套产品」<br>未锁项：氢浓度、光功率、疗程报价、炎症抽血包、数字孪生产品是否交付<br>冲突时：安全筛查跟 SOP；透皮镁跟 WEB-005；不治病跟 SOP-009。</div>
+<p class="src">来源：漂浮方舟综合干预体系方案_专业版.docx · 全文对接说明（拆分设计）</p>
+</article>
+<article id="KP-VNSMAP-001" data-layer="company" data-usage="pitch">
+<h2>手段地图定位：梳理主流激活路径，论证方舟的差异化而不是替代手术 <small>KP-VNSMAP-001</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · VNS、手段地图、医院合作、投资人</p>
+<p class="summary">报告梳理植入式、经皮耳廓/颈部、超声、行为干预与漂浮，提出方舟在多通路整合、副交感激活与高端健康管理中的差异化。用于投资人、医院、高管的医学综述底稿，不是把方舟登记成 VNS 治疗仪。</p>
+<div class="body">版本：V1.0｜用途：投资人 / 合作医院 / 高管汇报的医学综述底稿<br>技术路线扩展：植入式 VNS → 经皮耳廓、颈部经皮、超声、多种行为性干预<br>本报告任务：手段梳理 + 2024–2026 前沿 + 漂浮的差异化价值<br><br>核心主张（摘要）：漂浮不是单点电刺激，而是多通路整合激活。<br>禁止：听完地图后对外说「我们等于 FDA 批准的那种」。</div>
+<p class="src">来源：迷走神经激活手段与前沿研究整合报告.docx · 封面 / 【摘要】</p>
+</article>
+<article id="KP-VNSMAP-002" data-layer="commons" data-usage="pitch">
+<h2>通识：植入式 VNS 证据最强，但手术、成本高、不适合健康管理铺开 <small>KP-VNSMAP-002</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · 植入式VNS、FDA、癫痫、抑郁症、脑卒中</p>
+<p class="summary">颈部左侧植入刺激器，周期性电脉冲直接作用于迷走神经。FDA 已批准用于药物难治性癫痫、难治性抑郁症及脑卒中后上肢运动功能恢复。效力强、循证最充分；需手术、成本高、可及性低。</p>
+<div class="body">方法：颈部左侧植入装置，周期性电脉冲直接作用于迷走神经<br>FDA 已批准方向（器械适应症，稿内口径）：药物难治性癫痫、难治性抑郁症、脑卒中后上肢运动功能恢复<br>优势：激活效力强，循证证据最充分<br>局限：外科手术、成本高、可及性低，不适合大规模健康管理<br><br>红线：这些适应症属于植入式医疗器械，与漂浮方舟无关。禁止说漂浮治疗癫痫、抑郁症或脑卒中。<br>对外用法：承认这是金标准参照，然后转「我们服务的是不需要开刀的恢复场景」。</div>
+<p class="src">来源：迷走神经激活手段与前沿研究整合报告.docx · 一、1 植入式迷走神经刺激</p>
+</article>
+<article id="KP-VNSMAP-003" data-layer="commons" data-usage="pitch">
+<h2>通识：taVNS 走耳甲耳支，研究覆盖睡眠、焦虑、抑郁、炎症 <small>KP-VNSMAP-003</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · taVNS、耳廓、非侵入、门诊化</p>
+<p class="summary">非侵入 VNS 是当前最活跃方向，共同特点是无创、可重复、适合门诊化和家庭化。taVNS 经耳甲刺激迷走神经耳支，研究见于睡眠、焦虑、抑郁、炎症控制等，不等于这些病都已获批。</p>
+<div class="body">共同特点：无创、可重复、门诊化/家庭化<br>taVNS：耳甲区域 → 迷走神经耳支<br>研究活跃方向（研究 ≠ 获批适应症）：睡眠、焦虑、抑郁、炎症控制<br><br>对照方舟：taVNS 是单点皮肤电极；方舟是整舱环境。可以并存，不要贬低耳刺激器械。<br>禁止：把「已广泛应用于研究」说成「已批准治疗抑郁症」。</div>
+<p class="src">来源：迷走神经激活手段与前沿研究整合报告.docx · 一、2 非侵入式器械刺激</p>
+</article>
+<article id="KP-VNSMAP-004" data-layer="commons" data-usage="pitch">
+<h2>通识：tcVNS 已用于偏头痛/丛集性头痛；超声 VNS 仍是下一代方向 <small>KP-VNSMAP-004</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · tcVNS、偏头痛、超声VNS</p>
+<p class="summary">tcVNS 用颈部手持设备刺激颈段迷走，稿称已获批用于偏头痛和丛集性头痛。超声 VNS 用高频超声做更精准非侵入刺激，属下一代前沿，不是成熟消费品。</p>
+<div class="body">tcVNS：颈部手持设备刺激颈段迷走神经<br>稿内获批口径：偏头痛、丛集性头痛（具体品牌/地区以器械说明书为准，上 PPT 前核监管信息）<br>超声 VNS：高频超声、更精准非侵入，下一代方向<br><br>红线：偏头痛获批属于颈部经皮器械，不是漂浮。不要说「漂浮可以替代偏头痛治疗仪」。</div>
+<p class="src">来源：迷走神经激活手段与前沿研究整合报告.docx · 一、2 tcVNS 与超声 VNS</p>
+</article>
+<article id="KP-VNSMAP-005" data-layer="commons" data-usage="pitch">
+<h2>通识：慢呼吸、冥想、耐力运动、冷暴露可间接增强迷走张力 <small>KP-VNSMAP-005</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · 慢呼吸、冥想、运动、冷暴露、HRV</p>
+<p class="summary">除器械外，慢呼吸、冥想、耐力运动、冷暴露可通过改善自主神经平衡、提升 HRV 等路径间接增强迷走张力。安全高、成本低、易推广，但通常需要较长训练周期。</p>
+<div class="body">手段：慢呼吸、冥想、耐力运动、冷暴露<br>路径：自主神经平衡、HRV → 间接增强迷走张力<br>特点：安全性高、成本低、推广性强；训练周期较长<br><br>产品含义：这些不是竞争对手，是可纳入 E 模块的行为层（见 KP-CIS-008/009、KP-VGMECH-021）。方舟提供的是「一次就能进入低刺激」的环境，行为训练负责舱外维持。</div>
+<p class="src">来源：迷走神经激活手段与前沿研究整合报告.docx · 一、3 行为性与生活方式激活方式</p>
+</article>
+<article id="KP-VNSMAP-006" data-layer="company" data-usage="pitch">
+<h2>漂浮在地图上的位置：不是电刺激，而是多通路整合激活 <small>KP-VNSMAP-006</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · Flotation-REST、多通路、差异化</p>
+<p class="summary">漂浮并不直接电刺激迷走神经，而是通过减少感觉输入、降低中枢警觉、近失重和呼吸减缓，创造副交感重新占优的条件。特殊价值：不是单点刺激，而是多通路整合。</p>
+<div class="body">不是：电刺激神经本体<br>是：感觉输入↓ + 中枢警觉↓ + 近失重 + 呼吸减缓 → 副交感占优的生理条件<br>特殊价值：多通路整合激活，而不是单点刺激<br><br>对接四条通路详解：KP-VGMECH-007~011。<br>这句话是整份手段地图里方舟该站的位置：承认电刺激效力更强，同时把「整合、安全、体验」作为差异化。</div>
+<p class="src">来源：迷走神经激活手段与前沿研究整合报告.docx · 一、4 漂浮疗法（Flotation-REST）</p>
+</article>
+<article id="KP-VNSMAP-007" data-layer="commons" data-usage="pitch">
+<h2>前沿① 2025 FDA：VNS 进入炎症免疫，批准的是刺激器不是漂浮舱 <small>KP-VNSMAP-007</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · RESET-RA、FDA、类风湿、抗炎反射</p>
+<p class="summary">2025 年基于 RESET-RA，FDA 批准迷走神经刺激用于类风湿性关节炎。标志 VNS 从神经疾病扩展到慢性炎症与自身免疫管理。这是植入/专用 VNS 器械的监管事件，严禁外推为漂浮方舟适应症。</p>
+<div class="body">事件：RESET-RA → FDA 2025 批准迷走神经刺激用于类风湿性关节炎<br>意义：VNS 从神经系统疾病 → 慢性炎症与自身免疫；展示迷走抗炎通路的临床转化<br>可用：说明「迷走—抗炎」已被监管认真对待，健康叙事有产业热度<br>禁用：漂浮方舟治疗类风湿；我们的舱已经 FDA 批准；客户可以停抗风湿药<br><br>对接：KP-V7-018 把 RESET-RA 写进国际证据速览——用本卡给它加上「器械 ≠ 漂浮」的括号。培训适应症清单里的类风湿条目仍是 draft（KP-TRN-079），不得借本新闻解冻。</div>
+<p class="src">来源：迷走神经激活手段与前沿研究整合报告.docx · 二、1 类风湿性关节炎 RESET-RA</p>
+</article>
+<article id="KP-VNSMAP-008" data-layer="commons" data-usage="pitch">
+<h2>前沿② 2025：VNS 联合暴露疗法，部分难治 PTSD 停治疗后仍维持 <small>KP-VNSMAP-008</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · PTSD、神经可塑性、暴露疗法</p>
+<p class="summary">2025 年美国研究：难治性 PTSD 中，VNS 与暴露疗法或传统心理治疗联合，部分患者在治疗结束后 6 个月内仍维持显著改善，提示 VNS 可能通过增强神经可塑性放大心理治疗。与漂浮无关，不作产品适应症。</p>
+<div class="body">稿内：2025 美国研究；难治性 PTSD；VNS + 暴露疗法/传统心理治疗；部分患者停治疗后 6 个月仍维持改善<br>机制提示：增强神经可塑性，放大心理治疗效果<br>来源方向：UT Dallas / Baylor（见报告参考信息）<br><br>对外：最多作为「VNS 正在进入精神创伤联合治疗」的产业背景。<br>禁止：漂浮治疗 PTSD；用本条招揽创伤客户。精神创伤客户按禁忌与转诊走。</div>
+<p class="src">来源：迷走神经激活手段与前沿研究整合报告.docx · 二、2 PTSD</p>
+</article>
+<article id="KP-VNSMAP-009" data-layer="commons" data-usage="pitch">
+<h2>前沿③ 2025 EHJ：非侵入 VNS 1 周后最大摄氧量上升、炎症下降 <small>KP-VNSMAP-009</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · European Heart Journal、摄氧量、炎症、运动</p>
+<p class="summary">2025 年《European Heart Journal》：非侵入式 VNS 连续应用 1 周后，最大摄氧量显著提高、炎症指标下降，提示心衰、肥胖及体能受限人群的潜在价值。这是经皮/非侵入器械研究，不是漂浮试验。</p>
+<div class="body">出处：European Heart Journal · 2025<br>干预：非侵入式 VNS，连续约 1 周<br>结果（稿内）：最大摄氧量显著提高，炎症指标下降<br>潜在人群（作者外推方向）：心衰、肥胖、体能受限——仍属研究潜力，不是我司适应症<br><br>对接：KP-V7-018 已列此条。运动恢复产品线（KP-CIS-011）可以借用「迷走与摄氧量正在被心脏病学期刊讨论」，但不能说方舟 1 周提高最大摄氧量。</div>
+<p class="src">来源：迷走神经激活手段与前沿研究整合报告.docx · 二、3 运动能力与心血管</p>
+</article>
+<article id="KP-VNSMAP-010" data-layer="commons" data-usage="pitch">
+<h2>前沿④ 2024–2026：VNS 用于卒中/脊髓损伤康复，属神经科器械研究 <small>KP-VNSMAP-010</small></h2>
+<p class="meta">通识层 · 汇报/提案 · approved · 脑卒中、脊髓损伤、神经可塑性、闭环VNS</p>
+<p class="summary">多项综述与临床研究指出 VNS 可能通过神经可塑性、抑制炎症、改善血脑屏障稳定性，支持卒中后运动、吞咽及认知恢复。2025 年闭环 VNS 辅助脊髓损伤恢复扩大了康复边界。全部不可外推到漂浮舱。</p>
+<div class="body">方向：促进神经可塑性、抑制炎症、改善血脑屏障稳定性<br>结局域（研究中）：卒中后运动、吞咽、认知<br>2025：闭环迷走神经刺激辅助脊髓损伤恢复<br>来源方向：中文康复综述 2024–2026（正式引用须补具体篇名）<br><br>对接：KP-MEDW 失重舱构想同样禁止把卒中/脊髓损伤写成漂浮适应症。医院共建若谈康复科，只谈「非药物恢复模块」，不谈替代康复治疗。</div>
+<p class="src">来源：迷走神经激活手段与前沿研究整合报告.docx · 二、4 脑卒中与脊髓损伤康复</p>
+</article>
+<article id="KP-VNSMAP-011" data-layer="company" data-usage="pitch">
+<h2>产业启示：迷走激活已是平台型叙事；方舟应升级为环境式副交感系统 <small>KP-VNSMAP-011</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 产业、表达升级、环境式、康养</p>
+<p class="summary">迷走激活不再是单一器械赛道，而横跨神经康复、炎症管理、压力恢复和精准健康。市场已接受该叙事；漂浮可在不依赖侵入手段的前提下，用感觉剥夺、失重、呼吸与盐水协同，做成更自然、更温和、更高体验感的方案。</p>
+<div class="body">产业判断：从单一医疗器械赛道 → 神经康复 + 炎症管理 + 压力恢复 + 精准健康的平台型方向。<br>对方案的启示：市场已经接受「迷走神经激活」这一高价值健康叙事；漂浮恰好可以不靠侵入手段，用感觉剥夺、失重、呼吸调节与盐水环境协同，构建更自然、更温和、更高体验感的激活方案。<br><br>表达升级（稿内建议对外主词）：<br>不要只说「放松」<br>上升为「环境式副交感激活系统」或「多通路迷走神经调节平台」<br>从而对接医院合作、康养会员、高端健康管理。<br><br>层：这是构想/品类表达（KP-CRAFT-001 第 2–3 层），不是已批准的医疗器械通用名。</div>
+<p class="src">来源：迷走神经激活手段与前沿研究整合报告.docx · 三、对漂浮方舟的启示</p>
+</article>
+<article id="KP-VNSMAP-012" data-layer="company" data-usage="pitch">
+<h2>雷达图五维：循证、效力、安全、多通路、可及性（报告自绘示意） <small>KP-VNSMAP-012</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 雷达图、对比、PPT、示意分</p>
+<p class="summary">报告自绘四类对比：植入式、器械非侵入、生活方式、漂浮方舟，轴为循证强度、激活效力、安全性、多通路整合、可及性。方舟在安全性和多通路整合最突出。分数是示意不是独立量表，上会必须口头声明。</p>
+<div class="body">五维（顺时针）：循证强度 · 激活效力 · 安全性 · 多通路整合 · 可及性<br>来源标注：报告写「2025–2026 VNS 临床研究综述」自绘，0–10 为示意分，不是 Meta 评分。<br><br>植入式 VNS（外科侵入）：循证与效力最高（约 9）；安全、多通路、可及性很低（约 2–3）<br>器械非侵入（耳廓/颈部）：较均衡；循证约 7.5，效力/可及性约 6，安全约 7，多通路约 4<br>生活方式（运动/冥想）：可及性约 9.5、安全约 9 最高；效力约 4.5，循证中等约 6.5<br>漂浮方舟 Flotation-REST：安全约 9.5、多通路约 8.5 最突出；可及性约 8；循证约 6、效力约 5（低于电刺激，与生活方式相近而略不同）<br><br>稿内结论：方舟不是效力冠军，而是安全 + 多通路整合的差异化方案，适合高端健康管理与非药物恢复场景。<br>纪律：PPT 必须写「示意对比，非独立评分量表」；不要把 9.5 分讲成认证分数。</div>
+<p class="src">来源：迷走神经激活手段与前沿研究整合报告.docx · 四、机制对比图 / 图1 雷达图</p>
+</article>
+<article id="KP-VNSMAP-013" data-layer="company" data-usage="pitch">
+<h2>四条可直接念的结论：赛道扩展、非侵入主流、系统方案、场景优势 <small>KP-VNSMAP-013</small></h2>
+<p class="meta">公司自有层 · 汇报/提案 · approved · 结论、路演、四条</p>
+<p class="summary">第一，迷走激活已从神经疾病治疗拓展到炎症、康复、睡眠和压力管理。第二，非侵入式是未来主流。第三，方舟不是单一器械替代品，而是环境工程实现的副交感激活系统。第四，在高端康养、整合医学、医疗酒店和医院合作中具备差异化。</p>
+<div class="body">可直接使用：<br>1 迷走神经激活已从神经疾病治疗拓展到炎症、康复、睡眠和压力管理。<br>2 非侵入式是未来主流方向，临床与商业化空间都在快速扩大。<br>3 漂浮方舟不是单一器械替代品，而是一个以环境工程实现副交感激活的系统方案。<br>4 在高端康养、整合医学、医疗酒店和医院合作场景中，漂浮方舟具备差异化定位优势。<br><br>念完第 1、2 条后必须用第 3 条把「治疗」收回来，否则听众会以为我们在卖治疗仪。</div>
+<p class="src">来源：迷走神经激活手段与前沿研究整合报告.docx · 五、商务汇报可直接使用的结论</p>
+</article>
+<article id="KP-VNSMAP-014" data-layer="commons" data-usage="training">
+<h2>手段地图参考源：正式版须补 DOI；现在只是扩展清单 <small>KP-VNSMAP-014</small></h2>
+<p class="meta">通识层 · 培训 · approved · 参考文献、Mayo、RESET-RA</p>
+<p class="summary">稿内来源含 2026 注册试验更新、Mayo Clinic VNS 概述、RESET-RA 新闻、EHJ 2025、UT Dallas/Baylor PTSD、中文卒中康复综述。多数是方向，不是已核对的题录。</p>
+<div class="body">1 Vagus nerve stimulation: registered clinical trials update, 2026<br>2 Mayo Clinic: Vagus nerve stimulation overview, 2024<br>3 RESET-RA trial related reports and rheumatoid arthritis approval news, 2025<br>4 European Heart Journal: non-invasive VNS and exercise capacity, 2025<br>5 PTSD with VNS paired therapy study, UT Dallas / Baylor, 2025<br>6 Chinese reviews on VNS in stroke rehabilitation and neuroregeneration, 2024–2026<br><br>纪律：在研 NCT 无结果不能当证据（KP-COM-005）。Mayo 概述页可作科普，不可当我们的临床结论。</div>
+<p class="src">来源：迷走神经激活手段与前沿研究整合报告.docx · 参考信息来源</p>
+</article>
+<article id="KP-VNSMAP-015" data-layer="company" data-usage="both">
+<h2>总红线：把 VNS 获批适应症念给客户时，必须当场声明「不是我们的舱」 <small>KP-VNSMAP-015</small></h2>
+<p class="meta">公司自有层 · 汇报+培训 · approved · 红线、适应症不外推、培训</p>
+<p class="summary">本系列所有 FDA/EHJ/PTSD/卒中条目都是他人器械或试验。对外允许借叙事热度，不允许借适应症。考核：能不能在 10 秒内把 RESET-RA 和漂浮舱拆开。</p>
+<div class="body">允许借：迷走神经、抗炎反射、非侵入趋势、HRV、环境式激活<br>不允许借：癫痫、难治抑郁、卒中上肢、类风湿、偏头痛、PTSD、脊髓损伤作为我方适应症或已获批用途<br><br>现场句式：这些批准和试验证明医学界在认真做迷走通路；我们做的是无创环境，帮助自主神经回到恢复档，不替代这些治疗。<br><br>考核：<br>1 RESET-RA 批的是什么？（VNS 刺激器用于类风湿，不是漂浮）<br>2 客户说「那你们也能治类风湿」怎么答？（不能，转内科；我们不治疗）<br>3 雷达图 9.5 分是什么？（自绘示意）<br>对接：KP-SOP-009、KP-COM-005、KP-TRN-005。</div>
+<p class="src">来源：迷走神经激活手段与前沿研究整合报告.docx · 拆分总红线（设计）</p>
+</article>
+<article id="KP-VNSMAP-016" data-layer="company" data-usage="training">
+<h2>与 KP-V7-018 并存：V7 是速览，本系列把「不是我们的证据」写清楚 <small>KP-VNSMAP-016</small></h2>
+<p class="meta">公司自有层 · 培训 · approved · 对接、V7-018、编排</p>
+<p class="summary">V7-018 把 FDA、EHJ、Karolinska、Frontiers、Nature Mental Health 写在同一页，容易听成全是漂浮证据。手段地图把器械研究和漂浮研究拆开。编排时深讲用本系列，浅讲用 V7 但必须口头拆开。</p>
+<div class="body">V7-018 混排的条目里：<br>- FDA RESET-RA、EHJ 摄氧量 = 他人 VNS 器械/试验 → 用 VNSMAP-007/009<br>- Karolinska 皮质醇、Frontiers 焦虑、Nature Mental Health Theta = 更靠近漂浮/感官限制 → 仍须核原文<br><br>编排建议：<br>- 浅：V7-018 一页，讲完立刻：「其中 FDA 和 EHJ 不是漂浮试验。」<br>- 深：VNSMAP-002~010 再加 VGMECH 四条通路<br>两套都保留，不删 V7。</div>
+<p class="src">来源：迷走神经激活手段与前沿研究整合报告.docx · 与库内证据速览的关系</p>
+</article>
+<footer>公开只读镜像 · 更新以 GitHub main 为准 · 仅内训卡未收录</footer>
+</body>
+</html>

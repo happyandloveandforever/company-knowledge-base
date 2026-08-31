@@ -4,25 +4,29 @@
  * 默认页面不含 internalOnly 内训卡。
  *
  * 运行：node scripts/export-public-site.mjs
- * 输出：public-site/（不入库，由 GitHub Actions 发布）
+ * 输出：
+ *   docs/*.html     进 Git，jsDelivr 当网页抓
+ *   public-site/    不入库，给 GitHub Pages 用
  */
 import { mkdirSync, writeFileSync, readFileSync, copyFileSync } from "fs";
 import path from "path";
 
 const root = process.cwd();
-const outDir = path.join(root, "public-site");
-mkdirSync(outDir, { recursive: true });
+const publicSite = path.join(root, "public-site");
+const docsDir = path.join(root, "docs");
+mkdirSync(publicSite, { recursive: true });
+mkdirSync(docsDir, { recursive: true });
 
 const points = JSON.parse(readFileSync(path.join(root, "data/knowledge-points.json"), "utf-8"));
 const sources = JSON.parse(readFileSync(path.join(root, "data/sources.json"), "utf-8"));
 const external = points.filter((p) => p.internalOnly !== true);
 const vagus = points.filter((p) => /^(KP-VGMECH|KP-CIS|KP-VNSMAP|KP-MECH|KP-V7)-/.test(p.id) && p.internalOnly !== true);
 
-writeFileSync(path.join(outDir, "knowledge-points.json"), JSON.stringify(points));
-writeFileSync(path.join(outDir, "knowledge-external.json"), JSON.stringify(external));
-copyFileSync(path.join(root, "data/sources.json"), path.join(outDir, "sources.json"));
+writeFileSync(path.join(publicSite, "knowledge-points.json"), JSON.stringify(points));
+writeFileSync(path.join(publicSite, "knowledge-external.json"), JSON.stringify(external));
+copyFileSync(path.join(root, "data/sources.json"), path.join(publicSite, "sources.json"));
 writeFileSync(
-  path.join(outDir, "health.json"),
+  path.join(publicSite, "health.json"),
   JSON.stringify(
     {
       ok: true,
@@ -107,36 +111,34 @@ ${items.map(article).join("\n")}
 }
 
 const nav =
-  '<a href="./">可外发总库</a><a href="./vagus.html">迷走/综合干预专页</a><a href="./knowledge-external.json">JSON（部分工具读不了）</a>';
+  '<a href="./">可外发总库</a><a href="./vagus.html">迷走/综合干预专页</a>';
 
-writeFileSync(
-  path.join(outDir, "index.html"),
-  page({
-    title: "公司知识库（可外发，只读网页）",
-    lead: "这是 HTML 网页，不是 GitHub 仓库。请直接抓取本页正文。internalOnly 内训卡已排除。",
-    extraNav: nav,
-    items: external,
-  })
-);
+const indexHtml = page({
+  title: "公司知识库（可外发，只读网页）",
+  lead: "这是 HTML 网页，不是 GitHub 仓库，也不是 JSON。请直接抓取本页正文。internalOnly 内训卡已排除。",
+  extraNav: nav,
+  items: external,
+});
+const vagusHtml = page({
+  title: "漂浮方舟迷走神经与综合干预知识点",
+  lead: "含作用机制报告、综合干预专业版、VNS 手段地图，以及库内既有机理/v7 相关卡。给外部 AI 优先抓这一页。",
+  extraNav: nav,
+  items: vagus,
+});
 
-writeFileSync(
-  path.join(outDir, "vagus.html"),
-  page({
-    title: "漂浮方舟迷走神经与综合干预知识点",
-    lead: "含作用机制报告、综合干预专业版、VNS 手段地图，以及库内既有机理/v7 相关卡。给外部 AI 优先抓这一页。",
-    extraNav: nav,
-    items: vagus,
-  })
-);
+for (const dir of [publicSite, docsDir]) {
+  writeFileSync(path.join(dir, "index.html"), indexHtml);
+  writeFileSync(path.join(dir, "vagus.html"), vagusHtml);
+}
 
 console.log(
   JSON.stringify(
     {
-      outDir,
       index: external.length,
       vagus: vagus.length,
-      indexBytes: Buffer.byteLength(readFileSync(path.join(outDir, "index.html"))),
-      vagusBytes: Buffer.byteLength(readFileSync(path.join(outDir, "vagus.html"))),
+      indexBytes: Buffer.byteLength(indexHtml),
+      vagusBytes: Buffer.byteLength(vagusHtml),
+      docs: docsDir,
     },
     null,
     2
