@@ -69,11 +69,11 @@ git push -u github main
 **GitHub 上无限制调取数据（公开仓库）：**
 
 ```text
-# 给外部 AI（HTML 网页，它的抓取工具能读正文）优先用这一条：
-https://cdn.jsdelivr.net/gh/happyandloveandforever/company-knowledge-base@main/docs/vagus.html
+# 给外部 AI（真正的 HTML 网页，text/html，抓取工具能读正文）优先这一条：
+https://raw.githack.com/happyandloveandforever/company-knowledge-base/main/docs/vagus.html
 
 # 可外发总库全文网页
-https://cdn.jsdelivr.net/gh/happyandloveandforever/company-knowledge-base@main/docs/index.html
+https://raw.githack.com/happyandloveandforever/company-knowledge-base/main/docs/index.html
 ```
 
 **方式 D — 部署在线网页（随时随地打开总库 UI）**
