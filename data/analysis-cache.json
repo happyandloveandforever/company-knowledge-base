@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "pointsHash": "1d196845385ed5cd",
-  "pointsCount": 361,
-  "computedAt": "2026-08-23T08:00:50.271Z",
+  "pointsHash": "fbaf638982c237cd",
+  "pointsCount": 539,
+  "computedAt": "2026-08-31T09:58:20.836Z",
   "similarities": {
     "KP-FAF-040": [
       {
@@ -34,6 +34,14 @@
         "level": "similar"
       }
     ],
+    "KP-V7-021": [
+      {
+        "id": "KP-CIS-004",
+        "title": "六模块：方舟枢纽 + 氢、光、营养、恢复调节、数字评估",
+        "score": 0.6,
+        "level": "similar"
+      }
+    ],
     "KP-CHAMP-015": [
       {
         "id": "KP-CHAMP-016",
@@ -47,6 +55,46 @@
         "id": "KP-CHAMP-015",
         "title": "FA-D型关键工程参数",
         "score": 0.58,
+        "level": "similar"
+      }
+    ],
+    "KP-WEB-001": [
+      {
+        "id": "KP-COM-012",
+        "title": "培训：Feinstein 2018 是开放标签，效果量再大也不是RCT",
+        "score": 0.61,
+        "level": "similar"
+      }
+    ],
+    "KP-COM-012": [
+      {
+        "id": "KP-WEB-001",
+        "title": "纠偏：Feinstein 2018 是开放标签试验，不是RCT",
+        "score": 0.61,
+        "level": "similar"
+      }
+    ],
+    "KP-TRN-091": [
+      {
+        "id": "KP-MAN-004",
+        "title": "周维护四项：比重、pH、滤材、毛发过滤器",
+        "score": 0.53,
+        "level": "similar"
+      }
+    ],
+    "KP-MAN-004": [
+      {
+        "id": "KP-TRN-091",
+        "title": "比重、pH、滤材、毛发过滤器：培训要懂阈值",
+        "score": 0.53,
+        "level": "similar"
+      }
+    ],
+    "KP-CIS-004": [
+      {
+        "id": "KP-V7-021",
+        "title": "六大模块矩阵：方舟枢纽+氢光营养恢复评估",
+        "score": 0.6,
         "level": "similar"
       }
     ]
@@ -280,6 +328,20 @@
       "allowedConflict": false,
       "details": [
         "漂浮方舟品牌定位：标准化可复制的身心恢复系统 ↔ 漂浮方舟v7定位：心理健康主动干预系统"
+      ]
+    },
+    {
+      "id": "CG-DEF-定位-KP-CIS-001-KP-VGMECH-001",
+      "topic": "定位（多种表述）",
+      "type": "definition",
+      "memberIds": [
+        "KP-VGMECH-001",
+        "KP-CIS-001"
+      ],
+      "allowedConflict": false,
+      "note": "公司方案层。产品设计与商务表达，数字未锁定前以合同/铭牌为准。",
+      "details": [
+        "报告定位：医学综述型学术商务稿，不是产品说明书 ↔ 综合体系定位：方舟从单舱升级为恢复医学中枢平台"
       ]
     }
   ]

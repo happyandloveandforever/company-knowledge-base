@@ -122,6 +122,24 @@ export async function getLibraryAnalysis(
     };
   }
 
+  // Vercel 无写缓存且 539 条全量相似扫描会超时，缓存未命中时仍返回总库，不挡 /library
+  if (process.env.VERCEL) {
+    return {
+      similarities: {},
+      contentConflicts: {},
+      conflictGroups: [],
+      stats: {
+        withSimilar: 0,
+        duplicateCount: 0,
+        similarCount: 0,
+        contentConflicts: 0,
+        conflictGroups: 0,
+      },
+      cached: false,
+      computedAt: new Date().toISOString(),
+    };
+  }
+
   const result = computeAnalysis(pts);
   await writeCacheFile({
     version: CACHE_VERSION,

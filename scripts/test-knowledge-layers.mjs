@@ -121,12 +121,20 @@ check(
   "新三套每条都有 layer/usage",
   vagusNew.every((p) => layers.has(p.layer) && usages.has(p.usage))
 );
+check("新三套全部可外发", vagusNew.every((p) => p.internalOnly !== true));
 
 const publicOnly = points.filter((p) => p.internalOnly !== true);
 const internal = points.filter((p) => p.internalOnly === true);
 check("可外发页不含仅内训卡", publicOnly.every((p) => p.internalOnly !== true));
 check("仅内训卡都是 training", internal.every((p) => p.usage === "training"));
 check("可外发数量 = 总量 - 仅内训", publicOnly.length === points.length - internal.length, `${publicOnly.length} vs ${points.length}-${internal.length}`);
+check("仅内训全是 KP-TRN", internal.every((p) => p.id.startsWith("KP-TRN-")));
+check(
+  "可外发含迷走三套",
+  publicOnly.filter((p) => p.id.startsWith("KP-VGMECH-")).length === 22 &&
+    publicOnly.filter((p) => p.id.startsWith("KP-CIS-")).length === 18 &&
+    publicOnly.filter((p) => p.id.startsWith("KP-VNSMAP-")).length === 16
+);
 
 if (failed) {
   console.log(`\n${failed} failed`);

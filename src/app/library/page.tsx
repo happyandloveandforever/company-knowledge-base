@@ -4,6 +4,7 @@ import { parseFilters } from "@/lib/library-filters";
 import { LibraryClient } from "@/components/library-client";
 
 export const dynamic = "force-dynamic";
+export const maxDuration = 60;
 
 export default async function LibraryPage({
   searchParams,

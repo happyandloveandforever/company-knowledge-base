@@ -51,6 +51,73 @@ function esc(text) {
 
 const LAYER = { commons: "通识层", company: "公司自有层" };
 const USAGE = { pitch: "汇报/提案", training: "培训", ops: "运营SOP", both: "汇报+培训" };
+const PREFIX_LABEL = {
+  "KP-FAF": "杨浦财务",
+  "KP-B2B": "B端定稿",
+  "KP-BRAND": "品牌画册",
+  "KP-MECH": "方舟机理",
+  "KP-V7": "漂浮方舟v7",
+  "KP-BG2": "增强背景",
+  "KP-CHAMP": "冠军系列",
+  "KP-CRAFT": "宣讲设计",
+  "KP-MEDW": "医用失重舱",
+  "KP-MEV": "论文主题",
+  "KP-SAN": "消杀",
+  "KP-EXP": "核心实验",
+  "KP-WEB": "公开文献",
+  "KP-YFOP": "优浮运营",
+  "KP-MEDF": "医学诊疗",
+  "KP-SOP": "SOP手册",
+  "KP-COM": "通识前沿",
+  "KP-TRN": "漂浮培训（仅内训）",
+  "KP-MAN": "产品手册运营",
+  "KP-VGMECH": "迷走机制报告",
+  "KP-CIS": "综合干预专业版",
+  "KP-VNSMAP": "VNS手段地图",
+};
+
+function pointPrefix(id) {
+  const m = String(id).match(/^(KP-[A-Z0-9]+)/);
+  return m ? m[1] : "other";
+}
+
+function countByPrefix(list) {
+  const map = new Map();
+  for (const p of list) {
+    const prefix = pointPrefix(p.id);
+    const cur = map.get(prefix) || { total: 0, public: 0, internalOnly: 0 };
+    cur.total += 1;
+    if (p.internalOnly === true) cur.internalOnly += 1;
+    else cur.public += 1;
+    map.set(prefix, cur);
+  }
+  return [...map.entries()].map(([prefix, c]) => ({
+    prefix,
+    label: PREFIX_LABEL[prefix] || prefix,
+    ...c,
+  }));
+}
+
+function prefixLine(list) {
+  return countByPrefix(list)
+    .map((r) => `${r.prefix.replace(/^KP-/, "")} ${r.public || r.total}`)
+    .join(" · ");
+}
+
+function inventoryTable(all) {
+  const rows = countByPrefix(all)
+    .map((r) => {
+      const onPage = r.internalOnly === r.total ? "未收录（仅内训）" : `已收录 ${r.public}`;
+      return `<tr><td>${esc(r.prefix)}</td><td>${esc(r.label)}</td><td>${r.total}</td><td>${onPage}</td></tr>`;
+    })
+    .join("\n");
+  return `<table class="inv">
+<thead><tr><th>前缀</th><th>来源</th><th>总库</th><th>可外发页</th></tr></thead>
+<tbody>
+${rows}
+</tbody>
+</table>`;
+}
 
 function article(p) {
   const layer = p.layer || "company";
@@ -66,11 +133,13 @@ function article(p) {
 </article>`;
 }
 
-function page({ title, lead, extraNav, items }) {
+function page({ title, lead, extraNav, items, showInventory }) {
   const commons = items.filter((p) => p.layer === "commons").length;
   const toc = items
     .map((p) => `<li><a href="#${esc(p.id)}">${esc(p.id)} ${esc(p.title)}</a></li>`)
     .join("\n");
+  const internalOnly = points.length - external.length;
+  const inventory = showInventory ? inventoryTable(points) : "";
   return `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -83,7 +152,10 @@ h1{font-size:1.5rem}
 h2{font-size:1.05rem;margin:0 0 .35rem}
 h2 small{font-weight:400;color:#6b7280;font-size:.8rem}
 nav a{margin-right:.8rem}
-.stats{color:#334155;margin:.6rem 0 1rem}
+.stats,.inv-line{color:#334155;margin:.6rem 0 1rem}
+.inv{width:100%;border-collapse:collapse;background:#fff;margin:1rem 0;font-size:.9rem}
+.inv th,.inv td{border:1px solid #e5e7eb;padding:.4rem .55rem;text-align:left}
+.inv th{background:#f1f5f9}
 .toc{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:1rem 1.2rem;margin:1rem 0}
 .toc li{margin:.2rem 0;font-size:.9rem}
 article{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:1rem 1.1rem;margin:0 0 .9rem}
@@ -97,7 +169,9 @@ footer{color:#6b7280;font-size:.8rem;margin:2rem 0;text-align:center}
 <h1>${esc(title)}</h1>
 <p>${esc(lead)}</p>
 <nav>${extraNav}</nav>
-<p class="stats">本页 ${items.length} 条 · 通识 ${commons} · 公司 ${items.length - commons} · 不含仅内训卡</p>
+<p class="stats">总库 ${points.length} 条已合并 · 本页 ${items.length} 条可外发 · 通识 ${commons} · 公司 ${items.length - commons} · 仅内训 ${internalOnly} 条未收录（不是没合并）</p>
+<p class="inv-line">本页分源：${esc(prefixLine(items))}</p>
+${inventory}
 <nav class="toc">
 <p><strong>目录</strong></p>
 <ol>
@@ -111,24 +185,54 @@ ${items.map(article).join("\n")}
 }
 
 const nav =
-  '<a href="./">可外发总库</a><a href="./vagus.html">迷走/综合干预专页</a>';
+  '<a href="./">可外发总库</a><a href="./catalog.html">来源清单</a><a href="./vagus.html">迷走/综合干预专页</a>';
+
+const catalogHtml = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>公司知识库来源清单（已合并）</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;max-width:920px;margin:0 auto;padding:1.25rem;line-height:1.55;color:#1f2937;background:#f8fafc}
+nav a{margin-right:.8rem}
+.inv{width:100%;border-collapse:collapse;background:#fff;margin:1rem 0;font-size:.95rem}
+.inv th,.inv td{border:1px solid #e5e7eb;padding:.45rem .6rem;text-align:left}
+.inv th{background:#f1f5f9}
+.stats{color:#334155}
+footer{color:#6b7280;font-size:.8rem;margin:2rem 0;text-align:center}
+</style>
+</head>
+<body>
+<h1>公司知识库来源清单（已合并）</h1>
+<p>总库已经合并进 Git，不是没合并。可外发页故意不收仅内训卡。</p>
+<nav>${nav}</nav>
+<p class="stats">总库 ${points.length} 条已合并 · 可外发 ${external.length} 条 · 仅内训 ${points.length - external.length} 条（KP-TRN）不进公开页</p>
+${inventoryTable(points)}
+<p>完整正文：<a href="./index.html">index.html</a>。迷走三份新稿：VGMECH / CIS / VNSMAP，都在可外发里。</p>
+<footer>公开只读镜像 · 仅内训卡未收录</footer>
+</body>
+</html>`;
 
 const indexHtml = page({
   title: "公司知识库（可外发，只读网页）",
-  lead: "这是 HTML 网页，不是 GitHub 仓库，也不是 JSON。请直接抓取本页正文。internalOnly 内训卡已排除。",
+  lead: `总库已合并 ${points.length} 条，不是没合并。本页 ${external.length} 条可外发（含迷走机制 22、综合干预 18、VNS 地图 16）。仅内训 ${points.length - external.length} 条不进本页。`,
   extraNav: nav,
   items: external,
+  showInventory: true,
 });
 const vagusHtml = page({
   title: "漂浮方舟迷走神经与综合干预知识点",
-  lead: "含作用机制报告、综合干预专业版、VNS 手段地图，以及库内既有机理/v7 相关卡。给外部 AI 优先抓这一页。",
+  lead: `已合并进总库。本页只是迷走/综合干预子集 ${vagus.length} 条，不是总库。完整可外发总库见 index.html（${external.length} 条）。`,
   extraNav: nav,
   items: vagus,
+  showInventory: false,
 });
 
 for (const dir of [publicSite, docsDir]) {
   writeFileSync(path.join(dir, "index.html"), indexHtml);
   writeFileSync(path.join(dir, "vagus.html"), vagusHtml);
+  writeFileSync(path.join(dir, "catalog.html"), catalogHtml);
 }
 
 console.log(
@@ -136,6 +240,7 @@ console.log(
     {
       index: external.length,
       vagus: vagus.length,
+      catalogBytes: Buffer.byteLength(catalogHtml),
       indexBytes: Buffer.byteLength(indexHtml),
       vagusBytes: Buffer.byteLength(vagusHtml),
       docs: docsDir,

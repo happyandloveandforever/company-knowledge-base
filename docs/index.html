@@ -10,7 +10,10 @@ h1{font-size:1.5rem}
 h2{font-size:1.05rem;margin:0 0 .35rem}
 h2 small{font-weight:400;color:#6b7280;font-size:.8rem}
 nav a{margin-right:.8rem}
-.stats{color:#334155;margin:.6rem 0 1rem}
+.stats,.inv-line{color:#334155;margin:.6rem 0 1rem}
+.inv{width:100%;border-collapse:collapse;background:#fff;margin:1rem 0;font-size:.9rem}
+.inv th,.inv td{border:1px solid #e5e7eb;padding:.4rem .55rem;text-align:left}
+.inv th{background:#f1f5f9}
 .toc{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:1rem 1.2rem;margin:1rem 0}
 .toc li{margin:.2rem 0;font-size:.9rem}
 article{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:1rem 1.1rem;margin:0 0 .9rem}
@@ -22,9 +25,37 @@ footer{color:#6b7280;font-size:.8rem;margin:2rem 0;text-align:center}
 </head>
 <body>
 <h1>公司知识库（可外发，只读网页）</h1>
-<p>这是 HTML 网页，不是 GitHub 仓库，也不是 JSON。请直接抓取本页正文。internalOnly 内训卡已排除。</p>
-<nav><a href="./">可外发总库</a><a href="./vagus.html">迷走/综合干预专页</a></nav>
-<p class="stats">本页 445 条 · 通识 130 · 公司 315 · 不含仅内训卡</p>
+<p>总库已合并 539 条，不是没合并。本页 445 条可外发（含迷走机制 22、综合干预 18、VNS 地图 16）。仅内训 94 条不进本页。</p>
+<nav><a href="./">可外发总库</a><a href="./catalog.html">来源清单</a><a href="./vagus.html">迷走/综合干预专页</a></nav>
+<p class="stats">总库 539 条已合并 · 本页 445 条可外发 · 通识 130 · 公司 315 · 仅内训 94 条未收录（不是没合并）</p>
+<p class="inv-line">本页分源：FAF 41 · B2B 34 · BRAND 44 · MECH 13 · V7 27 · BG2 39 · CHAMP 23 · CRAFT 25 · MEDW 14 · MEV 20 · SAN 14 · EXP 9 · WEB 12 · YFOP 10 · MEDF 14 · SOP 25 · COM 18 · MAN 7 · VGMECH 22 · CIS 18 · VNSMAP 16</p>
+<table class="inv">
+<thead><tr><th>前缀</th><th>来源</th><th>总库</th><th>可外发页</th></tr></thead>
+<tbody>
+<tr><td>KP-FAF</td><td>杨浦财务</td><td>41</td><td>已收录 41</td></tr>
+<tr><td>KP-B2B</td><td>B端定稿</td><td>34</td><td>已收录 34</td></tr>
+<tr><td>KP-BRAND</td><td>品牌画册</td><td>44</td><td>已收录 44</td></tr>
+<tr><td>KP-MECH</td><td>方舟机理</td><td>13</td><td>已收录 13</td></tr>
+<tr><td>KP-V7</td><td>漂浮方舟v7</td><td>27</td><td>已收录 27</td></tr>
+<tr><td>KP-BG2</td><td>增强背景</td><td>39</td><td>已收录 39</td></tr>
+<tr><td>KP-CHAMP</td><td>冠军系列</td><td>23</td><td>已收录 23</td></tr>
+<tr><td>KP-CRAFT</td><td>宣讲设计</td><td>25</td><td>已收录 25</td></tr>
+<tr><td>KP-MEDW</td><td>医用失重舱</td><td>14</td><td>已收录 14</td></tr>
+<tr><td>KP-MEV</td><td>论文主题</td><td>20</td><td>已收录 20</td></tr>
+<tr><td>KP-SAN</td><td>消杀</td><td>14</td><td>已收录 14</td></tr>
+<tr><td>KP-EXP</td><td>核心实验</td><td>9</td><td>已收录 9</td></tr>
+<tr><td>KP-WEB</td><td>公开文献</td><td>12</td><td>已收录 12</td></tr>
+<tr><td>KP-YFOP</td><td>优浮运营</td><td>10</td><td>已收录 10</td></tr>
+<tr><td>KP-MEDF</td><td>医学诊疗</td><td>14</td><td>已收录 14</td></tr>
+<tr><td>KP-SOP</td><td>SOP手册</td><td>25</td><td>已收录 25</td></tr>
+<tr><td>KP-COM</td><td>通识前沿</td><td>18</td><td>已收录 18</td></tr>
+<tr><td>KP-TRN</td><td>漂浮培训（仅内训）</td><td>94</td><td>未收录（仅内训）</td></tr>
+<tr><td>KP-MAN</td><td>产品手册运营</td><td>7</td><td>已收录 7</td></tr>
+<tr><td>KP-VGMECH</td><td>迷走机制报告</td><td>22</td><td>已收录 22</td></tr>
+<tr><td>KP-CIS</td><td>综合干预专业版</td><td>18</td><td>已收录 18</td></tr>
+<tr><td>KP-VNSMAP</td><td>VNS手段地图</td><td>16</td><td>已收录 16</td></tr>
+</tbody>
+</table>
 <nav class="toc">
 <p><strong>目录</strong></p>
 <ol>

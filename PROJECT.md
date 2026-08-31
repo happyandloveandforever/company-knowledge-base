@@ -70,12 +70,12 @@ git push -u github main
 
 ```text
 # 给外部 AI 优先（HTML 正文，不走 GitHub 登录）
-https://company-knowledge-base-nine.vercel.app/open/vagus
-https://raw.githack.com/happyandloveandforever/company-knowledge-base/main/docs/vagus.html
-
-# 可外发总库全文
+https://company-knowledge-base-nine.vercel.app/open/catalog
 https://company-knowledge-base-nine.vercel.app/open
+https://company-knowledge-base-nine.vercel.app/open/vagus
+https://raw.githack.com/happyandloveandforever/company-knowledge-base/main/docs/catalog.html
 https://raw.githack.com/happyandloveandforever/company-knowledge-base/main/docs/index.html
+https://raw.githack.com/happyandloveandforever/company-knowledge-base/main/docs/vagus.html
 
 # JSON
 https://company-knowledge-base-nine.vercel.app/open/knowledge-external.json
@@ -285,7 +285,8 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 | `/compose` | 选题 + 演讲逻辑 → 大纲 / PPT |
 | `/status` | 系统状态 |
 | `/open` | 公开只读 HTML（不含仅内训），给外部 AI 抓正文 |
-| `/open/vagus` | 迷走/综合干预专页 |
+| `/open/catalog` | 来源清单：总库已合并 539，可外发 445，仅内训 94 不收录 |
+| `/open/vagus` | 迷走/综合干预专页（子集，不是总库） |
 | `/api/health` | 健康检查 |
 
 ---
@@ -432,6 +433,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-31 | 公开只读站改为把正文写进 HTML（Pages），给只能抓网页的 AI 用；并自动开通 GitHub Pages |
 | 2026-08-31 | 公开 HTML 提交到 `docs/`，用 raw.githack 给外部 AI 抓网页 |
 | 2026-08-31 | Pages 部署失败：Actions 令牌不能创建站点。公开只读页同时走 Vercel `/open`；Pages 工作流在未开通时不再把 main 打红 |
+| 2026-08-31 | 可外发页写清「总库已合并 539 / 本页 445 / 仅内训 94 不收录」并加来源清单 `/open/catalog`；Vercel `/library` 缓存未命中时不再全量相似扫描超时 |
 
 
 ---
