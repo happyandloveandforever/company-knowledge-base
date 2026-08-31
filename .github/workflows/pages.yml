@@ -1,37 +1,37 @@
-name: Public library site
+name: Verify public HTML
 
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
 
 jobs:
-  deploy:
+  export:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Build static site
+      - name: Build static HTML
         run: node scripts/export-public-site.mjs
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: public-site
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Check baked pages
+        run: |
+          test -s docs/vagus.html
+          test -s docs/index.html
+          grep -q "KP-VGMECH-001" docs/vagus.html
+          grep -q "<article" docs/index.html
+          python3 - <<'PY'
+          from pathlib import Path
+          vagus = Path("docs/vagus.html").read_text()
+          index = Path("docs/index.html").read_text()
+          assert "正在加载" not in vagus
+          assert vagus.count("<article") >= 50
+          assert index.count("<article") >= 400
+          print("vagus articles", vagus.count("<article"))
+          print("index articles", index.count("<article"))
+          PY
