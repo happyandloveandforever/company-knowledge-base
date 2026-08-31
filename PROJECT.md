@@ -69,11 +69,11 @@ git push -u github main
 **GitHub 上无限制调取数据（公开仓库）：**
 
 ```text
-# 给人看的网页（GitHub Pages，不用再注册）
+# 给人看、也给只能抓 HTML 的 AI 看（不要发 JSON）
 https://happyandloveandforever.github.io/company-knowledge-base/
 
-# 给外部 AI 的 JSON（不要发仓库主页，会触发 GitHub 登录）
-https://happyandloveandforever.github.io/company-knowledge-base/knowledge-external.json
+# 迷走/综合干预专页（更短，优先给 AI）
+https://happyandloveandforever.github.io/company-knowledge-base/vagus.html
 
 # 备用 CDN（也不是 github.com，不需要授权）
 https://cdn.jsdelivr.net/gh/happyandloveandforever/company-knowledge-base@main/data/knowledge-points.json
