@@ -423,6 +423,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-24 | 补训四份：好转反应、一般适应症、禁忌症、产品使用手册 → TRN-072~094（仅内训）；禁忌与手册另写 SOP-023~025、MAN-001~007；库 450→483 |
 | 2026-08-31 | 精细拆分三份迷走/综合干预综述并直接批准：机制报告 22（KP-VGMECH）+ 综合干预专业版 18（KP-CIS，展开 V7-021~023）+ VNS 手段地图 16（KP-VNSMAP）；库 483→539。器械获批适应症均标注不得外推到漂浮舱 |
 | 2026-08-31 | 公开只读站：GitHub Actions 把总库发到 Pages。给人看网页，给外部 AI 发 `knowledge-external.json`（不含内训），避免 GitHub 登录插件 |
+| 2026-08-31 | 修复 Pages 部署：`configure-pages` 打开 `enablement: true`，仓库未手动开通 Pages 时不再 404 |
 
 
 ---
