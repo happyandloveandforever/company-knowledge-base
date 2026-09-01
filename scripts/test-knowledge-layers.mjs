@@ -128,7 +128,26 @@ const internal = points.filter((p) => p.internalOnly === true);
 check("可外发页不含仅内训卡", publicOnly.every((p) => p.internalOnly !== true));
 check("仅内训卡都是 training", internal.every((p) => p.usage === "training"));
 check("可外发数量 = 总量 - 仅内训", publicOnly.length === points.length - internal.length, `${publicOnly.length} vs ${points.length}-${internal.length}`);
-check("仅内训全是 KP-TRN", internal.every((p) => p.id.startsWith("KP-TRN-")));
+check(
+  "仅内训全是 KP-TRN 或 KP-ATOM",
+  internal.every((p) => p.id.startsWith("KP-TRN-") || p.id.startsWith("KP-ATOM-")),
+  internal.filter((p) => !p.id.startsWith("KP-TRN-") && !p.id.startsWith("KP-ATOM-")).map((p) => p.id).join(",")
+);
+
+const atom = points.filter((p) => p.id.startsWith("KP-ATOM-"));
+check("原子库主题卡 KP-ATOM 至少 20 条", atom.length >= 20, String(atom.length));
+check("原子库全部 usage=training", atom.every((p) => p.usage === "training"));
+check("原子库全部 internalOnly", atom.every((p) => p.internalOnly === true));
+check("原子库全部 approved", atom.every((p) => p.status === "approved"));
+check("原子库全部公司层", atom.every((p) => p.layer === "company"));
+check(
+  "来源 SRC-ATOM-LIB 已记录",
+  sources.some((s) => s.id === "SRC-ATOM-LIB" && s.status === "done")
+);
+const atomText = atom.map((p) => `${p.title}\n${p.summary}\n${p.body}`).join("\n");
+check("原子库总纲声明禁止整库外发", /禁止整库外发|禁止.*外发/.test(atomText));
+check("原子库声明经皮氢不得当给药", /经皮氢/.test(atomText) && /输液|给药/.test(atomText));
+check("原子库声明对外用 CIS", /CIS A–F|CIS-004|CIS A-F/.test(atomText));
 check(
   "可外发含迷走三套",
   publicOnly.filter((p) => p.id.startsWith("KP-VGMECH-")).length === 22 &&

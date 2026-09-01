@@ -260,7 +260,7 @@ export default function ComposePage() {
                   onChange={(e) => setIncludeInternal(e.target.checked)}
                   className="rounded border-red-300"
                 />
-                包含「仅内训」{internalCount} 条（培训教材，含处方与适应症，默认排除）
+                包含「仅内训」{internalCount} 条（培训教材 + 内部原子库，默认排除）
               </label>
               <TagFilter
                 className="mt-3"
