@@ -9,7 +9,9 @@ export async function GET() {
   return new NextResponse(html, {
     headers: {
       "Content-Type": "text/html; charset=utf-8",
-      "Content-Disposition": 'attachment; filename="知识总库.html"',
+      "Content-Disposition":
+        "attachment; filename=\"float-ark-knowledge.html\"; filename*=UTF-8''" +
+        encodeURIComponent("漂浮方舟知识总库.html"),
     },
   });
 }
