@@ -172,18 +172,18 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 
 ## 三、当前库状态
 
-> **最后更新：** 2026-08-31（由 Agent 维护，每次入库后更新此节）
+> **最后更新：** 2026-09-01（由 Agent 维护，每次入库后更新此节）
 
 | 指标 | 数值 |
 |------|------|
-| 知识点总数 | **539**（521 `approved` + 18 `draft`） |
+| 知识点总数 | **559**（541 `approved` + 18 `draft`） |
 | 通识层 `commons` | **154** 条：公开科学/政策/卫生/证据边界 + 迷走/VNS 通识 |
-| 公司自有层 `company` | **385** 条：产品、SOP、报价、案例、财务、内训教材、综合干预专业版 |
-| 用途 `usage` | `pitch` 294 · `training` 121 · `ops` 58 · `both` 66 |
-| **仅内训 `internalOnly`** | **94** 条（全部 `KP-TRN-*`），编排 PPT 默认排除 |
-| 已导入文件 | **26** |
+| 公司自有层 `company` | **405** 条：产品、SOP、报价、案例、财务、内训教材、综合干预专业版、内部原子库主题卡 |
+| 用途 `usage` | `pitch` 294 · `training` 141 · `ops` 58 · `both` 66 |
+| **仅内训 `internalOnly`** | **114** 条（`KP-TRN-*` 94 + `KP-ATOM-*` 20），编排 PPT 默认排除 |
+| 已导入文件 | **27** |
 | 待 Claude 拆分队列 | 0 |
-| 结构判断 | 两层已切开；内训 94 条；迷走机制/综合干预/VNS 地图 56 条已批准。仍缺锁数字与真实案例 |
+| 结构判断 | 两层已切开；内训 114 条；迷走三套 56 条已批准；原子库 1300→20 主题卡。仍缺锁数字与真实案例 |
 
 ### 两层怎么用（B端资料）
 
@@ -205,6 +205,17 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 - **总纲三卡**：`KP-TRN-069` 对外口径对照表、`KP-TRN-070` 冲突仲裁、`KP-TRN-071` 使用规则
 
 原稿有四处只有标题没正文（漂浮师职业发展、设备使用指南、理疗部件、问题集），已记在 `KP-TRN-068`，需补。
+
+### 内部原子库为什么也隔离
+
+`combined.md` 是研发/内容实验室原子库导出稿，约 **1300** 条（M1–M11，L1/L2/L3）。已按论文原子同样原则**主题合并**为 **`KP-ATOM-001~020`**：
+
+- **独立命名空间** `KP-ATOM-*`，不与 CIS 对外六模块混号
+- **全部 `internalOnly` + `usage=training`**：不进 `/open`、编排默认排除
+- **对外仍用 CIS A–F / SOP 六句**；M1–M11 只给研发和文案检索（见 `KP-ATOM-003`）
+- **红线**见 `KP-ATOM-005`：排毒、经皮氢当给药、逆生长、AI 医生、疾病适应症一律不得外发
+- **冲突仲裁**见 `KP-ATOM-019`：水温/透皮/治疗口径以 SOP、WEB、CIS 为首选
+- **不要再逐条 import**（见 `KP-ATOM-020`）
 
 ### 已入库文件
 
@@ -235,6 +246,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 | 漂浮方舟迷走神经作用机制研究报告.docx | SRC-VG-MECH | KP-VGMECH-001 ~ 022 | 22 | done，已批准 | claude-agent |
 | 漂浮方舟综合干预体系方案_专业版.docx | SRC-CIS-PRO | KP-CIS-001 ~ 018 | 18 | done，已批准 | claude-agent |
 | 迷走神经激活手段与前沿研究整合报告.docx | SRC-VNS-MAP | KP-VNSMAP-001 ~ 016 | 16 | done，已批准 | claude-agent |
+| combined.md（内部原子库） | SRC-ATOM-LIB | KP-ATOM-001 ~ 020 | 20 | done，已批准，仅内训 | 主题合并（~1300→20） |
 
 ### 结构体检（2026-08-24）
 
@@ -242,9 +254,10 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 |----|------|------|
 | 通识层 | 已把文献/政策/卫生从「已批准大锅」里分开；补 WHO 2025、Atlas 2024、2025/2026 REST 综述 | 客户资料包先抽通识层；在研 NCT 无结果不进 PPT |
 | 公司层 | SOP/报价/产品/案例仍在此层 | 数字未锁定继续用「合同/铭牌」口径 |
-| 培训 vs 汇报 | `usage` 已分开；`KP-TRN-*` 94 条硬隔离；禁忌/手册另有 ops 卡 | 裁定剩余 draft；职业发展与问题集仍空 |
+| 培训 vs 汇报 | `usage` 已分开；`KP-TRN-*` 94 + `KP-ATOM-*` 20 硬隔离；禁忌/手册另有 ops 卡 | 裁定剩余 draft；职业发展与问题集仍空 |
 | 迷走/综合干预（2026-08-31） | VGMECH 四条间接通路 + 共振呼吸 4 周；CIS 展开六模块与三类产品线；VNSMAP 把 FDA/EHJ 与漂浮拆开 | 对外深讲用新卡；浅讲仍可用 V7-018/021 但须口头声明器械证据不是漂浮试验 |
-| 已压缩 | 论文 103→20 主题卡；跨稿 REST史/专家复读/证据墙/功效分条/DEMO 已删 | 对外用 `KP-WEB-010` + 主题卡，勿再跑 `import-mev-atoms.mjs` |
+| 内部原子库（2026-09-01） | M1–M11 / L1–L3 已主题合并 20 条；与 CIS A–F 对照写在 ATOM-003 | 对内写文案；对外禁止混报两套模块名；勿再逐条入库 |
+| 已压缩 | 论文 103→20 主题卡；原子库 ~1300→20；跨稿 REST史/专家复读/证据墙/功效分条/DEMO 已删 | 对外用 `KP-WEB-010` + 主题卡；勿再跑 `import-mev-atoms.mjs` / 原子逐条 import |
 | 过薄 | FAQ 仍空；真实具名案例仍空；公司一页纸 5；统一数字未锁 | **你必须提供**：机构/专利/C端锁定数字、可公开案例 |
 | 冲突 | 乳酸；Feinstein 非 RCT；**院内「治疗/处方」vs SOP「不治病」**；SOP 水温 36±0.5 / 38℃ / 36.5–39.5 | 独立门店跟 SOP；医院共建跟 YFOP/MEDF；温度与 58%/2000 项须老板锁 |
 
@@ -265,6 +278,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 - [x] 上传培训初稿，按 `usage=training` 拆分（71 条 KP-TRN，全部 internalOnly）
 - [x] 补训好转反应 / 一般适应症 / 禁忌症 / 产品使用手册（TRN-072~094；禁忌与手册另写 SOP/MAN 运营卡）
 - [x] 精细拆分迷走机制报告 / 综合干预专业版 / VNS 手段地图（56 条，已批准；FDA/EHJ 等不得外推为漂浮适应症）
+- [x] combined.md 内部原子库主题合并为 KP-ATOM-001~020（仅内训，直接批准；不逐条入库）
 - [ ] **裁定培训 draft**：原 10 条 + 新 072/073/074/079（排毒叙事、瞑眩、适应症病谱）
 - [ ] 补培训仍缺：漂浮师职业发展、问题集（设备实操已由产品手册补；见 KP-TRN-068）
 - [ ] 老板锁：对外数字 + SOP 水温 + pH 7.8 vs 7–7.5 + 孕周窗口 + 是否沿用优浮历史价
@@ -285,7 +299,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 | `/compose` | 选题 + 演讲逻辑 → 大纲 / PPT |
 | `/status` | 系统状态 |
 | `/open` | 公开只读 HTML（不含仅内训），给外部 AI 抓正文 |
-| `/open/catalog` | 来源清单：总库已合并 539，可外发 445，仅内训 94 不收录 |
+| `/open/catalog` | 来源清单：总库已合并 559，可外发 445，仅内训 114 不收录 |
 | `/open/vagus` | 迷走/综合干预专页（子集，不是总库） |
 | `/api/health` | 健康检查 |
 
@@ -309,6 +323,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 │   ├── import-faf-yangpu.mjs       杨浦 PDF 拆分模板
 │   ├── import-b2b-yiling.mjs       B端 PDF 拆分模板
 │   ├── import-vagus-three-reports.mjs  迷走机制+综合干预+VNS地图
+│   ├── import-atom-library.mjs         内部原子库主题合并（仅内训）
 │   ├── process-split-queue.mjs     查看待拆分队列
 │   └── keep-alive-server.sh        服务守护进程
 ├── src/
@@ -434,6 +449,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-31 | 公开 HTML 提交到 `docs/`，用 raw.githack 给外部 AI 抓网页 |
 | 2026-08-31 | Pages 部署失败：Actions 令牌不能创建站点。公开只读页同时走 Vercel `/open`；Pages 工作流在未开通时不再把 main 打红 |
 | 2026-08-31 | 可外发页写清「总库已合并 539 / 本页 445 / 仅内训 94 不收录」并加来源清单 `/open/catalog`；Vercel `/library` 缓存未命中时不再全量相似扫描超时 |
+| 2026-09-01 | combined.md 内部原子库 ~1300 条主题合并为 KP-ATOM-001~020（仅内训，已批准）；库 539→559。公开页仍 445，仅内训 114。首页内训入口改为教材+原子库分列 |
 
 
 ---

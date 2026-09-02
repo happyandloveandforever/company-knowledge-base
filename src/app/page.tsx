@@ -99,7 +99,7 @@ export default async function HomePage() {
               <Link href="/library?internal=only">
                 <Button size="lg" variant="outline" className="border-red-200/60 bg-red-500/20 text-white hover:bg-red-500/30">
                   <GraduationCap className="h-4 w-4" />
-                  打开漂浮师内训 {stats.internalOnly}
+                  打开仅内训 {stats.internalOnly}
                 </Button>
               </Link>
             )}
@@ -181,9 +181,9 @@ export default async function HomePage() {
                   </div>
                   <Badge className="bg-red-100 text-red-800">仅内训 · 禁止外发</Badge>
                 </div>
-                <CardTitle className="text-base">漂浮师培训教材</CardTitle>
+                <CardTitle className="text-base">仅内训库</CardTitle>
                 <CardDescription>
-                  《漂浮培训大纲》{stats.internalOnly} 条，与对外资料硬隔离。
+                  培训教材 {stats.trnInternal} 条 + 内部原子库 {stats.atomInternal} 条，与对外资料硬隔离。
                   {stats.internalPending > 0
                     ? `其中 ${stats.internalPending} 条待裁定。`
                     : ""}

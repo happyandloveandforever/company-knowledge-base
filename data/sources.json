@@ -823,5 +823,36 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "医学综述底稿 V1.0。植入/经皮/行为/漂浮四类对比 + 2025 前沿。含雷达图文字化。16 条。"
+  },
+  {
+    "id": "SRC-ATOM-LIB",
+    "filename": "combined.md（内部原子库合并稿）",
+    "fileType": "md",
+    "uploadedAt": "2026-09-01T06:30:00.000Z",
+    "knowledgePointIds": [
+      "KP-ATOM-001",
+      "KP-ATOM-002",
+      "KP-ATOM-003",
+      "KP-ATOM-004",
+      "KP-ATOM-005",
+      "KP-ATOM-006",
+      "KP-ATOM-007",
+      "KP-ATOM-008",
+      "KP-ATOM-009",
+      "KP-ATOM-010",
+      "KP-ATOM-011",
+      "KP-ATOM-012",
+      "KP-ATOM-013",
+      "KP-ATOM-014",
+      "KP-ATOM-015",
+      "KP-ATOM-016",
+      "KP-ATOM-017",
+      "KP-ATOM-018",
+      "KP-ATOM-019",
+      "KP-ATOM-020"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "内部原子库 ~1300 条主题合并为 20 条仅内训卡。不逐条入库。直接批准。"
   }
 ]
