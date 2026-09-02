@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "公司知识库 — 结构化知识管理与 PPT 生成",
+  title: "漂浮方舟知识库 — 结构化知识管理与 PPT 生成",
   description: "将 PPT/Word 拆分为知识点，建立总库，编排演讲，一键导出 PPT",
 };
 

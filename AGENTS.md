@@ -10,7 +10,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ---
 
-# 项目协作规则（公司知识库）
+# 项目协作规则（漂浮方舟知识库）
 
 > **新对话必读：** 先读 [`PROJECT.md`](./PROJECT.md)，那里有完整的当前状态、代码地图和协作约定。  
 > 本文件是 Agent 的快速入口；详细内容以 PROJECT.md 为准。

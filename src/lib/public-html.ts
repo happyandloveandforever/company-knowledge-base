@@ -177,7 +177,7 @@ export function renderCatalogPage(all: KnowledgePoint[]): string {
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>公司知识库来源清单（已合并）</title>
+<title>漂浮方舟知识库来源清单（已合并）</title>
 <style>
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;max-width:920px;margin:0 auto;padding:1.25rem;line-height:1.55;color:#1f2937;background:#f8fafc}
 nav a{margin-right:.8rem}
@@ -189,7 +189,7 @@ footer{color:#6b7280;font-size:.8rem;margin:2rem 0;text-align:center}
 </style>
 </head>
 <body>
-<h1>公司知识库来源清单（已合并）</h1>
+<h1>漂浮方舟知识库来源清单（已合并）</h1>
 <p>总库已经合并进 Git，不是没合并。可外发页故意不收仅内训卡。</p>
 <nav>${PUBLIC_NAV}</nav>
 <p class="stats">总库 ${all.length} 条已合并 · 可外发 ${external.length} 条 · 仅内训 ${internal} 条（KP-TRN / KP-ATOM / KP-RX）不进 /open</p>

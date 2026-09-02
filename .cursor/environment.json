@@ -1,5 +1,5 @@
 {
-  "name": "公司知识库",
+  "name": "漂浮方舟知识库",
   "install": "npm install && npm run build",
   "start": "PORT=43123 bash scripts/keep-alive-server.sh",
   "terminals": [

@@ -85,7 +85,7 @@ export function generateLibraryHtml(points: KnowledgePoint[]): string {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>公司知识总库</title>
+  <title>漂浮方舟知识总库</title>
   <style>
     :root {
       --primary: #1e3a5f;
@@ -166,7 +166,7 @@ export function generateLibraryHtml(points: KnowledgePoint[]): string {
 </head>
 <body>
   <header class="header">
-    <h1>公司知识总库</h1>
+    <h1>漂浮方舟知识总库</h1>
     <p>结构化知识点 · 可检索 · 可复用 · 可导出</p>
   </header>
   <div class="container">
@@ -188,7 +188,7 @@ export function generateLibraryHtml(points: KnowledgePoint[]): string {
       ${sections}
     </main>
   </div>
-  <footer class="footer">生成时间：${now} · 由知识库系统自动导出</footer>
+  <footer class="footer">生成时间：${now} · 由漂浮方舟知识库自动导出</footer>
   <script>
     function filterCards() {
       const q = document.getElementById('search').value.toLowerCase();
