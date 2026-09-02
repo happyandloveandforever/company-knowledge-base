@@ -14,6 +14,7 @@ import {
   FolderOpen,
   Menu,
   X,
+  Scale,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ServerStatus } from "@/components/server-status";
@@ -25,6 +26,7 @@ const links = [
   { href: "/sources", label: "来源", icon: FolderOpen },
   { href: "/upload", label: "导入", icon: FileUp },
   { href: "/compose", label: "编排", icon: Presentation },
+  { href: "/patents", label: "专利库", icon: Scale },
 ];
 
 export function Nav() {

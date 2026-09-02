@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { invalidateAnalysisCache } from "./analysis-cache";
-import type { KnowledgePoint, Outline, SourceFile } from "./types";
+import type { KnowledgePoint, Outline, PatentRecord, PatentSourceFile, SourceFile } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 const UPLOADS_DIR = path.join(process.cwd(), "uploads");
@@ -9,6 +9,8 @@ const UPLOADS_DIR = path.join(process.cwd(), "uploads");
 const KNOWLEDGE_FILE = path.join(DATA_DIR, "knowledge-points.json");
 const SOURCES_FILE = path.join(DATA_DIR, "sources.json");
 const OUTLINES_FILE = path.join(DATA_DIR, "outlines.json");
+const PATENTS_FILE = path.join(DATA_DIR, "patents.json");
+const PATENT_SOURCES_FILE = path.join(DATA_DIR, "patent-sources.json");
 
 async function ensureDirs() {
   try {
@@ -178,4 +180,52 @@ export async function getAllTags(): Promise<string[]> {
   const points = await getKnowledgePoints();
   const tags = new Set(points.flatMap((p) => p.tags));
   return Array.from(tags).sort();
+}
+
+export async function getPatents(): Promise<PatentRecord[]> {
+  return readJson<PatentRecord[]>(PATENTS_FILE, []);
+}
+
+export async function getPatent(id: string): Promise<PatentRecord | undefined> {
+  const all = await getPatents();
+  return all.find((p) => p.id === id);
+}
+
+export async function savePatents(patents: PatentRecord[]): Promise<void> {
+  await writeJson(PATENTS_FILE, patents);
+}
+
+export async function updatePatent(patent: PatentRecord): Promise<void> {
+  const all = await getPatents();
+  const idx = all.findIndex((p) => p.id === patent.id);
+  if (idx >= 0) {
+    all[idx] = { ...patent, updatedAt: new Date().toISOString() };
+    await savePatents(all);
+  }
+}
+
+export async function deletePatent(id: string): Promise<boolean> {
+  const all = await getPatents();
+  const filtered = all.filter((p) => p.id !== id);
+  if (filtered.length === all.length) return false;
+  await savePatents(filtered);
+
+  const sources = await getPatentSources();
+  let changed = false;
+  for (const source of sources) {
+    if (source.patentIds.includes(id)) {
+      source.patentIds = source.patentIds.filter((pid) => pid !== id);
+      changed = true;
+    }
+  }
+  if (changed) await savePatentSources(sources);
+  return true;
+}
+
+export async function getPatentSources(): Promise<PatentSourceFile[]> {
+  return readJson<PatentSourceFile[]>(PATENT_SOURCES_FILE, []);
+}
+
+export async function savePatentSources(sources: PatentSourceFile[]): Promise<void> {
+  await writeJson(PATENT_SOURCES_FILE, sources);
 }

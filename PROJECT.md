@@ -184,6 +184,21 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 | 已导入文件 | **28** |
 | 待 Claude 拆分队列 | 0 |
 | 结构判断 | 两层已切开；内训 127 条；迷走三套 56 条已批准；原子库零件箱 20 + 疗法五维脊柱 13。仍缺锁数字与真实案例 |
+| **独立专利库 `PAT-*`** | **25** 条（全部 `internal`，不进 `/open`、不进编排）。四簇全景矩阵主题合并：总图+两件母案 + 4 簇结论 + 12 高风险前案 + 红绿清单 + 缺口 |
+
+### 专利库为什么单独隔离
+
+四份《专利全景检索矩阵》V1.0（舱体液路 / 气泡热场 / 声振脑波 / 传感控制）已主题合并为 **`PAT-*`**：
+
+- **独立数据文件** `data/patents.json`，不写入 `knowledge-points.json`，不与 SOP/宣传混号
+- **全部仅内部**：不进 `/open`，编排 PPT 不读此库
+- **非正式法律意见**：方向性检索底稿；量产/融资/出口前须代理师按最终 BOM 比对有效权利要求
+- **两件工程母案**：A 高盐多物理场稳定化；B 激励—测量抗干扰安全控制。疗效专利后置
+- **第四簇最危险**：CN121795911A（2026-03 申请）已写「主动式漂浮舱 AI 闭环」骨架，不得再以生理+AI+策略库+多模块为独权
+- **总库宣传口径不是专利清单**：AI 调度、迷走激活、30+ 专利等仍在总库，写交底书以专利库红灯为准
+- **下一步不是再搜**：缺 BOM、五类工程测试、关键案法律状态；见 `PAT-GAP-001` / `PAT-NEXT-001`
+
+不要再把矩阵表格逐行入库。补搜到的新前案按公开号合并进 `PAT-PRI-*`。
 
 ### 两层怎么用（B端资料）
 
@@ -258,6 +273,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 | 迷走神经激活手段与前沿研究整合报告.docx | SRC-VNS-MAP | KP-VNSMAP-001 ~ 016 | 16 | done，已批准 | claude-agent |
 | combined.md（内部原子库） | SRC-ATOM-LIB | KP-ATOM-001 ~ 020 | 20 | done，已批准，仅内训 | 主题合并（~1300→20） |
 | 漂浮疗法说明.pdf | SRC-RX-THERAPY | KP-RX-001 ~ 013 | 13 | done，已批准，仅内训 | 主题合并（29页→13） |
+| 四簇专利全景检索矩阵.docx | SRC-PAT-CLU1~4 | PAT-*（独立专利库） | 25 | done，仅内部 | 主题合并（四份矩阵→25） |
 
 ### 结构体检（2026-08-24）
 
@@ -292,10 +308,14 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 - [x] 精细拆分迷走机制报告 / 综合干预专业版 / VNS 手段地图（56 条，已批准；FDA/EHJ 等不得外推为漂浮适应症）
 - [x] combined.md 内部原子库主题合并为 KP-ATOM-001~020（仅内训，直接批准；不逐条入库）
 - [x] 漂浮疗法说明.pdf 主题合并为 KP-RX-001~013（仅内训脊柱；95%/排毒/超觉知冻结）
+- [x] 四簇专利全景矩阵主题合并为独立专利库 PAT-* 25 条（仅内部；非正式 FTO）
+- [ ] **裁定培训 draft**：原 10 条 + 新 072/073/074/079（排毒叙事、瞑眩、适应症病谱）
 - [ ] **裁定培训 draft**：原 10 条 + 新 072/073/074/079（排毒叙事、瞑眩、适应症病谱）
 - [ ] 补培训仍缺：漂浮师职业发展、问题集（设备实操已由产品手册补；见 KP-TRN-068）
 - [ ] 老板锁：对外数字 + SOP 水温 + pH 7.8 vs 7–7.5 + 孕周窗口 + 是否沿用优浮历史价
 - [ ] 用户提供：可公开案例回访（SOP 已补水质/消杀/岗位；手册已补 400 维保）
+- [ ] 专利库下一步（技术组，不是再检索）：锁 BOM；五类工程测试；核验 CN121795911A 等法律状态；写母案 A/B 交底
+- [ ] 上传优先书籍：睡眠/REST综述/体验经济
 - [ ] 上传优先书籍：睡眠/REST综述/体验经济
 - [ ] 不要再导入与杨浦/一龄/品牌画册同主题的宣传 PDF
 
@@ -314,6 +334,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 | `/open` | 公开只读 HTML（不含仅内训），给外部 AI 抓正文 |
 | `/open/catalog` | 来源清单：总库已合并 572，可外发 445，仅内训 127 不收录 |
 | `/open/vagus` | 迷走/综合干预专页（子集，不是总库） |
+| `/patents` | **独立专利库**（仅内部）：路线、布局、检索前案、工程缺口；非正式法律意见 |
 | `/api/health` | 健康检查 |
 
 ---
@@ -330,6 +351,8 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 ├── data/
 │   ├── knowledge-points.json   ★ 核心资产，进 Git
 │   ├── sources.json            ★ 来源记录，进 Git
+│   ├── patents.json            ★ 独立专利库，进 Git，不进 /open
+│   ├── patent-sources.json
 │   ├── outlines.json
 │   └── split-queue.json        运行时，待拆分队列
 ├── scripts/
@@ -338,6 +361,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 │   ├── import-vagus-three-reports.mjs  迷走机制+综合干预+VNS地图
 │   ├── import-atom-library.mjs         内部原子库主题合并（仅内训）
 │   ├── import-therapy-os.mjs           疗法说明五维脊柱（仅内训）
+│   ├── import-patent-landscape.mjs     四簇专利矩阵→独立专利库
 │   ├── process-split-queue.mjs     查看待拆分队列
 │   └── keep-alive-server.sh        服务守护进程
 ├── src/
@@ -465,6 +489,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-31 | 可外发页写清「总库已合并 539 / 本页 445 / 仅内训 94 不收录」并加来源清单 `/open/catalog`；Vercel `/library` 缓存未命中时不再全量相似扫描超时 |
 | 2026-09-01 | combined.md 内部原子库 ~1300 条主题合并为 KP-ATOM-001~020（仅内训，已批准）；库 539→559。公开页仍 445，仅内训 114。首页内训入口改为教材+原子库分列 |
 | 2026-09-02 | 漂浮疗法说明.pdf 主题合并为 KP-RX-001~013（仅内训脊柱）；库 559→572。公开页仍 445，仅内训 127。五维不替代 CIS |
+| 2026-09-02 | 独立专利库：四簇全景检索矩阵主题合并为 PAT-* 25 条（data/patents.json）。知识点总库 572 未改。不进 /open。两件工程母案 A/B；CN121795911A 为最高优先级前案 |
 
 
 ---
@@ -475,6 +500,8 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 - 「上传了品牌画册，帮我 Claude 精细拆」
 - 「把 B端和一龄相关的知识点全部批准」
 - 「用已批准的知识点，给销售做 90 分钟培训大纲」
+- 「处理专利库 / 把检索矩阵拆进专利库」
+- 「修复 upload 页 xxx 问题」
 - 「修复 upload 页 xxx 问题」
 
 ---
