@@ -183,7 +183,7 @@ export default async function HomePage() {
                 </div>
                 <CardTitle className="text-base">仅内训库</CardTitle>
                 <CardDescription>
-                  培训教材 {stats.trnInternal} 条 + 内部原子库 {stats.atomInternal} 条，与对外资料硬隔离。
+                  培训教材 {stats.trnInternal} 条 + 内部原子库 {stats.atomInternal} 条 + 疗法叙事 {stats.rxInternal} 条，与对外资料硬隔离。
                   {stats.internalPending > 0
                     ? `其中 ${stats.internalPending} 条待裁定。`
                     : ""}

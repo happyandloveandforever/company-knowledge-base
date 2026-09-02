@@ -22,6 +22,7 @@ export interface DashboardStats {
   internalPending: number;
   trnInternal: number;
   atomInternal: number;
+  rxInternal: number;
 }
 
 export function computeDashboardStats(
@@ -53,6 +54,7 @@ export function computeDashboardStats(
     internalPending: points.filter((p) => isInternalOnly(p) && p.status !== "approved").length,
     trnInternal: points.filter((p) => p.id.startsWith("KP-TRN-") && isInternalOnly(p)).length,
     atomInternal: points.filter((p) => p.id.startsWith("KP-ATOM-") && isInternalOnly(p)).length,
+    rxInternal: points.filter((p) => p.id.startsWith("KP-RX-") && isInternalOnly(p)).length,
   };
 }
 

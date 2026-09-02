@@ -128,10 +128,13 @@ const internal = points.filter((p) => p.internalOnly === true);
 check("可外发页不含仅内训卡", publicOnly.every((p) => p.internalOnly !== true));
 check("仅内训卡都是 training", internal.every((p) => p.usage === "training"));
 check("可外发数量 = 总量 - 仅内训", publicOnly.length === points.length - internal.length, `${publicOnly.length} vs ${points.length}-${internal.length}`);
+function isInternalPrefix(id) {
+  return id.startsWith("KP-TRN-") || id.startsWith("KP-ATOM-") || id.startsWith("KP-RX-");
+}
 check(
-  "仅内训全是 KP-TRN 或 KP-ATOM",
-  internal.every((p) => p.id.startsWith("KP-TRN-") || p.id.startsWith("KP-ATOM-")),
-  internal.filter((p) => !p.id.startsWith("KP-TRN-") && !p.id.startsWith("KP-ATOM-")).map((p) => p.id).join(",")
+  "仅内训全是 KP-TRN 或 KP-ATOM 或 KP-RX",
+  internal.every((p) => isInternalPrefix(p.id)),
+  internal.filter((p) => !isInternalPrefix(p.id)).map((p) => p.id).join(",")
 );
 
 const atom = points.filter((p) => p.id.startsWith("KP-ATOM-"));
@@ -148,6 +151,21 @@ const atomText = atom.map((p) => `${p.title}\n${p.summary}\n${p.body}`).join("\n
 check("原子库总纲声明禁止整库外发", /禁止整库外发|禁止.*外发/.test(atomText));
 check("原子库声明经皮氢不得当给药", /经皮氢/.test(atomText) && /输液|给药/.test(atomText));
 check("原子库声明对外用 CIS", /CIS A–F|CIS-004|CIS A-F/.test(atomText));
+
+const rx = points.filter((p) => p.id.startsWith("KP-RX-"));
+check("疗法叙事 KP-RX 至少 13 条", rx.length >= 13, String(rx.length));
+check("疗法叙事全部 usage=training", rx.every((p) => p.usage === "training"));
+check("疗法叙事全部 internalOnly", rx.every((p) => p.internalOnly === true));
+check("疗法叙事全部 approved", rx.every((p) => p.status === "approved"));
+check("疗法叙事全部公司层", rx.every((p) => p.layer === "company"));
+check(
+  "来源 SRC-RX-THERAPY 已记录",
+  sources.some((s) => s.id === "SRC-RX-THERAPY" && s.status === "done")
+);
+const rxText = rx.map((p) => `${p.title}\n${p.summary}\n${p.body}`).join("\n");
+check("疗法叙事声明五维不是对外模块", /不是第四套|不要把五维/.test(rxText));
+check("疗法叙事冻结概率矩阵", /95%/.test(rxText) && /不得外发|冻结/.test(rxText));
+check("疗法叙事排毒不得当透析", /系统透析|排毒/.test(rxText) && /WEB-005|透皮/.test(rxText));
 check(
   "可外发含迷走三套",
   publicOnly.filter((p) => p.id.startsWith("KP-VGMECH-")).length === 22 &&
