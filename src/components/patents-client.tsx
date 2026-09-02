@@ -93,8 +93,8 @@ export function PatentsClient({
             </div>
             <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">公司专利库</h1>
             <p className="mt-2 max-w-2xl text-sm text-slate-600">
-              与知识总库分开。检索到的前案、路线、布局和缺口在这里复利；写专利和做决策查本库，给客户做 PPT 仍走总库。
-              当前 {initialPatents.length} 条，来自 {sourceCount} 份技术簇矩阵。
+              与知识总库分开。六簇全部挂到母案 A/B；多模态交互是 B4–B7，不另立母案 3。写专利查本库，给客户做 PPT 仍走总库。
+              当前 {initialPatents.length} 条，来自 {sourceCount} 份来源（含重构版整体报告）。
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -113,7 +113,7 @@ export function PatentsClient({
 
       <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <FilterStat label="路线 / 布局" value={kinds.roadmap + kinds.layout} hint="母案与红绿灯" />
-        <FilterStat label="技术簇" value={kinds.cluster} hint="四簇结论" />
+        <FilterStat label="技术簇" value={kinds.cluster} hint="六簇结论" />
         <FilterStat label="检索到的专利" value={kinds.retrieved} hint="高风险前案合并卡" />
         <FilterStat label="缺口" value={kinds.gap} hint="数据和法律状态" />
       </div>

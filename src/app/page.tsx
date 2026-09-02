@@ -247,7 +247,7 @@ export default async function HomePage() {
               </div>
               <CardTitle className="text-base">公司专利库 · {patents.length} 条</CardTitle>
               <CardDescription>
-                四簇全景检索矩阵已主题合并：路线、布局、高风险前案、工程缺口。不进公开站，不进编排 PPT。写专利和做 FTO 初筛来这里；给客户做资料仍走知识总库。
+                六簇技术模块、两件母案（A 液/物理场，B 测量/安全/低刺激交互）。不设母案 3。不进公开站，不进编排 PPT。写专利和做 FTO 初筛来这里；给客户做资料仍走知识总库。
               </CardDescription>
             </CardHeader>
             <CardContent>

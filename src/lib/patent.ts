@@ -14,6 +14,8 @@ export const PATENT_CLUSTER_LABELS: Record<PatentCluster, string> = {
   "2": "第二簇 · 气泡热场",
   "3": "第三簇 · 声振脑波",
   "4": "第四簇 · 传感控制",
+  "5": "第五簇 · 迷走（间接）",
+  "6": "第六簇 · 低刺激环境",
   cross: "跨簇",
 };
 
@@ -43,7 +45,7 @@ export function countByKind(records: PatentRecord[]): Record<PatentKind, number>
 }
 
 export function countByCluster(records: PatentRecord[]): Record<PatentCluster, number> {
-  const counts: Record<PatentCluster, number> = { "1": 0, "2": 0, "3": 0, "4": 0, cross: 0 };
+  const counts: Record<PatentCluster, number> = { "1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, cross: 0 };
   for (const record of records) counts[record.cluster] += 1;
   return counts;
 }

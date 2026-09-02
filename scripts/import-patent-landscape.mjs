@@ -2,6 +2,7 @@
  * 四份《专利全景检索矩阵》V1.0 主题合并为独立专利库。
  * 不写入 knowledge-points.json，不进 /open，不进编排。
  * 幂等：PAT-RULE-001 已存在则跳过。
+ * 六簇升级请用 scripts/apply-patent-six-modules.mjs，不要重跑本脚本。
  * 运行：node scripts/import-patent-landscape.mjs
  */
 import { readFileSync, writeFileSync, existsSync } from "fs";

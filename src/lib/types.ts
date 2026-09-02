@@ -115,7 +115,7 @@ export type PatentKind =
 
 export type PatentRisk = "critical" | "high" | "medium" | "low" | "green";
 
-export type PatentCluster = "1" | "2" | "3" | "4" | "cross";
+export type PatentCluster = "1" | "2" | "3" | "4" | "5" | "6" | "cross";
 
 export interface PatentRecord {
   id: string;

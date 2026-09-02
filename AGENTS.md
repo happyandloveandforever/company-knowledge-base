@@ -59,7 +59,8 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/import-vagus-three-reports.mjs` | 迷走机制/综合干预专业版/VNS手段地图（幂等，直接批准） |
 | `scripts/import-atom-library.mjs` | combined.md 内部原子库 ~1300 条主题合并为 20 条仅内训卡（幂等） |
 | `scripts/import-therapy-os.mjs` | 漂浮疗法说明.pdf 五维叙事脊柱 13 条仅内训卡（幂等） |
-| `scripts/import-patent-landscape.mjs` | 四簇专利全景矩阵主题合并为 PAT-* 仅内部卡（幂等，独立 JSON） |
+| `scripts/import-patent-landscape.mjs` | 四簇专利全景矩阵主题合并为 PAT-* 仅内部卡（幂等，独立 JSON；已入库后勿重跑） |
+| `scripts/apply-patent-six-modules.mjs` | 重构版：四簇升六簇、两母案、不设母案3（幂等） |
 | `data/patents.json` | **专利库**，与知识点总库分开，不进 /open |
 | `data/patent-sources.json` | 专利库来源记录 |
 | `/patents` | 专利库页面（仅内部） |

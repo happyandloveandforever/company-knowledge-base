@@ -146,5 +146,34 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "生理姿态采集/反馈/算法控制。最拥挤危险区。 四份主题合并为 25 条 PAT-* 仅内部卡。"
+  },
+  {
+    "id": "SRC-PAT-LAYOUT-V2",
+    "filename": "漂浮方舟_专利布局整体报告_重构版.docx",
+    "cluster": "cross",
+    "fileType": "docx",
+    "uploadedAt": "2026-09-02T12:00:00.000Z",
+    "patentIds": [
+      "PAT-MAP-001",
+      "PAT-CLU-001",
+      "PAT-CLU-002",
+      "PAT-CLU-003",
+      "PAT-CLU-004",
+      "PAT-CLU-005",
+      "PAT-CLU-006",
+      "PAT-ROAD-A",
+      "PAT-ROAD-B",
+      "PAT-STATE-001",
+      "PAT-NO3-001",
+      "PAT-BATCH-001",
+      "PAT-NEXT-001",
+      "PAT-GAP-001",
+      "PAT-RED-001",
+      "PAT-XREF-001",
+      "PAT-RULE-001"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "重构版：六大技术簇 + 两件母案；多模态交互归B4–B7，不设母案3。"
   }
 ]
