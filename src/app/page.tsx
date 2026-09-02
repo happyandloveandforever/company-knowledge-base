@@ -75,7 +75,7 @@ export default async function HomePage() {
               <Sparkles className="h-4 w-4" />
               Claude 精细拆分 · {stats.total} 条知识点已入库
             </div>
-            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">公司知识库</h1>
+            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">漂浮方舟知识库</h1>
             <p className="mt-3 max-w-xl text-blue-100">
               把 PPT、PDF 拆成可复用的知识点，建立结构化总库，选题编排，一键生成 PPT。
             </p>

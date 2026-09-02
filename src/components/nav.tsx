@@ -41,8 +41,8 @@ export function Nav() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
         <Link href="/" className="flex items-center gap-2 font-semibold text-slate-900">
           <BookOpen className="h-6 w-6 text-blue-600" />
-          <span className="hidden sm:inline">公司知识库</span>
-          <span className="sm:hidden">知识库</span>
+          <span className="hidden sm:inline">漂浮方舟知识库</span>
+          <span className="sm:hidden">漂浮方舟</span>
         </Link>
 
         <div className="flex items-center gap-2 sm:gap-3">

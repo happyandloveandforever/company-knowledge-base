@@ -11,7 +11,7 @@ const COLORS = {
 
 export async function generatePptBuffer(outline: Outline): Promise<Buffer> {
   const pptx = new PptxGenJS();
-  pptx.author = "知识库系统";
+  pptx.author = "漂浮方舟知识库";
   pptx.title = outline.title;
   pptx.layout = "LAYOUT_16x9";
 
