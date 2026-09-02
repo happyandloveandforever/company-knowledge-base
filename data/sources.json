@@ -854,5 +854,29 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "内部原子库 ~1300 条主题合并为 20 条仅内训卡。不逐条入库。直接批准。"
+  },
+  {
+    "id": "SRC-RX-THERAPY",
+    "filename": "漂浮疗法说明.pdf",
+    "fileType": "pdf",
+    "uploadedAt": "2026-09-02T07:30:00.000Z",
+    "knowledgePointIds": [
+      "KP-RX-001",
+      "KP-RX-002",
+      "KP-RX-003",
+      "KP-RX-004",
+      "KP-RX-005",
+      "KP-RX-006",
+      "KP-RX-007",
+      "KP-RX-008",
+      "KP-RX-009",
+      "KP-RX-010",
+      "KP-RX-011",
+      "KP-RX-012",
+      "KP-RX-013"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "疗法说明 29 页主题合并为 13 条仅内训脊柱卡。概率矩阵与排毒叙事冻结。直接批准。"
   }
 ]
