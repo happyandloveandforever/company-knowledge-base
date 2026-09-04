@@ -51,6 +51,18 @@ export function PatentsClient({
     initialPatents.find((p) => p.id === "PAT-MAP-001")?.id ?? initialPatents[0]?.id ?? null
   );
 
+  // 站内跳转（如「先写第一件」）只换 searchParams，组件不会重挂载，
+  // 得把新的 URL 参数同步回筛选状态，否则列表不跟着变。
+  const urlFilters = `${initialKind}|${initialCluster}|${initialRisk}|${initialQuery}`;
+  const [syncedFilters, setSyncedFilters] = useState(urlFilters);
+  if (urlFilters !== syncedFilters) {
+    setSyncedFilters(urlFilters);
+    setKind(initialKind);
+    setCluster(initialCluster);
+    setRisk(initialRisk);
+    setQuery(initialQuery);
+  }
+
   const kinds = countByKind(initialPatents);
   const clusters = countByCluster(initialPatents);
 
