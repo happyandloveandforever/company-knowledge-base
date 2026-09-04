@@ -249,5 +249,27 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "整体报告v2.0：去盐测试闸门、母案B收窄、取消20件硬指标、全部测试改带清水对照组。"
+  },
+  {
+    "id": "SRC-PAT-ANGLE-REVIEW",
+    "filename": "候选角度复盘与迷走路径查证",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-04T07:40:00.000Z",
+    "patentIds": [
+      "PAT-RULE-003",
+      "PAT-RULE-004",
+      "PAT-IDEA-001",
+      "PAT-IDEA-002",
+      "PAT-IDEA-003",
+      "PAT-IDEA-004",
+      "PAT-IDEA-005",
+      "PAT-PRI-026",
+      "PAT-PRI-027",
+      "PAT-PRI-028"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "去盐测试修正为去环境测试（六条件）；补第25条客体规则；五个候选角度；US6669649等三条前案。"
   }
 ]
