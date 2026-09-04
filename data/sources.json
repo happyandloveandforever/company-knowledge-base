@@ -878,5 +878,34 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "疗法说明 29 页主题合并为 13 条仅内训脊柱卡。概率矩阵与排毒叙事冻结。直接批准。"
+  },
+  {
+    "id": "SRC-NSF-ANSI50",
+    "filename": "NSF_ANSI_50_漂浮舱标准汇总.docx",
+    "fileType": "docx",
+    "uploadedAt": "2026-09-04T08:40:00.000Z",
+    "knowledgePointIds": [
+      "KP-NSF-001",
+      "KP-NSF-002",
+      "KP-NSF-003",
+      "KP-NSF-004",
+      "KP-NSF-005",
+      "KP-NSF-006",
+      "KP-NSF-007",
+      "KP-NSF-008",
+      "KP-NSF-009",
+      "KP-NSF-010",
+      "KP-NSF-011",
+      "KP-NSF-012",
+      "KP-NSF-013",
+      "KP-NSF-014",
+      "KP-NSF-015",
+      "KP-NSF-016",
+      "KP-NSF-017",
+      "KP-NSF-018"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "NSF/ANSI 50 漂浮舱标准汇总精细拆分 18 条。公开条款通识+both；工程清单公司+both/ops；专利空白仅内训。直接批准。氯溴口径与 WEB-004 并存。"
   }
 ]
