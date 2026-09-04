@@ -507,6 +507,10 @@ check(
     "v5 消杀节仍收 AOP/光触媒先案",
     /一 消杀[\s\S]+PAT-PRI-065[\s\S]+PAT-PRI-066[\s\S]+二 舱体/.test(v5)
   );
+  check(
+    "v5 先案表顺序与 v4 Word 一致",
+    /一 消杀[\s\S]+三 声、光[\s\S]+二 舱体[\s\S]+五 迷走[\s\S]+六 人群[\s\S]+四 传感/.test(v5)
+  );
 }
 
 check("体感迁移来源已记录", patentSources.some((s) => s.id === "SRC-PAT-SOMATIC-TRANSFER" && s.status === "done"));
