@@ -17,13 +17,55 @@ const BATCH = {
 };
 
 const PRI_BUCKETS = [
-  ["2", "一 消杀、气体与水质"],
-  ["1", "二 舱体、液路与配液"],
-  ["3", "三 声、光、振与低刺激"],
-  ["4", "四 传感、测量与安全控制"],
-  ["5", "五 迷走与生理机制"],
-  ["6", "六 人群、运营、冥想与光照"],
-  ["cross", "六 人群、运营、冥想与光照"],
+  [
+    "一 消杀、气体与水质",
+    [
+      "PAT-PRI-008", "PAT-PRI-016", "PAT-PRI-017", "PAT-PRI-019", "PAT-PRI-021",
+      "PAT-PRI-040", "PAT-PRI-041", "PAT-PRI-042", "PAT-PRI-060", "PAT-PRI-065",
+      "PAT-PRI-066", "PAT-PRI-067", "PAT-PRI-068", "PAT-PRI-093", "PAT-PRI-094",
+    ],
+  ],
+  [
+    "二 舱体、液路与配液",
+    [
+      "PAT-PRI-002", "PAT-PRI-009", "PAT-PRI-010", "PAT-PRI-011", "PAT-PRI-035",
+      "PAT-PRI-036", "PAT-PRI-037", "PAT-PRI-038", "PAT-PRI-044", "PAT-PRI-045",
+      "PAT-PRI-046", "PAT-PRI-051", "PAT-PRI-063", "PAT-PRI-064", "PAT-PRI-069",
+      "PAT-PRI-070", "PAT-PRI-075", "PAT-PRI-076", "PAT-PRI-085", "PAT-PRI-086",
+      "PAT-PRI-087", "PAT-PRI-090", "PAT-PRI-091", "PAT-PRI-097",
+    ],
+  ],
+  [
+    "三 声、光、振与低刺激",
+    [
+      "PAT-PRI-004", "PAT-PRI-005", "PAT-PRI-034", "PAT-PRI-047", "PAT-PRI-048",
+      "PAT-PRI-049", "PAT-PRI-071", "PAT-PRI-072", "PAT-PRI-073", "PAT-PRI-074",
+      "PAT-PRI-077", "PAT-PRI-078", "PAT-PRI-079", "PAT-PRI-080", "PAT-PRI-081",
+      "PAT-PRI-082", "PAT-PRI-083", "PAT-PRI-084", "PAT-PRI-089",
+    ],
+  ],
+  [
+    "四 传感、测量与安全控制",
+    [
+      "PAT-PRI-001", "PAT-PRI-003", "PAT-PRI-006", "PAT-PRI-007", "PAT-PRI-012",
+      "PAT-PRI-013", "PAT-PRI-014", "PAT-PRI-015", "PAT-PRI-018", "PAT-PRI-020",
+      "PAT-PRI-022", "PAT-PRI-023", "PAT-PRI-024", "PAT-PRI-026", "PAT-PRI-027",
+      "PAT-PRI-032", "PAT-PRI-033", "PAT-PRI-039", "PAT-PRI-043", "PAT-PRI-052",
+      "PAT-PRI-095", "PAT-PRI-096",
+    ],
+  ],
+  [
+    "五 迷走与生理机制",
+    ["PAT-PRI-028", "PAT-PRI-029", "PAT-PRI-030", "PAT-PRI-054", "PAT-PRI-055"],
+  ],
+  [
+    "六 人群、运营、冥想与光照",
+    [
+      "PAT-PRI-025", "PAT-PRI-031", "PAT-PRI-050", "PAT-PRI-053", "PAT-PRI-056",
+      "PAT-PRI-057", "PAT-PRI-058", "PAT-PRI-059", "PAT-PRI-061", "PAT-PRI-062",
+      "PAT-PRI-088", "PAT-PRI-092",
+    ],
+  ],
 ];
 
 const GROUP_ORDER = {
@@ -143,12 +185,13 @@ function generateV5(patents) {
   const killed = patents.filter((p) => p.lifecycle === "killed");
   const byLife = patents.reduce((a, p) => ({ ...a, [p.lifecycle]: (a[p.lifecycle] ?? 0) + 1 }), {});
 
+  const byId = new Map(pri.map((p) => [p.id, p]));
   const priTables = [];
   const used = new Set();
-  for (const [cluster, heading] of PRI_BUCKETS) {
-    const rows = pri.filter((p) => p.cluster === cluster && !used.has(p.id));
-    if (!rows.length) continue;
+  for (const [heading, ids] of PRI_BUCKETS) {
+    const rows = ids.map((id) => byId.get(id)).filter(Boolean);
     rows.forEach((p) => used.add(p.id));
+    if (!rows.length) continue;
     priTables.push(`### ${heading}（${rows.length} 条）\n`);
     priTables.push("| 卡号 | 公开号 / 公开方式 | 挡住什么 |");
     priTables.push("|---|---|---|");

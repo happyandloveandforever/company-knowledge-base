@@ -503,6 +503,10 @@ check(
   check("v5 组一仍列全原卡并挂上本轮新卡", /PAT-DRAFT-A4/.test(v5) && /PAT-IDEA-069/.test(v5) && /PAT-ROAD-A/.test(v5));
   check("v5 组二原卡仍在", /PAT-IDEA-046/.test(v5) && /PAT-IDEA-042/.test(v5));
   check("v5 先案表用完整 PRI 号", /PAT-PRI-067/.test(v5) && !/`067`/.test(v5));
+  check(
+    "v5 消杀节仍收 AOP/光触媒先案",
+    /一 消杀[\s\S]+PAT-PRI-065[\s\S]+PAT-PRI-066[\s\S]+二 舱体/.test(v5)
+  );
 }
 
 check("体感迁移来源已记录", patentSources.some((s) => s.id === "SRC-PAT-SOMATIC-TRANSFER" && s.status === "done"));
