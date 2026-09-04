@@ -617,5 +617,73 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "合并前定稿的整合方案：信噪比架构 + 五个申请组 + 全部87条先案清单 + 18条红灯 + 三件下一步。产出 patent-drafts/专利整合方案-v4.md 与 docx。"
+  },
+  {
+    "id": "SRC-PAT-SOMATIC-TRANSFER",
+    "filename": "冥想体感音乐与律动床技术迁移专利评估",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-04T16:00:00.000Z",
+    "patentIds": [
+      "PAT-EXT-004",
+      "PAT-PRI-088",
+      "PAT-PRI-089",
+      "PAT-PRI-090",
+      "PAT-PRI-091",
+      "PAT-IDEA-060",
+      "PAT-IDEA-061",
+      "PAT-IDEA-062",
+      "PAT-IDEA-063",
+      "PAT-IDEA-064",
+      "PAT-IDEA-065",
+      "PAT-IDEA-066",
+      "PAT-IDEA-072",
+      "PAT-IDEA-073",
+      "PAT-IDEA-074"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "床/冥想舱模块直接平移全部 NO-GO；打开零漂移律动场等黄灯，挂既有组一/组三。不恢复母案称谓。"
+  },
+  {
+    "id": "SRC-PAT-LIGHT-GAS",
+    "filename": "光照与多气体漂浮舱专利专项评估",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-04T16:30:00.000Z",
+    "patentIds": [
+      "PAT-EXT-005",
+      "PAT-PRI-092",
+      "PAT-PRI-093",
+      "PAT-PRI-094",
+      "PAT-PRI-095",
+      "PAT-PRI-096",
+      "PAT-PRI-097",
+      "PAT-IDEA-067",
+      "PAT-IDEA-068",
+      "PAT-IDEA-069",
+      "PAT-IDEA-070",
+      "PAT-IDEA-071",
+      "PAT-IDEA-075",
+      "PAT-IDEA-076",
+      "PAT-IDEA-077",
+      "PAT-GAP-009"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "SPA 光/多气体模块平移全部 NO-GO；打开光路可信与零合力投送黄灯，挂组四/组一。不另立光疗组。"
+  },
+  {
+    "id": "SRC-PAT-REPORT-V5",
+    "filename": "专利整合方案-v5",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-04T17:00:00.000Z",
+    "patentIds": [
+      "PAT-MAP-008"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "v5.0：信噪比架构不变；SPA/床/冥想舱模块平移全部打掉；打开自由漂浮流场与光路/投送可信度黄灯。产出 patent-drafts/专利整合方案-v5.md。"
   }
 ]
