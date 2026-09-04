@@ -248,6 +248,76 @@ check(
   "有效技术方案 docx 存在",
   existsSync(path.join(process.cwd(), "patent-drafts", "有效技术方案.docx"))
 );
+// 真实技术保护：消杀（AOP/光触媒）与低刺激（主动对消、主动降光）
+check("真实技术来源已记录", patentSources.some((s) => s.id === "SRC-PAT-REAL-TECH" && s.status === "done"));
+check("主动降光来源已记录", patentSources.some((s) => s.id === "SRC-PAT-ACTIVE-LIGHT" && s.status === "done"));
+check("真实技术总图卡存在", patents.some((p) => p.id === "PAT-MAP-005"));
+check(
+  "总图已声明取代人群叙事为总菜单",
+  /PAT-MAP-005 取代/.test(patents.find((p) => p.id === "PAT-MAP-004")?.summary ?? "")
+);
+check(
+  "AOP与光触媒本身已认定为现有技术并打掉",
+  /已打掉/.test(patents.find((p) => p.id === "PAT-IDEA-040")?.title ?? "") &&
+    patents.find((p) => p.id === "PAT-IDEA-040")?.risk === "critical"
+);
+check(
+  "漂浮舱Peroxone公开使用已记录",
+  patents.some((p) => p.id === "PAT-PRI-065" && /Superior Float Tanks/.test(p.publicationNo ?? "") && /Peroxone/.test(p.body))
+);
+check("光催化泳池反应器前案已记录", patents.some((p) => p.id === "PAT-PRI-066" && /CN101723484A/.test(p.publicationNo ?? "")));
+check("高盐自由基清除文献已记录", patents.some((p) => p.id === "PAT-PRI-068" && /科学发现/.test(p.body)));
+check(
+  "六条消杀方案齐全",
+  ["PAT-IDEA-026", "PAT-IDEA-027", "PAT-IDEA-028", "PAT-IDEA-029", "PAT-IDEA-030", "PAT-IDEA-031"].every((id) =>
+    patents.some((p) => p.id === id)
+  )
+);
+check("空舱气相光催化卡讲清三态互斥", /三态互斥/.test(patents.find((p) => p.id === "PAT-IDEA-028")?.body ?? ""));
+check("溴酸盐方案卡存在", patents.some((p) => p.id === "PAT-IDEA-027" && /溴酸盐/.test(p.title)));
+check(
+  "六条低刺激方案齐全",
+  ["PAT-IDEA-032", "PAT-IDEA-033", "PAT-IDEA-034", "PAT-IDEA-035", "PAT-IDEA-036", "PAT-IDEA-037"].every((id) =>
+    patents.some((p) => p.id === id)
+  )
+);
+check("刺激预算母案候选存在", patents.some((p) => p.id === "PAT-IDEA-037" && /母案/.test(p.summary + p.title)));
+check("掩蔽声已打掉", /已打掉/.test(patents.find((p) => p.id === "PAT-IDEA-038")?.title ?? ""));
+check("被动隔音已打掉", /已打掉/.test(patents.find((p) => p.id === "PAT-IDEA-039")?.title ?? ""));
+check("掩蔽声商品前案已记录", patents.some((p) => p.id === "PAT-PRI-072"));
+check("被动隔声行业做法已记录", patents.some((p) => p.id === "PAT-PRI-071"));
+check(
+  "老年方案前提已作废",
+  /前提已作废|前提/.test(patents.find((p) => p.id === "PAT-IDEA-017")?.title ?? "") &&
+    /储液罐/.test(patents.find((p) => p.id === "PAT-IDEA-017")?.body ?? "")
+);
+check("可变液位调浮力前案已记录", patents.some((p) => p.id === "PAT-PRI-075" && /US5295929/.test(p.publicationNo ?? "")));
+check("变液位改牵引力前案已记录", patents.some((p) => p.id === "PAT-PRI-076" && /US6042602/.test(p.publicationNo ?? "")));
+check("消杀低刺激实验缺口卡存在", patents.some((p) => p.id === "PAT-GAP-004"));
+// 主动降光
+check(
+  "主动降光三条方案齐全",
+  ["PAT-IDEA-041", "PAT-IDEA-042", "PAT-IDEA-043"].every((id) => patents.some((p) => p.id === id))
+);
+check("反相消光已打掉且写明物理原因", /已打掉/.test(patents.find((p) => p.id === "PAT-IDEA-044")?.title ?? "") && /非相干/.test(patents.find((p) => p.id === "PAT-IDEA-044")?.body ?? ""));
+check("电控调光材料已打掉", /已打掉/.test(patents.find((p) => p.id === "PAT-IDEA-045")?.title ?? ""));
+check("暗适应阈值前案已记录", patents.some((p) => p.id === "PAT-PRI-077" && /科学发现/.test(p.body)));
+check("光催化余辉前案已记录", patents.some((p) => p.id === "PAT-PRI-078" && /余辉/.test(p.title)));
+check("余辉与占用准入联锁卡存在", patents.some((p) => p.id === "PAT-IDEA-042" && /余辉/.test(p.title)));
+check("主动降光实验缺口卡存在", patents.some((p) => p.id === "PAT-GAP-005"));
+check(
+  "光通道已声明挂在低刺激母案下而非高盐发明",
+  /不要写成高盐发明|不能写成高盐发明/.test(patents.find((p) => p.id === "PAT-GAP-005")?.body ?? "")
+);
+check(
+  "真实技术保护文件存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "真实技术保护.md"))
+);
+check(
+  "真实技术保护 docx 存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "漂浮方舟_真实技术保护_消杀与低刺激.docx"))
+);
+
 check("角度复盘来源已记录", patentSources.some((s) => s.id === "SRC-PAT-ANGLE-REVIEW" && s.status === "done"));
 check("组合发明来源已记录", patentSources.some((s) => s.id === "SRC-PAT-COMBINATION" && s.status === "done"));
 check("绿灯角度检索来源已记录", patentSources.some((s) => s.id === "SRC-PAT-GREEN-SEARCH" && s.status === "done"));
