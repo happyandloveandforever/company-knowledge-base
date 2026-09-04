@@ -81,6 +81,8 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/apply-patent-angle5-dosing-search.mjs` | 角度⑤配液结晶检索：独立立案打掉，冷管结晶并入母案A（幂等） |
 | `scripts/apply-patent-ext-review-triage.mjs` | 第三方整合版过闸结论 PAT-EXT-001 + 前案 039/040（幂等） |
 | `scripts/md-to-docx.mjs` | Markdown 报告转 Word（依赖 python-docx） |
+| `patent-drafts/有效技术方案.md` | **给人看的有效方案**（人群舱/疗法/运营） |
+| `scripts/apply-patent-pop-schemes.mjs` | 同上入库 PAT-MAP-004 等（幂等） |
 | `data/patents.json` | **专利库**，与知识点总库分开，不进 /open |
 | `data/patent-sources.json` | 专利库来源记录 |
 | `/patents` | 专利库页面（不进 `/open`）。生产站：https://company-knowledge-base-nine.vercel.app/patents |

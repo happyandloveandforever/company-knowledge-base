@@ -191,11 +191,11 @@ https://company-knowledge-base-nine.vercel.app/open
 | 已导入文件 | **29** |
 | 待 Claude 拆分队列 | 0 |
 | 结构判断 | 两层已切开；内训 127 条；迷走三套 56 条已批准；原子库零件箱 20 + 疗法五维脊柱 13；NSF 标准五问 8 条通识卡。仍缺锁数字与真实案例 |
-| **独立专利库 `PAT-*`** | **102** 条（全部 `internal`，不进 `/open`、不进编排）。整体报告 **v3.0** 为当前生效总图（`PAT-MAP-003`）。网页：https://company-knowledge-base-nine.vercel.app/patents 。给人看的总菜单：`patent-drafts/最终专利方案.md` |
+| **独立专利库 `PAT-*`** | **126** 条（全部 `internal`，不进 `/open`、不进编排）。给人看的有效方案：`patent-drafts/有效技术方案.md`（`PAT-MAP-004`）。网页：https://company-knowledge-base-nine.vercel.app/patents |
 
 ### 专利库为什么单独隔离
 
-> **当前生效版本：v3.0**（`patent-drafts/专利布局整体报告-v3.md` 与 `漂浮方舟_专利布局整体报告_v3.0.docx`）。v2.0 里仍然有效的：去环境测试闸门、绝对新颖性、两件母案、不设母案3、取消 20 件硬指标、清水对照。被推翻的是：把「盐堵通气口造成沉默失效」当成已经确认站得住的独权（见 `PAT-PRI-043`）。网页：https://company-knowledge-base-nine.vercel.app/patents
+> **给人看的有效方案：`patent-drafts/有效技术方案.md`**（`PAT-MAP-004`）。四条装置：青少年 REST 封套拒绝、老年高盐姿态转换、监护空气舱、离舱联锁；运营只写过程就绪。同池双人、预约门锁、情绪灯舱、无障碍开门本身不要写。网页：https://company-knowledge-base-nine.vercel.app/patents
 
 《专利布局整体报告_重构版》已把独立专利库从四簇升级为 **六簇、仍只立两件母案**：
 
@@ -432,6 +432,7 @@ https://company-knowledge-base-nine.vercel.app/open
 - [x] **第三方整合版过闸**（75→78）：第一部分过期作废；新角度 A EIS、B 密度闭环打掉；C 搁置；D 并入沉默失效从权；E 黄灯待检索。见 `PAT-EXT-001`。不要把沉默失效和 EIS 捆套
 - [x] **Codex独立评审过闸**（86→101）：点名前案入库；沉默失效宽方案收窄；打开⑫～⑮。见 `PAT-EXT-002`、`patent-drafts/最终专利方案.md`
 - [x] **整体报告 v3.0**（101→102）+ 生产站开通 `/patents`：https://company-knowledge-base-nine.vercel.app/patents
+- [x] **人群舱/疗法/运营新方案**（102→126）：有效方案见 `patent-drafts/有效技术方案.md`
 - [ ] **优先实验**：见证件对照（高盐/清水/无盐高湿）决定 A4 窄缝；⑫样机；⑭淡层；③气泡开关声压
 - [ ] 角度③下一步：实测声振模块频段与功率、**气泡开启前后的声压差异**。差异很小则该角度也不成立
 - [ ] 先问工程师：设备是否真的同时装氢气与臭氧两路气源。否则底稿前提不成立，改写 A3
@@ -493,6 +494,7 @@ https://company-knowledge-base-nine.vercel.app/open
 │   ├── import-patent-novelty-rule.mjs  绝对新颖性卡+国际前案 PAT-PRI-022~025
 │   ├── apply-patent-report-v2.mjs      报告v2.0结论：立项闸门、母案B收窄
 │   ├── apply-patent-report-v3.mjs      报告v3.0：当前生效总图 PAT-MAP-003
+│   ├── apply-patent-pop-schemes.mjs    人群舱/疗法/运营：PAT-MAP-004
 │   ├── apply-patent-angle-review.mjs   去环境测试修正+第25条+五个候选角度
 │   ├── md-to-docx.mjs / md_to_docx.py  Markdown 报告转 Word
 │   ├── process-split-queue.mjs     查看待拆分队列
@@ -637,6 +639,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-09-04 | **整体报告重写为 v2.0**（51→54）：新增去盐测试立项闸门与法律前提章节；母案B 从通用安全控制收窄为高盐测量可信度；取消 20 件硬指标改为 4—14 件按绿灯定；全部工程测试改为必带清水对照组。产出 Markdown 源稿 + Word 版。用户要求：以后不再提供演示视频 |
 | 2026-09-04 | 新增公开标准问答稿 `docs/漂浮舱卫生安全标准五问.md`：CCS-12804 试验、30 min 周转、臭氧限值与检测、ASTM F462、ASME A112.19.17 |
 | 2026-09-04 | 五问拆入库：KP-WEB-013~020（8 条通识，已批准）；库 572→580。公开页 445→453，仅内训仍 127。不覆盖 WEB-001~012 |
+| 2026-09-04 | **人群舱/疗法形态/运营**（102→126）：有效方案四条（青少年REST封套拒绝、老年姿态转换、监护空气舱、离舱联锁）+ 窄运营过程就绪。同池双人/预约门锁/情绪舱/无障碍本身打掉并入库先案 PAT-PRI-053～064。产出 `patent-drafts/有效技术方案.md`。知识点总库 580 未改 |
 
 
 ---

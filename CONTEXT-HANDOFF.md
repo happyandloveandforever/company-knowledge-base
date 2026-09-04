@@ -10,7 +10,7 @@
 
 > 先读 `CONTEXT-HANDOFF.md` 和 `PROJECT.md`，不要重建项目、不要换框架。
 >
-> 确认三件事再开始：`data/knowledge-points.json` 有 572 条、`data/patents.json` 有 102 条、`git branch` 在 `cursor/patent-library-3c23`。
+> 确认三件事再开始：`data/knowledge-points.json` 有 580 条、`data/patents.json` 有 126 条、`git branch` 在当前专利工作分支。
 >
 > 我现在要做的是：【在这里写你这次想干什么】
 
@@ -19,8 +19,8 @@
 ## 第二步：先确认环境（Agent 执行）
 
 ```bash
-node -e "console.log('知识点', require('./data/knowledge-points.json').length)"   # 应为 572
-node -e "console.log('专利卡', require('./data/patents.json').length)"            # 应为 102
+node -e "console.log('知识点', require('./data/knowledge-points.json').length)"   # 应为 580
+node -e "console.log('专利卡', require('./data/patents.json').length)"            # 应为 126
 node scripts/test-patent-library.mjs | tail -2                                    # 应全通过
 node scripts/test-knowledge-layers.mjs | tail -2
 git branch --show-current                                                          # cursor/patent-library-3c23
@@ -29,8 +29,7 @@ git branch --show-current                                                       
 **如果数字是 0 或仓库是空的 → 停下来，告诉用户连错了仓库，不要重建项目。**
 
 仓库：`https://github.com/happyandloveandforever/company-knowledge-base`
-分支：`cursor/patent-library-3c23`（专利入库仍在此分支改；生产站跟 `main`）
-PR：[#25](https://github.com/happyandloveandforever/company-knowledge-base/pull/25)
+给人看的有效方案：`patent-drafts/有效技术方案.md`
 专利库网页：https://company-knowledge-base-nine.vercel.app/patents
 
 ---
@@ -52,8 +51,8 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 数据。两个**物理隔�
 
 | 库 | 文件 | 数量 | 对外 |
 |---|---|---|---|
-| 知识点总库 | `data/knowledge-points.json` | **572** | 445 条可外发，127 条仅内训 |
-| **独立专利库** | `data/patents.json` | **102** | **不进 `/open`**；网页 https://company-knowledge-base-nine.vercel.app/patents |
+| 知识点总库 | `data/knowledge-points.json` | **580** | 公开站不含仅内训 |
+| **独立专利库** | `data/patents.json` | **126** | **不进 `/open`**；网页 https://company-knowledge-base-nine.vercel.app/patents |
 
 网页：`http://127.0.0.1:43123`（`npm run build && npm run serve`）
 专利库页面：https://company-knowledge-base-nine.vercel.app/patents （本机 `http://127.0.0.1:43123/patents`）
@@ -78,40 +77,25 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 数据。两个**物理隔�
 
 `E1` 高盐 22—30% MgSO₄ · `E2` 中性浮力 · `E3` 感官剥夺 · `E4` 热中性浸液 · `E5` 长时程静止 45—90min · `E6` 密闭门锁
 
-### 架构（`PAT-MAP-003` 是当前总图，取代 v2.0）
+### 架构（给人看的是 `PAT-MAP-004`）
 
-- **只立两件母案**：A 高盐漂浮液多物理场稳定化（升级为第一优先）、B 高盐环境下的测量可信度维持与设备安全控制（**已从"通用安全控制"收窄**）
-- **不设母案 3**：多模态交互与安全状态机是 B4—B7，预埋进 B
-- 六簇技术模块结构不变，但簇3/4/6 已降级（通用手段为公知）
-- 件数目标已从 20 件改为 **4—14 件按绿灯数量定**
+有效方案写在 `patent-drafts/有效技术方案.md`。四条装置 + 一条窄运营。不要报同池双人、预约软件、情绪灯舱、无障碍开门本身。
 
-### 候选角度现状（`PAT-IDEA-001~015` + 总菜单 `patent-drafts/最终专利方案.md`）
+### 有效方案（`PAT-IDEA-016~021`）
 
-**主线：多开撰写思路，最后让专利专家和技术专家选。不要把清单收成只剩实验。**
-
-| 角度 | 状态 |
+| 方案 | 状态 |
 |---|---|
-| ① 反用感官剥夺做设备故障预测 | 🔴 已打掉（US7069183 等占据路径；且"环境安静更容易"不是技术问题） |
-| ② 中性浮力下无接触面体征测量 | 🔴 已打掉（US6669649 已占浮力测呼吸） |
-| ③ **含气泡高盐液中声能测不准** | 🟢 **目前最有希望** |
-| ④ 迷走走装置路线 | 🟡 二期，缺对照数据 |
-| ⑤ 近饱和高盐液配液精度 | 🔴 **已打掉独立立案**（行业运维公开工作点低于饱和；舱内已有盐密度闭环；化工配液成熟。冷管结晶并入母案A） |
-| ⑥ 迷走技术接入组合发明 | 🟡 协同点未锁定 |
-| ⑦ 液相臭氧达标 ≠ 气相安全 | 🟡 盐析是已知物理；可写双指标门控，待验证，挂 A4 |
-| ⑧ 客用/维护两套氧化剂 | 🟡 待检索；**不要主张不用氯** |
-| ⑨ 高密度液过滤/周转失配 | 🟡 待验证，倾向并入 A1 |
-| ⑩ 近中性浮力浅舱吸入口 | 🟡 信心低，待检索 APSP-16 |
-| ⑪ NSF +2 ppm vs 失灵 DPD | 🟡 现象已公开；并入角度 E 检索 |
-| ⑫ 无接触/紧急支撑转换 | 🟡 优先样机；待检索康复浴升降平台 |
-| ⑬ 全漂移机械释放 | 🟡 勿写成一键开门（US11930968） |
-| ⑭ 冷凝分流回混 | 🟡 先证淡层；US20190015624 只是防滴脸 |
-| ⑮ 液相气体库存 | 🟡 信心低；WO2018237261 是饮料桶溶气 |
-
-**沉默失效宽方案已收窄**（`PAT-DRAFT-A4` / `PAT-PRI-043`）：盐堵过滤器 + 识别堵塞已被海上/防爆气体探测器专利包围。只剩同暴露路径见证件，待验证。不要写「高盐蒸汽」。NSF 浊度测的是硅粉，仍测不到这条故障，但不能再当确认站得住的独权。
+| 青少年：硬件拒绝全 REST | 🟡 待样机 |
+| 老年：高盐里坐–仰卧转换 | 🟡 待样机 |
+| 监护空气舱 + 高盐舱液压隔离 | 🟡 待样机 |
+| 离舱联锁：灯、底、冲洗到温才放锁 | 🟡 待样机 |
+| 运营：高盐过程向量进窗才就绪 | 🟡 信心偏低，作从权 |
+| 疗法形态：模式令牌互斥切换两种封套 | 🟡 与上列装置是同一件事 |
+| 同池双人 / 预约门锁 / 情绪灯舱 / 无障碍开门本身 | 🔴 不要写 |
 
 ### 前案
 
-42 条旧 `PAT-PRI-*` + 本轮 `PAT-PRI-043`～`052`。**最危险的仍是 `PAT-PRI-001` CN121795911A**。本轮新增最危险是 **`PAT-PRI-043` 气体传感器堵塞检测族**。过闸结论卡：`PAT-EXT-001`（第三方整合版）、`PAT-EXT-002`（Codex 独立评审）。给人看的总菜单：`patent-drafts/最终专利方案.md`。
+给人看的有效方案：`patent-drafts/有效技术方案.md`。先案本轮 `PAT-PRI-053`～`064`。
 
 ---
 
@@ -140,7 +124,8 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 数据。两个**物理隔�
 | `专利布局整体报告-v2.md` ＋ docx | v2.0 底稿，结构仍有效，发明点选择已被 v3 改口 |
 | `外部AI评审任务书.md` ＋ docx | 给第三方 AI 独立评审用，自包含。含已打掉清单（含角度⑤配液） |
 | `外部AI回答-整合版.md` | 第三方三轮整合稿原文。过闸结论见 `PAT-EXT-001`，不要按它的绿灯表执行 |
-| `最终专利方案.md` ＋ docx | **给人看的总菜单**（Codex 独立评审过闸后）：点名前案已入库，⑫～⑮打开，沉默失效宽方案收窄 |
+| `有效技术方案.md` ＋ docx | **给人看的有效方案**（人群舱 / 疗法形态 / 运营） |
+| `最终专利方案.md` ＋ docx | 过闸档案，不再当总菜单 |
 | `撰写思路菜单-NSF与氯溴.md` ＋ docx | NSF/氯溴过闸后 ⑦～⑪ 黄灯菜单（强制项勿主张） |
 | `漂浮舱专利独立评审报告.pdf` ＋ md | Codex 独立评审原文归档 |
 | `NSF_ANSI_50_漂浮舱标准汇总.docx` | 用户提供的 NSF 50 第28节/CCS-12804 汇总（仅内部） |
@@ -167,7 +152,7 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 数据。两个**物理隔�
 
 1. **见证件对照实验**：高盐 vs 清水 vs 无盐高湿；电路自检仍正常时，见证件能不能更早反映扩散受限。**决定 `PAT-DRAFT-A4` 窄缝生死**
 2. **角度③最便宜的验证**：把气泡打开和关闭各测一次舱内声压。差异很小则该角度不成立
-3. 请专家从 `patent-drafts/最终专利方案.md` 挑选：⑫优先样机；⑬勿写成一键开门；⑭先证淡层；⑦作 A4 从权候选；不要捆套沉默失效/EIS/液相补偿
+3. 请专家从 `patent-drafts/有效技术方案.md` 选样机：青少年封套拒绝、老年姿态转换优先
 4. 角度⑤配液检索已完成：独立立案打掉，冷管结晶并入母案A；EP0128641 已占「设备放热区」
 5. 先问工程师：设备是否真的同时装氢气与臭氧两路气源。若不会，第一件底稿前提不成立，改写 A3
 6. 第三方评审回来要过三道：已打掉清单 → 去环境测试 → 红线与第 25 条。**已过闸两份**：整合版 `PAT-EXT-001`；Codex 独立评审 `PAT-EXT-002`（点名前案已入库）。不要把沉默失效和 EIS 捆成一套。

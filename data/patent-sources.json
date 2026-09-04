@@ -403,5 +403,41 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "整体报告 v3.0：当前生效总图；沉默失效宽方案收窄；撰写菜单①～⑮。"
+  },
+  {
+    "id": "SRC-PAT-POP-SCHEMES",
+    "filename": "有效技术方案-人群疗法运营",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-04T14:00:00.000Z",
+    "patentIds": [
+      "PAT-MAP-004",
+      "PAT-GAP-003",
+      "PAT-IDEA-016",
+      "PAT-IDEA-017",
+      "PAT-IDEA-018",
+      "PAT-IDEA-019",
+      "PAT-IDEA-020",
+      "PAT-IDEA-021",
+      "PAT-IDEA-022",
+      "PAT-IDEA-023",
+      "PAT-IDEA-024",
+      "PAT-IDEA-025",
+      "PAT-PRI-053",
+      "PAT-PRI-054",
+      "PAT-PRI-055",
+      "PAT-PRI-056",
+      "PAT-PRI-057",
+      "PAT-PRI-058",
+      "PAT-PRI-059",
+      "PAT-PRI-060",
+      "PAT-PRI-061",
+      "PAT-PRI-062",
+      "PAT-PRI-063",
+      "PAT-PRI-064"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "人群舱/疗法形态/运营：有效方案四条+窄运营；同池双人/预约门锁/情绪舱/无障碍本身打掉；先案 PAT-PRI-053～064。"
   }
 ]
