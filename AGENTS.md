@@ -61,6 +61,8 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/import-therapy-os.mjs` | 漂浮疗法说明.pdf 五维叙事脊柱 13 条仅内训卡（幂等） |
 | `scripts/import-patent-landscape.mjs` | 四簇专利全景矩阵主题合并为 PAT-* 仅内部卡（幂等，独立 JSON；已入库后勿重跑） |
 | `scripts/apply-patent-six-modules.mjs` | 重构版：四簇升六簇、两母案、不设母案3（幂等） |
+| `scripts/import-patent-drafting-kit.mjs` | 母案A交底书撰写包 PAT-WRITE-001~006（幂等，给非工程背景的人用） |
+| `patent-drafts/交底书-母案A.md` | 可填空交底书模板，仅内部 |
 | `data/patents.json` | **专利库**，与知识点总库分开，不进 /open |
 | `data/patent-sources.json` | 专利库来源记录 |
 | `/patents` | 专利库页面（仅内部） |

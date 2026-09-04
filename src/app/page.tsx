@@ -247,7 +247,7 @@ export default async function HomePage() {
               </div>
               <CardTitle className="text-base">公司专利库 · {patents.length} 条</CardTitle>
               <CardDescription>
-                六簇技术模块、两件母案（A 液/物理场，B 测量/安全/低刺激交互）。不设母案 3。不进公开站，不进编排 PPT。写专利和做 FTO 初筛来这里；给客户做资料仍走知识总库。
+                六簇技术模块、两件母案（A 液/物理场，B 测量/安全/低刺激交互）。不设母案 3。第一件先写母案 A，交底书模板与采访清单见 PAT-WRITE-*。不进公开站，不进编排 PPT。
               </CardDescription>
             </CardHeader>
             <CardContent>

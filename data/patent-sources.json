@@ -175,5 +175,23 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "重构版：六大技术簇 + 两件母案；多模态交互归B4–B7，不设母案3。"
+  },
+  {
+    "id": "SRC-PAT-WRITE-KIT",
+    "filename": "漂浮方舟_专利布局整体报告_重构版.docx",
+    "cluster": "cross",
+    "fileType": "docx",
+    "uploadedAt": "2026-09-04T03:30:00.000Z",
+    "patentIds": [
+      "PAT-WRITE-001",
+      "PAT-WRITE-002",
+      "PAT-WRITE-003",
+      "PAT-WRITE-004",
+      "PAT-WRITE-005",
+      "PAT-WRITE-006"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "最终版确认后追加：母案A交底书撰写包（选案、角色、七节模板、采访清单、红线自检、后续节奏）。"
   }
 ]

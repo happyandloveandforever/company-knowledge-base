@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Scale, Search, ShieldAlert } from "lucide-react";
+import { PenLine, Scale, Search, ShieldAlert } from "lucide-react";
 import type { PatentCluster, PatentKind, PatentRecord, PatentRisk } from "@/lib/types";
 import {
   PATENT_CLUSTER_LABELS,
@@ -101,6 +101,12 @@ export function PatentsClient({
             <Link href="/library">
               <Button variant="outline">返回知识总库</Button>
             </Link>
+            <Link href="/patents?kind=draft">
+              <Button>
+                <PenLine className="h-4 w-4" />
+                先写第一件 {kinds.draft}
+              </Button>
+            </Link>
             <Link href="/patents?kind=retrieved">
               <Button variant="secondary">
                 <Scale className="h-4 w-4" />
@@ -111,7 +117,8 @@ export function PatentsClient({
         </div>
       </section>
 
-      <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+        <FilterStat label="交底书 / 撰写" value={kinds.draft} hint="第一件先写母案A" />
         <FilterStat label="路线 / 布局" value={kinds.roadmap + kinds.layout} hint="母案与红绿灯" />
         <FilterStat label="技术簇" value={kinds.cluster} hint="六簇结论" />
         <FilterStat label="检索到的专利" value={kinds.retrieved} hint="高风险前案合并卡" />

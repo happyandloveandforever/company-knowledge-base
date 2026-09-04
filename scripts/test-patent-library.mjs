@@ -28,7 +28,7 @@ check("总库数量未因专利库减少", points.length >= 572, String(points.l
 check("总库没有任何 PAT-*", points.every((p) => !String(p.id).startsWith("PAT-")));
 check("总库 sources 不含 SRC-PAT", sources.every((s) => !String(s.id).startsWith("SRC-PAT")));
 
-check("专利卡至少 28 条", patents.length >= 28, String(patents.length));
+check("专利卡至少 36 条", patents.length >= 36, String(patents.length));
 check("全部 confidentiality=internal", patents.every((p) => p.confidentiality === "internal"));
 check("全部 approved", patents.every((p) => p.status === "approved"));
 check(
@@ -37,7 +37,7 @@ check(
 );
 
 const kinds = new Set(patents.map((p) => p.kind));
-for (const k of ["rule", "roadmap", "cluster", "retrieved", "gap", "layout"]) {
+for (const k of ["rule", "roadmap", "cluster", "retrieved", "gap", "layout", "draft"]) {
   check(`含 kind=${k}`, kinds.has(k));
 }
 
@@ -51,6 +51,18 @@ check(
     patents.some((p) => p.id === id)
   )
 );
+check(
+  "交底书撰写包齐全",
+  ["PAT-WRITE-001", "PAT-WRITE-002", "PAT-WRITE-003", "PAT-WRITE-004", "PAT-WRITE-005", "PAT-WRITE-006"].every((id) =>
+    patents.some((p) => p.id === id)
+  )
+);
+check("第一件明确选母案A", /第一件写母案A/.test(patents.find((p) => p.id === "PAT-WRITE-001")?.title ?? ""));
+check(
+  "交底书与权利要求已分清",
+  /不是权利要求/.test(patents.find((p) => p.id === "PAT-WRITE-002")?.title ?? "")
+);
+check("母案A交底书模板文件存在", existsSync(path.join(process.cwd(), "patent-drafts", "交底书-母案A.md")));
 check("不设母案3卡存在", patents.some((p) => p.id === "PAT-NO3-001"));
 check("状态机卡存在", patents.some((p) => p.id === "PAT-STATE-001"));
 check("批次节奏卡存在", patents.some((p) => p.id === "PAT-BATCH-001"));
@@ -71,6 +83,7 @@ check("检索卡都有公开号", retrieved.every((p) => !!p.publicationNo));
 
 check("四个簇来源都记录", ["SRC-PAT-CLU1", "SRC-PAT-CLU2", "SRC-PAT-CLU3", "SRC-PAT-CLU4"].every((id) => patentSources.some((s) => s.id === id && s.status === "done")));
 check("重构版来源已记录", patentSources.some((s) => s.id === "SRC-PAT-LAYOUT-V2" && s.status === "done"));
+check("撰写包来源已记录", patentSources.some((s) => s.id === "SRC-PAT-WRITE-KIT" && s.status === "done"));
 check(
   "来源 patentIds 都能在库中找到",
   patentSources.every((s) => s.patentIds.every((id) => patents.some((p) => p.id === id)))

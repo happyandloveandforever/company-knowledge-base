@@ -111,7 +111,9 @@ export type PatentKind =
   | "layout"
   | "cluster"
   | "retrieved"
-  | "gap";
+  | "gap"
+  /** 交底书撰写指南：模板、采访清单、红线自检 */
+  | "draft";
 
 export type PatentRisk = "critical" | "high" | "medium" | "low" | "green";
 

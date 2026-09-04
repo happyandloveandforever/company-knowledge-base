@@ -7,6 +7,7 @@ export const PATENT_KIND_LABELS: Record<PatentKind, string> = {
   cluster: "技术簇",
   retrieved: "检索到的专利",
   gap: "缺口 / 待补",
+  draft: "交底书 / 撰写",
 };
 
 export const PATENT_CLUSTER_LABELS: Record<PatentCluster, string> = {
@@ -39,6 +40,7 @@ export function countByKind(records: PatentRecord[]): Record<PatentKind, number>
     cluster: 0,
     retrieved: 0,
     gap: 0,
+    draft: 0,
   };
   for (const record of records) counts[record.kind] += 1;
   return counts;
