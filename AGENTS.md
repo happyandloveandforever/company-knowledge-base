@@ -55,6 +55,7 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/import-b2b-yiling.mjs` | B端 PDF 拆分参考 |
 | `scripts/apply-knowledge-layers.mjs` | 通识/公司分层 + 通识前沿卡（幂等） |
 | `scripts/apply-patent-nsf-sanitation-seeds.mjs` | NSF 50/氯溴过闸：强制项勿主张，打开撰写候选⑦～⑪（幂等） |
+| `scripts/apply-patent-codex-review.mjs` | Codex独立评审过闸：点名前案入库，沉默失效收窄，打开⑫～⑮（幂等） |
 | `scripts/import-float-training.mjs` | 漂浮培训大纲 71 条内训卡（幂等，全部 internalOnly） |
 | `scripts/import-training-supplements.mjs` | 好转反应/适应症/禁忌症/产品手册补训（幂等，禁忌与手册另写运营卡） |
 | `scripts/import-vagus-three-reports.mjs` | 迷走机制/综合干预专业版/VNS手段地图（幂等，直接批准） |

@@ -28,7 +28,7 @@ check("总库数量未因专利库减少", points.length >= 572, String(points.l
 check("总库没有任何 PAT-*", points.every((p) => !String(p.id).startsWith("PAT-")));
 check("总库 sources 不含 SRC-PAT", sources.every((s) => !String(s.id).startsWith("SRC-PAT")));
 
-check("专利卡至少 86 条", patents.length >= 86, String(patents.length));
+check("专利卡至少 101 条", patents.length >= 101, String(patents.length));
 check("全部 confidentiality=internal", patents.every((p) => p.confidentiality === "internal"));
 check("全部 approved", patents.every((p) => p.status === "approved"));
 check(
@@ -119,6 +119,9 @@ check(
       readFileSync(path.join(process.cwd(), "patent-drafts", "外部AI评审任务书.md"), "utf-8")
     ) &&
     /不要主张不用氯/.test(
+      readFileSync(path.join(process.cwd(), "patent-drafts", "外部AI评审任务书.md"), "utf-8")
+    ) &&
+    /US10495620/.test(
       readFileSync(path.join(process.cwd(), "patent-drafts", "外部AI评审任务书.md"), "utf-8")
     )
 );
@@ -224,6 +227,37 @@ check("配液结晶检索来源已记录", patentSources.some((s) => s.id === "S
 check("第三方过闸来源已记录", patentSources.some((s) => s.id === "SRC-PAT-EXT-REVIEW" && s.status === "done"));
 check("第三方过闸结论卡存在", patents.some((p) => p.id === "PAT-EXT-001" && /便宜/.test(p.body)));
 check("NSF撰写菜单来源已记录", patentSources.some((s) => s.id === "SRC-PAT-NSF-SANITATION" && s.status === "done"));
+check("独立评审过闸来源已记录", patentSources.some((s) => s.id === "SRC-PAT-CODEX-REVIEW" && s.status === "done"));
+check("独立评审过闸结论卡存在", patents.some((p) => p.id === "PAT-EXT-002" && /紧急离舱/.test(p.body)));
+check(
+  "盐堵宽方案前案已记录",
+  patents.some((p) => p.id === "PAT-PRI-043" && /US10495620/.test(p.publicationNo ?? "") && /US10041917/.test(p.publicationNo ?? ""))
+);
+check("周边加热居中前案已记录", patents.some((p) => p.id === "PAT-PRI-044" && /GB2057267/.test(p.publicationNo ?? "")));
+check("泻盐热区布置前案已记录", patents.some((p) => p.id === "PAT-PRI-045" && /EP0128641/.test(p.publicationNo ?? "")));
+check("变密度静水压前案已记录", patents.some((p) => p.id === "PAT-PRI-046" && /US12447093/.test(p.publicationNo ?? "")));
+check("坐浴紧急开门前案已记录", patents.some((p) => p.id === "PAT-PRI-050" && /US11930968/.test(p.publicationNo ?? "")));
+check(
+  "四个紧急离舱与跨相库存候选齐全",
+  ["PAT-IDEA-012", "PAT-IDEA-013", "PAT-IDEA-014", "PAT-IDEA-015"].every((id) => patents.some((p) => p.id === id))
+);
+check(
+  "最终专利方案文件存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "最终专利方案.md"))
+);
+check(
+  "A4已收窄为宽方案包围",
+  /宽方案已被包围/.test(patents.find((p) => p.id === "PAT-DRAFT-A4")?.title ?? "")
+);
+check(
+  "任务书已同步盐堵宽方案打掉",
+  /US10495620/.test(
+    readFileSync(path.join(process.cwd(), "patent-drafts", "外部AI评审任务书.md"), "utf-8")
+  ) &&
+    /EP0128641/.test(
+      readFileSync(path.join(process.cwd(), "patent-drafts", "外部AI评审任务书.md"), "utf-8")
+    )
+);
 check("NSF50强制项前案已记录", patents.some((p) => p.id === "PAT-PRI-041" && /0\.1 ppm/.test(p.body)));
 check("氯溴共识前案已记录", patents.some((p) => p.id === "PAT-PRI-042" && /不推荐氯/.test(p.body)));
 check("撰写菜单卡存在", patents.some((p) => p.id === "PAT-SEED-001" && /给专家选/.test(p.title)));

@@ -359,5 +359,34 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "NSF50§28与氯溴文过闸：强制项和不用氯勿主张；打开⑦～⑪黄灯菜单给专家选。现象层盐析/DPD失灵已公开。"
+  },
+  {
+    "id": "SRC-PAT-CODEX-REVIEW",
+    "filename": "漂浮舱专利独立评审报告",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-04T11:00:00.000Z",
+    "patentIds": [
+      "PAT-DRAFT-A4",
+      "PAT-SEED-001",
+      "PAT-EXT-002",
+      "PAT-PRI-043",
+      "PAT-PRI-044",
+      "PAT-PRI-045",
+      "PAT-PRI-046",
+      "PAT-PRI-047",
+      "PAT-PRI-048",
+      "PAT-PRI-049",
+      "PAT-PRI-050",
+      "PAT-PRI-051",
+      "PAT-PRI-052",
+      "PAT-IDEA-012",
+      "PAT-IDEA-013",
+      "PAT-IDEA-014",
+      "PAT-IDEA-015"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "Codex独立评审过闸：点名前案已检索入库并核验全文；沉默失效宽方案收窄；打开⑫～⑮。"
   }
 ]
