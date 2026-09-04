@@ -1,96 +1,173 @@
-# Context Handoff — Read This in a NEW Chat
+# 新对话交接文档
 
-> **For the human:** When this chat hits the context limit, start a NEW chat and connect to the SAME git repo below. You do NOT need this chat's memory — everything important is in files + git.
-
----
-
-## The confusion (cleared up)
-
-| What you have | What it is |
-|---------------|------------|
-| **This long chat** | Temporary memory — will hit context limit |
-| **Git repository** | Permanent storage — code + 109 knowledge points |
-| **New chat** | Fresh memory — must connect to same git repo |
-
-**You are correct:** Cursor does NOT let you "upgrade this chat to a project."  
-**The fix:** New chat + **Clone the same repository** = fresh context + all your work.
+> **最后更新：2026-09-04**
+>
+> 换对话时把「第一步」那段话复制粘贴到新对话里，就能接着干。
 
 ---
 
-## How to start a NEW chat with ALL your work
+## 第一步：新对话第一句话（复制这段）
 
-### Step 1 — Open blank New Chat (File → New Agent / New Chat, same thing)
+> 先读 `CONTEXT-HANDOFF.md` 和 `PROJECT.md`，不要重建项目、不要换框架。
+>
+> 确认三件事再开始：`data/knowledge-points.json` 有 572 条、`data/patents.json` 有 72 条、`git branch` 在 `cursor/patent-library-3c23`。
+>
+> 我现在要做的是：【在这里写你这次想干什么】
 
-### Step 2 — Connect the repo (NOT by pasting URL in chat)
+---
 
-⚠️ **Cursor 的 Clone Repository 界面不支持 `origin.cursor.com` 地址**  
-（按钮不会变蓝、点了没反应 — 这是 Cursor 的限制，不是你看错了）
+## 第二步：先确认环境（Agent 执行）
 
-**可行方案 A — 用 GitHub（推荐，Clone 界面认这个）：**
-
-1. 左下角点 **Connect GitHub**
-2. 在 GitHub 新建空仓库 `company-knowledge-base`
-3. 告诉 Agent 你的 GitHub 用户名，让它 push 上去
-4. New Chat → Clone Repository → 粘贴：
-   `https://github.com/你的用户名/company-knowledge-base.git`
-5. Clone 按钮会变蓝，能用了
-
-**可行方案 B — 回到已有 Cloud Agent（不用 Clone）：**
-
-1. 左侧 **Repositories** 点 **Company knowledge base system**
-2. 在同一个 Agent 里发新消息（不要 File → New Chat）
-3. 第一句话读 `CONTEXT-HANDOFF.md`
-
-~~旧步骤（Origin URL Clone — 在 Cursor UI 里不工作）：~~
-
-### Step 3 — First message in the new chat
-
-```
-Read CONTEXT-HANDOFF.md, START-HERE.md, and PROJECT.md first.
-Do NOT rebuild the project. data/knowledge-points.json has 361 points (356 approved + 5 draft).
-Do NOT re-run import-mev-atoms.mjs to recreate 100 paper atoms.
-Continue the company knowledge base work.
+```bash
+node -e "console.log('知识点', require('./data/knowledge-points.json').length)"   # 应为 572
+node -e "console.log('专利卡', require('./data/patents.json').length)"            # 应为 72
+node scripts/test-patent-library.mjs | tail -2                                    # 应 80 项全通过
+node scripts/test-knowledge-layers.mjs | tail -2
+git branch --show-current                                                          # cursor/patent-library-3c23
 ```
 
----
+**如果数字是 0 或仓库是空的 → 停下来，告诉用户连错了仓库，不要重建项目。**
 
-## What's saved (as of last update)
-
-| Item | Status |
-|------|--------|
-| Knowledge points | **361**（356 approved + 5 draft） |
-| Sources | 既有 + WEB + SOP/YFOP/MEDF；MEV 已主题合并 |
-| Web app | Next.js, port 43123 |
-| Split mode | Cursor Claude in chat（构想/通识也可直接写入） |
-| Pending | 审核剩余 draft；锁数字与水温；补真实案例 |
+仓库：`https://github.com/happyandloveandforever/company-knowledge-base`
+分支：`cursor/patent-library-3c23`（专利工作在这个分支，**不在 main**）
+PR：[#25](https://github.com/happyandloveandforever/company-knowledge-base/pull/25)
 
 ---
 
-## Files the new agent MUST read
+## 硬性禁止
 
-1. `CONTEXT-HANDOFF.md` (this file)
-2. `START-HERE.md`
-3. `PROJECT.md`
-4. `data/knowledge-points.json`
-5. `data/sources.json`
-
----
-
-## DO NOT
-
-- Rebuild Next.js from scratch
-- Delete or overwrite knowledge-points.json
-- Re-import 杨浦 or B端 (already in git)
-- Assume empty workspace means data is lost — clone the repo first
+1. 不要重建 Next.js 项目、不要换技术栈
+2. 不要把专利卡写进 `knowledge-points.json`（专利库是独立的 `data/patents.json`）
+3. 不要覆盖已有知识点或专利卡
+4. 不要重跑已入库的 import 脚本（它们都会自己跳过，但别改成强制重跑）
+5. 不要让任何专利内容进入 `/open` 公开站
+6. **不要提供演示视频**（用户 2026-09-04 明确要求，用文字和测试输出说明即可）
 
 ---
 
-## GitHub 仓库（Clone 用这个 ✅）
+## 项目是什么
 
-```
-https://github.com/happyandloveandforever/company-knowledge-base.git
-```
+Next.js 知识库 Web 应用 + Git 持久化的 JSON 数据。两个**物理隔离**的库：
 
-New Chat → Clone Repository → 粘贴上面地址 → Clone 按钮会变蓝。
+| 库 | 文件 | 数量 | 对外 |
+|---|---|---|---|
+| 知识点总库 | `data/knowledge-points.json` | **572** | 445 条可外发，127 条仅内训 |
+| **独立专利库** | `data/patents.json` | **72** | **全部仅内部，不进 `/open`** |
+
+网页：`http://127.0.0.1:43123`（`npm run build && npm run serve`）
+专利库页面：`http://127.0.0.1:43123/patents`
 
 ---
+
+## 当前在做什么：专利布局
+
+用户是**非工程背景**（自称文科生），公司做**高盐漂浮舱**，要申请中国发明专利。
+
+### 已建立的五条规则（都在专利库里，别重复推导）
+
+| 卡号 | 规则 | 一句话 |
+|---|---|---|
+| `PAT-RULE-001` | 专利库总纲 | 仅内部、非正式 FTO、不与总库混号 |
+| `PAT-RULE-002` | **绝对新颖性** | 判断标准是**公开**不是授权；国外公开即挡死中国申请。但专利权有地域性，国外授权挡不住境内生产。检索必须中外并行且含非专利公开（IEC/GB/手册/规范） |
+| `PAT-RULE-003` | **去环境测试**（立项闸门） | 逐个拿掉六条环境指纹，六条全拿掉都成立就不要立案。**追加一问：这条环境给的是难题还是便宜？给便宜的不能立案** |
+| `PAT-RULE-004` | 第 25 条 | 诊断治疗方法与科学发现不授权，**但装置可以**；两用途方法须声明非治疗目的 |
+| `PAT-RULE-005` | **组合发明** | 被组合技术已知**不影响**创造性，但须证明协同（1+1>2），简单叠加会被驳。**且组合专利 ≠ 可自由实施** |
+
+### 环境指纹（去环境测试的六个变量）
+
+`E1` 高盐 22—30% MgSO₄ · `E2` 中性浮力 · `E3` 感官剥夺 · `E4` 热中性浸液 · `E5` 长时程静止 45—90min · `E6` 密闭门锁
+
+### 架构（`PAT-MAP-002` 是当前总图）
+
+- **只立两件母案**：A 高盐漂浮液多物理场稳定化（升级为第一优先）、B 高盐环境下的测量可信度维持与设备安全控制（**已从"通用安全控制"收窄**）
+- **不设母案 3**：多模态交互与安全状态机是 B4—B7，预埋进 B
+- 六簇技术模块结构不变，但簇3/4/6 已降级（通用手段为公知）
+- 件数目标已从 20 件改为 **4—14 件按绿灯数量定**
+
+### 候选角度现状（`PAT-IDEA-001~006`）
+
+| 角度 | 状态 |
+|---|---|
+| ① 反用感官剥夺做设备故障预测 | 🔴 已打掉（US7069183 等占据路径；且"环境安静更容易"不是技术问题） |
+| ② 中性浮力下无接触面体征测量 | 🔴 已打掉（US6669649 已占浮力测呼吸） |
+| ③ **含气泡高盐液中声能测不准** | 🟢 **目前最有希望** |
+| ④ 迷走走装置路线 | 🟡 二期，缺对照数据 |
+| ⑤ 近饱和高盐液配液精度 | 🟡 已降级，可能并入母案A |
+| ⑥ 迷走技术接入组合发明 | 🟡 协同点未锁定 |
+
+**另有一个确认站得住的发明点**：高盐蒸汽在气体传感器透气孔结晶造成"沉默失效"——传感器电路完好、常规自诊断查不出（手册明写不覆盖透气孔堵塞），持续输出正常低读数。见 `PAT-DRAFT-A4`。
+
+### 前案
+
+31 条 `PAT-PRI-*`，含美国专利、IEC/GB/YY 标准、监管规范、学术文献。**最危险的是 `PAT-PRI-001` CN121795911A**（漂浮舱多模态人体信号 AI 闭环）。
+
+---
+
+## 表达红线（`PAT-RED-001`）
+
+权利要求和说明书里**绝对不能**出现：
+
+- 疗效（治疗、改善睡眠、缓解焦虑、提升免疫、抗衰、排毒）
+- 迷走神经激活/刺激作为目的
+- 人体生理信号 → AI 判断状态 → 策略库 → 调多模块（撞 CN121795911A）
+- 人体姿态 → 调温度/水位/盐度（撞 CN115877899）
+- 主张纳米气泡本身、石墨烯本身、某个频率本身
+- 把"感官剥夺"当独权卖点
+
+**替代写法**：一律改为设备与流体的物理量作输入，输出设备动作，效果是可测工程指标。
+
+---
+
+## 关键文件
+
+### 专利相关（`patent-drafts/`）
+
+| 文件 | 作用 |
+|---|---|
+| `专利布局整体报告-v2.md` ＋ docx | **当前生效的整体报告**，取代重构版 |
+| `外部AI评审任务书.md` ＋ docx | 给第三方 AI 独立评审用，自包含。含 23 条已打掉清单 |
+| `外部AI提问话术.md` ＋ docx | 怎么给别的 AI 下指令，含自我质疑追问 |
+| `申请文件底稿-多气源安全互锁.md` | 第一件申请文件底稿 v0.2（权要+说明书+摘要） |
+| `交底书-母案A.md` | 可填空交底书模板，给非工程背景的人用 |
+
+### 脚本
+
+| 脚本 | 作用 |
+|---|---|
+| `scripts/test-patent-library.mjs` | 专利库回归，80 项 |
+| `scripts/test-knowledge-layers.mjs` | 知识库分层与内训隔离回归 |
+| `scripts/md-to-docx.mjs` | Markdown 报告转 Word（依赖 python-docx） |
+| `scripts/apply-patent-*.mjs`、`import-patent-*.mjs` | 各批专利卡入库，**全部幂等** |
+
+改专利库的正确做法：**写一个新的幂等脚本**，用 upsert，不要手改 JSON。参考 `scripts/apply-patent-green-angle-search.mjs`。
+
+---
+
+## 下一步待办（按优先级）
+
+1. **高盐 vs 清水对照实验**：传感器多久被盐晶糊住、糊住后读数是归零还是卡住、常规自诊断能否发现。**决定 `PAT-DRAFT-A4` 生死**
+2. **角度③最便宜的验证**：把气泡打开和关闭各测一次舱内声压。差异很小则该角度不成立
+3. 角度⑤：检索配液与结晶控制领域
+4. 先问工程师：设备是否真的同时装氢气与臭氧两路气源。若不会，第一件底稿前提不成立，改写 A3
+5. 把任务书发给第三方 AI/顾问做独立评审，回来的结果要过三道：已打掉清单 → 去环境测试 → 红线与第 25 条
+6. 管理层拍板六件事（见报告 v2.0 第 12.2 节）
+
+---
+
+## 协作约定
+
+- 用户使用 **Cursor 内置 Claude**，**不需要** `ANTHROPIC_API_KEY`
+- 数据变更后必做：`git add data/` → commit → push → 更新 `PROJECT.md` 的「当前库状态」和「变更记录」
+- 用户是非技术背景，**回答用中文，少用术语，不要只给文件名要给能点开的链接**
+- AI 可以做检索线索、结构化、初稿；**不能出具新颖性或创造性的最终结论**，那是代理师的事
+- AI 给的任何结构、参数、阈值、效果，**必须工程师签字确认**后才能写进申请文件
+
+---
+
+## 这一路踩过的坑（别再踩）
+
+1. **只查中国专利不够。** 打掉我们两个发明点的是一份 IEC 标准和一份美国州级监管规范，都不是专利。
+2. **通用工程安全手段拿不到创造性。** 冗余、自诊断、故障即告警、失电安全位、确定性状态机、优先级排序，在 IEC 61508/60079 体系里基本都是公知。
+3. **"环境更有利"不是技术问题。** 我们最看好的角度就死在这里。
+4. **不要只测一个变量。** 最初的闸门叫"去盐测试"，只拿掉高盐，把 E2—E5 撑起来的角度全误杀了。
+5. **窄案不能抢在宽案前提交。** 抵触申请含自家在先申请，会自己挡自己。
