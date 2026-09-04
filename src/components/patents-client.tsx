@@ -94,6 +94,8 @@ export function PatentsClient({
   const clusters = countByCluster(initialPatents);
   const lifecycles = countByLifecycle(initialPatents);
   const groups = countByGroup(initialPatents);
+  // 从标签表算，别写死数字——加了组五之后页头曾经还写着「四个申请组」
+  const groupCount = (Object.keys(PATENT_GROUP_LABELS) as PatentGroup[]).filter((g) => g !== "none").length;
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -148,7 +150,7 @@ export function PatentsClient({
             <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">公司专利库</h1>
             <p className="mt-2 max-w-2xl text-sm text-slate-600">
               与知识总库分开。库里同时存着现行结论和被推翻的旧结论，先看每张卡的生命周期标记再读内容。
-              母案框架已退役，改按四个申请组组织（PAT-BATCH-002）。入口先读 PAT-INDEX-001。
+              母案框架已退役，改按 {groupCount} 个申请组组织（PAT-BATCH-002）。入口先读 PAT-INDEX-001。
               当前 {initialPatents.length} 条，来自 {sourceCount} 份来源。
             </p>
           </div>
