@@ -61,6 +61,8 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/import-vagus-three-reports.mjs` | 迷走机制/综合干预专业版/VNS手段地图（幂等，直接批准） |
 | `scripts/import-atom-library.mjs` | combined.md 内部原子库 ~1300 条主题合并为 20 条仅内训卡（幂等） |
 | `scripts/import-therapy-os.mjs` | 漂浮疗法说明.pdf 五维叙事脊柱 13 条仅内训卡（幂等） |
+| `scripts/import-nsf-standards-qa.mjs` | 标准五问拆为 KP-WEB-013~020（幂等，通识，直接批准） |
+| `docs/漂浮舱卫生安全标准五问.md` | NSF CCS-12804 / 周转率 / 臭氧 / ASTM F462 / ASME A112.19.17 问答底稿 |
 | `scripts/import-patent-landscape.mjs` | 四簇专利全景矩阵主题合并为 PAT-* 仅内部卡（幂等，独立 JSON；已入库后勿重跑） |
 | `scripts/apply-patent-six-modules.mjs` | 重构版：四簇升六簇、两母案、不设母案3（幂等） |
 | `scripts/import-patent-drafting-kit.mjs` | 母案A交底书撰写包 PAT-WRITE-001~006（幂等，给非工程背景的人用） |
@@ -79,12 +81,6 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/apply-patent-angle5-dosing-search.mjs` | 角度⑤配液结晶检索：独立立案打掉，冷管结晶并入母案A（幂等） |
 | `scripts/apply-patent-ext-review-triage.mjs` | 第三方整合版过闸结论 PAT-EXT-001 + 前案 039/040（幂等） |
 | `scripts/md-to-docx.mjs` | Markdown 报告转 Word（依赖 python-docx） |
-
-**检索纪律：** 中国采绝对新颖性，检索必须中外并行且含非专利公开（IEC/GB/手册/规范）。判断标准是「有没有公开」不是「有没有授权」。详见 `PAT-RULE-002`。
-
-**立项闸门：** 任何候选发明点先做**去环境测试**——逐个拿掉六条环境指纹（E1 高盐 / E2 中性浮力 / E3 感官剥夺 / E4 热中性浸液 / E5 长时程静止 / E6 密闭门锁），六条全拿掉都成立就不要立案。详见 `PAT-RULE-003`。
-
-**客体边界：** 疾病诊断治疗方法与科学发现不授权，**但装置可以**；两用途方法须声明非治疗目的。详见 `PAT-RULE-004`。
 | `data/patents.json` | **专利库**，与知识点总库分开，不进 /open |
 | `data/patent-sources.json` | 专利库来源记录 |
 | `/patents` | 专利库页面（不进 `/open`）。生产站：https://company-knowledge-base-nine.vercel.app/patents |
@@ -96,6 +92,12 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `src/app/api/upload/route.ts` | 网页上传逻辑 |
 | `src/lib/storage.ts` | JSON 读写、deleteSourceFile |
 | `.cursor/environment.json` | Cloud 环境自动 build + keep-alive |
+
+**检索纪律：** 中国采绝对新颖性，检索必须中外并行且含非专利公开（IEC/GB/手册/规范）。判断标准是「有没有公开」不是「有没有授权」。详见 `PAT-RULE-002`。
+
+**立项闸门：** 任何候选发明点先做**去环境测试**——逐个拿掉六条环境指纹（E1 高盐 / E2 中性浮力 / E3 感官剥夺 / E4 热中性浸液 / E5 长时程静止 / E6 密闭门锁），六条全拿掉都成立就不要立案。详见 `PAT-RULE-003`。
+
+**客体边界：** 疾病诊断治疗方法与科学发现不授权，**但装置可以**；两用途方法须声明非治疗目的。详见 `PAT-RULE-004`。
 
 ## 常用命令
 
