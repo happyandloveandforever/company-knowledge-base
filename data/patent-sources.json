@@ -388,5 +388,20 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "Codex独立评审过闸：点名前案已检索入库并核验全文；沉默失效宽方案收窄；打开⑫～⑮。"
+  },
+  {
+    "id": "SRC-PAT-REPORT-V3",
+    "filename": "专利布局整体报告-v3",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-04T12:00:00.000Z",
+    "patentIds": [
+      "PAT-MAP-003",
+      "PAT-ROAD-B",
+      "PAT-GAP-002"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "整体报告 v3.0：当前生效总图；沉默失效宽方案收窄；撰写菜单①～⑮。"
   }
 ]

@@ -10,7 +10,7 @@
 
 > 先读 `CONTEXT-HANDOFF.md` 和 `PROJECT.md`，不要重建项目、不要换框架。
 >
-> 确认三件事再开始：`data/knowledge-points.json` 有 572 条、`data/patents.json` 有 101 条、`git branch` 在 `cursor/patent-library-3c23`。
+> 确认三件事再开始：`data/knowledge-points.json` 有 572 条、`data/patents.json` 有 102 条、`git branch` 在 `cursor/patent-library-3c23`。
 >
 > 我现在要做的是：【在这里写你这次想干什么】
 
@@ -20,7 +20,7 @@
 
 ```bash
 node -e "console.log('知识点', require('./data/knowledge-points.json').length)"   # 应为 572
-node -e "console.log('专利卡', require('./data/patents.json').length)"            # 应为 101
+node -e "console.log('专利卡', require('./data/patents.json').length)"            # 应为 102
 node scripts/test-patent-library.mjs | tail -2                                    # 应全通过
 node scripts/test-knowledge-layers.mjs | tail -2
 git branch --show-current                                                          # cursor/patent-library-3c23
@@ -29,8 +29,9 @@ git branch --show-current                                                       
 **如果数字是 0 或仓库是空的 → 停下来，告诉用户连错了仓库，不要重建项目。**
 
 仓库：`https://github.com/happyandloveandforever/company-knowledge-base`
-分支：`cursor/patent-library-3c23`（专利工作在这个分支，**不在 main**）
+分支：`cursor/patent-library-3c23`（专利入库仍在此分支改；生产站跟 `main`）
 PR：[#25](https://github.com/happyandloveandforever/company-knowledge-base/pull/25)
+专利库网页：https://company-knowledge-base-nine.vercel.app/patents
 
 ---
 
@@ -52,10 +53,10 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 数据。两个**物理隔�
 | 库 | 文件 | 数量 | 对外 |
 |---|---|---|---|
 | 知识点总库 | `data/knowledge-points.json` | **572** | 445 条可外发，127 条仅内训 |
-| **独立专利库** | `data/patents.json` | **101** | **全部仅内部，不进 `/open`** |
+| **独立专利库** | `data/patents.json` | **102** | **不进 `/open`**；网页 https://company-knowledge-base-nine.vercel.app/patents |
 
 网页：`http://127.0.0.1:43123`（`npm run build && npm run serve`）
-专利库页面：`http://127.0.0.1:43123/patents`
+专利库页面：https://company-knowledge-base-nine.vercel.app/patents （本机 `http://127.0.0.1:43123/patents`）
 
 ---
 
@@ -77,7 +78,7 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 数据。两个**物理隔�
 
 `E1` 高盐 22—30% MgSO₄ · `E2` 中性浮力 · `E3` 感官剥夺 · `E4` 热中性浸液 · `E5` 长时程静止 45—90min · `E6` 密闭门锁
 
-### 架构（`PAT-MAP-002` 是当前总图）
+### 架构（`PAT-MAP-003` 是当前总图，取代 v2.0）
 
 - **只立两件母案**：A 高盐漂浮液多物理场稳定化（升级为第一优先）、B 高盐环境下的测量可信度维持与设备安全控制（**已从"通用安全控制"收窄**）
 - **不设母案 3**：多模态交互与安全状态机是 B4—B7，预埋进 B
@@ -135,7 +136,8 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 数据。两个**物理隔�
 
 | 文件 | 作用 |
 |---|---|
-| `专利布局整体报告-v2.md` ＋ docx | **当前生效的整体报告**，取代重构版 |
+| `专利布局整体报告-v3.md` ＋ `漂浮方舟_专利布局整体报告_v3.0.docx` | **当前生效的整体报告**，取代 v2.0 |
+| `专利布局整体报告-v2.md` ＋ docx | v2.0 底稿，结构仍有效，发明点选择已被 v3 改口 |
 | `外部AI评审任务书.md` ＋ docx | 给第三方 AI 独立评审用，自包含。含已打掉清单（含角度⑤配液） |
 | `外部AI回答-整合版.md` | 第三方三轮整合稿原文。过闸结论见 `PAT-EXT-001`，不要按它的绿灯表执行 |
 | `最终专利方案.md` ＋ docx | **给人看的总菜单**（Codex 独立评审过闸后）：点名前案已入库，⑫～⑮打开，沉默失效宽方案收窄 |

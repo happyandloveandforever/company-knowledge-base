@@ -86,7 +86,14 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 
 **方式 D — 部署在线网页（随时随地打开总库 UI）**
 
-已经开通：**Vercel `/open`**（随 main 更新，不含内训）以及仓库里的 `docs/*.html`（raw.githack）。GitHub Pages 需要仓库管理员在 Settings → Pages 选择 GitHub Actions；Actions 令牌没有权限自己开通。
+已经开通：**Vercel `/open`**（随 main 更新，不含内训、不含专利）以及 **Vercel `/patents`**（独立专利库网页，不进 `/open`）：
+
+```text
+https://company-knowledge-base-nine.vercel.app/patents
+https://company-knowledge-base-nine.vercel.app/open
+```
+
+仓库里的 `docs/*.html`（raw.githack）仍给外部 AI 抓知识点。GitHub Pages 需要仓库管理员在 Settings → Pages 选择 GitHub Actions；Actions 令牌没有权限自己开通。
 
 可选再做一个 `*.vercel.app`（域名更不像 GitHub，部分 AI 更肯抓）：
 
@@ -184,11 +191,11 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 | 已导入文件 | **28** |
 | 待 Claude 拆分队列 | 0 |
 | 结构判断 | 两层已切开；内训 127 条；迷走三套 56 条已批准；原子库零件箱 20 + 疗法五维脊柱 13。仍缺锁数字与真实案例 |
-| **独立专利库 `PAT-*`** | **101** 条（全部 `internal`，不进 `/open`、不进编排）。Codex 独立评审过闸后点名前案入库（86→101）；沉默失效宽方案收窄；打开⑫～⑮黄灯。给人看的总菜单：`patent-drafts/最终专利方案.md` |
+| **独立专利库 `PAT-*`** | **102** 条（全部 `internal`，不进 `/open`、不进编排）。整体报告 **v3.0** 为当前生效总图（`PAT-MAP-003`）。网页：https://company-knowledge-base-nine.vercel.app/patents 。给人看的总菜单：`patent-drafts/最终专利方案.md` |
 
 ### 专利库为什么单独隔离
 
-> **当前生效版本：v2.0**（`patent-drafts/专利布局整体报告-v2.md` 与同名 docx）。重构版的六簇、两母案、不设母案3**结构继续有效**；被推翻的是**发明点的选择依据**。核心新增：**去盐测试闸门 `PAT-RULE-003`**、母案B收窄、取消 20 件硬指标、全部测试改带清水对照组 `PAT-GAP-002`。
+> **当前生效版本：v3.0**（`patent-drafts/专利布局整体报告-v3.md` 与 `漂浮方舟_专利布局整体报告_v3.0.docx`）。v2.0 里仍然有效的：去环境测试闸门、绝对新颖性、两件母案、不设母案3、取消 20 件硬指标、清水对照。被推翻的是：把「盐堵通气口造成沉默失效」当成已经确认站得住的独权（见 `PAT-PRI-043`）。网页：https://company-knowledge-base-nine.vercel.app/patents
 
 《专利布局整体报告_重构版》已把独立专利库从四簇升级为 **六簇、仍只立两件母案**：
 
@@ -371,6 +378,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 | A4多气源安全补充检索 | SRC-PAT-GAS-SEARCH | PAT-PRI-013 ~ 021 | 9 | done，仅内部 | 中国前案+行业规范 |
 | 绝对新颖性查证与国际补充检索 | SRC-PAT-NOVELTY-INTL | PAT-RULE-002、PAT-DRAFT-A4、PAT-PRI-022 ~ 025 | 6 | done，仅内部 | 美国专利+IEC标准 |
 | 漂浮方舟_专利布局整体报告_v2.0.docx | SRC-PAT-REPORT-V2 | PAT-MAP-002、RULE-003、GAP-002、ROAD-B、BATCH-001 | 5 | done，仅内部 | 本项目自产，非外部来稿 |
+| 漂浮方舟_专利布局整体报告_v3.0.docx | SRC-PAT-REPORT-V3 | PAT-MAP-003、ROAD-B、GAP-002 | 3 | done，仅内部 | 当前生效总图；沉默失效宽方案收窄 |
 
 ### 结构体检（2026-08-24）
 
@@ -421,6 +429,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 - [x] **角度⑤配液与结晶控制检索**：独立立案打掉（72→75）。冷管结晶并入母案A 的 A1
 - [x] **第三方整合版过闸**（75→78）：第一部分过期作废；新角度 A EIS、B 密度闭环打掉；C 搁置；D 并入沉默失效从权；E 黄灯待检索。见 `PAT-EXT-001`。不要把沉默失效和 EIS 捆套
 - [x] **Codex独立评审过闸**（86→101）：点名前案入库；沉默失效宽方案收窄；打开⑫～⑮。见 `PAT-EXT-002`、`patent-drafts/最终专利方案.md`
+- [x] **整体报告 v3.0**（101→102）+ 生产站开通 `/patents`：https://company-knowledge-base-nine.vercel.app/patents
 - [ ] **优先实验**：见证件对照（高盐/清水/无盐高湿）决定 A4 窄缝；⑫样机；⑭淡层；③气泡开关声压
 - [ ] 角度③下一步：实测声振模块频段与功率、**气泡开启前后的声压差异**。差异很小则该角度也不成立
 - [ ] 先问工程师：设备是否真的同时装氢气与臭氧两路气源。否则底稿前提不成立，改写 A3
@@ -446,7 +455,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 | `/open` | 公开只读 HTML（不含仅内训），给外部 AI 抓正文 |
 | `/open/catalog` | 来源清单：总库已合并 572，可外发 445，仅内训 127 不收录 |
 | `/open/vagus` | 迷走/综合干预专页（子集，不是总库） |
-| `/patents` | **独立专利库**（仅内部）：六簇、两母案、不设母案3、检索前案、工程缺口；非正式法律意见 |
+| `/patents` | **独立专利库网页**（不进 `/open`）：六簇、两母案、不设母案3、检索前案、工程缺口；非正式法律意见。生产站：https://company-knowledge-base-nine.vercel.app/patents |
 | `/api/health` | 健康检查 |
 
 ---
@@ -479,6 +488,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 │   ├── import-patent-gas-safety-prior-art.mjs  A4方向中国前案 PAT-PRI-013~021
 │   ├── import-patent-novelty-rule.mjs  绝对新颖性卡+国际前案 PAT-PRI-022~025
 │   ├── apply-patent-report-v2.mjs      报告v2.0结论：立项闸门、母案B收窄
+│   ├── apply-patent-report-v3.mjs      报告v3.0：当前生效总图 PAT-MAP-003
 │   ├── apply-patent-angle-review.mjs   去环境测试修正+第25条+五个候选角度
 │   ├── md-to-docx.mjs / md_to_docx.py  Markdown 报告转 Word
 │   ├── process-split-queue.mjs     查看待拆分队列
@@ -616,6 +626,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-09-04 | 角度⑤配液与结晶控制检索（72→75）：独立立案打掉。行业公开运维工作比重 1.265—1.285、饱和点约 1.33；申请号 201621389026 已用盐密度传感器闭环调浓度。冷管结晶并入母案A。知识点总库 572 未改 |
 | 2026-09-04 | NSF/ANSI 50 第28节与氯溴合规文过闸（78→86）：强制项和「不用氯」勿主张；打开撰写候选⑦～⑪（全黄灯）给专家选，本批无新绿灯。盐析与 DPD 失灵属已公开现象。知识点总库 572 未改 |
 | 2026-09-04 | Codex独立评审过闸（86→101）：点名前案 PAT-PRI-043～052 检索入库并核验全文；沉默失效宽方案收窄；打开紧急离舱/冷凝分流候选⑫～⑮。产出 `patent-drafts/最终专利方案.md`。知识点总库 572 未改 |
+| 2026-09-04 | **整体报告 v3.0**（101→102）为当前生效总图（`PAT-MAP-003`）；盐雾致盲宽方案收窄；生产站开通独立专利库 https://company-knowledge-base-nine.vercel.app/patents （不进 `/open`）。知识点总库 572 未改 |
 | 2026-09-04 | 第三方整合版过闸（75→78）：对方用旧任务书把①判绿、③拉回剂量安全、⑤做成密度闭环——均作废。新角度 A 死在「高电导更好测」且卤水 EIS 结垢已公开；B 即角度⑤；E 黄灯。知识点总库 572 未改 |
 | 2026-09-04 | 组合发明查证（63→68）：审查指南4.2——被组合技术已知不影响创造性，但必须证明协同而非拼凑；且组合专利≠可自由实施。新增候选角度六（迷走接入）。补前案：CN112135661A 绝缘体电极已占「水中可用的电刺激」；US11324916 颈耳多模态刺激；US12337178 VNS+FES 配对可作组合论证范式。产出《外部AI评审任务书》供第三方独立评审 |
 | 2026-09-04 | 自我质疑复盘（54→63）：「去盐测试」修正为「去环境测试」六条件——原版只测高盐会误杀 E2—E5 的角度。补专利法第25条客体规则（装置可授权，封死的是方法）。新增五个候选角度 PAT-IDEA-001~005，全部待检索。补前案：US6669649 已占浮力测呼吸；Gauer-Henry 是公知且浸水≈平躺 |

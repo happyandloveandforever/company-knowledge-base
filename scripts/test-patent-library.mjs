@@ -28,7 +28,7 @@ check("总库数量未因专利库减少", points.length >= 572, String(points.l
 check("总库没有任何 PAT-*", points.every((p) => !String(p.id).startsWith("PAT-")));
 check("总库 sources 不含 SRC-PAT", sources.every((s) => !String(s.id).startsWith("SRC-PAT")));
 
-check("专利卡至少 101 条", patents.length >= 101, String(patents.length));
+check("专利卡至少 102 条", patents.length >= 102, String(patents.length));
 check("全部 confidentiality=internal", patents.every((p) => p.confidentiality === "internal"));
 check("全部 approved", patents.every((p) => p.status === "approved"));
 check(
@@ -164,6 +164,11 @@ check(
   patents.some((p) => p.id === "PAT-PRI-028" && /科学发现/.test(p.body))
 );
 check("v2.0 总图卡存在", patents.some((p) => p.id === "PAT-MAP-002"));
+check("v3.0 总图卡存在", patents.some((p) => p.id === "PAT-MAP-003"));
+check(
+  "v3.0 总图标明取代 v2.0",
+  /取代 v2\.0/.test(patents.find((p) => p.id === "PAT-MAP-003")?.summary ?? "")
+);
 check("清水对照组缺口卡存在", patents.some((p) => p.id === "PAT-GAP-002"));
 check(
   "母案B已收窄",
@@ -177,6 +182,11 @@ check("整体报告v2.0源稿存在", existsSync(path.join(process.cwd(), "paten
 check(
   "整体报告v2.0 docx 存在",
   existsSync(path.join(process.cwd(), "patent-drafts", "漂浮方舟_专利布局整体报告_v2.0.docx"))
+);
+check("整体报告v3.0源稿存在", existsSync(path.join(process.cwd(), "patent-drafts", "专利布局整体报告-v3.md")));
+check(
+  "整体报告v3.0 docx 存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "漂浮方舟_专利布局整体报告_v3.0.docx"))
 );
 check(
   "新颖性卡讲清国内外公开",
@@ -220,6 +230,7 @@ check("撰写包来源已记录", patentSources.some((s) => s.id === "SRC-PAT-WR
 check("A4补充检索来源已记录", patentSources.some((s) => s.id === "SRC-PAT-GAS-SEARCH" && s.status === "done"));
 check("国际检索来源已记录", patentSources.some((s) => s.id === "SRC-PAT-NOVELTY-INTL" && s.status === "done"));
 check("报告v2.0来源已记录", patentSources.some((s) => s.id === "SRC-PAT-REPORT-V2" && s.status === "done"));
+check("报告v3.0来源已记录", patentSources.some((s) => s.id === "SRC-PAT-REPORT-V3" && s.status === "done"));
 check("角度复盘来源已记录", patentSources.some((s) => s.id === "SRC-PAT-ANGLE-REVIEW" && s.status === "done"));
 check("组合发明来源已记录", patentSources.some((s) => s.id === "SRC-PAT-COMBINATION" && s.status === "done"));
 check("绿灯角度检索来源已记录", patentSources.some((s) => s.id === "SRC-PAT-GREEN-SEARCH" && s.status === "done"));

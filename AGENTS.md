@@ -68,7 +68,10 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/import-patent-novelty-rule.mjs` | 绝对新颖性卡 PAT-RULE-002 + 国际前案 PAT-PRI-022~025 + PAT-DRAFT-A4（幂等） |
 | `patent-drafts/交底书-母案A.md` | 可填空交底书模板，仅内部 |
 | `patent-drafts/申请文件底稿-多气源安全互锁.md` | 第一件申请文件底稿 v0.2，仅内部 |
-| `patent-drafts/专利布局整体报告-v2.md` | **整体报告 v2.0 源稿**（取代重构版），仅内部 |
+| `patent-drafts/专利布局整体报告-v3.md` | **整体报告 v3.0 源稿（当前生效总图）** |
+| `patent-drafts/漂浮方舟_专利布局整体报告_v3.0.docx` | 同上 Word 版 |
+| `scripts/apply-patent-report-v3.mjs` | v3.0 结论入库：PAT-MAP-003（幂等） |
+| `patent-drafts/专利布局整体报告-v2.md` | 整体报告 v2.0 源稿（已被 v3 取代为生效总图） |
 | `patent-drafts/外部AI评审任务书.md` | 给第三方 AI/顾问独立评审的自包含任务书（＋Word 版） |
 | `patent-drafts/漂浮方舟_专利布局整体报告_v2.0.docx` | 同上的 Word 版，给非技术同事改 |
 | `scripts/apply-patent-report-v2.mjs` | v2.0 结论入库：去盐测试、母案B收窄、取消20件（幂等） |
@@ -84,7 +87,7 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 **客体边界：** 疾病诊断治疗方法与科学发现不授权，**但装置可以**；两用途方法须声明非治疗目的。详见 `PAT-RULE-004`。
 | `data/patents.json` | **专利库**，与知识点总库分开，不进 /open |
 | `data/patent-sources.json` | 专利库来源记录 |
-| `/patents` | 专利库页面（仅内部） |
+| `/patents` | 专利库页面（不进 `/open`）。生产站：https://company-knowledge-base-nine.vercel.app/patents |
 | `scripts/test-patent-library.mjs` | 专利库隔离回归测试 |
 | `scripts/export-public-site.mjs` | 生成 GitHub Pages 静态站（需管理员开通 Pages） |
 | `/open` | Vercel 上的公开只读 HTML，不含内训 |
