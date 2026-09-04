@@ -172,7 +172,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 
 ## 三、当前库状态
 
-> **最后更新：** 2026-09-02（由 Agent 维护，每次入库后更新此节）
+> **最后更新：** 2026-09-04（由 Agent 维护，每次入库后更新此节）
 
 | 指标 | 数值 |
 |------|------|
@@ -324,6 +324,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 /workspace/
 ├── PROJECT.md              ← 本文件（固定协作文档）
 ├── AGENTS.md               ← Agent 快速规则
+├── docs/漂浮舱卫生安全标准五问.md  ← NSF/周转/臭氧/防滑/防卡吸问答
 ├── .cursor/
 │   ├── environment.json    ← Cloud 自动 build + keep-alive
 │   └── rules/knowledge-base.mdc  ← 新对话自动加载
@@ -465,6 +466,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-31 | 可外发页写清「总库已合并 539 / 本页 445 / 仅内训 94 不收录」并加来源清单 `/open/catalog`；Vercel `/library` 缓存未命中时不再全量相似扫描超时 |
 | 2026-09-01 | combined.md 内部原子库 ~1300 条主题合并为 KP-ATOM-001~020（仅内训，已批准）；库 539→559。公开页仍 445，仅内训 114。首页内训入口改为教材+原子库分列 |
 | 2026-09-02 | 漂浮疗法说明.pdf 主题合并为 KP-RX-001~013（仅内训脊柱）；库 559→572。公开页仍 445，仅内训 127。五维不替代 CIS |
+| 2026-09-04 | 新增公开标准问答稿 `docs/漂浮舱卫生安全标准五问.md`：CCS-12804 试验、30 min 周转、臭氧限值与检测、ASTM F462、ASME A112.19.17。未改知识点 JSON |
 
 
 ---
