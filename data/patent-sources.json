@@ -271,5 +271,22 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "去盐测试修正为去环境测试（六条件）；补第25条客体规则；五个候选角度；US6669649等三条前案。"
+  },
+  {
+    "id": "SRC-PAT-COMBINATION",
+    "filename": "组合发明查证与迷走接入检索",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-04T07:55:00.000Z",
+    "patentIds": [
+      "PAT-RULE-005",
+      "PAT-IDEA-006",
+      "PAT-PRI-029",
+      "PAT-PRI-030",
+      "PAT-PRI-031"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "组合发明创造性规则（协同 vs 拼凑）；迷走接入角度六；水中电刺激与迷走刺激前案。另产出外部AI评审任务书。"
   }
 ]

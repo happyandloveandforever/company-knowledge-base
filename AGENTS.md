@@ -67,6 +67,7 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `patent-drafts/交底书-母案A.md` | 可填空交底书模板，仅内部 |
 | `patent-drafts/申请文件底稿-多气源安全互锁.md` | 第一件申请文件底稿 v0.2，仅内部 |
 | `patent-drafts/专利布局整体报告-v2.md` | **整体报告 v2.0 源稿**（取代重构版），仅内部 |
+| `patent-drafts/外部AI评审任务书.md` | 给第三方 AI/顾问独立评审的自包含任务书（＋Word 版） |
 | `patent-drafts/漂浮方舟_专利布局整体报告_v2.0.docx` | 同上的 Word 版，给非技术同事改 |
 | `scripts/apply-patent-report-v2.mjs` | v2.0 结论入库：去盐测试、母案B收窄、取消20件（幂等） |
 | `scripts/md-to-docx.mjs` | Markdown 报告转 Word（依赖 python-docx） |
