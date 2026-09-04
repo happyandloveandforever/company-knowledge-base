@@ -63,7 +63,11 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/_template-new-batch.mjs` | 新思路入库模板，复制改内容即可 |
 | `patent-drafts/新思路入库流程.md` | 新思路进库六步流程（`PAT-RULE-008`） |
 | `scripts/check-served-ui.mjs` | 校验服务跑的是不是最新界面产物；改完 `src/` 必跑 |
-| `patent-drafts/专利整合方案-v4.md` | **对外交付件**，含全部先案与红灯清单（`PAT-MAP-007`） |
+| `patent-drafts/专利整合方案-v5.md` | **当前对外交付件**，含全部先案与红灯清单（`PAT-MAP-008`） |
+| `scripts/apply-patent-somatic-transfer.mjs` | 冥想/体感床/律动床迁移过闸（幂等，`PAT-EXT-004`） |
+| `scripts/apply-patent-light-gas.mjs` | 光照与多气体专项过闸（幂等，`PAT-EXT-005`） |
+| `scripts/apply-patent-report-v5.mjs` | 整合方案 v5.0 入库并生成源稿（幂等，`PAT-MAP-008`） |
+| `patent-drafts/专利整合方案-v4.md` | 上一版对外交付件（`PAT-MAP-007`），保留做留痕 |
 | `patent-drafts/信噪比架构.md` | 技术总图，给人看的方案菜单 |
 | `patent-drafts/真实技术保护.md` | 上一版，仍有效，作为消杀与低刺激的通道实现 |
 | `scripts/apply-knowledge-layers.mjs` | 通识/公司分层 + 通识前沿卡（幂等） |
@@ -83,7 +87,7 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/import-patent-novelty-rule.mjs` | 绝对新颖性卡 PAT-RULE-002 + 国际前案 PAT-PRI-022~025 + PAT-DRAFT-A4（幂等） |
 | `patent-drafts/交底书-母案A.md` | 可填空交底书模板，仅内部 |
 | `patent-drafts/申请文件底稿-多气源安全互锁.md` | 第一件申请文件底稿 v0.2，仅内部 |
-| `patent-drafts/专利布局整体报告-v3.md` | **整体报告 v3.0 源稿（当前生效总图）** |
+| `patent-drafts/专利布局整体报告-v3.md` | 整体报告 v3.0 源稿（已被信噪比架构 `PAT-MAP-006` 与整合方案取代） |
 | `patent-drafts/漂浮方舟_专利布局整体报告_v3.0.docx` | 同上 Word 版 |
 | `scripts/apply-patent-report-v3.mjs` | v3.0 结论入库：PAT-MAP-003（幂等） |
 | `patent-drafts/专利布局整体报告-v2.md` | 整体报告 v2.0 源稿（已被 v3 取代为生效总图） |

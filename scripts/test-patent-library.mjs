@@ -440,7 +440,7 @@ check(
     /先案卡.*再写方案卡|查完先案/.test(patents.find((p) => p.id === "PAT-RULE-008")?.body ?? "")
 );
 
-// 整合方案 v4.0：对外交付件，先案与红灯必须列全
+// 整合方案 v4.0：冻结交付件。先案/红灯完整性改由 v5 承担，v4 只核验当时的 87+18。
 check("整合方案v4来源已记录", patentSources.some((s) => s.id === "SRC-PAT-REPORT-V4" && s.status === "done"));
 check("整合方案v4卡存在", patents.some((p) => p.id === "PAT-MAP-007"));
 check("整合方案v4源稿存在", existsSync(path.join(process.cwd(), "patent-drafts", "专利整合方案-v4.md")));
@@ -450,19 +450,16 @@ check(
 );
 {
   const v4 = readFileSync(path.join(process.cwd(), "patent-drafts", "专利整合方案-v4.md"), "utf-8");
-  const priIds = patents.filter((p) => p.kind === "retrieved").map((p) => p.id);
-  const killedIds = patents.filter((p) => p.lifecycle === "killed").map((p) => p.id);
+  const v4Pri = Array.from({ length: 87 }, (_, i) => `PAT-PRI-${String(i + 1).padStart(3, "0")}`);
+  const v4Killed = [
+    "PAT-IDEA-001", "PAT-IDEA-005", "PAT-IDEA-017", "PAT-IDEA-022", "PAT-IDEA-023",
+    "PAT-IDEA-024", "PAT-IDEA-025", "PAT-IDEA-038", "PAT-IDEA-039", "PAT-IDEA-040",
+    "PAT-IDEA-044", "PAT-IDEA-045", "PAT-IDEA-052", "PAT-IDEA-053", "PAT-IDEA-054",
+    "PAT-IDEA-057", "PAT-IDEA-058", "PAT-IDEA-059",
+  ];
   const refs = [...new Set(v4.match(/PAT-[A-Z]+-[A-Z0-9]+/g) ?? [])];
-  check(
-    "v4 列全了所有先案",
-    priIds.every((id) => v4.includes(id)),
-    priIds.filter((id) => !v4.includes(id)).join(",")
-  );
-  check(
-    "v4 列全了所有红灯",
-    killedIds.every((id) => v4.includes(id)),
-    killedIds.filter((id) => !v4.includes(id)).join(",")
-  );
+  check("v4 仍列全当时的 87 条先案", v4Pri.every((id) => v4.includes(id)), v4Pri.filter((id) => !v4.includes(id)).join(","));
+  check("v4 仍列全当时的 18 条红灯", v4Killed.every((id) => v4.includes(id)), v4Killed.filter((id) => !v4.includes(id)).join(","));
   check(
     "v4 引用的卡号无悬空",
     refs.every((r) => patents.some((p) => p.id === r)),
@@ -471,6 +468,68 @@ check(
   check("v4 含使用公开硬规则提醒", /PAT-RULE-006/.test(v4) && /使用公开/.test(v4));
   check("v4 含撰写纪律段", /撰写纪律/.test(v4) && /40Hz/.test(v4));
 }
+
+// 整合方案 v5.0：当前对外交付件，先案与红灯必须列全
+check("整合方案v5来源已记录", patentSources.some((s) => s.id === "SRC-PAT-REPORT-V5" && s.status === "done"));
+check("整合方案v5卡存在", patents.some((p) => p.id === "PAT-MAP-008"));
+check("整合方案v5源稿存在", existsSync(path.join(process.cwd(), "patent-drafts", "专利整合方案-v5.md")));
+check(
+  "整合方案v5 docx 存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "漂浮方舟_专利整合方案_v5.0.docx"))
+);
+{
+  const v5 = readFileSync(path.join(process.cwd(), "patent-drafts", "专利整合方案-v5.md"), "utf-8");
+  const priIds = patents.filter((p) => p.kind === "retrieved").map((p) => p.id);
+  const killedIds = patents.filter((p) => p.lifecycle === "killed").map((p) => p.id);
+  const refs = [...new Set(v5.match(/PAT-[A-Z]+-[A-Z0-9]+/g) ?? [])];
+  check(
+    "v5 列全了所有先案",
+    priIds.every((id) => v5.includes(id)),
+    priIds.filter((id) => !v5.includes(id)).join(",")
+  );
+  check(
+    "v5 列全了所有红灯",
+    killedIds.every((id) => v5.includes(id)),
+    killedIds.filter((id) => !v5.includes(id)).join(",")
+  );
+  check(
+    "v5 引用的卡号无悬空",
+    refs.every((r) => patents.some((p) => p.id === r)),
+    refs.filter((r) => !patents.some((p) => p.id === r)).join(",")
+  );
+  check("v5 含使用公开硬规则提醒", /PAT-RULE-006/.test(v5) && /使用公开/.test(v5));
+  check("v5 含撰写纪律段", /撰写纪律/.test(v5) && /40Hz/.test(v5));
+  check("v5 写明不另立申请组", /不另立/.test(v5) && /不恢复母案称谓/.test(v5));
+  check("v5 组一仍列全原卡并挂上本轮新卡", /PAT-DRAFT-A4/.test(v5) && /PAT-IDEA-069/.test(v5) && /PAT-ROAD-A/.test(v5));
+  check("v5 组二原卡仍在", /PAT-IDEA-046/.test(v5) && /PAT-IDEA-042/.test(v5));
+  check("v5 先案表用完整 PRI 号", /PAT-PRI-067/.test(v5) && !/`067`/.test(v5));
+}
+
+check("体感迁移来源已记录", patentSources.some((s) => s.id === "SRC-PAT-SOMATIC-TRANSFER" && s.status === "done"));
+check("光照多气体来源已记录", patentSources.some((s) => s.id === "SRC-PAT-LIGHT-GAS" && s.status === "done"));
+check("体感床迁移过闸卡存在", patents.some((p) => p.id === "PAT-EXT-004" && /模块平移/.test(p.title)));
+check("光照多气体过闸卡存在", patents.some((p) => p.id === "PAT-EXT-005" && /零合力/.test(p.title)));
+check("零漂移律动场卡归组一", patents.find((p) => p.id === "PAT-IDEA-060")?.group === "g1");
+check("零合力投送卡归组一", patents.find((p) => p.id === "PAT-IDEA-069")?.group === "g1");
+check("光窗辨识卡归组四", patents.find((p) => p.id === "PAT-IDEA-067")?.group === "g4");
+check("密度差力矩已打掉", patents.find((p) => p.id === "PAT-IDEA-065")?.lifecycle === "killed");
+check("体感音乐平移已打掉", patents.find((p) => p.id === "PAT-IDEA-073")?.lifecycle === "killed");
+check("色光平移已打掉", patents.find((p) => p.id === "PAT-IDEA-075")?.lifecycle === "killed");
+check("多气体配方已打掉", patents.find((p) => p.id === "PAT-IDEA-077")?.lifecycle === "killed");
+check("冥想闭环先案已记录", patents.some((p) => p.id === "PAT-PRI-088" && /JP2549469/.test(p.publicationNo ?? "")));
+check("体感床前案已记录", patents.some((p) => p.id === "PAT-PRI-089" && /US5101810/.test(p.publicationNo ?? "")));
+check("色光漂浮舱前案已记录", patents.some((p) => p.id === "PAT-PRI-092" && /CN209019285/.test(p.publicationNo ?? "")));
+check("光窗污染前案已记录", patents.some((p) => p.id === "PAT-PRI-095" && /US7948617/.test(p.publicationNo ?? "")));
+check("对置喷嘴前案已记录", patents.some((p) => p.id === "PAT-PRI-097" && /US4853987/.test(p.publicationNo ?? "")));
+check("模块迁移实验缺口卡存在", patents.some((p) => p.id === "PAT-GAP-009" && /零合力/.test(p.title)));
+check(
+  "体感迁移评估归档存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "冥想体感音乐与律动床技术迁移专利评估.md"))
+);
+check(
+  "光照多气体评估归档存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "光照与多气体漂浮舱专利专项评估.md"))
+);
 
 // 称谓自洽：标题是人扫库时唯一会看的一行，不能还在讲已退役的母案
 check("称谓清理来源已记录", patentSources.some((s) => s.id === "SRC-PAT-TITLE-CLEANUP" && s.status === "done"));
