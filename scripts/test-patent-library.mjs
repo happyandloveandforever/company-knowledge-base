@@ -28,7 +28,7 @@ check("总库数量未因专利库减少", points.length >= 572, String(points.l
 check("总库没有任何 PAT-*", points.every((p) => !String(p.id).startsWith("PAT-")));
 check("总库 sources 不含 SRC-PAT", sources.every((s) => !String(s.id).startsWith("SRC-PAT")));
 
-check("专利卡至少 68 条", patents.length >= 68, String(patents.length));
+check("专利卡至少 72 条", patents.length >= 72, String(patents.length));
 check("全部 confidentiality=internal", patents.every((p) => p.confidentiality === "internal"));
 check("全部 approved", patents.every((p) => p.status === "approved"));
 check(
@@ -88,6 +88,29 @@ check(
 );
 check("组合发明规则卡存在", patents.some((p) => p.id === "PAT-RULE-005"));
 check(
+  "闸门含「难题还是便宜」追问",
+  /一个便宜/.test(patents.find((p) => p.id === "PAT-RULE-003")?.body ?? "")
+);
+check(
+  "候选角度一已标为打掉",
+  /已打掉/.test(patents.find((p) => p.id === "PAT-IDEA-001")?.title ?? "") &&
+    patents.find((p) => p.id === "PAT-IDEA-001")?.risk === "critical"
+);
+check(
+  "泵阀故障检出前案已记录",
+  patents.some((p) => p.id === "PAT-PRI-032" && /US7069183/.test(p.publicationNo ?? ""))
+);
+check(
+  "超声剂量标准已记录",
+  patents.some((p) => p.id === "PAT-PRI-034" && /脱气水/.test(p.body))
+);
+check(
+  "任务书已同步已打掉清单",
+  /US7069183/.test(
+    readFileSync(path.join(process.cwd(), "patent-drafts", "外部AI评审任务书.md"), "utf-8")
+  )
+);
+check(
   "组合发明卡讲清协同而非拼凑",
   /彼此支持/.test(patents.find((p) => p.id === "PAT-RULE-005")?.body ?? "") &&
     /简单的?叠加|拼凑/.test(patents.find((p) => p.id === "PAT-RULE-005")?.body ?? "")
@@ -104,11 +127,18 @@ check(
   "外部AI评审任务书存在",
   existsSync(path.join(process.cwd(), "patent-drafts", "外部AI评审任务书.md"))
 );
+// 已打掉的角度不需要再列待办；仍存活的必须标明还缺什么
 check(
-  "候选角度都标了待检索或待验证",
+  "存活的候选角度都标了待检索或待验证",
   patents
-    .filter((p) => p.id.startsWith("PAT-IDEA"))
+    .filter((p) => p.id.startsWith("PAT-IDEA") && !/已打掉/.test(p.title))
     .every((p) => /待检索|待验证/.test(p.body))
+);
+check(
+  "被打掉的角度写明了打掉原因",
+  patents
+    .filter((p) => p.id.startsWith("PAT-IDEA") && /已打掉/.test(p.title))
+    .every((p) => /打掉原因|不建议投入/.test(p.body))
 );
 check(
   "浮力测呼吸前案已记录",
@@ -177,6 +207,7 @@ check("国际检索来源已记录", patentSources.some((s) => s.id === "SRC-PAT
 check("报告v2.0来源已记录", patentSources.some((s) => s.id === "SRC-PAT-REPORT-V2" && s.status === "done"));
 check("角度复盘来源已记录", patentSources.some((s) => s.id === "SRC-PAT-ANGLE-REVIEW" && s.status === "done"));
 check("组合发明来源已记录", patentSources.some((s) => s.id === "SRC-PAT-COMBINATION" && s.status === "done"));
+check("绿灯角度检索来源已记录", patentSources.some((s) => s.id === "SRC-PAT-GREEN-SEARCH" && s.status === "done"));
 check(
   "来源 patentIds 都能在库中找到",
   patentSources.every((s) => s.patentIds.every((id) => patents.some((p) => p.id === id)))

@@ -288,5 +288,24 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "组合发明创造性规则（协同 vs 拼凑）；迷走接入角度六；水中电刺激与迷走刺激前案。另产出外部AI评审任务书。"
+  },
+  {
+    "id": "SRC-PAT-GREEN-SEARCH",
+    "filename": "绿灯角度补充检索",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-04T08:30:00.000Z",
+    "patentIds": [
+      "PAT-IDEA-001",
+      "PAT-IDEA-003",
+      "PAT-IDEA-005",
+      "PAT-PRI-032",
+      "PAT-PRI-033",
+      "PAT-PRI-034",
+      "PAT-PRI-035"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "角度①打掉（有利条件不是技术问题）；③重新定位到脱气水标准空白；⑤降黄并转向配液工程。"
   }
 ]
