@@ -28,7 +28,7 @@ check("总库数量未因专利库减少", points.length >= 572, String(points.l
 check("总库没有任何 PAT-*", points.every((p) => !String(p.id).startsWith("PAT-")));
 check("总库 sources 不含 SRC-PAT", sources.every((s) => !String(s.id).startsWith("SRC-PAT")));
 
-check("专利卡至少 36 条", patents.length >= 36, String(patents.length));
+check("专利卡至少 51 条", patents.length >= 51, String(patents.length));
 check("全部 confidentiality=internal", patents.every((p) => p.confidentiality === "internal"));
 check("全部 approved", patents.every((p) => p.status === "approved"));
 check(
@@ -63,6 +63,30 @@ check(
   /不是权利要求/.test(patents.find((p) => p.id === "PAT-WRITE-002")?.title ?? "")
 );
 check("母案A交底书模板文件存在", existsSync(path.join(process.cwd(), "patent-drafts", "交底书-母案A.md")));
+check(
+  "A4申请文件底稿存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "申请文件底稿-多气源安全互锁.md"))
+);
+check("A4底稿状态卡存在", patents.some((p) => p.id === "PAT-DRAFT-A4"));
+check("绝对新颖性规则卡存在", patents.some((p) => p.id === "PAT-RULE-002"));
+check(
+  "新颖性卡讲清国内外公开",
+  /在国内外为公众所知/.test(patents.find((p) => p.id === "PAT-RULE-002")?.body ?? "")
+);
+check(
+  "新颖性卡讲清地域性",
+  /地域性/.test(patents.find((p) => p.id === "PAT-RULE-002")?.body ?? "")
+);
+check(
+  "已记录国际前案",
+  ["PAT-PRI-022", "PAT-PRI-023", "PAT-PRI-024", "PAT-PRI-025"].every((id) =>
+    patents.some((p) => p.id === id)
+  )
+);
+check(
+  "国际前案含非中国辖区",
+  patents.filter((p) => p.kind === "retrieved").some((p) => /美国|国际标准/.test(p.jurisdiction ?? ""))
+);
 check("不设母案3卡存在", patents.some((p) => p.id === "PAT-NO3-001"));
 check("状态机卡存在", patents.some((p) => p.id === "PAT-STATE-001"));
 check("批次节奏卡存在", patents.some((p) => p.id === "PAT-BATCH-001"));
@@ -78,12 +102,14 @@ check("簇5不进入直接VNS", /不进入直接VNS/.test(text));
 check("B6–B7预埋进B", /B6–B7|B6—B7|B6-B7/.test(text));
 
 const retrieved = patents.filter((p) => p.kind === "retrieved");
-check("检索卡不少于 12 条", retrieved.length >= 12, String(retrieved.length));
+check("检索卡不少于 25 条", retrieved.length >= 25, String(retrieved.length));
 check("检索卡都有公开号", retrieved.every((p) => !!p.publicationNo));
 
 check("四个簇来源都记录", ["SRC-PAT-CLU1", "SRC-PAT-CLU2", "SRC-PAT-CLU3", "SRC-PAT-CLU4"].every((id) => patentSources.some((s) => s.id === id && s.status === "done")));
 check("重构版来源已记录", patentSources.some((s) => s.id === "SRC-PAT-LAYOUT-V2" && s.status === "done"));
 check("撰写包来源已记录", patentSources.some((s) => s.id === "SRC-PAT-WRITE-KIT" && s.status === "done"));
+check("A4补充检索来源已记录", patentSources.some((s) => s.id === "SRC-PAT-GAS-SEARCH" && s.status === "done"));
+check("国际检索来源已记录", patentSources.some((s) => s.id === "SRC-PAT-NOVELTY-INTL" && s.status === "done"));
 check(
   "来源 patentIds 都能在库中找到",
   patentSources.every((s) => s.patentIds.every((id) => patents.some((p) => p.id === id)))

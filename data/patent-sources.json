@@ -193,5 +193,44 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "最终版确认后追加：母案A交底书撰写包（选案、角色、七节模板、采访清单、红线自检、后续节奏）。"
+  },
+  {
+    "id": "SRC-PAT-GAS-SEARCH",
+    "filename": "A4多气源安全补充检索",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-04T05:30:00.000Z",
+    "patentIds": [
+      "PAT-PRI-013",
+      "PAT-PRI-014",
+      "PAT-PRI-015",
+      "PAT-PRI-016",
+      "PAT-PRI-017",
+      "PAT-PRI-018",
+      "PAT-PRI-019",
+      "PAT-PRI-020",
+      "PAT-PRI-021"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "为A4多气源安全底稿做的补充公开检索；均未核验法律状态与最终文本。"
+  },
+  {
+    "id": "SRC-PAT-NOVELTY-INTL",
+    "filename": "绝对新颖性查证与国际补充检索",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-04T05:45:00.000Z",
+    "patentIds": [
+      "PAT-RULE-002",
+      "PAT-DRAFT-A4",
+      "PAT-PRI-022",
+      "PAT-PRI-023",
+      "PAT-PRI-024",
+      "PAT-PRI-025"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "绝对新颖性法条查证 + 美国/IEC 国际前案；A4底稿发明点据此收窄。法律状态未核验。"
   }
 ]
