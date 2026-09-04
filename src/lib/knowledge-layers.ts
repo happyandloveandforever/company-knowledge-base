@@ -20,6 +20,19 @@ export function getUsage(point: KnowledgePoint): KnowledgeUsage {
   return point.usage ?? "both";
 }
 
+/**
+ * 筛选「培训」或「汇报」时，把 usage=both（汇报+培训）一并算上。
+ * 「运营SOP」「汇报+培训」仍按精确值匹配。
+ */
+export function matchesUsageFilter(point: KnowledgePoint, filter: string): boolean {
+  if (!filter) return true;
+  const usage = getUsage(point);
+  if (filter === "training" || filter === "pitch") {
+    return usage === filter || usage === "both";
+  }
+  return usage === filter;
+}
+
 export function countByLayer(points: KnowledgePoint[]): Record<KnowledgeLayer, number> {
   const counts: Record<KnowledgeLayer, number> = { commons: 0, company: 0 };
   for (const point of points) {

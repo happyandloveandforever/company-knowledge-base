@@ -17,6 +17,7 @@ import {
   USAGE_LABELS,
   getLayer,
   getUsage,
+  matchesUsageFilter,
   isInternalOnly,
 } from "@/lib/knowledge-layers";
 import { PRESENTATION_LOGICS } from "@/lib/presentation-logic";
@@ -66,7 +67,7 @@ export default function ComposePage() {
     return points.filter((p) => {
       if (!includeInternal && isInternalOnly(p)) return false;
       if (layerFilter && getLayer(p) !== layerFilter) return false;
-      if (usageFilter && getUsage(p) !== usageFilter) return false;
+      if (usageFilter && !matchesUsageFilter(p, usageFilter)) return false;
       if (!matchesTagFilter(p.tags, appliedTags)) return false;
       if (!debouncedSearch) return true;
       const q = debouncedSearch.toLowerCase();

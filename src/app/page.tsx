@@ -183,7 +183,9 @@ export default async function HomePage() {
                 </div>
                 <CardTitle className="text-base">仅内训库</CardTitle>
                 <CardDescription>
-                  培训教材 {stats.trnInternal} 条 + 内部原子库 {stats.atomInternal} 条 + 疗法叙事 {stats.rxInternal} 条，与对外资料硬隔离。
+                  培训教材 {stats.trnInternal} 条 + 内部原子库 {stats.atomInternal} 条 + 疗法叙事 {stats.rxInternal} 条
+                  {stats.nsfInternal > 0 ? ` + NSF专利空白 ${stats.nsfInternal} 条` : ""}
+                  ，与对外资料硬隔离。
                   {stats.internalPending > 0
                     ? `其中 ${stats.internalPending} 条待裁定。`
                     : ""}
@@ -205,13 +207,13 @@ export default async function HomePage() {
             href="/library?usage=pitch"
             label="汇报 / 提案"
             count={stats.pitch}
-            hint="客户 PPT 主用"
+            hint="客户 PPT 主用；筛选时含「汇报+培训」"
           />
           <UsageShortcut
             href="/library?usage=training"
             label="培训"
             count={stats.training}
-            hint={`含 ${stats.internalOnly} 条仅内训`}
+            hint={`含 ${stats.internalOnly} 条仅内训；筛选时含「汇报+培训」`}
             emphasize
           />
           <UsageShortcut

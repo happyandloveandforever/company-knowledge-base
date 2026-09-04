@@ -23,6 +23,7 @@ export interface DashboardStats {
   trnInternal: number;
   atomInternal: number;
   rxInternal: number;
+  nsfInternal: number;
 }
 
 export function computeDashboardStats(
@@ -55,6 +56,7 @@ export function computeDashboardStats(
     trnInternal: points.filter((p) => p.id.startsWith("KP-TRN-") && isInternalOnly(p)).length,
     atomInternal: points.filter((p) => p.id.startsWith("KP-ATOM-") && isInternalOnly(p)).length,
     rxInternal: points.filter((p) => p.id.startsWith("KP-RX-") && isInternalOnly(p)).length,
+    nsfInternal: points.filter((p) => p.id.startsWith("KP-NSF-") && isInternalOnly(p)).length,
   };
 }
 

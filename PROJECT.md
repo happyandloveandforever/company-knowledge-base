@@ -20,7 +20,7 @@
 |------|------|
 | **当前托管** | [Cursor Origin（免费）](https://origin.cursor.com/git/clark-gonzalez/tmp-8ece63bc7e599628) |
 | **分支** | `main` |
-| **包含** | 全部 Next.js 代码 + `data/knowledge-points.json`（109 条）+ `data/sources.json` |
+| **包含** | 全部 Next.js 代码 + `data/knowledge-points.json`（以「当前库状态」为准，勿覆盖）+ `data/sources.json` |
 | **不包含** | `uploads/` 原始 PDF、`node_modules/`、`.env` |
 
 每次 Agent 改完代码或入库，都会 **commit + push 到这个仓库**。换对话不会丢代码和数据。
@@ -172,18 +172,18 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 
 ## 三、当前库状态
 
-> **最后更新：** 2026-09-02（由 Agent 维护，每次入库后更新此节）
+> **最后更新：** 2026-09-04（由 Agent 维护，每次入库后更新此节）
 
 | 指标 | 数值 |
 |------|------|
-| 知识点总数 | **572**（554 `approved` + 18 `draft`） |
-| 通识层 `commons` | **154** 条：公开科学/政策/卫生/证据边界 + 迷走/VNS 通识 |
-| 公司自有层 `company` | **418** 条：产品、SOP、报价、案例、财务、内训教材、综合干预专业版、内部原子库、疗法叙事脊柱 |
-| 用途 `usage` | `pitch` 294 · `training` 154 · `ops` 58 · `both` 66 |
-| **仅内训 `internalOnly`** | **127** 条（`KP-TRN-*` 94 + `KP-ATOM-*` 20 + `KP-RX-*` 13），编排 PPT 默认排除 |
-| 已导入文件 | **28** |
+| 知识点总数 | **590**（572 `approved` + 18 `draft`） |
+| 通识层 `commons` | **160** 条：公开科学/政策/卫生/证据边界 + 迷走/VNS 通识 + NSF/ANSI 50 公开条款 |
+| 公司自有层 `company` | **430** 条：产品、SOP、报价、案例、财务、内训教材、综合干预专业版、内部原子库、疗法叙事脊柱、NSF 工程/认证/专利空白 |
+| 用途 `usage` | `pitch` 294 · `training` 156 · `ops` 61 · `both` 79 |
+| **仅内训 `internalOnly`** | **129** 条（`KP-TRN-*` 94 + `KP-ATOM-*` 20 + `KP-RX-*` 13 + `KP-NSF-017/018` 2），编排 PPT 默认排除 |
+| 已导入文件 | **29** |
 | 待 Claude 拆分队列 | 0 |
-| 结构判断 | 两层已切开；内训 127 条；迷走三套 56 条已批准；原子库零件箱 20 + 疗法五维脊柱 13。仍缺锁数字与真实案例 |
+| 结构判断 | 两层已切开；内训 129 条；迷走三套 56 条已批准；原子库零件箱 20 + 疗法五维脊柱 13 + NSF 漂浮舱标准 18。仍缺锁数字与真实案例 |
 
 ### 两层怎么用（B端资料）
 
@@ -258,6 +258,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 | 迷走神经激活手段与前沿研究整合报告.docx | SRC-VNS-MAP | KP-VNSMAP-001 ~ 016 | 16 | done，已批准 | claude-agent |
 | combined.md（内部原子库） | SRC-ATOM-LIB | KP-ATOM-001 ~ 020 | 20 | done，已批准，仅内训 | 主题合并（~1300→20） |
 | 漂浮疗法说明.pdf | SRC-RX-THERAPY | KP-RX-001 ~ 013 | 13 | done，已批准，仅内训 | 主题合并（29页→13） |
+| NSF_ANSI_50_漂浮舱标准汇总.docx | SRC-NSF-ANSI50 | KP-NSF-001 ~ 018 | 18 | done，已批准；017/018 仅内训 | claude-agent |
 
 ### 结构体检（2026-08-24）
 
@@ -269,6 +270,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 | 迷走/综合干预（2026-08-31） | VGMECH 四条间接通路 + 共振呼吸 4 周；CIS 展开六模块与三类产品线；VNSMAP 把 FDA/EHJ 与漂浮拆开 | 对外深讲用新卡；浅讲仍可用 V7-018/021 但须口头声明器械证据不是漂浮试验 |
 | 内部原子库（2026-09-01） | M1–M11 / L1–L3 已主题合并 20 条；与 CIS A–F 对照写在 ATOM-003 | 对内写文案；对外禁止混报两套模块名；勿再逐条入库 |
 | 疗法叙事脊柱（2026-09-02） | 五维一体已主题合并 13 条；概率矩阵与排毒叙事冻结 | 对内串体验层；对外仍用 CIS；勿把五维当第四套菜名 |
+| NSF/ANSI 50（2026-09-04） | CCS-12804 + §28 拆 18 条；公开条款通识+both；工程公司+both/ops；专利空白仅内训 | 认证跟 NSF 卡；对客卫生勿说「NSF 禁止氯」（与 WEB-004/NAFTS 并存）；15 分钟三翻转是产品口径 |
 | 已压缩 | 论文 103→20 主题卡；原子库 ~1300→20；跨稿 REST史/专家复读/证据墙/功效分条/DEMO 已删 | 对外用 `KP-WEB-010` + 主题卡；勿再跑 `import-mev-atoms.mjs` / 原子逐条 import |
 | 过薄 | FAQ 仍空；真实具名案例仍空；公司一页纸 5；统一数字未锁 | **你必须提供**：机构/专利/C端锁定数字、可公开案例 |
 | 冲突 | 乳酸；Feinstein 非 RCT；**院内「治疗/处方」vs SOP「不治病」**；SOP 水温 36±0.5 / 38℃ / 36.5–39.5 | 独立门店跟 SOP；医院共建跟 YFOP/MEDF；温度与 58%/2000 项须老板锁 |
@@ -292,6 +294,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 - [x] 精细拆分迷走机制报告 / 综合干预专业版 / VNS 手段地图（56 条，已批准；FDA/EHJ 等不得外推为漂浮适应症）
 - [x] combined.md 内部原子库主题合并为 KP-ATOM-001~020（仅内训，直接批准；不逐条入库）
 - [x] 漂浮疗法说明.pdf 主题合并为 KP-RX-001~013（仅内训脊柱；95%/排毒/超觉知冻结）
+- [x] 精细拆分 NSF/ANSI 50 漂浮舱标准汇总（18 条，公司库+培训 dual `usage=both`；专利 2 条仅内训）
 - [ ] **裁定培训 draft**：原 10 条 + 新 072/073/074/079（排毒叙事、瞑眩、适应症病谱）
 - [ ] 补培训仍缺：漂浮师职业发展、问题集（设备实操已由产品手册补；见 KP-TRN-068）
 - [ ] 老板锁：对外数字 + SOP 水温 + pH 7.8 vs 7–7.5 + 孕周窗口 + 是否沿用优浮历史价
@@ -312,7 +315,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 | `/compose` | 选题 + 演讲逻辑 → 大纲 / PPT |
 | `/status` | 系统状态 |
 | `/open` | 公开只读 HTML（不含仅内训），给外部 AI 抓正文 |
-| `/open/catalog` | 来源清单：总库已合并 572，可外发 445，仅内训 127 不收录 |
+| `/open/catalog` | 来源清单：总库已合并 590，可外发 461，仅内训 129 不收录 |
 | `/open/vagus` | 迷走/综合干预专页（子集，不是总库） |
 | `/api/health` | 健康检查 |
 
@@ -338,6 +341,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 │   ├── import-vagus-three-reports.mjs  迷走机制+综合干预+VNS地图
 │   ├── import-atom-library.mjs         内部原子库主题合并（仅内训）
 │   ├── import-therapy-os.mjs           疗法说明五维脊柱（仅内训）
+│   ├── import-nsf-ansi50.mjs           NSF/ANSI 50 漂浮舱标准
 │   ├── process-split-queue.mjs     查看待拆分队列
 │   └── keep-alive-server.sh        服务守护进程
 ├── src/
@@ -465,6 +469,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-31 | 可外发页写清「总库已合并 539 / 本页 445 / 仅内训 94 不收录」并加来源清单 `/open/catalog`；Vercel `/library` 缓存未命中时不再全量相似扫描超时 |
 | 2026-09-01 | combined.md 内部原子库 ~1300 条主题合并为 KP-ATOM-001~020（仅内训，已批准）；库 539→559。公开页仍 445，仅内训 114。首页内训入口改为教材+原子库分列 |
 | 2026-09-02 | 漂浮疗法说明.pdf 主题合并为 KP-RX-001~013（仅内训脊柱）；库 559→572。公开页仍 445，仅内训 127。五维不替代 CIS |
+| 2026-09-04 | NSF/ANSI 50 漂浮舱标准汇总精细拆 18 条（KP-NSF-001~018）；库 572→590。公开条款 6 条通识+both，工程/培训 dual both，专利空白 2 条仅内训。氯溴口径与 WEB-004 并存。筛选「培训/汇报」时带上 usage=both |
 
 
 ---

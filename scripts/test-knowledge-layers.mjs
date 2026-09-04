@@ -129,10 +129,15 @@ check("可外发页不含仅内训卡", publicOnly.every((p) => p.internalOnly !
 check("仅内训卡都是 training", internal.every((p) => p.usage === "training"));
 check("可外发数量 = 总量 - 仅内训", publicOnly.length === points.length - internal.length, `${publicOnly.length} vs ${points.length}-${internal.length}`);
 function isInternalPrefix(id) {
-  return id.startsWith("KP-TRN-") || id.startsWith("KP-ATOM-") || id.startsWith("KP-RX-");
+  return (
+    id.startsWith("KP-TRN-") ||
+    id.startsWith("KP-ATOM-") ||
+    id.startsWith("KP-RX-") ||
+    id.startsWith("KP-NSF-")
+  );
 }
 check(
-  "仅内训全是 KP-TRN 或 KP-ATOM 或 KP-RX",
+  "仅内训全是 KP-TRN 或 KP-ATOM 或 KP-RX 或 KP-NSF",
   internal.every((p) => isInternalPrefix(p.id)),
   internal.filter((p) => !isInternalPrefix(p.id)).map((p) => p.id).join(",")
 );
@@ -172,6 +177,35 @@ check(
     publicOnly.filter((p) => p.id.startsWith("KP-CIS-")).length === 18 &&
     publicOnly.filter((p) => p.id.startsWith("KP-VNSMAP-")).length === 16
 );
+
+const nsf = points.filter((p) => p.id.startsWith("KP-NSF-"));
+check("NSF 卡 KP-NSF 至少 18 条", nsf.length >= 18, String(nsf.length));
+check("NSF 全部 approved", nsf.length > 0 && nsf.every((p) => p.status === "approved"));
+check(
+  "来源 SRC-NSF-ANSI50 已记录",
+  sources.some((s) => s.id === "SRC-NSF-ANSI50" && s.status === "done")
+);
+const nsf001 = points.find((p) => p.id === "KP-NSF-001");
+check("KP-NSF-001 通识层且汇报+培训", nsf001?.layer === "commons" && nsf001?.usage === "both");
+const nsf016 = points.find((p) => p.id === "KP-NSF-016");
+check("KP-NSF-016 公司层且汇报+培训", nsf016?.layer === "company" && nsf016?.usage === "both");
+const nsf011 = points.find((p) => p.id === "KP-NSF-011");
+check(
+  "KP-NSF-011 声明氯溴路径与 NAFTS 不是同一句",
+  !!nsf011 && /NAFTS/.test(`${nsf011.summary}\n${nsf011.body}`) && nsf011.variantGroupId === "VG-NSF-DISINFECT"
+);
+const web004 = points.find((p) => p.id === "KP-WEB-004");
+check("KP-WEB-004 与 NSF 消杀同组", web004?.variantGroupId === "VG-NSF-DISINFECT");
+const nsfInternal = nsf.filter((p) => p.internalOnly === true);
+check("NSF 专利卡仅 017/018 为仅内训", nsfInternal.map((p) => p.id).sort().join(",") === "KP-NSF-017,KP-NSF-018");
+check("NSF 仅内训都是 training", nsfInternal.every((p) => p.usage === "training"));
+check(
+  "NSF 专利卡声明不是对外获证",
+  nsfInternal.every((p) => /仅内训|客户 PPT|不包装成发明/.test(`${p.title}\n${p.summary}\n${p.body}`))
+);
+const nsfBoth = nsf.filter((p) => p.usage === "both");
+check("NSF 汇报+培训双标至少 10 条", nsfBoth.length >= 10, String(nsfBoth.length));
+check("库总量不少于 590", points.length >= 590, String(points.length));
 
 if (failed) {
   console.log(`\n${failed} failed`);

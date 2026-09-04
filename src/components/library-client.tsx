@@ -18,7 +18,7 @@ import {
   countByUsage,
   countInternalOnly,
   getLayer,
-  getUsage,
+  matchesUsageFilter,
   isInternalOnly,
 } from "@/lib/knowledge-layers";
 import { KnowledgePointCard } from "@/components/knowledge-point-card";
@@ -58,7 +58,7 @@ function applyFilterLogic(
     if (f.similar === "content" && !contentConflicts[p.id]?.length) return false;
     if (f.source && p.source.file !== f.source) return false;
     if (f.layer && getLayer(p) !== f.layer) return false;
-    if (f.usage && getUsage(p) !== f.usage) return false;
+    if (f.usage && !matchesUsageFilter(p, f.usage)) return false;
     if (f.internal === "only" && !isInternalOnly(p)) return false;
     if (f.internal === "external" && isInternalOnly(p)) return false;
     if (f.search) {
