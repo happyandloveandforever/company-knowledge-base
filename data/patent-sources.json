@@ -593,5 +593,16 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "舱体内表面几何五约束联合设计与内壁材料五冲突约束为可写落点；异形外壳、抗结晶涂层本身、音疗三条打掉。新设组五舱体与表面。先案 PAT-PRI-085～087。"
+  },
+  {
+    "id": "SRC-PAT-TITLE-CLEANUP",
+    "filename": "称谓清理-母案改申请组",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-04T23:00:00.000Z",
+    "patentIds": [],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "现行卡标题与摘要里遗留的母案A/B称谓统一改为申请组；正文原文保留不动，只改导航性文字。"
   }
 ]

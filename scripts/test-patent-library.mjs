@@ -440,6 +440,29 @@ check(
     /先案卡.*再写方案卡|查完先案/.test(patents.find((p) => p.id === "PAT-RULE-008")?.body ?? "")
 );
 
+// 称谓自洽：标题是人扫库时唯一会看的一行，不能还在讲已退役的母案
+check("称谓清理来源已记录", patentSources.some((s) => s.id === "SRC-PAT-TITLE-CLEANUP" && s.status === "done"));
+check(
+  "现行与待重估卡的标题不得再出现母案（宣布退役的 PAT-BATCH-002 除外）",
+  patents
+    .filter((p) => ["active", "stale"].includes(p.lifecycle) && p.id !== "PAT-BATCH-002")
+    .every((p) => !/母案/.test(p.title)),
+  patents
+    .filter((p) => ["active", "stale"].includes(p.lifecycle) && p.id !== "PAT-BATCH-002" && /母案/.test(p.title))
+    .map((p) => p.id)
+    .join(",")
+);
+check(
+  "总纲卡标题已改为五个申请组并指向入口",
+  /五个申请组/.test(patents.find((p) => p.id === "PAT-RULE-001")?.title ?? "") &&
+    /PAT-INDEX-001/.test(patents.find((p) => p.id === "PAT-RULE-001")?.title ?? "")
+);
+check(
+  "组一组四独权候选标题已改称谓",
+  /组一独权候选/.test(patents.find((p) => p.id === "PAT-ROAD-A")?.title ?? "") &&
+    /组四独权候选/.test(patents.find((p) => p.id === "PAT-ROAD-B")?.title ?? "")
+);
+
 // 组五：舱体与表面
 check("组五独权候选存在并归组", patents.find((p) => p.id === "PAT-IDEA-055")?.group === "g5");
 check("内壁材料卡归入组五", patents.find((p) => p.id === "PAT-IDEA-056")?.group === "g5");
