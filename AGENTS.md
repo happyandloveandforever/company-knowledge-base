@@ -54,6 +54,8 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/import-faf-yangpu.mjs` | 杨浦 PDF 拆分参考 |
 | `scripts/import-b2b-yiling.mjs` | B端 PDF 拆分参考 |
 | `scripts/apply-knowledge-layers.mjs` | 通识/公司分层 + 通识前沿卡（幂等） |
+| `scripts/apply-patent-nsf-sanitation-seeds.mjs` | NSF 50/氯溴过闸：强制项勿主张，打开撰写候选⑦～⑪（幂等） |
+| `scripts/apply-patent-codex-review.mjs` | Codex独立评审过闸：点名前案入库，沉默失效收窄，打开⑫～⑮（幂等） |
 | `scripts/import-float-training.mjs` | 漂浮培训大纲 71 条内训卡（幂等，全部 internalOnly） |
 | `scripts/import-training-supplements.mjs` | 好转反应/适应症/禁忌症/产品手册补训（幂等，禁忌与手册另写运营卡） |
 | `scripts/import-vagus-three-reports.mjs` | 迷走机制/综合干预专业版/VNS手段地图（幂等，直接批准） |
@@ -61,6 +63,28 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/import-therapy-os.mjs` | 漂浮疗法说明.pdf 五维叙事脊柱 13 条仅内训卡（幂等） |
 | `scripts/import-nsf-standards-qa.mjs` | 标准五问拆为 KP-WEB-013~020（幂等，通识，直接批准） |
 | `docs/漂浮舱卫生安全标准五问.md` | NSF CCS-12804 / 周转率 / 臭氧 / ASTM F462 / ASME A112.19.17 问答底稿 |
+| `scripts/import-patent-landscape.mjs` | 四簇专利全景矩阵主题合并为 PAT-* 仅内部卡（幂等，独立 JSON；已入库后勿重跑） |
+| `scripts/apply-patent-six-modules.mjs` | 重构版：四簇升六簇、两母案、不设母案3（幂等） |
+| `scripts/import-patent-drafting-kit.mjs` | 母案A交底书撰写包 PAT-WRITE-001~006（幂等，给非工程背景的人用） |
+| `scripts/import-patent-gas-safety-prior-art.mjs` | A4方向中国前案 PAT-PRI-013~021（幂等） |
+| `scripts/import-patent-novelty-rule.mjs` | 绝对新颖性卡 PAT-RULE-002 + 国际前案 PAT-PRI-022~025 + PAT-DRAFT-A4（幂等） |
+| `patent-drafts/交底书-母案A.md` | 可填空交底书模板，仅内部 |
+| `patent-drafts/申请文件底稿-多气源安全互锁.md` | 第一件申请文件底稿 v0.2，仅内部 |
+| `patent-drafts/专利布局整体报告-v3.md` | **整体报告 v3.0 源稿（当前生效总图）** |
+| `patent-drafts/漂浮方舟_专利布局整体报告_v3.0.docx` | 同上 Word 版 |
+| `scripts/apply-patent-report-v3.mjs` | v3.0 结论入库：PAT-MAP-003（幂等） |
+| `patent-drafts/专利布局整体报告-v2.md` | 整体报告 v2.0 源稿（已被 v3 取代为生效总图） |
+| `patent-drafts/外部AI评审任务书.md` | 给第三方 AI/顾问独立评审的自包含任务书（＋Word 版） |
+| `patent-drafts/漂浮方舟_专利布局整体报告_v2.0.docx` | 同上的 Word 版，给非技术同事改 |
+| `scripts/apply-patent-report-v2.mjs` | v2.0 结论入库：去盐测试、母案B收窄、取消20件（幂等） |
+| `scripts/apply-patent-green-angle-search.mjs` | 三个绿灯角度补检索：①打掉、③重定位、⑤先降黄（幂等） |
+| `scripts/apply-patent-angle5-dosing-search.mjs` | 角度⑤配液结晶检索：独立立案打掉，冷管结晶并入母案A（幂等） |
+| `scripts/apply-patent-ext-review-triage.mjs` | 第三方整合版过闸结论 PAT-EXT-001 + 前案 039/040（幂等） |
+| `scripts/md-to-docx.mjs` | Markdown 报告转 Word（依赖 python-docx） |
+| `data/patents.json` | **专利库**，与知识点总库分开，不进 /open |
+| `data/patent-sources.json` | 专利库来源记录 |
+| `/patents` | 专利库页面（不进 `/open`）。生产站：https://company-knowledge-base-nine.vercel.app/patents |
+| `scripts/test-patent-library.mjs` | 专利库隔离回归测试 |
 | `scripts/export-public-site.mjs` | 生成 GitHub Pages 静态站（需管理员开通 Pages） |
 | `/open` | Vercel 上的公开只读 HTML，不含内训 |
 | `scripts/test-knowledge-layers.mjs` | 分层与培训隔离回归测试 |
@@ -68,6 +92,12 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `src/app/api/upload/route.ts` | 网页上传逻辑 |
 | `src/lib/storage.ts` | JSON 读写、deleteSourceFile |
 | `.cursor/environment.json` | Cloud 环境自动 build + keep-alive |
+
+**检索纪律：** 中国采绝对新颖性，检索必须中外并行且含非专利公开（IEC/GB/手册/规范）。判断标准是「有没有公开」不是「有没有授权」。详见 `PAT-RULE-002`。
+
+**立项闸门：** 任何候选发明点先做**去环境测试**——逐个拿掉六条环境指纹（E1 高盐 / E2 中性浮力 / E3 感官剥夺 / E4 热中性浸液 / E5 长时程静止 / E6 密闭门锁），六条全拿掉都成立就不要立案。详见 `PAT-RULE-003`。
+
+**客体边界：** 疾病诊断治疗方法与科学发现不授权，**但装置可以**；两用途方法须声明非治疗目的。详见 `PAT-RULE-004`。
 
 ## 常用命令
 
@@ -81,6 +111,10 @@ curl http://127.0.0.1:43123/api/health # 健康检查
 
 1. `git add data/` → commit → push
 2. 更新 `PROJECT.md` 的「当前库状态」和「变更记录」
+
+## 交付偏好（用户明确要求）
+
+- **不要录制或提供演示视频。** 用文字说明、测试输出、必要时截图即可（2026-09-04 用户明确「以后都不要」）
 
 ## 禁止
 

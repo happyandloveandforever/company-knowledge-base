@@ -11,11 +11,12 @@ import {
   Sparkles,
   Layers,
   GraduationCap,
+  Scale,
 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { getKnowledgePoints, getSourceFiles } from "@/lib/storage";
+import { getKnowledgePoints, getSourceFiles, getPatents } from "@/lib/storage";
 import { getLibraryAnalysis } from "@/lib/analysis-cache";
 import { getPendingSplitQueue } from "@/lib/split-queue";
 import {
@@ -29,10 +30,11 @@ export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
 export default async function HomePage() {
-  const [points, sources, pendingQueue] = await Promise.all([
+  const [points, sources, pendingQueue, patents] = await Promise.all([
     getKnowledgePoints(),
     getSourceFiles(),
     getPendingSplitQueue(),
+    getPatents(),
   ]);
   const analysis = await getLibraryAnalysis(points);
   const stats = computeDashboardStats(points, sources, analysis, pendingQueue.length);
@@ -230,6 +232,31 @@ export default async function HomePage() {
         <p className="mt-3 text-sm text-slate-500">
           培训不是第三层：科学培训进通识层、SOP/产品培训进公司层。红色卡片是《漂浮培训大纲》教材，禁止进客户资料。
         </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="mb-4 text-lg font-semibold text-slate-900">独立专利库</h2>
+        <Link href="/patents">
+          <Card className="border-red-200 bg-red-50/40 transition-all hover:border-red-300 hover:shadow-md">
+            <CardHeader>
+              <div className="mb-2 flex items-center gap-2">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-red-100 text-red-700">
+                  <Scale className="h-5 w-5" />
+                </div>
+                <Badge className="bg-red-100 text-red-800">仅内部 · 非正式法律意见</Badge>
+              </div>
+              <CardTitle className="text-base">公司专利库 · {patents.length} 条</CardTitle>
+              <CardDescription>
+                六簇技术模块、两件母案（A 液/物理场，B 测量/安全/低刺激交互）。不设母案 3。第一件先写母案 A，交底书模板与采访清单见 PAT-WRITE-*。不进公开站，不进编排 PPT。
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <span className="inline-flex items-center text-sm font-medium text-red-700">
+                打开专利库 <ArrowRight className="ml-1 h-4 w-4" />
+              </span>
+            </CardContent>
+          </Card>
+        </Link>
       </section>
 
       {/* Pending alerts */}

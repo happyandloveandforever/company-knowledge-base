@@ -103,3 +103,56 @@ export interface ConflictGroup {
   note?: string;
   details: string[];
 }
+
+/** 专利库卡片类型：与知识点总库分开，不进 /open、不进编排 */
+export type PatentKind =
+  | "rule"
+  | "roadmap"
+  | "layout"
+  | "cluster"
+  | "retrieved"
+  | "gap"
+  /** 交底书撰写指南：模板、采访清单、红线自检 */
+  | "draft";
+
+export type PatentRisk = "critical" | "high" | "medium" | "low" | "green";
+
+export type PatentCluster = "1" | "2" | "3" | "4" | "5" | "6" | "cross";
+
+export interface PatentRecord {
+  id: string;
+  kind: PatentKind;
+  title: string;
+  summary: string;
+  body: string;
+  tags: string[];
+  cluster: PatentCluster;
+  risk?: PatentRisk;
+  /** 公开号 / 申请号，检索卡必填 */
+  publicationNo?: string;
+  applicationNo?: string;
+  jurisdiction?: string;
+  techBranch?: string;
+  productLine?: string;
+  familyId?: string;
+  relatedIds: string[];
+  examples: string[];
+  source: KnowledgeSource;
+  status: KnowledgeStatus;
+  /** 默认内部。未公开交底不得改 public */
+  confidentiality: "internal" | "public";
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface PatentSourceFile {
+  id: string;
+  filename: string;
+  cluster?: PatentCluster;
+  fileType: SourceFile["fileType"];
+  uploadedAt: string;
+  patentIds: string[];
+  status: SourceFile["status"];
+  splitMode?: SourceFile["splitMode"];
+  note?: string;
+}

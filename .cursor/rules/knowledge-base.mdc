@@ -17,8 +17,13 @@ alwaysApply: true
 
 - 不要重建 Next.js 项目或换技术栈
 - 不要删除或覆盖 `data/knowledge-points.json` 中已有知识点（除非用户明确要求）
-- 不要重复运行 import 脚本重新生成已入库的文件（如杨浦财务、B端定稿）
+- 不要把专利卡写入 `knowledge-points.json`（专利库是 `data/patents.json`）
+- 不要重复运行 import 脚本重新生成已入库的文件（如杨浦财务、B端定稿、四簇专利矩阵）。六簇升级用 `scripts/apply-patent-six-modules.mjs`
 - 不要清空 `data/sources.json` 中 status=done 的记录
+
+## 交付偏好
+
+- **不要演示视频**（用户 2026-09-04 明确要求）。用文字与测试输出说明结果
 
 ## 默认协作模式
 
