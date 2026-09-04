@@ -176,14 +176,14 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 
 | 指标 | 数值 |
 |------|------|
-| 知识点总数 | **572**（554 `approved` + 18 `draft`） |
-| 通识层 `commons` | **154** 条：公开科学/政策/卫生/证据边界 + 迷走/VNS 通识 |
+| 知识点总数 | **580**（562 `approved` + 18 `draft`） |
+| 通识层 `commons` | **162** 条：公开科学/政策/卫生/证据边界 + 迷走/VNS 通识 + NSF 标准五问 |
 | 公司自有层 `company` | **418** 条：产品、SOP、报价、案例、财务、内训教材、综合干预专业版、内部原子库、疗法叙事脊柱 |
-| 用途 `usage` | `pitch` 294 · `training` 154 · `ops` 58 · `both` 66 |
+| 用途 `usage` | `pitch` 294 · `training` 154 · `ops` 61 · `both` 71 |
 | **仅内训 `internalOnly`** | **127** 条（`KP-TRN-*` 94 + `KP-ATOM-*` 20 + `KP-RX-*` 13），编排 PPT 默认排除 |
-| 已导入文件 | **28** |
+| 已导入文件 | **29** |
 | 待 Claude 拆分队列 | 0 |
-| 结构判断 | 两层已切开；内训 127 条；迷走三套 56 条已批准；原子库零件箱 20 + 疗法五维脊柱 13。仍缺锁数字与真实案例 |
+| 结构判断 | 两层已切开；内训 127 条；迷走三套 56 条已批准；原子库零件箱 20 + 疗法五维脊柱 13；NSF 标准五问 8 条通识卡。仍缺锁数字与真实案例 |
 
 ### 两层怎么用（B端资料）
 
@@ -244,6 +244,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 | 消杀.pptx | SRC-SANITIZE-PPT | KP-SAN-*（缺 015） | 14 | done，已批准 | claude-agent |
 | 项目核心实验方案.docx | SRC-CORE-EXP | KP-EXP-*（缺 001） | 9 | done，已批准 | claude-agent |
 | 公开文献与标准摘录（Web） | SRC-WEB-ENRICH | KP-WEB-001 ~ 012 | 12 | done，已批准 | 网上高价值摘录 |
+| 漂浮舱卫生安全标准五问.md | SRC-NSF-STANDARDS-QA | KP-WEB-013 ~ 020 | 8 | done，已批准 | claude-agent |
 | 优浮医疗联合运营执行方案.doc | SRC-YFOP-OPS | KP-YFOP-001 ~ 010 | 10 | done，余 4 条 draft | claude-agent |
 | 医学漂浮诊疗方案.ppt | SRC-MEDF-PLAN | KP-MEDF-001 ~ 014 | 14 | done，已批准 | claude-agent |
 | 漂浮方舟_SOP手册260519.pdf | SRC-SOP-260519 | KP-SOP-001 ~ 022 | 22 | done，已批准 | claude-agent |
@@ -269,6 +270,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 | 迷走/综合干预（2026-08-31） | VGMECH 四条间接通路 + 共振呼吸 4 周；CIS 展开六模块与三类产品线；VNSMAP 把 FDA/EHJ 与漂浮拆开 | 对外深讲用新卡；浅讲仍可用 V7-018/021 但须口头声明器械证据不是漂浮试验 |
 | 内部原子库（2026-09-01） | M1–M11 / L1–L3 已主题合并 20 条；与 CIS A–F 对照写在 ATOM-003 | 对内写文案；对外禁止混报两套模块名；勿再逐条入库 |
 | 疗法叙事脊柱（2026-09-02） | 五维一体已主题合并 13 条；概率矩阵与排毒叙事冻结 | 对内串体验层；对外仍用 CIS；勿把五维当第四套菜名 |
+| NSF 标准五问（2026-09-04） | WEB-013~020 展开 CCS/周转/臭氧/F462/SVRS 条款号；浅讲仍用 WEB-004/012 | 尽调用新卡；大众 PPT 不锁流量和臭氧数字 |
 | 已压缩 | 论文 103→20 主题卡；原子库 ~1300→20；跨稿 REST史/专家复读/证据墙/功效分条/DEMO 已删 | 对外用 `KP-WEB-010` + 主题卡；勿再跑 `import-mev-atoms.mjs` / 原子逐条 import |
 | 过薄 | FAQ 仍空；真实具名案例仍空；公司一页纸 5；统一数字未锁 | **你必须提供**：机构/专利/C端锁定数字、可公开案例 |
 | 冲突 | 乳酸；Feinstein 非 RCT；**院内「治疗/处方」vs SOP「不治病」**；SOP 水温 36±0.5 / 38℃ / 36.5–39.5 | 独立门店跟 SOP；医院共建跟 YFOP/MEDF；温度与 58%/2000 项须老板锁 |
@@ -292,6 +294,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 - [x] 精细拆分迷走机制报告 / 综合干预专业版 / VNS 手段地图（56 条，已批准；FDA/EHJ 等不得外推为漂浮适应症）
 - [x] combined.md 内部原子库主题合并为 KP-ATOM-001~020（仅内训，直接批准；不逐条入库）
 - [x] 漂浮疗法说明.pdf 主题合并为 KP-RX-001~013（仅内训脊柱；95%/排毒/超觉知冻结）
+- [x] 标准五问拆为 KP-WEB-013~020（通识；展开 WEB-004/012 条款号）
 - [ ] **裁定培训 draft**：原 10 条 + 新 072/073/074/079（排毒叙事、瞑眩、适应症病谱）
 - [ ] 补培训仍缺：漂浮师职业发展、问题集（设备实操已由产品手册补；见 KP-TRN-068）
 - [ ] 老板锁：对外数字 + SOP 水温 + pH 7.8 vs 7–7.5 + 孕周窗口 + 是否沿用优浮历史价
@@ -312,7 +315,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 | `/compose` | 选题 + 演讲逻辑 → 大纲 / PPT |
 | `/status` | 系统状态 |
 | `/open` | 公开只读 HTML（不含仅内训），给外部 AI 抓正文 |
-| `/open/catalog` | 来源清单：总库已合并 572，可外发 445，仅内训 127 不收录 |
+| `/open/catalog` | 来源清单：总库已合并 580，可外发 453，仅内训 127 不收录 |
 | `/open/vagus` | 迷走/综合干预专页（子集，不是总库） |
 | `/api/health` | 健康检查 |
 
@@ -339,6 +342,7 @@ https://happyandloveandforever.github.io/company-knowledge-base/
 │   ├── import-vagus-three-reports.mjs  迷走机制+综合干预+VNS地图
 │   ├── import-atom-library.mjs         内部原子库主题合并（仅内训）
 │   ├── import-therapy-os.mjs           疗法说明五维脊柱（仅内训）
+   ├── import-nsf-standards-qa.mjs     标准五问 → WEB-013~020
 │   ├── process-split-queue.mjs     查看待拆分队列
 │   └── keep-alive-server.sh        服务守护进程
 ├── src/
@@ -466,7 +470,8 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-08-31 | 可外发页写清「总库已合并 539 / 本页 445 / 仅内训 94 不收录」并加来源清单 `/open/catalog`；Vercel `/library` 缓存未命中时不再全量相似扫描超时 |
 | 2026-09-01 | combined.md 内部原子库 ~1300 条主题合并为 KP-ATOM-001~020（仅内训，已批准）；库 539→559。公开页仍 445，仅内训 114。首页内训入口改为教材+原子库分列 |
 | 2026-09-02 | 漂浮疗法说明.pdf 主题合并为 KP-RX-001~013（仅内训脊柱）；库 559→572。公开页仍 445，仅内训 127。五维不替代 CIS |
-| 2026-09-04 | 新增公开标准问答稿 `docs/漂浮舱卫生安全标准五问.md`：CCS-12804 试验、30 min 周转、臭氧限值与检测、ASTM F462、ASME A112.19.17。未改知识点 JSON |
+| 2026-09-04 | 新增公开标准问答稿 `docs/漂浮舱卫生安全标准五问.md`：CCS-12804 试验、30 min 周转、臭氧限值与检测、ASTM F462、ASME A112.19.17 |
+| 2026-09-04 | 五问拆入库：KP-WEB-013~020（8 条通识，已批准）；库 572→580。公开页 445→453，仅内训仍 127。不覆盖 WEB-001~012 |
 
 
 ---

@@ -31,6 +31,16 @@ check("COM 全部在通识层", com.every((p) => p.layer === "commons"));
 
 const web = points.filter((p) => p.id.startsWith("KP-WEB-"));
 check("WEB 全部通识层", web.length > 0 && web.every((p) => p.layer === "commons"));
+check("WEB 至少 20 条（含标准五问）", web.length >= 20, String(web.length));
+check("KP-WEB-013 三套文件卡存在", points.some((p) => p.id === "KP-WEB-013"));
+check("KP-WEB-020 五问对照存在", points.some((p) => p.id === "KP-WEB-020"));
+check(
+  "来源 SRC-NSF-STANDARDS-QA 已记录",
+  sources.some((s) => s.id === "SRC-NSF-STANDARDS-QA" && s.status === "done")
+);
+const web013 = points.find((p) => p.id === "KP-WEB-013");
+check("WEB-013~020 可外发", web.filter((p) => /^KP-WEB-01[3-9]$|^KP-WEB-020$/.test(p.id)).every((p) => p.internalOnly !== true && p.status === "approved"));
+check("WEB-013 声明三套文件不要混", !!web013 && /CCS-12804/.test(`${web013.summary}\n${web013.body}`) && /不要混|不是同一个/.test(`${web013.title}\n${web013.body}`));
 const sop = points.filter((p) => p.id.startsWith("KP-SOP-"));
 check("SOP 全部公司层", sop.length > 0 && sop.every((p) => p.layer === "company"));
 const yfop = points.filter((p) => p.id.startsWith("KP-YFOP-"));
