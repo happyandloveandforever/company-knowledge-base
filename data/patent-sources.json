@@ -324,5 +324,20 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "角度⑤独立立案打掉：行业运维公开工作点低于饱和；漂浮舱已有盐密度闭环；化工配液与防结晶成熟。冷管结晶并入母案A。"
+  },
+  {
+    "id": "SRC-PAT-EXT-REVIEW",
+    "filename": "外部AI回答-整合版",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-04T09:20:00.000Z",
+    "patentIds": [
+      "PAT-EXT-001",
+      "PAT-PRI-039",
+      "PAT-PRI-040"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "第三方整合版过闸：第一部分过期；A/B打掉；C搁置；D并入A4从权；E黄灯待检索。不要把沉默失效和EIS捆套。"
   }
 ]

@@ -72,6 +72,7 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/apply-patent-report-v2.mjs` | v2.0 结论入库：去盐测试、母案B收窄、取消20件（幂等） |
 | `scripts/apply-patent-green-angle-search.mjs` | 三个绿灯角度补检索：①打掉、③重定位、⑤先降黄（幂等） |
 | `scripts/apply-patent-angle5-dosing-search.mjs` | 角度⑤配液结晶检索：独立立案打掉，冷管结晶并入母案A（幂等） |
+| `scripts/apply-patent-ext-review-triage.mjs` | 第三方整合版过闸结论 PAT-EXT-001 + 前案 039/040（幂等） |
 | `scripts/md-to-docx.mjs` | Markdown 报告转 Word（依赖 python-docx） |
 
 **检索纪律：** 中国采绝对新颖性，检索必须中外并行且含非专利公开（IEC/GB/手册/规范）。判断标准是「有没有公开」不是「有没有授权」。详见 `PAT-RULE-002`。

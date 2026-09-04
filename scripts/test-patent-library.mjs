@@ -28,7 +28,7 @@ check("总库数量未因专利库减少", points.length >= 572, String(points.l
 check("总库没有任何 PAT-*", points.every((p) => !String(p.id).startsWith("PAT-")));
 check("总库 sources 不含 SRC-PAT", sources.every((s) => !String(s.id).startsWith("SRC-PAT")));
 
-check("专利卡至少 75 条", patents.length >= 75, String(patents.length));
+check("专利卡至少 78 条", patents.length >= 78, String(patents.length));
 check("全部 confidentiality=internal", patents.every((p) => p.confidentiality === "internal"));
 check("全部 approved", patents.every((p) => p.status === "approved"));
 check(
@@ -110,6 +110,9 @@ check(
     readFileSync(path.join(process.cwd(), "patent-drafts", "外部AI评审任务书.md"), "utf-8")
   ) &&
     /201621389026/.test(
+      readFileSync(path.join(process.cwd(), "patent-drafts", "外部AI评审任务书.md"), "utf-8")
+    ) &&
+    /EIS/.test(
       readFileSync(path.join(process.cwd(), "patent-drafts", "外部AI评审任务书.md"), "utf-8")
     )
 );
@@ -212,6 +215,20 @@ check("角度复盘来源已记录", patentSources.some((s) => s.id === "SRC-PAT
 check("组合发明来源已记录", patentSources.some((s) => s.id === "SRC-PAT-COMBINATION" && s.status === "done"));
 check("绿灯角度检索来源已记录", patentSources.some((s) => s.id === "SRC-PAT-GREEN-SEARCH" && s.status === "done"));
 check("配液结晶检索来源已记录", patentSources.some((s) => s.id === "SRC-PAT-DOSING-SEARCH" && s.status === "done"));
+check("第三方过闸来源已记录", patentSources.some((s) => s.id === "SRC-PAT-EXT-REVIEW" && s.status === "done"));
+check("第三方过闸结论卡存在", patents.some((p) => p.id === "PAT-EXT-001" && /便宜/.test(p.body)));
+check(
+  "EIS卤水结垢前案已记录",
+  patents.some((p) => p.id === "PAT-PRI-039" && /US10234376/.test(p.publicationNo ?? ""))
+);
+check(
+  "消毒电极补偿前案已记录",
+  patents.some((p) => p.id === "PAT-PRI-040" && /CCS58E/.test(p.publicationNo ?? ""))
+);
+check(
+  "整合版原稿已保存",
+  existsSync(path.join(process.cwd(), "patent-drafts", "外部AI回答-整合版.md"))
+);
 check(
   "候选角度五已标为打掉独立立案",
   /已打掉/.test(patents.find((p) => p.id === "PAT-IDEA-005")?.title ?? "") &&

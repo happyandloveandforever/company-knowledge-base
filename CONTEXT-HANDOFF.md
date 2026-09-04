@@ -10,7 +10,7 @@
 
 > 先读 `CONTEXT-HANDOFF.md` 和 `PROJECT.md`，不要重建项目、不要换框架。
 >
-> 确认三件事再开始：`data/knowledge-points.json` 有 572 条、`data/patents.json` 有 75 条、`git branch` 在 `cursor/patent-library-3c23`。
+> 确认三件事再开始：`data/knowledge-points.json` 有 572 条、`data/patents.json` 有 78 条、`git branch` 在 `cursor/patent-library-3c23`。
 >
 > 我现在要做的是：【在这里写你这次想干什么】
 
@@ -20,7 +20,7 @@
 
 ```bash
 node -e "console.log('知识点', require('./data/knowledge-points.json').length)"   # 应为 572
-node -e "console.log('专利卡', require('./data/patents.json').length)"            # 应为 75
+node -e "console.log('专利卡', require('./data/patents.json').length)"            # 应为 78
 node scripts/test-patent-library.mjs | tail -2                                    # 应全通过
 node scripts/test-knowledge-layers.mjs | tail -2
 git branch --show-current                                                          # cursor/patent-library-3c23
@@ -52,7 +52,7 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 数据。两个**物理隔�
 | 库 | 文件 | 数量 | 对外 |
 |---|---|---|---|
 | 知识点总库 | `data/knowledge-points.json` | **572** | 445 条可外发，127 条仅内训 |
-| **独立专利库** | `data/patents.json` | **75** | **全部仅内部，不进 `/open`** |
+| **独立专利库** | `data/patents.json` | **78** | **全部仅内部，不进 `/open`** |
 
 网页：`http://127.0.0.1:43123`（`npm run build && npm run serve`）
 专利库页面：`http://127.0.0.1:43123/patents`
@@ -99,7 +99,7 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 数据。两个**物理隔�
 
 ### 前案
 
-38 条 `PAT-PRI-*`，含美国专利、IEC/GB/YY 标准、监管规范、学术文献、行业运维公开。**最危险的是 `PAT-PRI-001` CN121795911A**（漂浮舱多模态人体信号 AI 闭环）。
+40 条 `PAT-PRI-*`，含美国专利、IEC/GB/YY 标准、监管规范、学术文献、行业运维公开、产品手册。**最危险的是 `PAT-PRI-001` CN121795911A**（漂浮舱多模态人体信号 AI 闭环）。过闸结论卡：`PAT-EXT-001`。
 
 ---
 
@@ -126,7 +126,7 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 数据。两个**物理隔�
 |---|---|
 | `专利布局整体报告-v2.md` ＋ docx | **当前生效的整体报告**，取代重构版 |
 | `外部AI评审任务书.md` ＋ docx | 给第三方 AI 独立评审用，自包含。含已打掉清单（含角度⑤配液） |
-| `外部AI提问话术.md` ＋ docx | 怎么给别的 AI 下指令，含自我质疑追问 |
+| `外部AI回答-整合版.md` | 第三方三轮整合稿原文。过闸结论见 `PAT-EXT-001`，不要按它的绿灯表执行 |
 | `申请文件底稿-多气源安全互锁.md` | 第一件申请文件底稿 v0.2（权要+说明书+摘要） |
 | `交底书-母案A.md` | 可填空交底书模板，给非工程背景的人用 |
 
@@ -149,7 +149,7 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 数据。两个**物理隔�
 2. **角度③最便宜的验证**：把气泡打开和关闭各测一次舱内声压。差异很小则该角度不成立
 3. 角度⑤配液检索已完成：独立立案打掉，冷管结晶并入母案A，不再单独立项
 4. 先问工程师：设备是否真的同时装氢气与臭氧两路气源。若不会，第一件底稿前提不成立，改写 A3
-5. 把任务书发给第三方 AI/顾问做独立评审，回来的结果要过三道：已打掉清单 → 去环境测试 → 红线与第 25 条
+5. 把任务书发给第三方 AI/顾问做独立评审，回来的结果要过三道：已打掉清单 → 去环境测试 → 红线与第 25 条。**2026-09-04 已过闸一份整合版**：第一部分过期作废；新角度 A/B 打掉；C 搁置；D 并入沉默失效从权；E 黄灯须先检索。见 `PAT-EXT-001`。不要把沉默失效和 EIS 捆成一套。
 6. 管理层拍板六件事（见报告 v2.0 第 12.2 节）
 
 ---
