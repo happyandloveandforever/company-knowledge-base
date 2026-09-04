@@ -501,5 +501,47 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "主动降光：反相消光物理不成立已打掉；能写的是暗适应时变阈值、光催化余辉准入联锁、漏光分区遮断。先案 PAT-PRI-077～079。"
+  },
+  {
+    "id": "SRC-PAT-SNR-ARCH",
+    "filename": "信噪比架构-振动与审计",
+    "cluster": "6",
+    "fileType": "pdf",
+    "uploadedAt": "2026-09-04T18:00:00.000Z",
+    "patentIds": [
+      "PAT-MAP-006",
+      "PAT-EXT-003",
+      "PAT-GAP-006",
+      "PAT-IDEA-046",
+      "PAT-IDEA-047",
+      "PAT-IDEA-048",
+      "PAT-IDEA-049",
+      "PAT-IDEA-050",
+      "PAT-IDEA-051",
+      "PAT-IDEA-052",
+      "PAT-IDEA-053",
+      "PAT-IDEA-054",
+      "PAT-PRI-080",
+      "PAT-PRI-081",
+      "PAT-PRI-082",
+      "PAT-PRI-083"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "信噪比架构母案；执行器互污染联合优化；生理节律掩蔽窗；工作液即可调阻抗层与浮力双约束；腔体模态在线修正；腔压心冲击传感。舱内触觉换能器/骨传导放松/40Hz 三条打掉。独立审计七节点入库。先案 PAT-PRI-080～083。"
+  },
+  {
+    "id": "SRC-PAT-PRIOR-USE",
+    "filename": "使用公开规则与振动舱先案",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-04T19:00:00.000Z",
+    "patentIds": [
+      "PAT-RULE-006",
+      "PAT-PRI-084"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "使用公开＝现有技术的硬规则（专利法22条5款、审查指南2.1.2），纠正「对方没申请专利所以坑是空的」这一误解；补入 US11759705 多感官振动舱专利。"
   }
 ]

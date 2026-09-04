@@ -318,6 +318,68 @@ check(
   existsSync(path.join(process.cwd(), "patent-drafts", "漂浮方舟_真实技术保护_消杀与低刺激.docx"))
 );
 
+// 信噪比架构 + 审计 + 使用公开规则
+check("信噪比架构来源已记录", patentSources.some((s) => s.id === "SRC-PAT-SNR-ARCH" && s.status === "done"));
+check("使用公开规则来源已记录", patentSources.some((s) => s.id === "SRC-PAT-PRIOR-USE" && s.status === "done"));
+check("信噪比架构总图卡存在", patents.some((p) => p.id === "PAT-MAP-006"));
+check(
+  "PAT-MAP-005 已声明被 006 取代",
+  /PAT-MAP-006 取代/.test(patents.find((p) => p.id === "PAT-MAP-005")?.summary ?? "")
+);
+check("独立审计结论卡存在", patents.some((p) => p.id === "PAT-EXT-003" && /审计/.test(p.title)));
+check(
+  "审计七节点已转实验清单",
+  patents.some((p) => p.id === "PAT-GAP-006" && /毫米波|交叉影响/.test(p.body))
+);
+check("信噪比母案候选存在", patents.some((p) => p.id === "PAT-IDEA-046" && /本底/.test(p.title)));
+check(
+  "执行器互污染联合优化卡存在",
+  patents.some((p) => p.id === "PAT-IDEA-047" && /交叉影响/.test(p.body))
+);
+check("生理节律掩蔽窗卡存在", patents.some((p) => p.id === "PAT-IDEA-048"));
+check(
+  "工作液即可调阻抗层卡讲清双约束",
+  patents.some((p) => p.id === "PAT-IDEA-049" && /浮力/.test(p.body) && /声阻抗|阻抗/.test(p.body))
+);
+check("腔体模态在线修正卡存在", patents.some((p) => p.id === "PAT-IDEA-050" && /驻波|模态/.test(p.body)));
+check("腔压心冲击传感卡存在", patents.some((p) => p.id === "PAT-IDEA-051" && /心冲击/.test(p.body)));
+check("毫米波已打掉", /已打掉/.test(patents.find((p) => p.id === "PAT-IDEA-052")?.title ?? ""));
+check("舱内振动换能器已打掉", /已打掉/.test(patents.find((p) => p.id === "PAT-IDEA-053")?.title ?? ""));
+check("40Hz已打掉", /已打掉/.test(patents.find((p) => p.id === "PAT-IDEA-054")?.title ?? ""));
+check(
+  "40Hz卡含撰写禁令",
+  /不得在权利要求或说明书中出现/.test(patents.find((p) => p.id === "PAT-IDEA-054")?.body ?? "")
+);
+check("Dreampod触觉换能器公开使用已记录", patents.some((p) => p.id === "PAT-PRI-080"));
+check("骨传导振动枕前案已记录", patents.some((p) => p.id === "PAT-PRI-081"));
+check("GENUS/Cognito前案已记录", patents.some((p) => p.id === "PAT-PRI-082" && /GENUS/.test(p.publicationNo ?? "")));
+check("阻抗匹配层公知已记录", patents.some((p) => p.id === "PAT-PRI-083"));
+check("多感官振动舱专利已记录", patents.some((p) => p.id === "PAT-PRI-084" && /US11759705/.test(p.publicationNo ?? "")));
+// 使用公开硬规则
+check("使用公开规则卡存在", patents.some((p) => p.id === "PAT-RULE-006"));
+check(
+  "规则卡引用了法条与指南",
+  /第二十二条第五款/.test(patents.find((p) => p.id === "PAT-RULE-006")?.body ?? "") &&
+    /使用公开/.test(patents.find((p) => p.id === "PAT-RULE-006")?.body ?? "")
+);
+check(
+  "规则卡讲清没申请专利反而更糟",
+  /公有领域/.test(patents.find((p) => p.id === "PAT-RULE-006")?.body ?? "") &&
+    /都不能再就它取得专利|不能再就它取得专利/.test(patents.find((p) => p.id === "PAT-RULE-006")?.body ?? "")
+);
+check(
+  "规则卡提醒我方自身公开风险",
+  /宽限期/.test(patents.find((p) => p.id === "PAT-RULE-006")?.body ?? "")
+);
+check(
+  "信噪比架构文件存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "信噪比架构.md"))
+);
+check(
+  "信噪比架构 docx 存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "漂浮方舟_信噪比架构_振动与协同.docx"))
+);
+
 check("角度复盘来源已记录", patentSources.some((s) => s.id === "SRC-PAT-ANGLE-REVIEW" && s.status === "done"));
 check("组合发明来源已记录", patentSources.some((s) => s.id === "SRC-PAT-COMBINATION" && s.status === "done"));
 check("绿灯角度检索来源已记录", patentSources.some((s) => s.id === "SRC-PAT-GREEN-SEARCH" && s.status === "done"));
