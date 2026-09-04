@@ -28,7 +28,7 @@ check("总库数量未因专利库减少", points.length >= 572, String(points.l
 check("总库没有任何 PAT-*", points.every((p) => !String(p.id).startsWith("PAT-")));
 check("总库 sources 不含 SRC-PAT", sources.every((s) => !String(s.id).startsWith("SRC-PAT")));
 
-check("专利卡至少 72 条", patents.length >= 72, String(patents.length));
+check("专利卡至少 75 条", patents.length >= 75, String(patents.length));
 check("全部 confidentiality=internal", patents.every((p) => p.confidentiality === "internal"));
 check("全部 approved", patents.every((p) => p.status === "approved"));
 check(
@@ -108,7 +108,10 @@ check(
   "任务书已同步已打掉清单",
   /US7069183/.test(
     readFileSync(path.join(process.cwd(), "patent-drafts", "外部AI评审任务书.md"), "utf-8")
-  )
+  ) &&
+    /201621389026/.test(
+      readFileSync(path.join(process.cwd(), "patent-drafts", "外部AI评审任务书.md"), "utf-8")
+    )
 );
 check(
   "组合发明卡讲清协同而非拼凑",
@@ -208,6 +211,24 @@ check("报告v2.0来源已记录", patentSources.some((s) => s.id === "SRC-PAT-R
 check("角度复盘来源已记录", patentSources.some((s) => s.id === "SRC-PAT-ANGLE-REVIEW" && s.status === "done"));
 check("组合发明来源已记录", patentSources.some((s) => s.id === "SRC-PAT-COMBINATION" && s.status === "done"));
 check("绿灯角度检索来源已记录", patentSources.some((s) => s.id === "SRC-PAT-GREEN-SEARCH" && s.status === "done"));
+check("配液结晶检索来源已记录", patentSources.some((s) => s.id === "SRC-PAT-DOSING-SEARCH" && s.status === "done"));
+check(
+  "候选角度五已标为打掉独立立案",
+  /已打掉/.test(patents.find((p) => p.id === "PAT-IDEA-005")?.title ?? "") &&
+    patents.find((p) => p.id === "PAT-IDEA-005")?.risk === "critical"
+);
+check(
+  "配液运维前案已记录",
+  patents.some((p) => p.id === "PAT-PRI-036" && /1\.265/.test(p.body))
+);
+check(
+  "漂浮舱盐密度闭环前案已记录",
+  patents.some((p) => p.id === "PAT-PRI-037" && /盐密度传感器/.test(p.body))
+);
+check(
+  "工业配液前案已记录",
+  patents.some((p) => p.id === "PAT-PRI-038" && /US6739408/.test(p.publicationNo ?? ""))
+);
 check(
   "来源 patentIds 都能在库中找到",
   patentSources.every((s) => s.patentIds.every((id) => patents.some((p) => p.id === id)))

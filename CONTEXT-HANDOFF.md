@@ -10,7 +10,7 @@
 
 > 先读 `CONTEXT-HANDOFF.md` 和 `PROJECT.md`，不要重建项目、不要换框架。
 >
-> 确认三件事再开始：`data/knowledge-points.json` 有 572 条、`data/patents.json` 有 72 条、`git branch` 在 `cursor/patent-library-3c23`。
+> 确认三件事再开始：`data/knowledge-points.json` 有 572 条、`data/patents.json` 有 75 条、`git branch` 在 `cursor/patent-library-3c23`。
 >
 > 我现在要做的是：【在这里写你这次想干什么】
 
@@ -20,8 +20,8 @@
 
 ```bash
 node -e "console.log('知识点', require('./data/knowledge-points.json').length)"   # 应为 572
-node -e "console.log('专利卡', require('./data/patents.json').length)"            # 应为 72
-node scripts/test-patent-library.mjs | tail -2                                    # 应 80 项全通过
+node -e "console.log('专利卡', require('./data/patents.json').length)"            # 应为 75
+node scripts/test-patent-library.mjs | tail -2                                    # 应全通过
 node scripts/test-knowledge-layers.mjs | tail -2
 git branch --show-current                                                          # cursor/patent-library-3c23
 ```
@@ -52,7 +52,7 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 数据。两个**物理隔�
 | 库 | 文件 | 数量 | 对外 |
 |---|---|---|---|
 | 知识点总库 | `data/knowledge-points.json` | **572** | 445 条可外发，127 条仅内训 |
-| **独立专利库** | `data/patents.json` | **72** | **全部仅内部，不进 `/open`** |
+| **独立专利库** | `data/patents.json` | **75** | **全部仅内部，不进 `/open`** |
 
 网页：`http://127.0.0.1:43123`（`npm run build && npm run serve`）
 专利库页面：`http://127.0.0.1:43123/patents`
@@ -92,14 +92,14 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 数据。两个**物理隔�
 | ② 中性浮力下无接触面体征测量 | 🔴 已打掉（US6669649 已占浮力测呼吸） |
 | ③ **含气泡高盐液中声能测不准** | 🟢 **目前最有希望** |
 | ④ 迷走走装置路线 | 🟡 二期，缺对照数据 |
-| ⑤ 近饱和高盐液配液精度 | 🟡 已降级，可能并入母案A |
+| ⑤ 近饱和高盐液配液精度 | 🔴 **已打掉独立立案**（行业运维公开工作点低于饱和；舱内已有盐密度闭环；化工配液成熟。冷管结晶并入母案A） |
 | ⑥ 迷走技术接入组合发明 | 🟡 协同点未锁定 |
 
 **另有一个确认站得住的发明点**：高盐蒸汽在气体传感器透气孔结晶造成"沉默失效"——传感器电路完好、常规自诊断查不出（手册明写不覆盖透气孔堵塞），持续输出正常低读数。见 `PAT-DRAFT-A4`。
 
 ### 前案
 
-31 条 `PAT-PRI-*`，含美国专利、IEC/GB/YY 标准、监管规范、学术文献。**最危险的是 `PAT-PRI-001` CN121795911A**（漂浮舱多模态人体信号 AI 闭环）。
+38 条 `PAT-PRI-*`，含美国专利、IEC/GB/YY 标准、监管规范、学术文献、行业运维公开。**最危险的是 `PAT-PRI-001` CN121795911A**（漂浮舱多模态人体信号 AI 闭环）。
 
 ---
 
@@ -125,7 +125,7 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 数据。两个**物理隔�
 | 文件 | 作用 |
 |---|---|
 | `专利布局整体报告-v2.md` ＋ docx | **当前生效的整体报告**，取代重构版 |
-| `外部AI评审任务书.md` ＋ docx | 给第三方 AI 独立评审用，自包含。含 23 条已打掉清单 |
+| `外部AI评审任务书.md` ＋ docx | 给第三方 AI 独立评审用，自包含。含已打掉清单（含角度⑤配液） |
 | `外部AI提问话术.md` ＋ docx | 怎么给别的 AI 下指令，含自我质疑追问 |
 | `申请文件底稿-多气源安全互锁.md` | 第一件申请文件底稿 v0.2（权要+说明书+摘要） |
 | `交底书-母案A.md` | 可填空交底书模板，给非工程背景的人用 |
@@ -134,12 +134,12 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 数据。两个**物理隔�
 
 | 脚本 | 作用 |
 |---|---|
-| `scripts/test-patent-library.mjs` | 专利库回归，80 项 |
+| `scripts/test-patent-library.mjs` | 专利库回归 |
 | `scripts/test-knowledge-layers.mjs` | 知识库分层与内训隔离回归 |
 | `scripts/md-to-docx.mjs` | Markdown 报告转 Word（依赖 python-docx） |
 | `scripts/apply-patent-*.mjs`、`import-patent-*.mjs` | 各批专利卡入库，**全部幂等** |
 
-改专利库的正确做法：**写一个新的幂等脚本**，用 upsert，不要手改 JSON。参考 `scripts/apply-patent-green-angle-search.mjs`。
+改专利库的正确做法：**写一个新的幂等脚本**，用 upsert，不要手改 JSON。参考 `scripts/apply-patent-green-angle-search.mjs` 或 `scripts/apply-patent-angle5-dosing-search.mjs`。
 
 ---
 
@@ -147,7 +147,7 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 数据。两个**物理隔�
 
 1. **高盐 vs 清水对照实验**：传感器多久被盐晶糊住、糊住后读数是归零还是卡住、常规自诊断能否发现。**决定 `PAT-DRAFT-A4` 生死**
 2. **角度③最便宜的验证**：把气泡打开和关闭各测一次舱内声压。差异很小则该角度不成立
-3. 角度⑤：检索配液与结晶控制领域
+3. 角度⑤配液检索已完成：独立立案打掉，冷管结晶并入母案A，不再单独立项
 4. 先问工程师：设备是否真的同时装氢气与臭氧两路气源。若不会，第一件底稿前提不成立，改写 A3
 5. 把任务书发给第三方 AI/顾问做独立评审，回来的结果要过三道：已打掉清单 → 去环境测试 → 红线与第 25 条
 6. 管理层拍板六件事（见报告 v2.0 第 12.2 节）
