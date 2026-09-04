@@ -281,7 +281,7 @@ check(
     patents.some((p) => p.id === id)
   )
 );
-check("刺激预算母案候选存在", patents.some((p) => p.id === "PAT-IDEA-037" && /母案/.test(p.summary + p.title)));
+check("刺激预算卡存在并已归入组二", patents.some((p) => p.id === "PAT-IDEA-037" && /组二/.test(p.summary + p.title)));
 check("掩蔽声已打掉", /已打掉/.test(patents.find((p) => p.id === "PAT-IDEA-038")?.title ?? ""));
 check("被动隔音已打掉", /已打掉/.test(patents.find((p) => p.id === "PAT-IDEA-039")?.title ?? ""));
 check("掩蔽声商品前案已记录", patents.some((p) => p.id === "PAT-PRI-072"));
@@ -331,7 +331,7 @@ check(
   "审计七节点已转实验清单",
   patents.some((p) => p.id === "PAT-GAP-006" && /毫米波|交叉影响/.test(p.body))
 );
-check("信噪比母案候选存在", patents.some((p) => p.id === "PAT-IDEA-046" && /本底/.test(p.title)));
+check("信噪比独权候选存在", patents.some((p) => p.id === "PAT-IDEA-046" && /本底/.test(p.title)));
 check(
   "执行器互污染联合优化卡存在",
   patents.some((p) => p.id === "PAT-IDEA-047" && /交叉影响/.test(p.body))
@@ -378,6 +378,50 @@ check(
 check(
   "信噪比架构 docx 存在",
   existsSync(path.join(process.cwd(), "patent-drafts", "漂浮方舟_信噪比架构_振动与协同.docx"))
+);
+
+// 申请策略 v2：母案退役，四组独立申请
+check("申请策略来源已记录", patentSources.some((s) => s.id === "SRC-PAT-FILING-STRATEGY" && s.status === "done"));
+check("单一性硬规则卡存在", patents.some((p) => p.id === "PAT-RULE-007"));
+check(
+  "单一性卡引用31条与特定技术特征",
+  /第三十一条/.test(patents.find((p) => p.id === "PAT-RULE-007")?.body ?? "") &&
+    /特定技术特征/.test(patents.find((p) => p.id === "PAT-RULE-007")?.body ?? "")
+);
+check(
+  "单一性卡讲清分案不得超范围",
+  /不得超出原申请记载范围/.test(patents.find((p) => p.id === "PAT-RULE-007")?.body ?? "")
+);
+check(
+  "单一性卡给出本国优先权与同日申请两个工具",
+  /本国优先权/.test(patents.find((p) => p.id === "PAT-RULE-007")?.body ?? "") &&
+    /实用新型/.test(patents.find((p) => p.id === "PAT-RULE-007")?.body ?? "")
+);
+check("申请策略v2卡存在", patents.some((p) => p.id === "PAT-BATCH-002"));
+check(
+  "策略卡宣告母案框架退役",
+  /母案框架/.test(patents.find((p) => p.id === "PAT-BATCH-002")?.title ?? "")
+);
+check(
+  "策略卡列出四个申请组",
+  ["组一", "组二", "组三", "组四"].every((g) =>
+    (patents.find((p) => p.id === "PAT-BATCH-002")?.body ?? "").includes(g)
+  )
+);
+check(
+  "策略卡按数据门槛排队且组二第一梯队",
+  /第一梯队[\s\S]{0,80}组二/.test(patents.find((p) => p.id === "PAT-BATCH-002")?.body ?? "")
+);
+check(
+  "037与046标题已去掉母案称谓并改为组二",
+  !/母案/.test(patents.find((p) => p.id === "PAT-IDEA-037")?.title ?? "") &&
+    !/母案/.test(patents.find((p) => p.id === "PAT-IDEA-046")?.title ?? "") &&
+    /组二/.test(patents.find((p) => p.id === "PAT-IDEA-037")?.title ?? "") &&
+    /组二/.test(patents.find((p) => p.id === "PAT-IDEA-046")?.title ?? "")
+);
+check(
+  "全库不再有自称母案的候选卡",
+  !patents.some((p) => p.id.startsWith("PAT-IDEA") && /母案候选/.test(p.title))
 );
 
 check("角度复盘来源已记录", patentSources.some((s) => s.id === "SRC-PAT-ANGLE-REVIEW" && s.status === "done"));

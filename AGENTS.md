@@ -57,6 +57,7 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/apply-patent-active-light.mjs` | 主动降光：暗适应时变阈值/余辉准入/分区遮断（幂等，`PAT-IDEA-041`） |
 | `scripts/apply-patent-snr-architecture.mjs` | 信噪比架构母案 + 振动方向 + 独立审计入库（幂等，`PAT-MAP-006`） |
 | `scripts/apply-patent-prior-use-rule.mjs` | 使用公开＝现有技术硬规则（幂等，`PAT-RULE-006`） |
+| `scripts/apply-patent-filing-strategy.mjs` | 母案退役、四组独立申请、单一性硬规则（幂等，`PAT-BATCH-002`） |
 | `patent-drafts/信噪比架构.md` | **当前给人看的专利总菜单** |
 | `patent-drafts/真实技术保护.md` | 上一版，仍有效，作为消杀与低刺激的通道实现 |
 | `scripts/apply-knowledge-layers.mjs` | 通识/公司分层 + 通识前沿卡（幂等） |

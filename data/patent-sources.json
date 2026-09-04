@@ -543,5 +543,19 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "使用公开＝现有技术的硬规则（专利法22条5款、审查指南2.1.2），纠正「对方没申请专利所以坑是空的」这一误解；补入 US11759705 多感官振动舱专利。"
+  },
+  {
+    "id": "SRC-PAT-FILING-STRATEGY",
+    "filename": "申请策略-母案退役与分组",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-04T20:00:00.000Z",
+    "patentIds": [
+      "PAT-RULE-007",
+      "PAT-BATCH-002"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "母案框架退役，改四组独立申请按数据门槛排队；单一性/分案不超范围/公开充分/本国优先权硬规则。"
   }
 ]
