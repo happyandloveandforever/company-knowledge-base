@@ -440,6 +440,38 @@ check(
     /先案卡.*再写方案卡|查完先案/.test(patents.find((p) => p.id === "PAT-RULE-008")?.body ?? "")
 );
 
+// 整合方案 v4.0：对外交付件，先案与红灯必须列全
+check("整合方案v4来源已记录", patentSources.some((s) => s.id === "SRC-PAT-REPORT-V4" && s.status === "done"));
+check("整合方案v4卡存在", patents.some((p) => p.id === "PAT-MAP-007"));
+check("整合方案v4源稿存在", existsSync(path.join(process.cwd(), "patent-drafts", "专利整合方案-v4.md")));
+check(
+  "整合方案v4 docx 存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "漂浮方舟_专利整合方案_v4.0.docx"))
+);
+{
+  const v4 = readFileSync(path.join(process.cwd(), "patent-drafts", "专利整合方案-v4.md"), "utf-8");
+  const priIds = patents.filter((p) => p.kind === "retrieved").map((p) => p.id);
+  const killedIds = patents.filter((p) => p.lifecycle === "killed").map((p) => p.id);
+  const refs = [...new Set(v4.match(/PAT-[A-Z]+-[A-Z0-9]+/g) ?? [])];
+  check(
+    "v4 列全了所有先案",
+    priIds.every((id) => v4.includes(id)),
+    priIds.filter((id) => !v4.includes(id)).join(",")
+  );
+  check(
+    "v4 列全了所有红灯",
+    killedIds.every((id) => v4.includes(id)),
+    killedIds.filter((id) => !v4.includes(id)).join(",")
+  );
+  check(
+    "v4 引用的卡号无悬空",
+    refs.every((r) => patents.some((p) => p.id === r)),
+    refs.filter((r) => !patents.some((p) => p.id === r)).join(",")
+  );
+  check("v4 含使用公开硬规则提醒", /PAT-RULE-006/.test(v4) && /使用公开/.test(v4));
+  check("v4 含撰写纪律段", /撰写纪律/.test(v4) && /40Hz/.test(v4));
+}
+
 // 称谓自洽：标题是人扫库时唯一会看的一行，不能还在讲已退役的母案
 check("称谓清理来源已记录", patentSources.some((s) => s.id === "SRC-PAT-TITLE-CLEANUP" && s.status === "done"));
 check(

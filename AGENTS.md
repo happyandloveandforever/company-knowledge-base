@@ -63,7 +63,8 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/_template-new-batch.mjs` | 新思路入库模板，复制改内容即可 |
 | `patent-drafts/新思路入库流程.md` | 新思路进库六步流程（`PAT-RULE-008`） |
 | `scripts/check-served-ui.mjs` | 校验服务跑的是不是最新界面产物；改完 `src/` 必跑 |
-| `patent-drafts/信噪比架构.md` | **当前给人看的专利总菜单** |
+| `patent-drafts/专利整合方案-v4.md` | **对外交付件**，含全部先案与红灯清单（`PAT-MAP-007`） |
+| `patent-drafts/信噪比架构.md` | 技术总图，给人看的方案菜单 |
 | `patent-drafts/真实技术保护.md` | 上一版，仍有效，作为消杀与低刺激的通道实现 |
 | `scripts/apply-knowledge-layers.mjs` | 通识/公司分层 + 通识前沿卡（幂等） |
 | `scripts/apply-patent-nsf-sanitation-seeds.mjs` | NSF 50/氯溴过闸：强制项勿主张，打开撰写候选⑦～⑪（幂等） |

@@ -604,5 +604,18 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "现行卡标题与摘要里遗留的母案A/B称谓统一改为申请组；正文原文保留不动，只改导航性文字。"
+  },
+  {
+    "id": "SRC-PAT-REPORT-V4",
+    "filename": "专利整合方案-v4",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-05T00:00:00.000Z",
+    "patentIds": [
+      "PAT-MAP-007"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "合并前定稿的整合方案：信噪比架构 + 五个申请组 + 全部87条先案清单 + 18条红灯 + 三件下一步。产出 patent-drafts/专利整合方案-v4.md 与 docx。"
   }
 ]
