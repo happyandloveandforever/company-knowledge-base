@@ -339,5 +339,25 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "第三方整合版过闸：第一部分过期；A/B打掉；C搁置；D并入A4从权；E黄灯待检索。不要把沉默失效和EIS捆套。"
+  },
+  {
+    "id": "SRC-PAT-NSF-SANITATION",
+    "filename": "NSF与氯溴撰写菜单",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-04T10:10:00.000Z",
+    "patentIds": [
+      "PAT-PRI-041",
+      "PAT-PRI-042",
+      "PAT-SEED-001",
+      "PAT-IDEA-007",
+      "PAT-IDEA-008",
+      "PAT-IDEA-009",
+      "PAT-IDEA-010",
+      "PAT-IDEA-011"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "NSF50§28与氯溴文过闸：强制项和不用氯勿主张；打开⑦～⑪黄灯菜单给专家选。现象层盐析/DPD失灵已公开。"
   }
 ]

@@ -28,7 +28,7 @@ check("总库数量未因专利库减少", points.length >= 572, String(points.l
 check("总库没有任何 PAT-*", points.every((p) => !String(p.id).startsWith("PAT-")));
 check("总库 sources 不含 SRC-PAT", sources.every((s) => !String(s.id).startsWith("SRC-PAT")));
 
-check("专利卡至少 78 条", patents.length >= 78, String(patents.length));
+check("专利卡至少 86 条", patents.length >= 86, String(patents.length));
 check("全部 confidentiality=internal", patents.every((p) => p.confidentiality === "internal"));
 check("全部 approved", patents.every((p) => p.status === "approved"));
 check(
@@ -113,6 +113,12 @@ check(
       readFileSync(path.join(process.cwd(), "patent-drafts", "外部AI评审任务书.md"), "utf-8")
     ) &&
     /EIS/.test(
+      readFileSync(path.join(process.cwd(), "patent-drafts", "外部AI评审任务书.md"), "utf-8")
+    ) &&
+    /NSF\/ANSI 50/.test(
+      readFileSync(path.join(process.cwd(), "patent-drafts", "外部AI评审任务书.md"), "utf-8")
+    ) &&
+    /不要主张不用氯/.test(
       readFileSync(path.join(process.cwd(), "patent-drafts", "外部AI评审任务书.md"), "utf-8")
     )
 );
@@ -217,6 +223,20 @@ check("绿灯角度检索来源已记录", patentSources.some((s) => s.id === "S
 check("配液结晶检索来源已记录", patentSources.some((s) => s.id === "SRC-PAT-DOSING-SEARCH" && s.status === "done"));
 check("第三方过闸来源已记录", patentSources.some((s) => s.id === "SRC-PAT-EXT-REVIEW" && s.status === "done"));
 check("第三方过闸结论卡存在", patents.some((p) => p.id === "PAT-EXT-001" && /便宜/.test(p.body)));
+check("NSF撰写菜单来源已记录", patentSources.some((s) => s.id === "SRC-PAT-NSF-SANITATION" && s.status === "done"));
+check("NSF50强制项前案已记录", patents.some((p) => p.id === "PAT-PRI-041" && /0\.1 ppm/.test(p.body)));
+check("氯溴共识前案已记录", patents.some((p) => p.id === "PAT-PRI-042" && /不推荐氯/.test(p.body)));
+check("撰写菜单卡存在", patents.some((p) => p.id === "PAT-SEED-001" && /给专家选/.test(p.title)));
+check(
+  "NSF五个撰写候选齐全",
+  ["PAT-IDEA-007", "PAT-IDEA-008", "PAT-IDEA-009", "PAT-IDEA-010", "PAT-IDEA-011"].every((id) =>
+    patents.some((p) => p.id === id)
+  )
+);
+check(
+  "撰写思路菜单文件存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "撰写思路菜单-NSF与氯溴.md"))
+);
 check(
   "EIS卤水结垢前案已记录",
   patents.some((p) => p.id === "PAT-PRI-039" && /US10234376/.test(p.publicationNo ?? ""))
