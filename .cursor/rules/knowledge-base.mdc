@@ -21,6 +21,10 @@ alwaysApply: true
 - 不要重复运行 import 脚本重新生成已入库的文件（如杨浦财务、B端定稿、四簇专利矩阵）。六簇升级用 `scripts/apply-patent-six-modules.mjs`
 - 不要清空 `data/sources.json` 中 status=done 的记录
 
+## 交付偏好
+
+- **不要演示视频**（用户 2026-09-04 明确要求）。用文字与测试输出说明结果
+
 ## 默认协作模式
 
 - 用户使用 **Cursor 内置 Claude** 做精细拆分，**不需要** `ANTHROPIC_API_KEY`

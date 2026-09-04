@@ -232,5 +232,22 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "绝对新颖性法条查证 + 美国/IEC 国际前案；A4底稿发明点据此收窄。法律状态未核验。"
+  },
+  {
+    "id": "SRC-PAT-REPORT-V2",
+    "filename": "漂浮方舟_专利布局整体报告_v2.0.docx",
+    "cluster": "cross",
+    "fileType": "docx",
+    "uploadedAt": "2026-09-04T06:10:00.000Z",
+    "patentIds": [
+      "PAT-MAP-002",
+      "PAT-RULE-003",
+      "PAT-ROAD-B",
+      "PAT-BATCH-001",
+      "PAT-GAP-002"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "整体报告v2.0：去盐测试闸门、母案B收窄、取消20件硬指标、全部测试改带清水对照组。"
   }
 ]

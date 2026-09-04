@@ -66,8 +66,14 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/import-patent-novelty-rule.mjs` | 绝对新颖性卡 PAT-RULE-002 + 国际前案 PAT-PRI-022~025 + PAT-DRAFT-A4（幂等） |
 | `patent-drafts/交底书-母案A.md` | 可填空交底书模板，仅内部 |
 | `patent-drafts/申请文件底稿-多气源安全互锁.md` | 第一件申请文件底稿 v0.2，仅内部 |
+| `patent-drafts/专利布局整体报告-v2.md` | **整体报告 v2.0 源稿**（取代重构版），仅内部 |
+| `patent-drafts/漂浮方舟_专利布局整体报告_v2.0.docx` | 同上的 Word 版，给非技术同事改 |
+| `scripts/apply-patent-report-v2.mjs` | v2.0 结论入库：去盐测试、母案B收窄、取消20件（幂等） |
+| `scripts/md-to-docx.mjs` | Markdown 报告转 Word（依赖 python-docx） |
 
 **检索纪律：** 中国采绝对新颖性，检索必须中外并行且含非专利公开（IEC/GB/手册/规范）。判断标准是「有没有公开」不是「有没有授权」。详见 `PAT-RULE-002`。
+
+**立项闸门：** 任何候选发明点先做**去盐测试**——把「高盐/漂浮」换成「液体/容器」，方案照样成立就不要立案。详见 `PAT-RULE-003`。
 | `data/patents.json` | **专利库**，与知识点总库分开，不进 /open |
 | `data/patent-sources.json` | 专利库来源记录 |
 | `/patents` | 专利库页面（仅内部） |
@@ -92,6 +98,10 @@ curl http://127.0.0.1:43123/api/health # 健康检查
 
 1. `git add data/` → commit → push
 2. 更新 `PROJECT.md` 的「当前库状态」和「变更记录」
+
+## 交付偏好（用户明确要求）
+
+- **不要录制或提供演示视频。** 用文字说明、测试输出、必要时截图即可（2026-09-04 用户明确「以后都不要」）
 
 ## 禁止
 
