@@ -4,13 +4,25 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { PenLine, Scale, Search, ShieldAlert } from "lucide-react";
-import type { PatentCluster, PatentKind, PatentRecord, PatentRisk } from "@/lib/types";
+import type {
+  PatentCluster,
+  PatentGroup,
+  PatentKind,
+  PatentLifecycle,
+  PatentRecord,
+  PatentRisk,
+} from "@/lib/types";
 import {
   PATENT_CLUSTER_LABELS,
+  PATENT_GROUP_LABELS,
   PATENT_KIND_LABELS,
+  PATENT_LIFECYCLE_LABELS,
   PATENT_RISK_LABELS,
   countByCluster,
+  countByGroup,
   countByKind,
+  countByLifecycle,
+  lifecycleOf,
 } from "@/lib/patent";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -25,12 +37,21 @@ const RISK_CLASS: Record<string, string> = {
   green: "bg-emerald-100 text-emerald-800",
 };
 
+const LIFECYCLE_CLASS: Record<PatentLifecycle, string> = {
+  active: "bg-emerald-100 text-emerald-800",
+  superseded: "bg-slate-200 text-slate-600",
+  killed: "bg-red-100 text-red-800",
+  stale: "bg-amber-100 text-amber-800",
+};
+
 interface PatentsClientProps {
   initialPatents: PatentRecord[];
   sourceCount: number;
   initialKind: string;
   initialCluster: string;
   initialRisk: string;
+  initialLifecycle: string;
+  initialGroup: string;
   initialQuery: string;
 }
 
@@ -40,31 +61,39 @@ export function PatentsClient({
   initialKind,
   initialCluster,
   initialRisk,
+  initialLifecycle,
+  initialGroup,
   initialQuery,
 }: PatentsClientProps) {
   const router = useRouter();
   const [kind, setKind] = useState(initialKind);
   const [cluster, setCluster] = useState(initialCluster);
   const [risk, setRisk] = useState(initialRisk);
+  const [lifecycle, setLifecycle] = useState(initialLifecycle);
+  const [group, setGroup] = useState(initialGroup);
   const [query, setQuery] = useState(initialQuery);
   const [expanded, setExpanded] = useState<string | null>(
-    initialPatents.find((p) => p.id === "PAT-MAP-001")?.id ?? initialPatents[0]?.id ?? null
+    initialPatents.find((p) => p.id === "PAT-INDEX-001")?.id ?? initialPatents[0]?.id ?? null
   );
 
   // 站内跳转（如「先写第一件」）只换 searchParams，组件不会重挂载，
   // 得把新的 URL 参数同步回筛选状态，否则列表不跟着变。
-  const urlFilters = `${initialKind}|${initialCluster}|${initialRisk}|${initialQuery}`;
+  const urlFilters = `${initialKind}|${initialCluster}|${initialRisk}|${initialLifecycle}|${initialGroup}|${initialQuery}`;
   const [syncedFilters, setSyncedFilters] = useState(urlFilters);
   if (urlFilters !== syncedFilters) {
     setSyncedFilters(urlFilters);
     setKind(initialKind);
     setCluster(initialCluster);
     setRisk(initialRisk);
+    setLifecycle(initialLifecycle);
+    setGroup(initialGroup);
     setQuery(initialQuery);
   }
 
   const kinds = countByKind(initialPatents);
   const clusters = countByCluster(initialPatents);
+  const lifecycles = countByLifecycle(initialPatents);
+  const groups = countByGroup(initialPatents);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -72,23 +101,36 @@ export function PatentsClient({
       if (kind && p.kind !== kind) return false;
       if (cluster && p.cluster !== cluster) return false;
       if (risk && p.risk !== risk) return false;
+      if (lifecycle && lifecycleOf(p) !== lifecycle) return false;
+      if (group && (p.group ?? "none") !== group) return false;
       if (q) {
         const hay = `${p.id} ${p.title} ${p.summary} ${p.body} ${p.tags.join(" ")} ${p.publicationNo ?? ""}`.toLowerCase();
         if (!hay.includes(q)) return false;
       }
       return true;
     });
-  }, [initialPatents, kind, cluster, risk, query]);
+  }, [initialPatents, kind, cluster, risk, lifecycle, group, query]);
 
-  function applyFilters(next: { kind?: string; cluster?: string; risk?: string; q?: string }) {
+  function applyFilters(next: {
+    kind?: string;
+    cluster?: string;
+    risk?: string;
+    lifecycle?: string;
+    group?: string;
+    q?: string;
+  }) {
     const k = next.kind ?? kind;
     const c = next.cluster ?? cluster;
     const r = next.risk ?? risk;
+    const lc = next.lifecycle ?? lifecycle;
+    const g = next.group ?? group;
     const q = next.q ?? query;
     const params = new URLSearchParams();
     if (k) params.set("kind", k);
     if (c) params.set("cluster", c);
     if (r) params.set("risk", r);
+    if (lc) params.set("lifecycle", lc);
+    if (g) params.set("group", g);
     if (q) params.set("q", q);
     const qs = params.toString();
     router.replace(qs ? `/patents?${qs}` : "/patents");
@@ -105,18 +147,25 @@ export function PatentsClient({
             </div>
             <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">公司专利库</h1>
             <p className="mt-2 max-w-2xl text-sm text-slate-600">
-              与知识总库分开。六簇全部挂到母案 A/B；多模态交互是 B4–B7，不另立母案 3。写专利查本库，给客户做 PPT 仍走总库。
-              当前 {initialPatents.length} 条，来自 {sourceCount} 份来源（含重构版整体报告）。
+              与知识总库分开。库里同时存着现行结论和被推翻的旧结论，先看每张卡的生命周期标记再读内容。
+              母案框架已退役，改按四个申请组组织（PAT-BATCH-002）。入口先读 PAT-INDEX-001。
+              当前 {initialPatents.length} 条，来自 {sourceCount} 份来源。
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
             <Link href="/library">
               <Button variant="outline">返回知识总库</Button>
             </Link>
-            <Link href="/patents?kind=draft">
+            <Link href="/patents?lifecycle=active">
               <Button>
                 <PenLine className="h-4 w-4" />
-                先写第一件 {kinds.draft}
+                只看现行 {lifecycles.active}
+              </Button>
+            </Link>
+            <Link href="/patents?lifecycle=killed">
+              <Button variant="secondary">
+                <ShieldAlert className="h-4 w-4" />
+                不要写 {lifecycles.killed}
               </Button>
             </Link>
             <Link href="/patents?kind=retrieved">
@@ -130,15 +179,59 @@ export function PatentsClient({
       </section>
 
       <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-        <FilterStat label="交底书 / 撰写" value={kinds.draft} hint="第一件先写母案A" />
-        <FilterStat label="路线 / 布局" value={kinds.roadmap + kinds.layout} hint="母案与红绿灯" />
-        <FilterStat label="技术簇" value={kinds.cluster} hint="六簇结论" />
-        <FilterStat label="检索到的专利" value={kinds.retrieved} hint="高风险前案合并卡" />
-        <FilterStat label="缺口" value={kinds.gap} hint="数据和法律状态" />
+        <Link href="/patents?group=g1" className="block">
+          <FilterStat label={PATENT_GROUP_LABELS.g1} value={groups.g1} hint="独权候选 PAT-ROAD-A" />
+        </Link>
+        <Link href="/patents?group=g2" className="block">
+          <FilterStat label={PATENT_GROUP_LABELS.g2} value={groups.g2} hint="独权候选 PAT-IDEA-046 · 第一梯队" />
+        </Link>
+        <Link href="/patents?group=g3" className="block">
+          <FilterStat label={PATENT_GROUP_LABELS.g3} value={groups.g3} hint="独权候选 PAT-IDEA-049" />
+        </Link>
+        <Link href="/patents?group=g4" className="block">
+          <FilterStat label={PATENT_GROUP_LABELS.g4} value={groups.g4} hint="独权候选 PAT-ROAD-B" />
+        </Link>
+        <Link href="/patents?group=g5" className="block">
+          <FilterStat label={PATENT_GROUP_LABELS.g5} value={groups.g5} hint="独权候选 PAT-IDEA-055" />
+        </Link>
       </div>
 
       <Card className="mb-6">
-        <CardContent className="grid gap-3 p-4 md:grid-cols-4">
+        <CardContent className="grid gap-3 p-4 md:grid-cols-3 lg:grid-cols-6">
+          <label className="text-sm">
+            <span className="mb-1 block text-slate-500">状态</span>
+            <Select
+              value={lifecycle}
+              onChange={(e) => {
+                setLifecycle(e.target.value);
+                applyFilters({ lifecycle: e.target.value });
+              }}
+            >
+              <option value="">全部状态</option>
+              {(Object.keys(PATENT_LIFECYCLE_LABELS) as PatentLifecycle[]).map((l) => (
+                <option key={l} value={l}>
+                  {PATENT_LIFECYCLE_LABELS[l]} ({lifecycles[l]})
+                </option>
+              ))}
+            </Select>
+          </label>
+          <label className="text-sm">
+            <span className="mb-1 block text-slate-500">申请组</span>
+            <Select
+              value={group}
+              onChange={(e) => {
+                setGroup(e.target.value);
+                applyFilters({ group: e.target.value });
+              }}
+            >
+              <option value="">全部分组</option>
+              {(Object.keys(PATENT_GROUP_LABELS) as PatentGroup[]).map((g) => (
+                <option key={g} value={g}>
+                  {PATENT_GROUP_LABELS[g]} ({groups[g]})
+                </option>
+              ))}
+            </Select>
+          </label>
           <label className="text-sm">
             <span className="mb-1 block text-slate-500">搜索</span>
             <div className="relative">
@@ -225,6 +318,14 @@ export function PatentsClient({
                 <CardHeader className="py-4">
                   <div className="flex flex-wrap items-center gap-2">
                     <Badge variant="outline">{p.id}</Badge>
+                    <span
+                      className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ${LIFECYCLE_CLASS[lifecycleOf(p)]}`}
+                    >
+                      {PATENT_LIFECYCLE_LABELS[lifecycleOf(p)]}
+                    </span>
+                    {p.group && p.group !== "none" && (
+                      <Badge variant="secondary">{PATENT_GROUP_LABELS[p.group]}</Badge>
+                    )}
                     <Badge>{PATENT_KIND_LABELS[p.kind]}</Badge>
                     <Badge variant="secondary">{PATENT_CLUSTER_LABELS[p.cluster]}</Badge>
                     {p.risk && (
@@ -236,6 +337,9 @@ export function PatentsClient({
                   </div>
                   <CardTitle className="mt-2 text-base">{p.title}</CardTitle>
                   <CardDescription>{p.summary}</CardDescription>
+                  {p.supersededBy && (
+                    <p className="mt-1 text-xs text-slate-500">已被 {p.supersededBy} 取代，保留做决策留痕</p>
+                  )}
                 </CardHeader>
               </button>
               {open && (

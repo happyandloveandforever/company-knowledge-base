@@ -4,6 +4,7 @@
  */
 import { readFileSync, existsSync } from "fs";
 import path from "path";
+import { validate } from "./lib/patent-store.mjs";
 
 const kpPath = path.join(process.cwd(), "data", "knowledge-points.json");
 const sourcesPath = path.join(process.cwd(), "data", "sources.json");
@@ -422,6 +423,125 @@ check(
 check(
   "全库不再有自称母案的候选卡",
   !patents.some((p) => p.id.startsWith("PAT-IDEA") && /母案候选/.test(p.title))
+);
+
+// schema 校验与入库脚本共用同一套规则（scripts/lib/patent-store.mjs），避免两边走偏
+const schemaErrors = validate(patents);
+check("全库 schema 校验通过", schemaErrors.length === 0, schemaErrors.slice(0, 5).join(" | "));
+
+// 可成长性：模板与共享流水线必须在位，否则下次加东西又会各写各的
+check("入库模板存在", existsSync(path.join(process.cwd(), "scripts", "_template-new-batch.mjs")));
+check("共享入库流水线存在", existsSync(path.join(process.cwd(), "scripts", "lib", "patent-store.mjs")));
+check("入库流程文档存在", existsSync(path.join(process.cwd(), "patent-drafts", "新思路入库流程.md")));
+check("入库流程硬规则卡存在", patents.some((p) => p.id === "PAT-RULE-008"));
+check(
+  "入库流程写清六步且要求先查先案",
+  /六步/.test(patents.find((p) => p.id === "PAT-RULE-008")?.body ?? "") &&
+    /先案卡.*再写方案卡|查完先案/.test(patents.find((p) => p.id === "PAT-RULE-008")?.body ?? "")
+);
+
+// 组五：舱体与表面
+check("组五独权候选存在并归组", patents.find((p) => p.id === "PAT-IDEA-055")?.group === "g5");
+check("内壁材料卡归入组五", patents.find((p) => p.id === "PAT-IDEA-056")?.group === "g5");
+check("蛋形外形已打掉", patents.find((p) => p.id === "PAT-IDEA-057")?.lifecycle === "killed");
+check("抗结晶涂层本身已打掉", patents.find((p) => p.id === "PAT-IDEA-058")?.lifecycle === "killed");
+check("音疗已打掉", patents.find((p) => p.id === "PAT-IDEA-059")?.lifecycle === "killed");
+check(
+  "音疗卡写明四重障碍并禁用疗字",
+  /第 ?25 ?条|第二十五条/.test(patents.find((p) => p.id === "PAT-IDEA-059")?.body ?? "") &&
+    /不得出现音疗/.test(patents.find((p) => p.id === "PAT-IDEA-059")?.body ?? "")
+);
+check("自排空舱体与顶盖形状先案已记录", patents.some((p) => p.id === "PAT-PRI-085"));
+check("水箱声学公知已记录", patents.some((p) => p.id === "PAT-PRI-086"));
+check("抗结晶涂层专利族已记录", patents.some((p) => p.id === "PAT-PRI-087" && /US12104076/.test(p.publicationNo ?? "")));
+check("组五缺口卡存在", patents.some((p) => p.id === "PAT-GAP-008"));
+
+// 全库重构：生命周期、分组、唯一入口、合并实验清单
+check("重构来源已记录", patentSources.some((s) => s.id === "SRC-PAT-RESTRUCTURE" && s.status === "done"));
+check("舱体与音疗来源已记录", patentSources.some((s) => s.id === "SRC-PAT-SHELL-SOUND" && s.status === "done"));
+// lifecycle/group 的取值合法性、supersededBy 是否悬空、必填字段，
+// 都已由上面的 schema 校验统一覆盖，这里只留 schema 管不了的语义检查。
+check(
+  "supersededBy 不自指且被指向的卡本身不是已打掉",
+  patents
+    .filter((p) => p.supersededBy)
+    .every((p) => {
+      if (p.supersededBy === p.id) return false;
+      const target = patents.find((q) => q.id === p.supersededBy);
+      return target?.lifecycle !== "killed";
+    })
+);
+// 只匹配真正宣告打掉的句式，避免命中入口卡里解释分类用的「哪些已打掉」
+check(
+  "标题宣告已打掉的卡 lifecycle 必须是 killed",
+  patents.filter((p) => /已打掉[:：独]|[:：]已打掉/.test(p.title)).every((p) => p.lifecycle === "killed")
+);
+check(
+  "所有 killed 卡都在正文写明了打掉原因或前提作废",
+  patents.filter((p) => p.lifecycle === "killed").every((p) => /打掉原因|不建议投入|前提作废/.test(p.body))
+);
+check("唯一入口卡存在且现行", patents.some((p) => p.id === "PAT-INDEX-001" && p.lifecycle === "active"));
+check(
+  "入口卡讲清四种状态与四个组",
+  ["现行", "已取代", "已打掉", "待重估", "组一", "组二", "组三", "组四"].every((w) =>
+    (patents.find((p) => p.id === "PAT-INDEX-001")?.body ?? "").includes(w)
+  )
+);
+check("合并实验清单存在", patents.some((p) => p.id === "PAT-GAP-007"));
+check(
+  "实验清单把两张表排在第一优先",
+  /第一优先[\s\S]{0,200}交叉影响矩阵/.test(patents.find((p) => p.id === "PAT-GAP-007")?.body ?? "")
+);
+check(
+  "旧总图 MAP-001至005 全部标为已取代",
+  ["PAT-MAP-001", "PAT-MAP-002", "PAT-MAP-003", "PAT-MAP-004", "PAT-MAP-005"].every(
+    (id) => patents.find((p) => p.id === id)?.lifecycle === "superseded"
+  )
+);
+check("MAP-006 仍为现行", patents.find((p) => p.id === "PAT-MAP-006")?.lifecycle === "active");
+check(
+  "六个簇结论卡都已标注母案表述失效",
+  ["PAT-CLU-001", "PAT-CLU-002", "PAT-CLU-003", "PAT-CLU-004", "PAT-CLU-005", "PAT-CLU-006"].every((id) =>
+    /重构补注/.test(patents.find((p) => p.id === id)?.body ?? "")
+  )
+);
+check(
+  "总纲卡已声明母案框架退役",
+  /母案框架已.{0,4}退役|不再按两件母案组织/.test(patents.find((p) => p.id === "PAT-RULE-001")?.body ?? "")
+);
+check(
+  "讲母案同日提交的卡都已补注",
+  ["PAT-ROAD-A", "PAT-ROAD-B", "PAT-WRITE-001", "PAT-NEXT-001", "PAT-BATCH-001", "PAT-NO3-001", "PAT-STATE-001"].every(
+    (id) => /重构补注/.test(patents.find((p) => p.id === id)?.body ?? "")
+  )
+);
+check(
+  "四个组各自都有独权候选且已归组",
+  [
+    ["g1", "PAT-ROAD-A"],
+    ["g2", "PAT-IDEA-046"],
+    ["g3", "PAT-IDEA-049"],
+    ["g4", "PAT-ROAD-B"],
+  ].every(([g, id]) => patents.find((p) => p.id === id)?.group === g)
+);
+check(
+  "已打掉与已取代的卡都没有被编进任何申请组",
+  patents.filter((p) => p.lifecycle === "killed" || p.lifecycle === "superseded").every((p) => p.group === "none")
+);
+check(
+  "老年方案已标为已打掉并写明前提作废",
+  patents.find((p) => p.id === "PAT-IDEA-017")?.lifecycle === "killed" &&
+    /前提作废/.test(patents.find((p) => p.id === "PAT-IDEA-017")?.body ?? "")
+);
+check(
+  "被取代的运营卡与疗法卡指向了正确的继任者",
+  patents.find((p) => p.id === "PAT-IDEA-020")?.supersededBy === "PAT-IDEA-031" &&
+    patents.find((p) => p.id === "PAT-IDEA-021")?.supersededBy === "PAT-IDEA-046"
+);
+check(
+  "现行卡数量仍占多数且已打掉不少于15条",
+  patents.filter((p) => p.lifecycle === "active").length > patents.length / 2 &&
+    patents.filter((p) => p.lifecycle === "killed").length >= 15
 );
 
 check("角度复盘来源已记录", patentSources.some((s) => s.id === "SRC-PAT-ANGLE-REVIEW" && s.status === "done"));

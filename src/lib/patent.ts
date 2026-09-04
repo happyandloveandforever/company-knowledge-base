@@ -1,4 +1,11 @@
-import type { PatentCluster, PatentKind, PatentRecord, PatentRisk } from "./types";
+import type {
+  PatentCluster,
+  PatentGroup,
+  PatentKind,
+  PatentLifecycle,
+  PatentRecord,
+  PatentRisk,
+} from "./types";
 
 export const PATENT_KIND_LABELS: Record<PatentKind, string> = {
   rule: "使用规则",
@@ -28,8 +35,40 @@ export const PATENT_RISK_LABELS: Record<PatentRisk, string> = {
   green: "绿灯可申请",
 };
 
+export const PATENT_LIFECYCLE_LABELS: Record<PatentLifecycle, string> = {
+  active: "现行",
+  superseded: "已取代",
+  killed: "已打掉",
+  stale: "待重估",
+};
+
+export const PATENT_GROUP_LABELS: Record<PatentGroup, string> = {
+  g1: "组一 · 液路与化学",
+  g2: "组二 · 残余量闭环",
+  g3: "组三 · 高盐声耦合",
+  g4: "组四 · 测量可信度",
+  g5: "组五 · 舱体与表面",
+  none: "未归组",
+};
+
 export function isPatentPublic(record: PatentRecord): boolean {
   return record.confidentiality === "public";
+}
+
+export function lifecycleOf(record: PatentRecord): PatentLifecycle {
+  return record.lifecycle ?? "active";
+}
+
+export function countByLifecycle(records: PatentRecord[]): Record<PatentLifecycle, number> {
+  const counts: Record<PatentLifecycle, number> = { active: 0, superseded: 0, killed: 0, stale: 0 };
+  for (const record of records) counts[lifecycleOf(record)] += 1;
+  return counts;
+}
+
+export function countByGroup(records: PatentRecord[]): Record<PatentGroup, number> {
+  const counts: Record<PatentGroup, number> = { g1: 0, g2: 0, g3: 0, g4: 0, g5: 0, none: 0 };
+  for (const record of records) counts[record.group ?? "none"] += 1;
+  return counts;
 }
 
 export function countByKind(records: PatentRecord[]): Record<PatentKind, number> {

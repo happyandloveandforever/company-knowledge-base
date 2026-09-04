@@ -557,5 +557,41 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "母案框架退役，改四组独立申请按数据门槛排队；单一性/分案不超范围/公开充分/本国优先权硬规则。"
+  },
+  {
+    "id": "SRC-PAT-RESTRUCTURE",
+    "filename": "专利库重构-生命周期与分组",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-04T21:00:00.000Z",
+    "patentIds": [
+      "PAT-INDEX-001",
+      "PAT-GAP-007"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "全库标注生命周期与申请分组；母案框架退役后的自相矛盾逐张补注；新增唯一入口 PAT-INDEX-001 与合并实验清单 PAT-GAP-007。"
+  },
+  {
+    "id": "SRC-PAT-SHELL-SOUND",
+    "filename": "舱体形态-内壁材料-音疗",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-04T22:00:00.000Z",
+    "patentIds": [
+      "PAT-IDEA-055",
+      "PAT-IDEA-056",
+      "PAT-IDEA-057",
+      "PAT-IDEA-058",
+      "PAT-IDEA-059",
+      "PAT-GAP-008",
+      "PAT-PRI-085",
+      "PAT-PRI-086",
+      "PAT-PRI-087",
+      "PAT-RULE-008"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "舱体内表面几何五约束联合设计与内壁材料五冲突约束为可写落点；异形外壳、抗结晶涂层本身、音疗三条打掉。新设组五舱体与表面。先案 PAT-PRI-085～087。"
   }
 ]

@@ -119,6 +119,15 @@ export type PatentRisk = "critical" | "high" | "medium" | "low" | "green";
 
 export type PatentCluster = "1" | "2" | "3" | "4" | "5" | "6" | "cross";
 
+/**
+ * 卡片是否还算数。库里同时存着现行结论和被推翻的旧结论，
+ * 没有这个字段就只能靠读标题猜，读错会按作废方案去申请。
+ */
+export type PatentLifecycle = "active" | "superseded" | "killed" | "stale";
+
+/** 申请分组（PAT-BATCH-002）。母案框架已退役，改按特定技术特征分组。 */
+export type PatentGroup = "g1" | "g2" | "g3" | "g4" | "g5" | "none";
+
 export interface PatentRecord {
   id: string;
   kind: PatentKind;
@@ -128,6 +137,10 @@ export interface PatentRecord {
   tags: string[];
   cluster: PatentCluster;
   risk?: PatentRisk;
+  lifecycle?: PatentLifecycle;
+  group?: PatentGroup;
+  /** superseded 时指向取代它的卡，便于顺着读到现行结论 */
+  supersededBy?: string;
   /** 公开号 / 申请号，检索卡必填 */
   publicationNo?: string;
   applicationNo?: string;

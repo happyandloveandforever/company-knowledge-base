@@ -13,6 +13,8 @@ export default async function PatentsPage({
   const kind = typeof sp.kind === "string" ? sp.kind : "";
   const cluster = typeof sp.cluster === "string" ? sp.cluster : "";
   const risk = typeof sp.risk === "string" ? sp.risk : "";
+  const lifecycle = typeof sp.lifecycle === "string" ? sp.lifecycle : "";
+  const group = typeof sp.group === "string" ? sp.group : "";
   const q = typeof sp.q === "string" ? sp.q : "";
 
   const [patents, sources] = await Promise.all([getPatents(), getPatentSources()]);
@@ -24,6 +26,8 @@ export default async function PatentsPage({
       initialKind={kind}
       initialCluster={cluster}
       initialRisk={risk}
+      initialLifecycle={lifecycle}
+      initialGroup={group}
       initialQuery={q}
     />
   );
