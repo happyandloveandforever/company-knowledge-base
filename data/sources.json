@@ -897,5 +897,36 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "CCS-12804 / 30min周转 / 臭氧 / F462 / A112.19.17 拆为 8 条通识卡 KP-WEB-013~020。直接批准。不覆盖 WEB-001~012。"
+  },
+  {
+    "id": "SRC-PVB-ROSENBERG-1-40",
+    "filename": "迷走神經的自我檢測與治癒_1-40.pdf",
+    "fileType": "pdf",
+    "uploadedAt": "2026-09-05T09:40:00.000Z",
+    "knowledgePointIds": [
+      "KP-PVB-001",
+      "KP-PVB-002",
+      "KP-PVB-003",
+      "KP-PVB-004",
+      "KP-PVB-005",
+      "KP-PVB-006",
+      "KP-PVB-007",
+      "KP-PVB-008",
+      "KP-PVB-009",
+      "KP-PVB-010",
+      "KP-PVB-011",
+      "KP-PVB-012",
+      "KP-PVB-013",
+      "KP-PVB-014",
+      "KP-PVB-015",
+      "KP-PVB-016",
+      "KP-PVB-017",
+      "KP-PVB-018",
+      "KP-PVB-019",
+      "KP-PVB-020"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "扫描件 1–40 页（封面至简介）。史丹利·罗森堡《迷走神经的自我检测与治愈》。20 条摘要卡，不复述原文步骤。病名不得外推为漂浮适应症。第一部与动作待后续页。"
   }
 ]

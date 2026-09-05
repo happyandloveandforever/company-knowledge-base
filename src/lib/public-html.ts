@@ -33,6 +33,7 @@ export const PREFIX_LABEL: Record<string, string> = {
   "KP-VGMECH": "迷走机制报告",
   "KP-CIS": "综合干预专业版",
   "KP-VNSMAP": "VNS手段地图",
+  "KP-PVB": "罗森堡迷走读本",
 };
 
 export function publicPoints(points: KnowledgePoint[]): KnowledgePoint[] {
@@ -41,7 +42,7 @@ export function publicPoints(points: KnowledgePoint[]): KnowledgePoint[] {
 
 export function vagusPoints(points: KnowledgePoint[]): KnowledgePoint[] {
   return publicPoints(points).filter((p) =>
-    /^(KP-VGMECH|KP-CIS|KP-VNSMAP|KP-MECH|KP-V7)-/.test(p.id)
+    /^(KP-VGMECH|KP-CIS|KP-VNSMAP|KP-PVB|KP-MECH|KP-V7)-/.test(p.id)
   );
 }
 
