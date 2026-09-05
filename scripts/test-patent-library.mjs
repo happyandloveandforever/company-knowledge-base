@@ -527,6 +527,26 @@ check(
 );
 check("双通道迷走来源已记录", patentSources.some((s) => s.id === "SRC-PAT-DUAL-PATH-VAGUS" && s.status === "done"));
 
+check("Dreampad US8317734 先案已记录", patents.some((p) => p.id === "PAT-PRI-092" && /US8317734/.test(p.publicationNo ?? "")));
+check("Dreampad US11528547 先案已记录", patents.some((p) => p.id === "PAT-PRI-093" && /US11528547/.test(p.publicationNo ?? "")));
+check("iLs 治疗方法先案已记录", patents.some((p) => p.id === "PAT-PRI-094" && /US10112029/.test(p.publicationNo ?? "")));
+check("Head Spot 骨导枕先案已记录", patents.some((p) => p.id === "PAT-PRI-095" && /US10751503/.test(p.publicationNo ?? "")));
+check("骨传导漂浮枕已打掉", patents.find((p) => p.id === "PAT-IDEA-061")?.lifecycle === "killed");
+check(
+  "骨传导漂浮枕卡写明第25条与去环境失败",
+  /第 ?25 ?条|第二十五条/.test(patents.find((p) => p.id === "PAT-IDEA-061")?.body ?? "") &&
+    /去环境/.test(patents.find((p) => p.id === "PAT-IDEA-061")?.body ?? "")
+);
+check(
+  "Dreampad 拆解源稿存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "Dreampad骨传导枕-公开拆解与漂浮枕评估.md"))
+);
+check("Dreampad 枕来源已记录", patentSources.some((s) => s.id === "SRC-PAT-DREAMPAD-PILLOW" && s.status === "done"));
+check(
+  "PAT-PRI-081 已补上 US8317734",
+  /US8317734/.test(patents.find((p) => p.id === "PAT-PRI-081")?.publicationNo ?? "")
+);
+
 // 全库重构：生命周期、分组、唯一入口、合并实验清单
 check("重构来源已记录", patentSources.some((s) => s.id === "SRC-PAT-RESTRUCTURE" && s.status === "done"));
 check("舱体与音疗来源已记录", patentSources.some((s) => s.id === "SRC-PAT-SHELL-SOUND" && s.status === "done"));

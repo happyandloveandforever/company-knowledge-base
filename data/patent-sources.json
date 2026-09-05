@@ -634,5 +634,22 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "评估「舱体一体频打躯体、骨传导一头频打头部、合起来激活迷走」：先案分频/水床浴缸/游泳骨传导/骨导双频触觉；概念打掉。产品可做双通道体验，专利不写迷走。"
+  },
+  {
+    "id": "SRC-PAT-DREAMPAD-PILLOW",
+    "filename": "Dreampad骨传导枕-公开拆解与漂浮枕评估",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-05T10:00:00.000Z",
+    "patentIds": [
+      "PAT-PRI-092",
+      "PAT-PRI-093",
+      "PAT-PRI-094",
+      "PAT-PRI-095",
+      "PAT-IDEA-061"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "核验 Dreampad 宣称的 Intrasound 专利号（US8317734、US11528547 等）；评估骨传导漂浮枕：产品可做密封护颈枕配件，专利按迷走/副交感/漂浮专用枕头打掉。"
   }
 ]

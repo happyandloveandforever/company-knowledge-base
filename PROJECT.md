@@ -191,7 +191,7 @@ https://company-knowledge-base-nine.vercel.app/open
 | 已导入文件 | **29** |
 | 待 Claude 拆分队列 | 0 |
 | 结构判断 | 两层已切开；内训 127 条；迷走三套 56 条已批准；原子库零件箱 20 + 疗法五维脊柱 13；NSF 标准五问 8 条通识卡。仍缺锁数字与真实案例。**产品开发（非专利）完整版：** `docs/双通道微振-产品研发方案.md` + Word `docs/漂浮方舟_双通道微振_产品研发方案.docx`（上篇双通道微振 + 下篇行业壳体传声拆解） |
-| **独立专利库 `PAT-*`** | **202** 条（全部 `internal`，不进 `/open`、不进编排）。**入口先读 `PAT-INDEX-001`**（现行 149 / 已取代 21 / 已打掉 19 / 待重估 13）。**对外交付：`patent-drafts/专利整合方案-v4.md` + docx（`PAT-MAP-007`，含全部 91 条先案与 19 条红灯）**。技术总图：`patent-drafts/信噪比架构.md`。申请策略：`PAT-BATCH-002`。新思路入库：`patent-drafts/新思路入库流程.md`（`PAT-RULE-008`）。网页：https://company-knowledge-base-nine.vercel.app/patents |
+| **独立专利库 `PAT-*`** | **207** 条（全部 `internal`，不进 `/open`、不进编排）。**入口先读 `PAT-INDEX-001`**（现行 153 / 已取代 21 / 已打掉 20 / 待重估 13）。**对外交付：`patent-drafts/专利整合方案-v4.md` + docx（`PAT-MAP-007`，含全部 95 条先案与 20 条红灯）**。技术总图：`patent-drafts/信噪比架构.md`。申请策略：`PAT-BATCH-002`。新思路入库：`patent-drafts/新思路入库流程.md`（`PAT-RULE-008`）。网页：https://company-knowledge-base-nine.vercel.app/patents |
 
 ### 专利库为什么单独隔离
 
@@ -498,6 +498,7 @@ https://company-knowledge-base-nine.vercel.app/open
 ├── docs/漂浮舱卫生安全标准五问.md  ← NSF/周转/臭氧/防滑/防卡吸问答
 ├── docs/双通道微振-产品研发方案.md ← 产品研发完整版（上篇双通道 + 下篇行业拆解）
 │   docs/漂浮方舟_双通道微振_产品研发方案.docx ← 同上 Word（含 5 张图）
+│   patent-drafts/Dreampad骨传导枕-公开拆解与漂浮枕评估.md ← Dreampad/Intrasound 拆解与漂浮枕评估
 ├── .cursor/
 │   ├── environment.json    ← Cloud 自动 build + keep-alive
 │   └── rules/knowledge-base.mdc  ← 新对话自动加载
@@ -680,6 +681,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-09-05 | **纠正用途并评估双通道迷走**：产品方案改为躯体微振（舱壁 25–80 Hz）+ 骨传导头通道，主验收是两路可分辨，不是「不戴耳机也能听」。专利主张「一体频打躯体、一头频打头、激活迷走」已打掉 `PAT-IDEA-060`；先案 `PAT-PRI-088`～`091`。评估 `patent-drafts/双通道体头振动-检索评估.md`。库 197→202 |
 | 2026-09-05 | **行业壳体传声公开做法拆解**：`docs/行业壳体传声-公开做法拆解.md` + Word。把 Dreampod/i-sopod/Ocean/FTS/Clark 官网原文、原理图、安装步骤和工程估计写成单独方案，与我们的双通道产品方案分开 |
 | 2026-09-05 | **产品研发合并成一份 Word**：完整版 `docs/双通道微振-产品研发方案.md` + `docs/漂浮方舟_双通道微振_产品研发方案.docx`（上篇产品方案 + 下篇行业拆解，5 张图）。旧两份 md 改为指向完整版。专利卡未改 |
+| 2026-09-05 | **Dreampad / Intrasound 核验**：帮助页原文写振动经颅骨到内耳、刺激迷走、激活副交感。专利号核到 US8317734B1、US11528547B2、US10112029B2；竞品 US10751503B2。漂浮骨传导枕按副交感/迷走主张打掉 `PAT-IDEA-061`。产品可做密封护颈枕配件，头通道默认仍用防水骨传导耳机。报告 `patent-drafts/Dreampad骨传导枕-公开拆解与漂浮枕评估.md` + Word。库 202→207 |
 
 
 ---
