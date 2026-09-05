@@ -179,18 +179,18 @@ https://company-knowledge-base-nine.vercel.app/open
 
 ## 三、当前库状态
 
-> **最后更新：** 2026-09-04（由 Agent 维护，每次入库后更新此节）
+> **最后更新：** 2026-09-05（由 Agent 维护，每次入库后更新此节）
 
 | 指标 | 数值 |
 |------|------|
-| 知识点总数 | **580**（562 `approved` + 18 `draft`） |
+| 知识点总数 | **592**（574 `approved` + 18 `draft`） |
 | 通识层 `commons` | **162** 条：公开科学/政策/卫生/证据边界 + 迷走/VNS 通识 + NSF 标准五问 |
-| 公司自有层 `company` | **418** 条：产品、SOP、报价、案例、财务、内训教材、综合干预专业版、内部原子库、疗法叙事脊柱 |
-| 用途 `usage` | `pitch` 294 · `training` 154 · `ops` 61 · `both` 71 |
-| **仅内训 `internalOnly`** | **127** 条（`KP-TRN-*` 94 + `KP-ATOM-*` 20 + `KP-RX-*` 13），编排 PPT 默认排除 |
-| 已导入文件 | **29** |
+| 公司自有层 `company` | **430** 条：产品、SOP、报价、案例、财务、内训教材、综合干预专业版、内部原子库、疗法叙事脊柱、低刺激迷走应用研发 |
+| 用途 `usage` | `pitch` 294 · `training` 166 · `ops` 61 · `both` 71 |
+| **仅内训 `internalOnly`** | **139** 条（`KP-TRN-*` 94 + `KP-ATOM-*` 20 + `KP-RX-*` 13 + `KP-RD-*` 12），编排 PPT 默认排除 |
+| 已导入文件 | **30** |
 | 待 Claude 拆分队列 | 0 |
-| 结构判断 | 两层已切开；内训 127 条；迷走三套 56 条已批准；原子库零件箱 20 + 疗法五维脊柱 13；NSF 标准五问 8 条通识卡。仍缺锁数字与真实案例 |
+| 结构判断 | 两层已切开；内训 139 条；迷走三套 56 条已批准；原子库零件箱 20 + 疗法五维脊柱 13；应用研发 `KP-RD-*` 12（不写专利）；NSF 标准五问 8 条通识卡。仍缺锁数字与真实案例 |
 | **独立专利库 `PAT-*`** | **229** 条（全部 `internal`，不进 `/open`、不进编排）。**入口先读 `PAT-INDEX-001`**（现行 170 / 已取代 21 / 已打掉 25 / 待重估 13）。**对外交付：`patent-drafts/专利整合方案-v5.md` + docx（`PAT-MAP-008`，含全部 97 条先案与 25 条红灯）**。技术总图：`patent-drafts/信噪比架构.md`（`PAT-MAP-006`）。申请策略：`PAT-BATCH-002`。本轮过闸：`PAT-EXT-004`、`PAT-EXT-005`。新思路入库：`patent-drafts/新思路入库流程.md`（`PAT-RULE-008`）。网页：https://company-knowledge-base-nine.vercel.app/patents |
 
 ### 专利库为什么单独隔离
@@ -399,6 +399,7 @@ https://company-knowledge-base-nine.vercel.app/open
 | 迷走神经激活手段与前沿研究整合报告.docx | SRC-VNS-MAP | KP-VNSMAP-001 ~ 016 | 16 | done，已批准 | claude-agent |
 | combined.md（内部原子库） | SRC-ATOM-LIB | KP-ATOM-001 ~ 020 | 20 | done，已批准，仅内训 | 主题合并（~1300→20） |
 | 漂浮疗法说明.pdf | SRC-RX-THERAPY | KP-RX-001 ~ 013 | 13 | done，已批准，仅内训 | 主题合并（29页→13） |
+| 低刺激迷走-应用研发思考.md | SRC-RD-VAGUS-APP | KP-RD-001 ~ 012 | 12 | done，已批准，仅内训 | 两库交叉；不写专利 |
 | 四簇专利全景检索矩阵.docx | SRC-PAT-CLU1~4 | PAT-*（独立专利库） | 前案细表仍用 | done，仅内部 | 主题合并；结论卡已被重构版覆盖 |
 | 漂浮方舟_专利布局整体报告_重构版.docx | SRC-PAT-LAYOUT-V2 | PAT-*（独立专利库） | 30 | done，仅内部 | 六簇 + 两母案；不设母案3 |
 | 同上（最终版，内容一致） | SRC-PAT-WRITE-KIT | PAT-WRITE-001 ~ 006 | 6 | done，仅内部 | 母案A交底书撰写包 |
@@ -441,6 +442,7 @@ https://company-knowledge-base-nine.vercel.app/open
 - [x] 精细拆分迷走机制报告 / 综合干预专业版 / VNS 手段地图（56 条，已批准；FDA/EHJ 等不得外推为漂浮适应症）
 - [x] combined.md 内部原子库主题合并为 KP-ATOM-001~020（仅内训，直接批准；不逐条入库）
 - [x] 漂浮疗法说明.pdf 主题合并为 KP-RX-001~013（仅内训脊柱；95%/排毒/超觉知冻结）
+- [x] 低刺激×迷走应用研发思考入库 KP-RD-001~012（仅内训；默认深度 REST、本底三态表、四条通路落地；不写专利）
 - [x] 标准五问拆为 KP-WEB-013~020（通识；展开 WEB-004/012 条款号）
 - [x] 四簇专利全景矩阵主题合并为独立专利库 PAT-*（仅内部；非正式 FTO）
 - [x] 重构版升级为六簇、两母案、不设母案3（PAT-* 30 条）
@@ -482,7 +484,7 @@ https://company-knowledge-base-nine.vercel.app/open
 | `/compose` | 选题 + 演讲逻辑 → 大纲 / PPT |
 | `/status` | 系统状态 |
 | `/open` | 公开只读 HTML（不含仅内训），给外部 AI 抓正文 |
-| `/open/catalog` | 来源清单：总库已合并 580，可外发 453，仅内训 127 不收录 |
+| `/open/catalog` | 来源清单：总库已合并 592，可外发 453，仅内训 139 不收录 |
 | `/open/vagus` | 迷走/综合干预专页（子集，不是总库） |
 | `/patents` | **独立专利库网页**（不进 `/open`）：六簇、两母案、不设母案3、检索前案、工程缺口；非正式法律意见。生产站：https://company-knowledge-base-nine.vercel.app/patents |
 | `/api/health` | 健康检查 |
@@ -495,6 +497,8 @@ https://company-knowledge-base-nine.vercel.app/open
 /workspace/
 ├── PROJECT.md              ← 本文件（固定协作文档）
 ├── AGENTS.md               ← Agent 快速规则
+├── internal/
+│   └── 低刺激迷走-应用研发思考.md  ← 应用研发底稿（仅内部，不进 /open）
 ├── docs/漂浮舱卫生安全标准五问.md  ← NSF/周转/臭氧/防滑/防卡吸问答
 ├── .cursor/
 │   ├── environment.json    ← Cloud 自动 build + keep-alive
@@ -512,6 +516,7 @@ https://company-knowledge-base-nine.vercel.app/open
 │   ├── import-vagus-three-reports.mjs  迷走机制+综合干预+VNS地图
 │   ├── import-atom-library.mjs         内部原子库主题合并（仅内训）
 │   ├── import-therapy-os.mjs           疗法说明五维脊柱（仅内训）
+│   ├── import-rd-vagus-app.mjs         低刺激×迷走应用研发（仅内训，不写专利）
 │   ├── import-nsf-standards-qa.mjs     标准五问 → WEB-013~020
 │   ├── import-patent-landscape.mjs     四簇专利矩阵→独立专利库（已入库勿重跑）
 │   ├── apply-patent-six-modules.mjs    重构版：四簇升六簇、不设母案3
@@ -603,6 +608,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 
 | 日期 | 变更 |
 |------|------|
+| 2026-09-05 | **低刺激×迷走应用研发**（580→592）：交叉知识库与专利库，写成 `internal/低刺激迷走-应用研发思考.md` + `KP-RD-001~012` 仅内训。不写专利。主结论：默认深度 REST 全关、先出本底三态表、共振呼吸每例必做、氢光冷热放舱外。公开页仍 453，仅内训 127→139 |
 | 2026-08-22 | 初始搭建：导入/总库/编排/PPT/冲突检测 |
 | 2026-08-22 | Claude 导入：杨浦财务 54 条 + B端定稿 50 条 |
 | 2026-08-22 | 新增来源管理、删除按钮、keep-alive 服务 |
@@ -686,6 +692,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 - 「把 B端和一龄相关的知识点全部批准」
 - 「用已批准的知识点，给销售做 90 分钟培训大纲」
 - 「处理专利库 / 把检索矩阵拆进专利库」
+- 「低刺激和迷走怎么提升技术水平」（应用研发：先读 `internal/低刺激迷走-应用研发思考.md`）
 - 「修复 upload 页 xxx 问题」
 
 ---
