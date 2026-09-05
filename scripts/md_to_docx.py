@@ -2,17 +2,18 @@
 """把项目里的 Markdown 报告转成 Word 文档。
 
 只支持本项目实际用到的子集：标题、段落、表格、引用块、无序/有序列表、
-粗体、行内代码、分隔线。故意不做通用 Markdown 解析器。
+粗体、行内代码、分隔线、Markdown 图片。故意不做通用 Markdown 解析器。
 
 用法：python3 scripts/md_to_docx.py 输入.md 输出.docx
 """
+import os
 import re
 import sys
 
 from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn
-from docx.shared import Pt, RGBColor
+from docx.shared import Inches, Pt, RGBColor
 
 CJK_FONT = "微软雅黑"
 
@@ -62,7 +63,11 @@ def is_separator_row(line):
     return bool(re.fullmatch(r"\|[\s:\-|]+\|", line))
 
 
+IMG = re.compile(r"^!\[(.*?)\]\((.+?)\)$")
+
+
 def build(md_path, docx_path):
+    md_dir = os.path.dirname(os.path.abspath(md_path))
     with open(md_path, encoding="utf-8") as fh:
         lines = fh.read().split("\n")
 
@@ -84,6 +89,25 @@ def build(md_path, docx_path):
 
         if stripped.startswith("---") and set(stripped) <= {"-"}:
             doc.add_paragraph()
+            i += 1
+            continue
+
+        img = IMG.match(stripped)
+        if img:
+            alt, src = img.group(1), img.group(2)
+            src_path = src if os.path.isabs(src) else os.path.normpath(os.path.join(md_dir, src))
+            if os.path.isfile(src_path):
+                para = doc.add_paragraph()
+                para.alignment = WD_ALIGN_PARAGRAPH.CENTER
+                run = para.add_run()
+                run.add_picture(src_path, width=Inches(6.3))
+                if alt:
+                    cap = doc.add_paragraph()
+                    cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
+                    add_inline(cap, alt, color=RGBColor(0x55, 0x55, 0x55))
+            else:
+                para = doc.add_paragraph()
+                add_inline(para, f"[缺图 {alt or src}]", color=RGBColor(0xB0, 0x30, 0x60))
             i += 1
             continue
 
