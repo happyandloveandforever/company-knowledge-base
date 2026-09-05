@@ -472,6 +472,26 @@ check(
 // 整合方案 v5.0：当前对外交付件，先案与红灯必须列全
 check("整合方案v5来源已记录", patentSources.some((s) => s.id === "SRC-PAT-REPORT-V5" && s.status === "done"));
 check("整合方案v5卡存在", patents.some((p) => p.id === "PAT-MAP-008"));
+check("应用研发对照入口存在", patents.some((p) => p.id === "PAT-MAP-009" && p.lifecycle === "active"));
+check(
+  "应用研发对照声明不新写权要",
+  /不新写权要|不写新专利/.test(patents.find((p) => p.id === "PAT-MAP-009")?.title ?? "") &&
+    /KP-RD/.test(patents.find((p) => p.id === "PAT-MAP-009")?.body ?? "")
+);
+check("两库对照表存在", patents.some((p) => p.id === "PAT-XREF-002" && p.lifecycle === "active"));
+check(
+  "入口卡已指向应用研发对照",
+  /PAT-MAP-009/.test(patents.find((p) => p.id === "PAT-INDEX-001")?.body ?? "") &&
+    /PAT-XREF-002/.test(patents.find((p) => p.id === "PAT-INDEX-001")?.body ?? "")
+);
+check(
+  "MAP-008 仍为对外交付且未被应用文档取代",
+  patents.find((p) => p.id === "PAT-MAP-008")?.lifecycle === "active"
+);
+check(
+  "应用研发两库合并来源已记录",
+  patentSources.some((s) => s.id === "SRC-PAT-RD-APP-MERGE" && s.status === "done")
+);
 check("整合方案v5源稿存在", existsSync(path.join(process.cwd(), "patent-drafts", "专利整合方案-v5.md")));
 check(
   "整合方案v5 docx 存在",

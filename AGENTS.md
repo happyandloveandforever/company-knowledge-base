@@ -79,6 +79,7 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/import-atom-library.mjs` | combined.md 内部原子库 ~1300 条主题合并为 20 条仅内训卡（幂等） |
 | `scripts/import-therapy-os.mjs` | 漂浮疗法说明.pdf 五维叙事脊柱 13 条仅内训卡（幂等） |
 | `scripts/import-rd-vagus-app.mjs` | 低刺激×迷走应用研发思考 12 条仅内训卡（幂等，不写专利） |
+| `scripts/apply-rd-two-library-merge.mjs` | 两库合并：KP-RD 注脚 + 专利对照 PAT-MAP-009 / PAT-XREF-002（幂等，不新写权要） |
 | `internal/低刺激迷走-应用研发思考.md` | 应用层研发底稿：默认深度 REST、本底三态表、四条通路落地（不进 /open） |
 | `exports/漂浮方舟_低刺激迷走_应用研发思考.docx` | 同上 Word 版，首页「下载 Word」；`/api/download?file=rd-vagus-app.docx` |
 | `scripts/import-nsf-standards-qa.mjs` | 标准五问拆为 KP-WEB-013~020（幂等，通识，直接批准） |

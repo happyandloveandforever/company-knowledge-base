@@ -685,5 +685,19 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "v5.0：信噪比架构不变；SPA/床/冥想舱模块平移全部打掉；打开自由漂浮流场与光路/投送可信度黄灯。产出 patent-drafts/专利整合方案-v5.md。"
+  },
+  {
+    "id": "SRC-PAT-RD-APP-MERGE",
+    "filename": "低刺激迷走-应用研发两库合并",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-05T09:20:00.000Z",
+    "patentIds": [
+      "PAT-MAP-009",
+      "PAT-XREF-002"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "应用层研发已在知识库 KP-RD-001~012。专利库只收对照入口 PAT-MAP-009 与两库对照 PAT-XREF-002，不新写权要，不改申请组。"
   }
 ]

@@ -203,6 +203,8 @@ check("应用研发声明不写专利", /不写专利|不是专利/.test(rdText)
 check("应用研发声明默认深度 REST 全关", /深度 REST/.test(rdText) && /全关/.test(rdText));
 check("应用研发声明 40Hz 不要做", /40Hz/.test(rdText));
 check("KP-RD 不进可外发", publicOnly.every((p) => !p.id.startsWith("KP-RD-")));
+check("KP-RD-001 已挂专利库对照入口", /PAT-MAP-009/.test(points.find((p) => p.id === "KP-RD-001")?.body ?? ""));
+check("KP-RD-012 声明不把本系列拆进专利 IDEA", /PAT-XREF-002/.test(points.find((p) => p.id === "KP-RD-012")?.body ?? ""));
 
 if (failed) {
   console.log(`\n${failed} failed`);
