@@ -76,8 +76,8 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/import-therapy-os.mjs` | 漂浮疗法说明.pdf 五维叙事脊柱 13 条仅内训卡（幂等） |
 | `scripts/import-nsf-standards-qa.mjs` | 标准五问拆为 KP-WEB-013~020（幂等，通识，直接批准） |
 | `docs/漂浮舱卫生安全标准五问.md` | NSF CCS-12804 / 周转率 / 臭氧 / ASTM F462 / ASME A112.19.17 问答底稿 |
-| `docs/舱内壳体传声-产品开发方案.md` | 产品开发（非专利）：躯体微振（舱壁）+ 骨传导头通道；不是「不戴耳机也能听」 |
-| `docs/行业壳体传声-公开做法拆解.md` | 竞品/行业壳体传声：官网原文、原理、工程估计、图示与链接 |
+| `docs/双通道微振-产品研发方案.md` | **产品研发完整版**（非专利）：上篇双通道微振 + 下篇行业壳体传声拆解 |
+| `docs/漂浮方舟_双通道微振_产品研发方案.docx` | 同上 Word（含 5 张图） |
 | `scripts/apply-patent-dual-path-vagus.mjs` | 双通道迷走主张检索入库（幂等，`PAT-IDEA-060` 已打掉） |
 | `patent-drafts/双通道体头振动-检索评估.md` | 舱壁+骨传导双频激活迷走：检索评估（不能写） |
 | `scripts/import-patent-landscape.mjs` | 四簇专利全景矩阵主题合并为 PAT-* 仅内部卡（幂等，独立 JSON；已入库后勿重跑） |
