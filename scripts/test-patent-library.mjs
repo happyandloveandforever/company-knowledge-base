@@ -511,6 +511,22 @@ check("水箱声学公知已记录", patents.some((p) => p.id === "PAT-PRI-086")
 check("抗结晶涂层专利族已记录", patents.some((p) => p.id === "PAT-PRI-087" && /US12104076/.test(p.publicationNo ?? "")));
 check("组五缺口卡存在", patents.some((p) => p.id === "PAT-GAP-008"));
 
+check("听触分频先案已记录", patents.some((p) => p.id === "PAT-PRI-088" && /US10206027/.test(p.publicationNo ?? "")));
+check("水床浴缸双换能器先案已记录", patents.some((p) => p.id === "PAT-PRI-089" && /US4507816/.test(p.publicationNo ?? "")));
+check("游泳骨传导公开在售已记录", patents.some((p) => p.id === "PAT-PRI-090" && /OpenSwim/.test(p.publicationNo ?? "")));
+check("骨传导听触双频先案已记录", patents.some((p) => p.id === "PAT-PRI-091" && /US11818543/.test(p.publicationNo ?? "")));
+check("双通道激活迷走已打掉", patents.find((p) => p.id === "PAT-IDEA-060")?.lifecycle === "killed");
+check(
+  "双通道迷走卡写明第25条与去环境失败",
+  /第 ?25 ?条|第二十五条/.test(patents.find((p) => p.id === "PAT-IDEA-060")?.body ?? "") &&
+    /去环境/.test(patents.find((p) => p.id === "PAT-IDEA-060")?.body ?? "")
+);
+check(
+  "双通道检索评估源稿存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "双通道体头振动-检索评估.md"))
+);
+check("双通道迷走来源已记录", patentSources.some((s) => s.id === "SRC-PAT-DUAL-PATH-VAGUS" && s.status === "done"));
+
 // 全库重构：生命周期、分组、唯一入口、合并实验清单
 check("重构来源已记录", patentSources.some((s) => s.id === "SRC-PAT-RESTRUCTURE" && s.status === "done"));
 check("舱体与音疗来源已记录", patentSources.some((s) => s.id === "SRC-PAT-SHELL-SOUND" && s.status === "done"));

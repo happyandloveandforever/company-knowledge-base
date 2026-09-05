@@ -617,5 +617,22 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "合并前定稿的整合方案：信噪比架构 + 五个申请组 + 全部87条先案清单 + 18条红灯 + 三件下一步。产出 patent-drafts/专利整合方案-v4.md 与 docx。"
+  },
+  {
+    "id": "SRC-PAT-DUAL-PATH-VAGUS",
+    "filename": "双通道体头振动-检索评估",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-05T08:00:00.000Z",
+    "patentIds": [
+      "PAT-PRI-088",
+      "PAT-PRI-089",
+      "PAT-PRI-090",
+      "PAT-PRI-091",
+      "PAT-IDEA-060"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "评估「舱体一体频打躯体、骨传导一头频打头部、合起来激活迷走」：先案分频/水床浴缸/游泳骨传导/骨导双频触觉；概念打掉。产品可做双通道体验，专利不写迷走。"
   }
 ]
