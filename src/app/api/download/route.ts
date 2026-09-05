@@ -75,6 +75,22 @@ const ALLOWED: Record<string, { file: string; type: string }> = {
     file: "漂浮方舟_北京化工集团_心理健康赛道_投资联动版.pptx",
     type: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
   },
+  "rd-vagus-app.docx": {
+    file: "漂浮方舟_低刺激迷走_应用研发思考.docx",
+    type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  },
+  "rd-vagus-app.md": {
+    file: "漂浮方舟_低刺激迷走_应用研发思考.md",
+    type: "text/markdown; charset=utf-8",
+  },
+  "漂浮方舟_低刺激迷走_应用研发思考.docx": {
+    file: "漂浮方舟_低刺激迷走_应用研发思考.docx",
+    type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  },
+  "漂浮方舟_低刺激迷走_应用研发思考.md": {
+    file: "漂浮方舟_低刺激迷走_应用研发思考.md",
+    type: "text/markdown; charset=utf-8",
+  },
 };
 
 export async function GET(request: NextRequest) {

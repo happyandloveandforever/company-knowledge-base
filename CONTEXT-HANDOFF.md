@@ -57,7 +57,7 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 数据。两个**物理隔�
 网页：`http://127.0.0.1:43123`（`npm run build && npm run serve`）
 专利库页面：https://company-knowledge-base-nine.vercel.app/patents （本机 `http://127.0.0.1:43123/patents`）
 
-应用研发（不写专利）：`internal/低刺激迷走-应用研发思考.md` + 仅内训卡 `KP-RD-001~012`（不进 `/open`）。
+应用研发（不写专利）：`internal/低刺激迷走-应用研发思考.md` + Word `exports/漂浮方舟_低刺激迷走_应用研发思考.docx`（首页可下载）+ 仅内训卡 `KP-RD-001~012`（不进 `/open`）。
 
 ---
 

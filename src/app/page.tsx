@@ -392,6 +392,30 @@ export default async function HomePage() {
 
       {/* Export */}
       <section className="mt-8 space-y-4">
+        <div className="rounded-xl border border-red-200 bg-red-50/60 p-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <div className="mb-1 flex items-center gap-2">
+                <h2 className="text-lg font-semibold text-slate-900">低刺激 × 迷走 · 应用研发文档</h2>
+                <Badge className="bg-red-100 text-red-800">仅内部 · 禁止外发</Badge>
+              </div>
+              <p className="mt-1 text-sm text-slate-600">
+                不写专利。默认深度 REST 全关、先测本底、共振呼吸每例必做。Word 可直接改。
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <a href="/api/download?file=rd-vagus-app.docx">
+                <Button>
+                  <Download className="h-4 w-4" />
+                  下载 Word
+                </Button>
+              </a>
+              <a href="/api/download?file=rd-vagus-app.md">
+                <Button variant="outline">下载 Markdown</Button>
+              </a>
+            </div>
+          </div>
+        </div>
         <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
