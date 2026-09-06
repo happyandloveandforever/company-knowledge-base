@@ -55,7 +55,7 @@ const comBodies = com.map((p) => `${p.title}\n${p.summary}\n${p.body}`).join("\n
 check("通识新卡不写疗效承诺数字", !/治愈率\s*\d|治疗率\s*\d/.test(comBodies));
 check("通识新卡包含 WHO 2025", /WHO 2025|World mental health today/.test(comBodies));
 check("通识新卡包含 Garland 可行性培训", /可行性RCT/.test(comBodies));
-check("库总量不少于 600", points.length >= 600, String(points.length));
+check("库总量不少于 620", points.length >= 620, String(points.length));
 
 // ── 培训教材隔离 ─────────────────────────────────────
 const trn = points.filter((p) => p.id.startsWith("KP-TRN-"));
@@ -183,18 +183,26 @@ check(
     publicOnly.filter((p) => p.id.startsWith("KP-VNSMAP-")).length === 16
 );
 const pvb = points.filter((p) => p.id.startsWith("KP-PVB-"));
-check("罗森堡读本 KP-PVB 至少 20 条", pvb.length >= 20, String(pvb.length));
+check("罗森堡读本 KP-PVB 至少 40 条", pvb.length >= 40, String(pvb.length));
 check("罗森堡读本全部 approved", pvb.every((p) => p.status === "approved"));
 check("罗森堡读本全部可外发", pvb.every((p) => p.internalOnly !== true));
 check(
   "来源 SRC-PVB-ROSENBERG-1-40 已记录",
   sources.some((s) => s.id === "SRC-PVB-ROSENBERG-1-40" && s.status === "done")
 );
+check(
+  "来源 SRC-PVB-ROSENBERG-41-80 已记录",
+  sources.some((s) => s.id === "SRC-PVB-ROSENBERG-41-80" && s.status === "done")
+);
 const pvbText = pvb.map((p) => `${p.title}\n${p.summary}\n${p.body}`).join("\n");
 check("罗森堡读本声明不是漂浮试验", /不是漂浮|不得外推|禁止外推/.test(pvbText));
 check("罗森堡读本写出三回路", /腹侧迷走/.test(pvbText) && /背侧迷走/.test(pvbText) && /交感/.test(pvbText));
 check("罗森堡读本点名五对颅神经", /三叉/.test(pvbText) && /副神经/.test(pvbText));
 check("罗森堡读本禁止把病名当适应症", /慢阻肺|COPD/.test(pvbText) && /适应症/.test(pvbText));
+check("罗森堡41-80含九头蛇", /九头蛇/.test(pvbText));
+check("罗森堡41-80含新迷走或腹侧器官图", /新迷走|食道上/.test(pvbText));
+check("罗森堡41-80含金发女孩三态", /金发女孩/.test(pvbText));
+check("罗森堡41-80禁止症状清单当适应症", /KP-PVB-023/.test(pvb.map((p) => p.id).join(" ")) && /不进适应症|不是诊断|禁止把清单/.test(pvbText));
 
 if (failed) {
   console.log(`\n${failed} failed`);

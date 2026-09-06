@@ -928,5 +928,36 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "扫描件 1–40 页（封面至简介）。史丹利·罗森堡《迷走神经的自我检测与治愈》。20 条摘要卡，不复述原文步骤。病名不得外推为漂浮适应症。第一部与动作待后续页。"
+  },
+  {
+    "id": "SRC-PVB-ROSENBERG-41-80",
+    "filename": "迷走神經的自我檢測與治癒_41-80.pdf",
+    "fileType": "pdf",
+    "uploadedAt": "2026-09-06T02:20:00.000Z",
+    "knowledgePointIds": [
+      "KP-PVB-021",
+      "KP-PVB-022",
+      "KP-PVB-023",
+      "KP-PVB-024",
+      "KP-PVB-025",
+      "KP-PVB-026",
+      "KP-PVB-027",
+      "KP-PVB-028",
+      "KP-PVB-029",
+      "KP-PVB-030",
+      "KP-PVB-031",
+      "KP-PVB-032",
+      "KP-PVB-033",
+      "KP-PVB-034",
+      "KP-PVB-035",
+      "KP-PVB-036",
+      "KP-PVB-037",
+      "KP-PVB-038",
+      "KP-PVB-039",
+      "KP-PVB-040"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "扫描件 41–80 页。第一部开篇九头蛇 + 第1章解剖 + 第2章三回路开头。20 条摘要卡。症状清单与牙科个案不得外推为漂浮适应症。"
   }
 ]

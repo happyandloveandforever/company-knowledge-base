@@ -77,6 +77,7 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/import-training-supplements.mjs` | 好转反应/适应症/禁忌症/产品手册补训（幂等，禁忌与手册另写运营卡） |
 | `scripts/import-vagus-three-reports.mjs` | 迷走机制/综合干预专业版/VNS手段地图（幂等，直接批准） |
 | `scripts/import-rosenberg-vagus-book.mjs` | 罗森堡《迷走神经的自我检测与治愈》1–40 页摘要卡 KP-PVB（幂等） |
+| `scripts/import-rosenberg-vagus-book-41-80.mjs` | 同书 41–80 页 KP-PVB-021~040（幂等，不覆盖前 20 条） |
 | `scripts/import-atom-library.mjs` | combined.md 内部原子库 ~1300 条主题合并为 20 条仅内训卡（幂等） |
 | `scripts/import-therapy-os.mjs` | 漂浮疗法说明.pdf 五维叙事脊柱 13 条仅内训卡（幂等） |
 | `scripts/import-nsf-standards-qa.mjs` | 标准五问拆为 KP-WEB-013~020（幂等，通识，直接批准） |
