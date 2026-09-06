@@ -557,6 +557,11 @@ check(
     existsSync(path.join(process.cwd(), "exports", "漂浮方舟_交底书_空舱气相消杀_改机.docx"))
 );
 check(
+  "交底书下载文件存在",
+  existsSync(path.join(process.cwd(), "exports", "漂浮方舟_交底书.docx")) &&
+    existsSync(path.join(process.cwd(), "exports", "漂浮方舟_交底书.md"))
+);
+check(
   "入口卡已指向无需实验撰写菜单",
   /PAT-WRITE-007/.test(patents.find((p) => p.id === "PAT-INDEX-001")?.body ?? "")
 );

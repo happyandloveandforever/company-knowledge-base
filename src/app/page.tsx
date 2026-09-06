@@ -396,28 +396,25 @@ export default async function HomePage() {
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <div className="mb-1 flex items-center gap-2">
-                <h2 className="text-lg font-semibold text-slate-900">专利撰写结论（仅内部）</h2>
+                <h2 className="text-lg font-semibold text-slate-900">交底书（仅内部）</h2>
                 <Badge className="bg-red-100 text-red-800">仅内部 · 禁止外发</Badge>
               </div>
               <p className="mt-1 text-sm text-slate-600">
-                现机不递。愿意改机器后只写一件：通气孔分态 + 空舱气相处理。余光仍暂停。交底书给工程师勾 1–6，勾齐再交代理师。
+                现在交代理师的只有这一份交底书。左边大按钮是 Word。右边「怎么写」是说明，不是交底书。
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
-              <a href="/api/download?file=disclosure-cabin-redesign.docx">
+              <a href="/api/download?file=jiaodishu.docx">
                 <Button>
                   <Download className="h-4 w-4" />
-                  改机交底书
+                  下载交底书
                 </Button>
               </a>
+              <a href="/api/download?file=jiaodishu.md">
+                <Button variant="outline">交底书 Markdown</Button>
+              </a>
               <a href="/api/download?file=cabin-redesign.docx">
-                <Button variant="outline">改机方案 Word</Button>
-              </a>
-              <a href="/api/download?file=cabin-sanitation.docx">
-                <Button variant="outline">现机结论</Button>
-              </a>
-              <a href="/api/download?file=no-exp-patents.docx">
-                <Button variant="outline">撰写菜单</Button>
+                <Button variant="outline">怎么写（不是交底书）</Button>
               </a>
             </div>
           </div>

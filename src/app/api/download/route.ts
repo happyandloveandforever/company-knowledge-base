@@ -136,7 +136,19 @@ const ALLOWED: Record<string, { file: string; type: string }> = {
     type: "text/markdown; charset=utf-8",
   },
   "disclosure-cabin-redesign.docx": {
-    file: "漂浮方舟_交底书_空舱气相消杀_改机.docx",
+    file: "漂浮方舟_交底书.docx",
+    type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  },
+  "jiaodishu.docx": {
+    file: "漂浮方舟_交底书.docx",
+    type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  },
+  "jiaodishu.md": {
+    file: "漂浮方舟_交底书.md",
+    type: "text/markdown; charset=utf-8",
+  },
+  "交底书.docx": {
+    file: "漂浮方舟_交底书.docx",
     type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
   },
 };
