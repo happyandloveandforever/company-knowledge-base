@@ -146,7 +146,7 @@ def timeline(bg: Image.Image, thumbs, lit: int, name: str):
     nodes = []
     labels = [
         ("1950s", "隔离舱实验"),
-        ("1970–80s", "REST 进入学术命名"),
+        ("1970–80s", "被定名为 REST"),
         ("2010s–", "临床与影像研究"),
     ]
     for i, (thumb, (year, label)) in enumerate(zip(thumbs, labels)):
@@ -251,7 +251,7 @@ def main():
     timeline(void, thumbs, 2, "003b-timeline-02.jpg")
     timeline(void, thumbs, 3, "003b-timeline-03.jpg")
     full_node(t1950, "1950s", "隔离舱实验", "003c-1950s.jpg")
-    full_node(t1970, "1970–80s", "REST 进入学术命名", "003d-1970s.jpg")
+    full_node(t1970, "1970–80s", "被定名为 REST", "003d-1970s.jpg")
     full_node(t2010, "2010s–", "临床与影像研究", "003e-2010s.jpg")
 
 
