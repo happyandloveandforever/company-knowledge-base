@@ -959,5 +959,36 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "扫描件 41–80 页。第一部开篇九头蛇 + 第1章解剖 + 第2章三回路开头。20 条摘要卡。症状清单与牙科个案不得外推为漂浮适应症。"
+  },
+  {
+    "id": "SRC-PVB-ROSENBERG-81-120",
+    "filename": "迷走神經的自我檢測與治癒_81-120.pdf",
+    "fileType": "pdf",
+    "uploadedAt": "2026-09-06T03:55:00.000Z",
+    "knowledgePointIds": [
+      "KP-PVB-041",
+      "KP-PVB-042",
+      "KP-PVB-043",
+      "KP-PVB-044",
+      "KP-PVB-045",
+      "KP-PVB-046",
+      "KP-PVB-047",
+      "KP-PVB-048",
+      "KP-PVB-049",
+      "KP-PVB-050",
+      "KP-PVB-051",
+      "KP-PVB-052",
+      "KP-PVB-053",
+      "KP-PVB-054",
+      "KP-PVB-055",
+      "KP-PVB-056",
+      "KP-PVB-057",
+      "KP-PVB-058",
+      "KP-PVB-059",
+      "KP-PVB-060"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "扫描件 81–120 页。第2章五态/梯子 + 第3章神经觉开头。20 条摘要卡。抑郁/POTS/HRV/用药个案不得外推为漂浮适应症。"
   }
 ]
