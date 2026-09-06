@@ -91,6 +91,12 @@ if (/治疗失眠|治疗慢性疼痛/.test(vo006)) {
   errors.push("006 旁白写成治疗病种");
 }
 if (!md.includes("006c-chinese.jpg")) errors.push("006 未指定中式漂浮画面文件");
+if (!md.includes("i-sopod") || !md.includes("Dreampod")) {
+  errors.push("006b 未写入国际常见舱品牌名");
+}
+if (!md.includes("视频位") || !md.includes("chinese-float.mp4")) {
+  errors.push("006c 未写明用户视频占位与成片文件");
+}
 if (!vo004.includes("开放标签")) errors.push("004 旁白未说开放标签");
 if (!vo004.includes("一次")) errors.push("004 旁白未从「一次」起钩");
 if (!md.includes("Kjellgren")) errors.push("004 未加入功效论文 Kjellgren 2014");
@@ -159,7 +165,13 @@ else {
 }
 
 const stillDir006 = path.join(root, "exports/video-assets/shot006");
-for (const f of ["006a-watch.jpg", "006b-gap.jpg", "006c-chinese.jpg"]) {
+for (const f of [
+  "006a-watch.jpg",
+  "006b-gap.jpg",
+  "006c-chinese.jpg",
+  "user-source/chinese-float-video-frame0.jpg",
+  "user-source/chinese-float.mp4",
+]) {
   if (!existsSync(path.join(stillDir006, f))) errors.push(`缺少画面文件：shot006/${f}`);
 }
 const stillDir004 = path.join(root, "exports/video-assets/shot004");
