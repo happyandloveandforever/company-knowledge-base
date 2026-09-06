@@ -18,7 +18,7 @@ function extractVo(heading) {
     errors.push(`找不到章节 ${heading}`);
     return "";
   }
-  const slice = md.slice(idx, idx + 2500);
+  const slice = md.slice(idx, idx + 5000);
   const m = slice.match(/\*\*旁白[：:][^*]*\*\*[\s\S]*?>\s*([^<]+?)\s*(?:\n\n|\*\*)/);
   if (!m) {
     errors.push(`${heading} 未解析到旁白`);
@@ -71,6 +71,11 @@ if (!md.includes("开放标签")) errors.push("全稿未出现「开放标签」
 if (!md.includes("柳叶子刊") && !md.includes("eClinicalMedicine")) {
   errors.push("004 未点名柳叶子刊/eClinicalMedicine");
 }
+if (!md.includes("一次看见变化，重复做得完，对照也有了")) {
+  errors.push("004 未写入营销收束金句");
+}
+if (!vo004.includes("开放标签")) errors.push("004 旁白未说开放标签");
+if (!vo004.includes("一次")) errors.push("004 旁白未从「一次」起钩");
 if (!md.includes("六十余年")) errors.push("003 未兑现方法史「六十余年」");
 if (!md.includes("浮力卸载")) errors.push("机制备用镜丢失");
 if (!md.includes("John C. Lilly")) errors.push("003 图一未写 Lilly / 早期箱式舱");
@@ -88,9 +93,16 @@ else {
   if (!craft.body.includes("Lilly") || !craft.body.includes("脑电")) {
     errors.push("KP-CRAFT-026 未写入三张指定图口径");
   }
+  if (!craft.body.includes("一次看见变化")) {
+    errors.push("KP-CRAFT-026 未写入 004 营销阶梯");
+  }
 }
 
 const stillDir = path.join(root, "exports/video-assets/shot003");
+const stillDir004 = path.join(root, "exports/video-assets/shot004");
+for (const f of ["004a-once.jpg", "004b-repeat.jpg", "004c-controlled.jpg", "004d-three-up.jpg"]) {
+  if (!existsSync(path.join(stillDir004, f))) errors.push(`缺少画面文件：shot004/${f}`);
+}
 for (const f of [
   "user-source/lilly-early-tank.jpg",
   "user-source/suedfeld-1980-cover.jpg",
