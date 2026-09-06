@@ -183,14 +183,14 @@ https://company-knowledge-base-nine.vercel.app/open
 
 | 指标 | 数值 |
 |------|------|
-| 知识点总数 | **680**（662 `approved` + 18 `draft`） |
-| 通识层 `commons` | **239** 条：公开科学/政策/卫生/证据边界 + 迷走/VNS 通识 + NSF 标准五问 + 罗森堡读本 1–200 页 |
-| 公司自有层 `company` | **441** 条：产品、SOP、报价、案例、财务、内训教材、综合干预专业版、内部原子库、疗法叙事脊柱、罗森堡对接口径 |
-| 用途 `usage` | `pitch` 334 · `training` 195 · `ops` 63 · `both` 88 |
+| 知识点总数 | **595**（577 `approved` + 18 `draft`） |
+| 通识层 `commons` | **172** 条：公开科学/政策/卫生/证据边界 + 迷走/VNS 通识 + NSF 标准五问 + 罗森堡读本主题合并 15 条 |
+| 公司自有层 `company` | **423** 条：产品、SOP、报价、案例、财务、内训教材、综合干预专业版、内部原子库、疗法叙事脊柱、罗森堡对接口径 |
+| 用途 `usage` | `pitch` 302 · `training` 158 · `ops` 62 · `both` 73 |
 | **仅内训 `internalOnly`** | **127** 条（`KP-TRN-*` 94 + `KP-ATOM-*` 20 + `KP-RX-*` 13），编排 PPT 默认排除 |
-| 已导入文件 | **34** |
+| 已导入文件 | **35** |
 | 待 Claude 拆分队列 | 0 |
-| 结构判断 | 两层已切开；内训 127 条；迷走三套 56 条已批准；罗森堡读本 100 条（框架+解剖+五态/神经觉+第4章检测+第5章裂孔疝/呼吸/副神经/前倾头/偏头痛开篇）；原子库零件箱 20 + 疗法五维脊柱 13；NSF 标准五问 8 条通识卡。仍缺锁数字与真实案例 |
+| 结构判断 | 两层已切开；内训 127 条；迷走三套 56 条已批准；罗森堡读本 **15 条主题合并**（可用地图 + 红线；停拆 201 页后）；原子库零件箱 20 + 疗法五维脊柱 13；NSF 标准五问 8 条通识卡。仍缺锁数字与真实案例 |
 | **独立专利库 `PAT-*`** | **229** 条（全部 `internal`，不进 `/open`、不进编排）。**入口先读 `PAT-INDEX-001`**（现行 170 / 已取代 21 / 已打掉 25 / 待重估 13）。**对外交付：`patent-drafts/专利整合方案-v5.md` + docx（`PAT-MAP-008`，含全部 97 条先案与 25 条红灯）**。技术总图：`patent-drafts/信噪比架构.md`（`PAT-MAP-006`）。申请策略：`PAT-BATCH-002`。本轮过闸：`PAT-EXT-004`、`PAT-EXT-005`。新思路入库：`patent-drafts/新思路入库流程.md`（`PAT-RULE-008`）。网页：https://company-knowledge-base-nine.vercel.app/patents |
 
 ### 专利库为什么单独隔离
@@ -397,11 +397,12 @@ https://company-knowledge-base-nine.vercel.app/open
 | 漂浮方舟迷走神经作用机制研究报告.docx | SRC-VG-MECH | KP-VGMECH-001 ~ 022 | 22 | done，已批准 | claude-agent |
 | 漂浮方舟综合干预体系方案_专业版.docx | SRC-CIS-PRO | KP-CIS-001 ~ 018 | 18 | done，已批准 | claude-agent |
 | 迷走神经激活手段与前沿研究整合报告.docx | SRC-VNS-MAP | KP-VNSMAP-001 ~ 016 | 16 | done，已批准 | claude-agent |
-| 迷走神經的自我檢測與治癒_1-40.pdf | SRC-PVB-ROSENBERG-1-40 | KP-PVB-001 ~ 020 | 20 | done，已批准 | claude-agent |
-| 迷走神經的自我檢測與治癒_41-80.pdf | SRC-PVB-ROSENBERG-41-80 | KP-PVB-021 ~ 040 | 20 | done，已批准 | claude-agent |
-| 迷走神經的自我檢測與治癒_81-120.pdf | SRC-PVB-ROSENBERG-81-120 | KP-PVB-041 ~ 060 | 20 | done，已批准 | claude-agent |
-| 迷走神經的自我檢測與治癒_121-160.pdf | SRC-PVB-ROSENBERG-121-160 | KP-PVB-061 ~ 080 | 20 | done，已批准 | claude-agent |
-| 迷走神經的自我檢測與治癒_161-200.pdf | SRC-PVB-ROSENBERG-161-200 | KP-PVB-081 ~ 100 | 20 | done，已批准 | claude-agent |
+| 迷走神經的自我檢測與治癒_1-40.pdf | SRC-PVB-ROSENBERG-1-40 | 已并入 KP-PVB-001 ~ 015 | — | done，已主题合并 | claude-agent |
+| 迷走神經的自我檢測與治癒_41-80.pdf | SRC-PVB-ROSENBERG-41-80 | 已并入 KP-PVB-001 ~ 015 | — | done，已主题合并 | claude-agent |
+| 迷走神經的自我檢測與治癒_81-120.pdf | SRC-PVB-ROSENBERG-81-120 | 已并入 KP-PVB-001 ~ 015 | — | done，已主题合并 | claude-agent |
+| 迷走神經的自我檢測與治癒_121-160.pdf | SRC-PVB-ROSENBERG-121-160 | 已并入 KP-PVB-001 ~ 015 | — | done，已主题合并 | claude-agent |
+| 迷走神經的自我檢測與治癒_161-200.pdf | SRC-PVB-ROSENBERG-161-200 | 已并入 KP-PVB-001 ~ 015 | — | done，已主题合并 | claude-agent |
+| 罗森堡读本主题合并 | SRC-PVB-ROSENBERG-MERGED | KP-PVB-001 ~ 015 | 15 | done，已批准 | claude-agent |
 | combined.md（内部原子库） | SRC-ATOM-LIB | KP-ATOM-001 ~ 020 | 20 | done，已批准，仅内训 | 主题合并（~1300→20） |
 | 漂浮疗法说明.pdf | SRC-RX-THERAPY | KP-RX-001 ~ 013 | 13 | done，已批准，仅内训 | 主题合并（29页→13） |
 | 四簇专利全景检索矩阵.docx | SRC-PAT-CLU1~4 | PAT-*（独立专利库） | 前案细表仍用 | done，仅内部 | 主题合并；结论卡已被重构版覆盖 |
@@ -420,11 +421,7 @@ https://company-knowledge-base-nine.vercel.app/open
 | 公司层 | SOP/报价/产品/案例仍在此层 | 数字未锁定继续用「合同/铭牌」口径 |
 | 培训 vs 汇报 | `usage` 已分开；`KP-TRN-*` 94 + `KP-ATOM-*` 20 硬隔离；禁忌/手册另有 ops 卡 | 裁定剩余 draft；职业发展与问题集仍空 |
 | 迷走/综合干预（2026-08-31） | VGMECH 四条间接通路 + 共振呼吸 4 周；CIS 展开六模块与三类产品线；VNSMAP 把 FDA/EHJ 与漂浮拆开 | 对外深讲用新卡；浅讲仍可用 V7-018/021 但须口头声明器械证据不是漂浮试验 |
-| 罗森堡读本 1–40（2026-09-05） | 波吉斯多重迷走的徒手读本摘要：旧二分 vs 三回路、社会性参与五对颅神经、安全状态；无动作步骤 | 可借安全窗口与「关机≠休息」；禁止借病名个案、颅荐骨、15 秒复位；后文 41 页起另拆 |
-| 罗森堡读本 41–80（2026-09-06） | 九头蛇/共病、新迷走 vs 老迷走器官图、9/10/11 颈静脉孔、金发女孩三态、肌张力血压 | 症状清单与牙科个案不进适应症；检测与动作仍未到 |
-| 罗森堡读本 81–120（2026-09-06） | 五态混合、迷走煞车、自律梯子、神经觉定义与失灵开头 | 抑郁/纤维肌痛/POTS/HRV/用药个案不进适应症；第4章检测仍未到 |
-| 罗森堡读本 121–160（2026-09-06） | 看脸/咽部/HRV 检测启发式、1988 骨盆上提、第5章 COPD 开头 | 百分百疗效、气喘自闭叙事、COPD 70%→102% 不进适应症；动作步骤仍未到 |
-| 罗森堡读本 161–200（2026-09-06） | 裂孔疝机制、呼吸观察、副神经/斜方肌、前倾头力学、偏头痛开篇 | COPD 三十秒叙事、疝自助、自闭扁平后脑、捏测百分之百、失智提问、偏头痛不进适应症；火蜥蜴/扭转/捏法不进 SOP |
+| 罗森堡读本 1–200 主题合并（2026-09-06） | 100 条过程卡并为 15 条：三回路/五对颅神经/五态梯子/神经觉/九头蛇/呼吸肩颈观察 + 病名与手法红线 | 停拆 201 页后；动作步骤不入库；病名个案不进适应症 |
 | 内部原子库（2026-09-01） | M1–M11 / L1–L3 已主题合并 20 条；与 CIS A–F 对照写在 ATOM-003 | 对内写文案；对外禁止混报两套模块名；勿再逐条入库 |
 | 疗法叙事脊柱（2026-09-02） | 五维一体已主题合并 13 条；概率矩阵与排毒叙事冻结 | 对内串体验层；对外仍用 CIS；勿把五维当第四套菜名 |
 | NSF 标准五问（2026-09-04） | WEB-013~020 展开 CCS/周转/臭氧/F462/SVRS 条款号；浅讲仍用 WEB-004/012 | 尽调用新卡；大众 PPT 不锁流量和臭氧数字 |
@@ -449,11 +446,7 @@ https://company-knowledge-base-nine.vercel.app/open
 - [x] 上传培训初稿，按 `usage=training` 拆分（71 条 KP-TRN，全部 internalOnly）
 - [x] 补训好转反应 / 一般适应症 / 禁忌症 / 产品使用手册（TRN-072~094；禁忌与手册另写 SOP/MAN 运营卡）
 - [x] 精细拆分迷走机制报告 / 综合干预专业版 / VNS 手段地图（56 条，已批准；FDA/EHJ 等不得外推为漂浮适应症）
-- [x] 罗森堡《迷走神经的自我检测与治愈》扫描件 1–40 页 → KP-PVB-001~020（摘要入库；动作与神经觉检测待后续页）
-- [x] 同书 41–80 页 → KP-PVB-021~040（九头蛇、第1章解剖、第2章三回路开头；症状清单不进适应症）
-- [x] 同书 81–120 页 → KP-PVB-041~060（五态、梯子、神经觉开头；抑郁/POTS/HRV 不进适应症）
-- [x] 同书 121–160 页 → KP-PVB-061~080（第4章检测启发式、第5章 COPD 开头；百分百/COPD 个案不进适应症）
-- [x] 同书 161–200 页 → KP-PVB-081~100（第5章裂孔疝/呼吸/副神经/前倾头/偏头痛开篇；手法与病名不进适应症或 SOP）
+- [x] 罗森堡《迷走神经的自我检测与治愈》扫描件 1–200 页拆完后，按用户要求主题合并为 KP-PVB-001~015；停拆后续页
 - [x] combined.md 内部原子库主题合并为 KP-ATOM-001~020（仅内训，直接批准；不逐条入库）
 - [x] 漂浮疗法说明.pdf 主题合并为 KP-RX-001~013（仅内训脊柱；95%/排毒/超觉知冻结）
 - [x] 标准五问拆为 KP-WEB-013~020（通识；展开 WEB-004/012 条款号）
@@ -481,7 +474,7 @@ https://company-knowledge-base-nine.vercel.app/open
 - [ ] 母案B交底书：采访系统/安全负责人，用 `PAT-STATE-001` 的 S0—S8 当提纲；与 A 同日提交
 - [ ] 专利库下一步（技术组，不是再检索）：锁 BOM；六类工程测试；核验 CN121795911A 等法律状态；B6/B7 先预埋不另立母案3
 - [ ] 上传优先书籍：睡眠/REST综述/体验经济
-- [ ] 罗森堡书后续页：优先 201 页起（第5章偏头痛收束与第6章约第208页）；自助动作另包，按培训卡拆步骤
+- [x] 罗森堡书停拆：1–200 页已主题合并为 15 条；勿再拆 201 页后，勿再逐页 import
 - [ ] 不要再导入与杨浦/一龄/品牌画册同主题的宣传 PDF
 
 
@@ -497,7 +490,7 @@ https://company-knowledge-base-nine.vercel.app/open
 | `/compose` | 选题 + 演讲逻辑 → 大纲 / PPT |
 | `/status` | 系统状态 |
 | `/open` | 公开只读 HTML（不含仅内训），给外部 AI 抓正文 |
-| `/open/catalog` | 来源清单：总库已合并 680，可外发 553，仅内训 127 不收录 |
+| `/open/catalog` | 来源清单：总库已合并 595，可外发 468，仅内训 127 不收录 |
 | `/open/vagus` | 迷走/综合干预专页（子集，不是总库） |
 | `/patents` | **独立专利库网页**（不进 `/open`）：六簇、两母案、不设母案3、检索前案、工程缺口；非正式法律意见。生产站：https://company-knowledge-base-nine.vercel.app/patents |
 | `/api/health` | 健康检查 |
@@ -525,11 +518,12 @@ https://company-knowledge-base-nine.vercel.app/open
 │   ├── import-faf-yangpu.mjs       杨浦 PDF 拆分模板
 │   ├── import-b2b-yiling.mjs       B端 PDF 拆分模板
 │   ├── import-vagus-three-reports.mjs  迷走机制+综合干预+VNS地图
-│   ├── import-rosenberg-vagus-book.mjs 罗森堡迷走读本1–40页 → KP-PVB
-│   ├── import-rosenberg-vagus-book-41-80.mjs 同书41–80页 → KP-PVB-021~040
-│   ├── import-rosenberg-vagus-book-81-120.mjs 同书81–120页 → KP-PVB-041~060
-│   ├── import-rosenberg-vagus-book-121-160.mjs 同书121–160页 → KP-PVB-061~080
-│   ├── import-rosenberg-vagus-book-161-200.mjs 同书161–200页 → KP-PVB-081~100
+│   ├── import-rosenberg-vagus-book.mjs 罗森堡迷走读本1–40页（已合并勿再跑）
+│   ├── import-rosenberg-vagus-book-41-80.mjs 同书41–80页（已合并勿再跑）
+│   ├── import-rosenberg-vagus-book-81-120.mjs 同书81–120页（已合并勿再跑）
+│   ├── import-rosenberg-vagus-book-121-160.mjs 同书121–160页（已合并勿再跑）
+│   ├── import-rosenberg-vagus-book-161-200.mjs 同书161–200页（已合并勿再跑）
+│   ├── apply-rosenberg-vagus-merge.mjs 100→15 主题合并
 │   ├── import-atom-library.mjs         内部原子库主题合并（仅内训）
 │   ├── import-therapy-os.mjs           疗法说明五维脊柱（仅内训）
 │   ├── import-nsf-standards-qa.mjs     标准五问 → WEB-013~020
@@ -699,6 +693,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 | 2026-09-06 | 同书扫描件 81–120 页 → KP-PVB-041~060。库 620→640。公开页 493→513。补五态、迷走煞车、梯子、神经觉；抑郁/POTS/HRV/用药个案不得当适应症。第4章检测仍待续 |
 | 2026-09-06 | 同书扫描件 121–160 页 → KP-PVB-061~080。库 640→660。公开页 513→533。补看脸/咽部/HRV 启发式与第5章 COPD 开头；百分百疗效、气喘自闭、COPD 个案不得当适应症。动作仍待续 |
 | 2026-09-06 | 同书扫描件 161–200 页 → KP-PVB-081~100。库 660→680。公开页 533→553。补裂孔疝、呼吸、副神经、前倾头与偏头痛开篇；COPD 三十秒/疝自助/自闭扁平后脑/捏测百分之百/失智提问/偏头痛不得当适应症或门店 SOP。第5章未完，待 201 页 |
+| 2026-09-06 | 用户要求停拆后续页，罗森堡读本 100 条主题合并为 KP-PVB-001~015。库 680→595。公开页 553→468。留下三回路/五态/神经觉/九头蛇/呼吸肩颈观察与红线；丢掉过程卡与重复解剖。勿再逐页 import |
 
 
 ---

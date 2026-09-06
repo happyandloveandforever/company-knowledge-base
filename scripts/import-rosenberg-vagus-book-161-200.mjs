@@ -421,6 +421,10 @@ const kpPath = path.join(dataDir, "knowledge-points.json");
 const sourcesPath = path.join(dataDir, "sources.json");
 
 const existing = JSON.parse(readFileSync(kpPath, "utf-8"));
+if (JSON.parse(readFileSync(sourcesPath, "utf-8")).some((s) => s.id === "SRC-PVB-ROSENBERG-MERGED")) {
+  console.log("罗森堡读本已主题合并为 KP-PVB-001~015，跳过逐页 import。");
+  process.exit(0);
+}
 if (existing.some((p) => p.id === "KP-PVB-081")) {
   console.log("罗森堡书 161–200 已入库，跳过。总数:", existing.length);
   process.exit(0);

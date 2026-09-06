@@ -76,11 +76,12 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/import-float-training.mjs` | 漂浮培训大纲 71 条内训卡（幂等，全部 internalOnly） |
 | `scripts/import-training-supplements.mjs` | 好转反应/适应症/禁忌症/产品手册补训（幂等，禁忌与手册另写运营卡） |
 | `scripts/import-vagus-three-reports.mjs` | 迷走机制/综合干预专业版/VNS手段地图（幂等，直接批准） |
-| `scripts/import-rosenberg-vagus-book.mjs` | 罗森堡《迷走神经的自我检测与治愈》1–40 页摘要卡 KP-PVB（幂等） |
-| `scripts/import-rosenberg-vagus-book-41-80.mjs` | 同书 41–80 页 KP-PVB-021~040（幂等，不覆盖前 20 条） |
-| `scripts/import-rosenberg-vagus-book-81-120.mjs` | 同书 81–120 页 KP-PVB-041~060（幂等，不覆盖前 40 条） |
-| `scripts/import-rosenberg-vagus-book-121-160.mjs` | 同书 121–160 页 KP-PVB-061~080（幂等，不覆盖前 60 条） |
-| `scripts/import-rosenberg-vagus-book-161-200.mjs` | 同书 161–200 页 KP-PVB-081~100（幂等，不覆盖前 80 条） |
+| `scripts/import-rosenberg-vagus-book.mjs` | 罗森堡迷走读本 1–40 页（已主题合并，勿再跑） |
+| `scripts/import-rosenberg-vagus-book-41-80.mjs` | 同书 41–80 页（已主题合并，勿再跑） |
+| `scripts/import-rosenberg-vagus-book-81-120.mjs` | 同书 81–120 页（已主题合并，勿再跑） |
+| `scripts/import-rosenberg-vagus-book-121-160.mjs` | 同书 121–160 页（已主题合并，勿再跑） |
+| `scripts/import-rosenberg-vagus-book-161-200.mjs` | 同书 161–200 页（已主题合并，勿再跑） |
+| `scripts/apply-rosenberg-vagus-merge.mjs` | 罗森堡读本 100→15 主题合并（幂等；停拆 201 页后） |
 | `scripts/import-atom-library.mjs` | combined.md 内部原子库 ~1300 条主题合并为 20 条仅内训卡（幂等） |
 | `scripts/import-therapy-os.mjs` | 漂浮疗法说明.pdf 五维叙事脊柱 13 条仅内训卡（幂等） |
 | `scripts/import-nsf-standards-qa.mjs` | 标准五问拆为 KP-WEB-013~020（幂等，通识，直接批准） |
