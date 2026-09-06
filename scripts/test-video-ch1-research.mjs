@@ -74,9 +74,21 @@ if (!md.includes("柳叶子刊") && !md.includes("eClinicalMedicine")) {
 if (!md.includes("一次看见变化，重复做得完，对照有信号")) {
   errors.push("004 未写入营销收束金句");
 }
+if (!md.includes("一次有结果，多次也显著，完成疗程无不良，长期效果仍持续。")) {
+  errors.push("004 四宫格标题未改为「一次有结果…长期效果仍持续」");
+}
+if (!md.includes("先有漂浮疗法，后有中式漂浮")) {
+  errors.push("004 底部未改为「先有漂浮疗法，后有中式漂浮」");
+}
 if (!vo004.includes("开放标签")) errors.push("004 旁白未说开放标签");
 if (!vo004.includes("一次")) errors.push("004 旁白未从「一次」起钩");
 if (!md.includes("Kjellgren")) errors.push("004 未加入功效论文 Kjellgren 2014");
+if (!md.includes("用临床对照的标准看，有没有功效？")) {
+  errors.push("004 功效卡问句未改为「用临床对照的标准看，有没有功效？」");
+}
+if (/问：对照，有没有功效？/.test(md)) {
+  errors.push("004 功效卡仍用旧问句「对照，有没有功效？」");
+}
 if (!md.includes("六十余年")) errors.push("003 未兑现方法史「六十余年」");
 if (!md.includes("浮力卸载")) errors.push("机制备用镜丢失");
 if (!md.includes("John C. Lilly")) errors.push("003 图一未写 Lilly / 早期箱式舱");
@@ -99,6 +111,15 @@ else {
   }
   if (!craft.body.includes("Kjellgren")) {
     errors.push("KP-CRAFT-026 未写入功效论文");
+  }
+  if (!craft.body.includes("用临床对照的标准看有没有功效")) {
+    errors.push("KP-CRAFT-026 功效卡问句未改为临床对照标准");
+  }
+  if (!craft.body.includes("一次有结果，多次也显著，完成疗程无不良，长期效果仍持续")) {
+    errors.push("KP-CRAFT-026 未写入四宫格新标题");
+  }
+  if (!craft.body.includes("先有漂浮疗法，后有中式漂浮")) {
+    errors.push("KP-CRAFT-026 未写入 004 新底部句");
   }
 }
 

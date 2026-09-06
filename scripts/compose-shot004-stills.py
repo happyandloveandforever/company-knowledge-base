@@ -19,6 +19,11 @@ WHITE = (232, 236, 240, 255)
 MUTED = (168, 178, 188, 255)
 TEAL = (126, 200, 200, 255)
 DIM = (90, 102, 112, 255)
+FOOT = "限制性环境刺激疗法  ·  先有漂浮疗法，后有中式漂浮"
+FOUR_UP_TITLE = [
+    "一次有结果，多次也显著，",
+    "完成疗程无不良，长期效果仍持续。",
+]
 
 
 def font(path, size, index=0):
@@ -90,29 +95,49 @@ def rounded(im: Image.Image, size, radius=14):
 
 def paper_card(photo: Image.Image, kicker, question, punch, detail, badge_text, filename):
     base = photo.convert("RGBA")
-    grad = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    gd = ImageDraw.Draw(grad)
-    for y in range(520, H):
-        a = int(235 * ((y - 520) / (H - 520)) ** 0.85)
-        gd.line((0, y, W, y), fill=(0, 0, 0, min(a, 235)))
-    base = Image.alpha_composite(base, grad)
+    # keep paper title visible on top; put copy on a solid left panel
+    panel = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    pd = ImageDraw.Draw(panel)
+    x0, y0, x1, y1 = 40, 548, 1288, 1048
+    shadow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    sd = ImageDraw.Draw(shadow)
+    sd.rounded_rectangle((x0 + 10, y0 + 14, x1 + 10, y1 + 14), 22, fill=(0, 0, 0, 160))
+    shadow = shadow.filter(ImageFilter.GaussianBlur(14))
+    panel = Image.alpha_composite(panel, shadow)
+    pd = ImageDraw.Draw(panel)
+    pd.rounded_rectangle((x0, y0, x1, y1), 20, fill=(6, 10, 14, 242), outline=TEAL, width=3)
+    pd.rectangle((x0, y0 + 22, x0 + 10, y1 - 22), fill=TEAL)
+    base = Image.alpha_composite(base, panel)
+
     d = ImageDraw.Draw(base)
-    f_kick = font(LATIN, 22)
-    f_q = font(CN, 36)
-    f_punch = font(CN, 52)
-    f_detail = font(CN, 24)
-    f_badge = font(CN, 22)
-    f_foot = font(CN, 20)
-    d.text((96, 620), kicker, font=f_kick, fill=TEAL)
-    d.text((96, 658), question, font=f_q, fill=WHITE)
-    d.text((96, 718), punch, font=f_punch, fill=TEAL)
-    d.text((96, 790), detail, font=f_detail, fill=MUTED)
-    tw, th = text_size(d, badge_text, f_badge)
-    bx, by = 96, 848
-    d.rounded_rectangle((bx, by, bx + tw + 36, by + 44), 8, outline=TEAL, width=2)
-    d.text((bx + 18, by + 8), badge_text, font=f_badge, fill=TEAL)
-    tw, _ = text_size(d, "限制性环境刺激疗法  ·  先有方法，后有舱", f_foot)
-    d.text((W - 96 - tw, 990), "限制性环境刺激疗法  ·  先有方法，后有舱", font=f_foot, fill=MUTED)
+    f_kick = font(LATIN_B, 26)
+    f_q = font(CN, 38)
+    f_punch = font(CN, 56)
+    f_detail = font(CN, 26)
+    f_badge = font(CN, 24)
+    f_foot = font(CN, 22)
+    tx = x0 + 40
+    d.text((tx, 572), kicker, font=f_kick, fill=TEAL)
+    q_lines = [question]
+    if "，" in question and len(question) > 14:
+        a, b = question.rsplit("，", 1)
+        q_lines = [a + "，", b]
+    qy = 616
+    for line in q_lines:
+        d.text((tx, qy), line, font=f_q, fill=WHITE)
+        qy += 50
+    punch_y = qy + 6
+    d.text((tx, punch_y), punch, font=f_punch, fill=TEAL)
+    d.text((tx, punch_y + 76), detail, font=f_detail, fill=(220, 228, 232, 255))
+    tw, _ = text_size(d, badge_text, f_badge)
+    bx, by = tx, punch_y + 128
+    d.rounded_rectangle((bx, by, bx + tw + 40, by + 50), 10, fill=(16, 36, 40, 255), outline=TEAL, width=3)
+    d.text((bx + 20, by + 10), badge_text, font=f_badge, fill=WHITE)
+    foot = FOOT
+    tw, _ = text_size(d, foot, f_foot)
+    fx, fy = W - 48 - tw - 20, 1008
+    d.rounded_rectangle((fx - 16, fy - 8, fx + tw + 16, fy + 34), 8, fill=(6, 10, 14, 220))
+    d.text((fx, fy), foot, font=f_foot, fill=(210, 218, 224, 255))
     save(base, filename)
 
 
@@ -122,11 +147,14 @@ def four_up(photos, filename):
     bg = Image.alpha_composite(bg, shade)
     d = ImageDraw.Draw(bg)
     f_kick = font(LATIN, 20)
-    f_title = font(CN, 36)
+    f_title = font(CN, 34)
     f_label = font(CN, 22)
     f_foot = font(CN, 20)
-    center_text(d, "Floatation-REST", 48, f_kick, TEAL)
-    center_text(d, "一次看见变化，重复做得完，对照有信号", 84, f_title, WHITE)
+    center_text(d, "Floatation-REST", 36, f_kick, TEAL)
+    ty = 68
+    for line in FOUR_UP_TITLE:
+        center_text(d, line, ty, f_title, WHITE)
+        ty += 42
 
     labels = [
         "2018  一次 · 开放标签",
@@ -134,10 +162,10 @@ def four_up(photos, filename):
         "2014  功效 · 随机对照试点",
         "2023  随访 · 柳叶子刊对照",
     ]
-    tw, th = 860, 360
-    gap_x, gap_y = 28, 56
+    tw, th = 860, 350
+    gap_x, gap_y = 28, 52
     x0 = (W - (2 * tw + gap_x)) // 2
-    y0 = 160
+    y0 = 172
     for i, (photo, lab) in enumerate(zip(photos, labels)):
         col, row = i % 2, i // 2
         x = x0 + col * (tw + gap_x)
@@ -154,11 +182,14 @@ def four_up(photos, filename):
         fd.rounded_rectangle((0, 0, tw - 1, th - 1), 14, outline=TEAL, width=2)
         bg.alpha_composite(frame, (x, y))
         dd = ImageDraw.Draw(bg)
-        lw, _ = text_size(dd, lab, f_label)
-        dd.text((x + (tw - lw) // 2, y + th + 10), lab, font=f_label, fill=WHITE)
+        lw, lh = text_size(dd, lab, f_label)
+        lx = x + (tw - lw) // 2
+        ly = y + th + 12
+        dd.rounded_rectangle((lx - 16, ly - 6, lx + lw + 16, ly + 32), 8, fill=(6, 10, 14, 230), outline=TEAL, width=1)
+        dd.text((lx, ly), lab, font=f_label, fill=WHITE)
 
     d = ImageDraw.Draw(bg)
-    center_text(d, "限制性环境刺激疗法  ·  先有方法，后有舱", 1020, f_foot, MUTED)
+    center_text(d, FOOT, 1020, f_foot, MUTED)
     save(bg, filename)
 
 
@@ -189,7 +220,7 @@ def main():
     paper_card(
         p2014,
         "03   BMC  2014",
-        "对照，有没有功效？",
+        "用临床对照的标准看，有没有功效？",
         "压力与焦虑指标下降",
         "六十五人  ·  十二次  ·  等待名单对照  ·  预防性保健试点",
         "随机对照试点",
