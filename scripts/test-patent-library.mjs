@@ -520,6 +520,20 @@ check(
   patentSources.some((s) => s.id === "SRC-PAT-WRITE-HW-GATE" && s.status === "done")
 );
 check(
+  "余光件已暂停且舱体消杀无独立件",
+  /暂停/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.title ?? "") &&
+    /舱体消杀现机无独立件/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.title ?? "") &&
+    /PAT-PRI-070/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.body ?? "")
+);
+check(
+  "舱体消杀结论文件存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "舱体消杀-现机可写点.md"))
+);
+check(
+  "舱体消杀过闸来源已记录",
+  patentSources.some((s) => s.id === "SRC-PAT-CABIN-SAN-GATE" && s.status === "done")
+);
+check(
   "入口卡已指向无需实验撰写菜单",
   /PAT-WRITE-007/.test(patents.find((p) => p.id === "PAT-INDEX-001")?.body ?? "")
 );

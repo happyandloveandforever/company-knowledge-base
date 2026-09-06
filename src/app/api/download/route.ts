@@ -115,6 +115,14 @@ const ALLOWED: Record<string, { file: string; type: string }> = {
     file: "漂浮方舟_工程师确认_空舱现状与改判.md",
     type: "text/markdown; charset=utf-8",
   },
+  "cabin-sanitation.md": {
+    file: "漂浮方舟_舱体消杀_现机可写点.md",
+    type: "text/markdown; charset=utf-8",
+  },
+  "cabin-sanitation.docx": {
+    file: "漂浮方舟_舱体消杀_现机可写点.docx",
+    type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  },
 };
 
 export async function GET(request: NextRequest) {

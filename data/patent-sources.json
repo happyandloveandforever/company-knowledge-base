@@ -723,5 +723,16 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "用户确认：有通气孔、臭氧接液体、无光催化涂层、冲水不结盐、舱内紫外灯、无臭氧探头。原空舱三态按现状不递。WRITE-007 改为现行第一件=占用态余光+通气孔。"
+  },
+  {
+    "id": "SRC-PAT-CABIN-SAN-GATE",
+    "filename": "舱体消杀-现机可写点",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-06T04:20:00.000Z",
+    "patentIds": [],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "用户暂停余光件。舱体消杀：现机冲壁/紫外/臭氧进液/排空均为公开标配，028 零件不齐，无独立成件点。唯一待问：冲洗水去向。"
   }
 ]

@@ -81,7 +81,9 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/import-rd-vagus-app.mjs` | 低刺激×迷走应用研发思考 12 条仅内训卡（幂等，不写专利） |
 | `scripts/apply-rd-two-library-merge.mjs` | 两库合并：KP-RD 注脚 + 专利对照 PAT-MAP-009 / PAT-XREF-002（幂等，不新写权要） |
 | `scripts/apply-patent-write-no-exp.mjs` | 无需实验撰写菜单 PAT-WRITE-007（幂等，已被现机过闸改判） |
-| `scripts/apply-patent-write-hw-gate.mjs` | 现机过闸：空舱三态不递，WRITE-007 改指向通气孔余光（幂等） |
+| `scripts/apply-patent-write-hw-gate.mjs` | 现机过闸：空舱三态不递（幂等） |
+| `scripts/apply-patent-cabin-sanitation-gate.mjs` | 余光暂停；舱体消杀现机无独立件（幂等） |
+| `patent-drafts/舱体消杀-现机可写点.md` | 舱体消杀现机结论：冲壁/紫外/臭氧进液不能主张 |
 | `patent-drafts/无需实验即可撰写的专利方案.md` | 给用户勾选的撰写菜单；Word 在首页下载 |
 | `patent-drafts/交底书-空舱三态消杀装置.md` | 件1 可填空交底书 |
 | `patent-drafts/交底书-时变余光限制装置.md` | 件2 可填空交底书 |

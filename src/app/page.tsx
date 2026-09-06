@@ -247,7 +247,7 @@ export default async function HomePage() {
               </div>
               <CardTitle className="text-base">公司专利库 · {patents.length} 条</CardTitle>
               <CardDescription>
-                五个申请组，不按母案带子案。现在就能写的菜单见 PAT-WRITE-007：现机过闸后空舱三态不递，先写占用态余光与通气孔。不进公开站，不进编排 PPT。
+                五个申请组，不按母案带子案。撰写菜单 PAT-WRITE-007：空舱三态不递，余光件暂停，舱体消杀现机无独立件。不进公开站，不进编排 PPT。
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -396,27 +396,24 @@ export default async function HomePage() {
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <div className="mb-1 flex items-center gap-2">
-                <h2 className="text-lg font-semibold text-slate-900">无需实验即可写的专利方案</h2>
+                <h2 className="text-lg font-semibold text-slate-900">专利撰写结论（仅内部）</h2>
                 <Badge className="bg-red-100 text-red-800">仅内部 · 禁止外发</Badge>
               </div>
               <p className="mt-1 text-sm text-slate-600">
-                现机过闸后只写一件：关门、呼吸通气孔、舱内紫外、占用态余光。原空舱三态按现状不递。
+                空舱三态不递。余光件已暂停。舱体消杀按现机没有独立成件的点。Word 是给内部看的结论，不是交代理师的稿。
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
-              <a href="/api/download?file=no-exp-patents.docx">
+              <a href="/api/download?file=cabin-sanitation.docx">
                 <Button>
                   <Download className="h-4 w-4" />
-                  下载方案 Word
+                  舱体消杀结论
                 </Button>
               </a>
-              <a href="/api/download?file=disclosure-residual-light.docx">
-                <Button variant="outline">现行交底书</Button>
+              <a href="/api/download?file=no-exp-patents.docx">
+                <Button variant="outline">撰写菜单 Word</Button>
               </a>
-              <a href="/api/download?file=disclosure-empty-cabin.docx">
-                <Button variant="outline">原件1否决留痕</Button>
-              </a>
-              <a href="/api/download?file=no-exp-patents.md">
+              <a href="/api/download?file=cabin-sanitation.md">
                 <Button variant="outline">Markdown</Button>
               </a>
             </div>
