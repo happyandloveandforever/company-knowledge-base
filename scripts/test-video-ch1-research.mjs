@@ -89,6 +89,24 @@ if (!md.includes("用临床对照的标准看，有没有功效？")) {
 if (/问：对照，有没有功效？/.test(md)) {
   errors.push("004 功效卡仍用旧问句「对照，有没有功效？」");
 }
+if (/问：重复，人能不能做完/.test(md)) {
+  errors.push("004 重复卡仍用负面问句「人能不能做完」");
+}
+if (/徽章：可行性随机对照 · 不是疗效金标准/.test(md)) {
+  errors.push("004 重复卡绿框仍写「不是疗效金标准」");
+}
+if (!md.includes("多次使用，是否舒适安全？")) {
+  errors.push("004 重复卡未改为「多次使用，是否舒适安全？」");
+}
+if (!md.includes("七十五人全部完成")) {
+  errors.push("004 重复卡未写「七十五人全部完成」");
+}
+if (!md.includes("依从度高，使人舒适的安全疗法")) {
+  errors.push("004 重复卡绿框未改为舒适安全口径");
+}
+if (!vo004.includes("依从度很高")) {
+  errors.push("004 旁白未说依从度很高");
+}
 if (!md.includes("六十余年")) errors.push("003 未兑现方法史「六十余年」");
 if (!md.includes("浮力卸载")) errors.push("机制备用镜丢失");
 if (!md.includes("John C. Lilly")) errors.push("003 图一未写 Lilly / 早期箱式舱");
@@ -120,6 +138,9 @@ else {
   }
   if (!craft.body.includes("先有漂浮疗法，后有中式漂浮")) {
     errors.push("KP-CRAFT-026 未写入 004 新底部句");
+  }
+  if (!craft.body.includes("使人舒适的安全疗法")) {
+    errors.push("KP-CRAFT-026 未写入 2024 卡正面口径");
   }
 }
 
