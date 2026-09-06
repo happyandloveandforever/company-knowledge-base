@@ -55,7 +55,7 @@ const comBodies = com.map((p) => `${p.title}\n${p.summary}\n${p.body}`).join("\n
 check("通识新卡不写疗效承诺数字", !/治愈率\s*\d|治疗率\s*\d/.test(comBodies));
 check("通识新卡包含 WHO 2025", /WHO 2025|World mental health today/.test(comBodies));
 check("通识新卡包含 Garland 可行性培训", /可行性RCT/.test(comBodies));
-check("库总量不少于 640", points.length >= 640, String(points.length));
+check("库总量不少于 660", points.length >= 660, String(points.length));
 
 // ── 培训教材隔离 ─────────────────────────────────────
 const trn = points.filter((p) => p.id.startsWith("KP-TRN-"));
@@ -183,7 +183,7 @@ check(
     publicOnly.filter((p) => p.id.startsWith("KP-VNSMAP-")).length === 16
 );
 const pvb = points.filter((p) => p.id.startsWith("KP-PVB-"));
-check("罗森堡读本 KP-PVB 至少 60 条", pvb.length >= 60, String(pvb.length));
+check("罗森堡读本 KP-PVB 至少 80 条", pvb.length >= 80, String(pvb.length));
 check("罗森堡读本全部 approved", pvb.every((p) => p.status === "approved"));
 check("罗森堡读本全部可外发", pvb.every((p) => p.internalOnly !== true));
 check(
@@ -211,6 +211,13 @@ check("罗森堡81-120含五态或混合回路", /五态|无恐惧的动员|无�
 check("罗森堡81-120含神经觉", /神经觉/.test(pvbText));
 check("罗森堡81-120含迷走煞车或梯子", /迷走煞车|自律梯子|梯子/.test(pvbText));
 check("罗森堡81-120禁止病名当适应症", /KP-PVB-051/.test(pvb.map((p) => p.id).join(" ")) && /POTS|纤维肌痛/.test(pvbText) && /适应症/.test(pvbText));
+check(
+  "来源 SRC-PVB-ROSENBERG-121-160 已记录",
+  sources.some((s) => s.id === "SRC-PVB-ROSENBERG-121-160" && s.status === "done")
+);
+check("罗森堡121-160含咽部或发啊检测", /咽部|软腭|悬雍垂/.test(pvbText));
+check("罗森堡121-160含面部观察", /中脸|微表情|眼轮匝肌/.test(pvbText));
+check("罗森堡121-160禁止COPD当适应症", /KP-PVB-079/.test(pvb.map((p) => p.id).join(" ")) && /COPD|慢阻肺/.test(pvbText) && /适应症/.test(pvbText));
 
 if (failed) {
   console.log(`\n${failed} failed`);

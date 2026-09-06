@@ -990,5 +990,36 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "扫描件 81–120 页。第2章五态/梯子 + 第3章神经觉开头。20 条摘要卡。抑郁/POTS/HRV/用药个案不得外推为漂浮适应症。"
+  },
+  {
+    "id": "SRC-PVB-ROSENBERG-121-160",
+    "filename": "迷走神經的自我檢測與治癒_121-160.pdf",
+    "fileType": "pdf",
+    "uploadedAt": "2026-09-06T04:20:00.000Z",
+    "knowledgePointIds": [
+      "KP-PVB-061",
+      "KP-PVB-062",
+      "KP-PVB-063",
+      "KP-PVB-064",
+      "KP-PVB-065",
+      "KP-PVB-066",
+      "KP-PVB-067",
+      "KP-PVB-068",
+      "KP-PVB-069",
+      "KP-PVB-070",
+      "KP-PVB-071",
+      "KP-PVB-072",
+      "KP-PVB-073",
+      "KP-PVB-074",
+      "KP-PVB-075",
+      "KP-PVB-076",
+      "KP-PVB-077",
+      "KP-PVB-078",
+      "KP-PVB-079",
+      "KP-PVB-080"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "扫描件 121–160 页。第3章收束 + 第4章检测启发式 + 第5章 COPD 开头。20 条摘要卡。HRV/气喘自闭/百分百/COPD 个案不得外推为漂浮适应症。"
   }
 ]
