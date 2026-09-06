@@ -91,6 +91,26 @@ const ALLOWED: Record<string, { file: string; type: string }> = {
     file: "漂浮方舟_低刺激迷走_应用研发思考.md",
     type: "text/markdown; charset=utf-8",
   },
+  "no-exp-patents.docx": {
+    file: "漂浮方舟_无需实验即可撰写的专利方案.docx",
+    type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  },
+  "no-exp-patents.md": {
+    file: "漂浮方舟_无需实验即可撰写的专利方案.md",
+    type: "text/markdown; charset=utf-8",
+  },
+  "disclosure-empty-cabin.docx": {
+    file: "漂浮方舟_交底书_空舱三态消杀装置.docx",
+    type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  },
+  "disclosure-residual-light.docx": {
+    file: "漂浮方舟_交底书_时变余光限制装置.docx",
+    type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  },
+  "disclosure-heat-flux.docx": {
+    file: "漂浮方舟_交底书_液面热流归零装置.docx",
+    type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  },
 };
 
 export async function GET(request: NextRequest) {

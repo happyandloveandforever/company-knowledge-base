@@ -54,9 +54,15 @@ check(
 );
 check(
   "交底书撰写包齐全",
-  ["PAT-WRITE-001", "PAT-WRITE-002", "PAT-WRITE-003", "PAT-WRITE-004", "PAT-WRITE-005", "PAT-WRITE-006"].every((id) =>
-    patents.some((p) => p.id === id)
-  )
+  [
+    "PAT-WRITE-001",
+    "PAT-WRITE-002",
+    "PAT-WRITE-003",
+    "PAT-WRITE-004",
+    "PAT-WRITE-005",
+    "PAT-WRITE-006",
+    "PAT-WRITE-007",
+  ].every((id) => patents.some((p) => p.id === id))
 );
 check("第一件明确选母案A", /第一件写母案A/.test(patents.find((p) => p.id === "PAT-WRITE-001")?.title ?? ""));
 check(
@@ -491,6 +497,33 @@ check(
 check(
   "应用研发两库合并来源已记录",
   patentSources.some((s) => s.id === "SRC-PAT-RD-APP-MERGE" && s.status === "done")
+);
+check("无需实验撰写菜单卡存在", patents.some((p) => p.id === "PAT-WRITE-007" && p.lifecycle === "active"));
+check(
+  "无需实验菜单不把046当无实验第一件",
+  /046/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.body ?? "") &&
+    /空舱/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.title ?? "") &&
+    /不要拿本底两张表当第一件/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.title ?? "")
+);
+check(
+  "入口卡已指向无需实验撰写菜单",
+  /PAT-WRITE-007/.test(patents.find((p) => p.id === "PAT-INDEX-001")?.body ?? "")
+);
+check(
+  "无需实验撰写来源已记录",
+  patentSources.some((s) => s.id === "SRC-PAT-WRITE-NO-EXP" && s.status === "done")
+);
+check(
+  "无需实验方案与交底书文件存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "无需实验即可撰写的专利方案.md")) &&
+    existsSync(path.join(process.cwd(), "patent-drafts", "交底书-空舱三态消杀装置.md")) &&
+    existsSync(path.join(process.cwd(), "patent-drafts", "交底书-时变余光限制装置.md")) &&
+    existsSync(path.join(process.cwd(), "patent-drafts", "交底书-液面热流归零装置.md"))
+);
+check(
+  "无需实验方案 Word 导出存在",
+  existsSync(path.join(process.cwd(), "exports", "漂浮方舟_无需实验即可撰写的专利方案.docx")) &&
+    existsSync(path.join(process.cwd(), "exports", "漂浮方舟_交底书_空舱三态消杀装置.docx"))
 );
 check("整合方案v5源稿存在", existsSync(path.join(process.cwd(), "patent-drafts", "专利整合方案-v5.md")));
 check(

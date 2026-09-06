@@ -247,7 +247,7 @@ export default async function HomePage() {
               </div>
               <CardTitle className="text-base">公司专利库 · {patents.length} 条</CardTitle>
               <CardDescription>
-                六簇技术模块、两件母案（A 液/物理场，B 测量/安全/低刺激交互）。不设母案 3。第一件先写母案 A，交底书模板与采访清单见 PAT-WRITE-*。不进公开站，不进编排 PPT。
+                五个申请组，不按母案带子案。现在就能写、不必先做实验的菜单见 PAT-WRITE-007：首选空舱三态一件。不进公开站，不进编排 PPT。
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -392,6 +392,36 @@ export default async function HomePage() {
 
       {/* Export */}
       <section className="mt-8 space-y-4">
+        <div className="rounded-xl border border-amber-200 bg-amber-50/60 p-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <div className="mb-1 flex items-center gap-2">
+                <h2 className="text-lg font-semibold text-slate-900">无需实验即可写的专利方案</h2>
+                <Badge className="bg-red-100 text-red-800">仅内部 · 禁止外发</Badge>
+              </div>
+              <p className="mt-1 text-sm text-slate-600">
+                首选一件：空舱三态消杀装置。可选再加时变余光。交底书把「填」换成工程师原话，不要编数字。
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <a href="/api/download?file=no-exp-patents.docx">
+                <Button>
+                  <Download className="h-4 w-4" />
+                  下载方案 Word
+                </Button>
+              </a>
+              <a href="/api/download?file=disclosure-empty-cabin.docx">
+                <Button variant="outline">件1 交底书</Button>
+              </a>
+              <a href="/api/download?file=disclosure-residual-light.docx">
+                <Button variant="outline">件2 交底书</Button>
+              </a>
+              <a href="/api/download?file=no-exp-patents.md">
+                <Button variant="outline">Markdown</Button>
+              </a>
+            </div>
+          </div>
+        </div>
         <div className="rounded-xl border border-red-200 bg-red-50/60 p-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>

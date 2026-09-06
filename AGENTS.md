@@ -80,6 +80,10 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/import-therapy-os.mjs` | 漂浮疗法说明.pdf 五维叙事脊柱 13 条仅内训卡（幂等） |
 | `scripts/import-rd-vagus-app.mjs` | 低刺激×迷走应用研发思考 12 条仅内训卡（幂等，不写专利） |
 | `scripts/apply-rd-two-library-merge.mjs` | 两库合并：KP-RD 注脚 + 专利对照 PAT-MAP-009 / PAT-XREF-002（幂等，不新写权要） |
+| `scripts/apply-patent-write-no-exp.mjs` | 无需实验撰写菜单 PAT-WRITE-007（幂等）：首选空舱三态，可选时变余光 |
+| `patent-drafts/无需实验即可撰写的专利方案.md` | 给用户勾选的撰写菜单；Word 在首页下载 |
+| `patent-drafts/交底书-空舱三态消杀装置.md` | 件1 可填空交底书 |
+| `patent-drafts/交底书-时变余光限制装置.md` | 件2 可填空交底书 |
 | `internal/低刺激迷走-应用研发思考.md` | 应用层研发底稿：默认深度 REST、本底三态表、四条通路落地（不进 /open） |
 | `exports/漂浮方舟_低刺激迷走_应用研发思考.docx` | 同上 Word 版，首页「下载 Word」；`/api/download?file=rd-vagus-app.docx` |
 | `scripts/import-nsf-standards-qa.mjs` | 标准五问拆为 KP-WEB-013~020（幂等，通识，直接批准） |
