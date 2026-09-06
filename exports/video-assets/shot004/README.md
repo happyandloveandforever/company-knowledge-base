@@ -1,10 +1,13 @@
 # 分镜 004 画面（16:9）
 
-不要做成论文封面闪现。每张卡先问一个观众在意的问题，再用一句结果接住。
+一文一图。每张卡用该论文首页标题区（期刊名 + 文章标题），不扫正文和统计图。
 
-1. `004a-once.jpg` — 一次，有没有变化？／状态焦虑显著下降／开放标签（非 RCT）
-2. `004b-repeat.jpg` — 重复，人能不能做完？／六次做完，没有严重不良事件／可行性随机对照
-3. `004c-controlled.jpg` — 对照，有没有更硬的证据？／六个月后仍有信号／柳叶子刊随机对照
-4. `004d-three-up.jpg` — 三列同框收束：「一次看见变化，重复做得完，对照也有了。」
+1. `004a-once.jpg` — Feinstein 2018 PLoS ONE · 一次 · 状态焦虑显著下降 · 开放标签
+2. `004b-repeat.jpg` — Garland 2024 PLoS ONE · 重复 · 六次，人能做完 · 可行性（无功效主终点）
+3. `004c-efficacy.jpg` — Kjellgren 2014 BMC · 功效 · 压力与焦虑指标下降 · 随机对照试点
+4. `004d-followup.jpg` — Choquette 2023 柳叶子刊 · 随访 · 六个月后仍有信号
+5. `004e-four-up.jpg` — 四宫格收束
+
+源文件：`user-source/*-p1.jpg`
 
 重新出图：`python3 scripts/compose-shot004-stills.py`
