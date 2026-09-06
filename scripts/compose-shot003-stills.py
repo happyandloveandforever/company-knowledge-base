@@ -399,18 +399,14 @@ def compact_event_still(bg, kicker, title, left, right, filename):
     return crop_16x9(Image.open(OUT / filename))
 
 
-def full_node(photo: Image.Image, year: str, label: str, caption: str, name: str):
-    fitted = photo.convert("RGB")
-    if fitted.size != (W, H):
-        fitted = crop_16x9(fitted)
-    base = fitted.convert("RGBA")
-    grad = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    gd = ImageDraw.Draw(grad)
+def node_caption_overlay(year: str, label: str, caption: str) -> Image.Image:
+    """Transparent 16:9 captions used by stills and the EEG overlay video."""
+    overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    gd = ImageDraw.Draw(overlay)
     for y in range(680, H):
         a = int(230 * ((y - 680) / (H - 680)) ** 1.05)
         gd.line((0, y, W, y), fill=(0, 0, 0, min(a, 230)))
-    base = Image.alpha_composite(base, grad)
-    d = ImageDraw.Draw(base)
+    d = ImageDraw.Draw(overlay)
     f_year = font(LATIN_B, 26)
     f_label = font(CN, 46)
     f_cap = font(CN, 26)
@@ -420,6 +416,23 @@ def full_node(photo: Image.Image, year: str, label: str, caption: str, name: str
     d.text((96, 924), caption, font=f_cap, fill=MUTED)
     tw, _ = text_size(d, FOOT, f_foot)
     d.text((W - 96 - tw, 990), FOOT, font=f_foot, fill=MUTED)
+    return overlay
+
+
+EEG_YEAR = "2010s–"
+EEG_LABEL = "临床与影像研究"
+EEG_CAPTION = "漂浮中的脑电与生理监测（γ / β / α / θ）"
+
+
+def eeg_caption_overlay() -> Image.Image:
+    return node_caption_overlay(EEG_YEAR, EEG_LABEL, EEG_CAPTION)
+
+
+def full_node(photo: Image.Image, year: str, label: str, caption: str, name: str):
+    fitted = photo.convert("RGB")
+    if fitted.size != (W, H):
+        fitted = crop_16x9(fitted)
+    base = Image.alpha_composite(fitted.convert("RGBA"), node_caption_overlay(year, label, caption))
     save(base, name)
 
 
@@ -480,13 +493,12 @@ def main():
         "Suedfeld 1980 专著把 REST 写进书名",
         "003d-1980-book.jpg",
     )
-    full_node(
-        t2010,
-        "2010s–",
-        "临床与影像研究",
-        "漂浮中的脑电与生理监测（γ / β / α / θ）",
-        "003e-eeg-frame.jpg",
-    )
+    full_node(t2010, EEG_YEAR, EEG_LABEL, EEG_CAPTION, "003e-eeg-frame.jpg")
+    overlay = eeg_caption_overlay()
+    overlay_path = OUT / "003e-eeg-overlay.png"
+    overlay.save(overlay_path)
+    overlay.save(ART / "003e-eeg-overlay.png")
+    print(overlay_path, overlay.size)
     # keep old generated plates as optional extras, not timeline thumbs
     _ = naming, clinical
 

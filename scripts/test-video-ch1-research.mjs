@@ -130,6 +130,7 @@ if (!md.includes("先有研究，后发展成疗法")) {
 if (/先有方法，后有舱/.test(md)) {
   errors.push("003 分镜稿仍写旧底部「先有方法，后有舱」");
 }
+if (!md.includes("003e-eeg-overlay.mp4")) errors.push("003 未指定脑电叠字成片");
 if (!md.includes("六十余年")) errors.push("003 未兑现方法史「六十余年」");
 if (!md.includes("浮力卸载")) errors.push("机制备用镜丢失");
 if (!md.includes("John C. Lilly")) errors.push("003 图一未写 Lilly / 早期箱式舱");
@@ -146,6 +147,9 @@ else {
   if (craft.layer !== "company") errors.push("KP-CRAFT-026 分层错误");
   if (!craft.body.includes("Lilly") || !craft.body.includes("脑电")) {
     errors.push("KP-CRAFT-026 未写入三张指定图口径");
+  }
+  if (!craft.body.includes("003e-eeg-overlay.mp4")) {
+    errors.push("KP-CRAFT-026 未写入 003e 叠字成片");
   }
   if (!craft.body.includes("先有研究，后发展成疗法")) {
     errors.push("KP-CRAFT-026 未写入 003 新底部句");
@@ -213,6 +217,8 @@ for (const f of [
   "003c-1950s.jpg",
   "003d-1980-book.jpg",
   "003e-eeg-frame.jpg",
+  "003e-eeg-overlay.mp4",
+  "user-source/eeg-research.mp4",
   "003b-timeline-03.jpg",
 ]) {
   if (!existsSync(path.join(stillDir, f))) errors.push(`缺少画面文件：${f}`);

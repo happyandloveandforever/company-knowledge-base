@@ -19,6 +19,8 @@
 
 底部统一：「限制性环境刺激疗法 · 先有研究，后发展成疗法」
 
+成片第三节点可用运动画面：`003e-eeg-overlay.mp4`（原研究视频叠上述中文；`BR` / `γβθα` 已在原片中）。重出：`python3 scripts/overlay-shot003-eeg-video.py`
+
 附录（不要替代上面三张）：`003d-naming-events.jpg`、`003e-clinical-imaging.jpg`
 
 重新出图：`python3 scripts/compose-shot003-stills.py`
