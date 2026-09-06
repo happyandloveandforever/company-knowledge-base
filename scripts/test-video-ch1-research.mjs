@@ -124,6 +124,12 @@ if (!md.includes("依从度高，使人舒适的安全疗法")) {
 if (!vo004.includes("依从度很高")) {
   errors.push("004 旁白未说依从度很高");
 }
+if (!md.includes("先有研究，后发展成疗法")) {
+  errors.push("003 底部未改为「先有研究，后发展成疗法」");
+}
+if (/先有方法，后有舱/.test(md)) {
+  errors.push("003 分镜稿仍写旧底部「先有方法，后有舱」");
+}
 if (!md.includes("六十余年")) errors.push("003 未兑现方法史「六十余年」");
 if (!md.includes("浮力卸载")) errors.push("机制备用镜丢失");
 if (!md.includes("John C. Lilly")) errors.push("003 图一未写 Lilly / 早期箱式舱");
@@ -140,6 +146,9 @@ else {
   if (craft.layer !== "company") errors.push("KP-CRAFT-026 分层错误");
   if (!craft.body.includes("Lilly") || !craft.body.includes("脑电")) {
     errors.push("KP-CRAFT-026 未写入三张指定图口径");
+  }
+  if (!craft.body.includes("先有研究，后发展成疗法")) {
+    errors.push("KP-CRAFT-026 未写入 003 新底部句");
   }
   if (!craft.body.includes("一次看见变化")) {
     errors.push("KP-CRAFT-026 未写入 004 营销阶梯");
@@ -188,6 +197,14 @@ for (const f of [
 ]) {
   if (!existsSync(path.join(stillDir004, f))) errors.push(`缺少画面文件：shot004/${f}`);
 }
+const compose003 = readFileSync(path.join(root, "scripts/compose-shot003-stills.py"), "utf-8");
+if (!compose003.includes("先有研究，后发展成疗法")) {
+  errors.push("compose-shot003-stills.py 未写入新底部句");
+}
+if (compose003.includes("先有方法，后有舱")) {
+  errors.push("compose-shot003-stills.py 仍写旧底部「先有方法，后有舱」");
+}
+
 const stillDir = path.join(root, "exports/video-assets/shot003");
 for (const f of [
   "user-source/lilly-early-tank.jpg",

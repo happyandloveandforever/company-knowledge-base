@@ -31,6 +31,7 @@ WHITE = (232, 236, 240, 255)
 MUTED = (168, 178, 188, 255)
 TEAL = (126, 200, 200, 255)
 DIM = (90, 102, 112, 255)
+FOOT = "限制性环境刺激疗法  ·  先有研究，后发展成疗法"
 
 
 def font(path, size, index=0):
@@ -131,7 +132,7 @@ def chapter_card(bg: Image.Image):
     center_text(d, "国际研究谱系", 470, f_title, WHITE)
     # divider
     d.rectangle((860, 575, 1060, 577), fill=TEAL)
-    center_text(d, "限制性环境刺激疗法  ·  先有方法，后有舱", 610, f_foot, MUTED)
+    center_text(d, FOOT, 610, f_foot, MUTED)
     save(base, "003a-chapter-card.jpg")
 
 
@@ -198,7 +199,7 @@ def timeline(bg: Image.Image, thumbs, lit: int, name: str):
     for i, (nx, ny) in enumerate(nodes):
         glow_dot(d, (nx, ny), 9, on=i < lit)
 
-    center_text(d, "限制性环境刺激疗法  ·  先有方法，后有舱", 990, f_foot, MUTED)
+    center_text(d, FOOT, 990, f_foot, MUTED)
     save(base, name)
 
 
@@ -282,7 +283,7 @@ def naming_event_still(bg: Image.Image):
     )
 
     d = ImageDraw.Draw(base)
-    center_text(d, "限制性环境刺激疗法  ·  先有方法，后有舱", 990, f_foot, MUTED)
+    center_text(d, FOOT, 990, f_foot, MUTED)
     save(base, "003d-naming-events.jpg")
     return crop_16x9(Image.open(OUT / "003d-naming-events.jpg"))
 
@@ -354,7 +355,7 @@ def clinical_imaging_still(bg: Image.Image):
     )
 
     d = ImageDraw.Draw(base)
-    center_text(d, "限制性环境刺激疗法  ·  先有方法，后有舱", 990, f_foot, MUTED)
+    center_text(d, FOOT, 990, f_foot, MUTED)
     save(base, "003e-clinical-imaging.jpg")
     return crop_16x9(Image.open(OUT / "003e-clinical-imaging.jpg"))
 
@@ -393,7 +394,7 @@ def compact_event_still(bg, kicker, title, left, right, filename):
     block(x1, *left)
     block(x2, *right)
     d = ImageDraw.Draw(base)
-    center_text(d, "限制性环境刺激疗法  ·  先有方法，后有舱", 990, f_foot, MUTED)
+    center_text(d, FOOT, 990, f_foot, MUTED)
     save(base, filename)
     return crop_16x9(Image.open(OUT / filename))
 
@@ -417,8 +418,8 @@ def full_node(photo: Image.Image, year: str, label: str, caption: str, name: str
     d.text((96, 820), year, font=f_year, fill=TEAL)
     d.text((96, 860), label, font=f_label, fill=WHITE)
     d.text((96, 924), caption, font=f_cap, fill=MUTED)
-    tw, _ = text_size(d, "限制性环境刺激疗法  ·  先有方法，后有舱", f_foot)
-    d.text((W - 96 - tw, 990), "限制性环境刺激疗法  ·  先有方法，后有舱", font=f_foot, fill=MUTED)
+    tw, _ = text_size(d, FOOT, f_foot)
+    d.text((W - 96 - tw, 990), FOOT, font=f_foot, fill=MUTED)
     save(base, name)
 
 

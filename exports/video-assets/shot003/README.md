@@ -17,6 +17,8 @@
    - `003d-1980-book.jpg` — 1970–80s　被定名为 REST／Suedfeld 1980 专著把 REST 写进书名
    - `003e-eeg-frame.jpg` — 2010s–　临床与影像研究／漂浮中的脑电与生理监测
 
+底部统一：「限制性环境刺激疗法 · 先有研究，后发展成疗法」
+
 附录（不要替代上面三张）：`003d-naming-events.jpg`、`003e-clinical-imaging.jpg`
 
 重新出图：`python3 scripts/compose-shot003-stills.py`
