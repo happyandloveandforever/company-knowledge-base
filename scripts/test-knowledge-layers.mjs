@@ -55,7 +55,7 @@ const comBodies = com.map((p) => `${p.title}\n${p.summary}\n${p.body}`).join("\n
 check("通识新卡不写疗效承诺数字", !/治愈率\s*\d|治疗率\s*\d/.test(comBodies));
 check("通识新卡包含 WHO 2025", /WHO 2025|World mental health today/.test(comBodies));
 check("通识新卡包含 Garland 可行性培训", /可行性RCT/.test(comBodies));
-check("库总量不少于 665", points.length >= 665, String(points.length));
+check("库总量不少于 607", points.length >= 607, String(points.length));
 
 // ── 培训教材隔离 ─────────────────────────────────────
 const trn = points.filter((p) => p.id.startsWith("KP-TRN-"));
@@ -183,10 +183,10 @@ check(
     publicOnly.filter((p) => p.id.startsWith("KP-VNSMAP-")).length === 16
 );
 const pvb = points.filter((p) => p.id.startsWith("KP-PVB-"));
-check("罗森堡读本为 85 条（15 合并 + 70 续拆）", pvb.length === 85, String(pvb.length));
+check("罗森堡读本为 27 条（15+12 两叠主题合并）", pvb.length === 27, String(pvb.length));
 check("罗森堡读本全部 approved", pvb.every((p) => p.status === "approved"));
 check("罗森堡读本全部可外发", pvb.every((p) => p.internalOnly !== true));
-check("罗森堡读本停在 KP-PVB-085", pvb.every((p) => Number(p.id.slice(7)) <= 85));
+check("罗森堡读本停在 KP-PVB-027", pvb.every((p) => Number(p.id.slice(7)) <= 27));
 check("罗森堡合并包 KP-PVB-001 仍在", points.some((p) => p.id === "KP-PVB-001" && /主题合并/.test(`${p.title}\n${p.body}`)));
 check(
   "来源 SRC-PVB-ROSENBERG-MERGED 已记录",
@@ -227,6 +227,10 @@ check(
 check(
   "来源 SRC-PVB-ROSENBERG-321-352 已记录",
   sources.some((s) => s.id === "SRC-PVB-ROSENBERG-321-352" && s.status === "done")
+);
+check(
+  "来源 SRC-PVB-ROSENBERG-CONT-MERGED 已记录",
+  sources.some((s) => s.id === "SRC-PVB-ROSENBERG-CONT-MERGED" && s.status === "done")
 );
 const pvbText = pvb.map((p) => `${p.title}\n${p.summary}\n${p.body}`).join("\n");
 check("罗森堡读本声明不是漂浮试验", /不是漂浮|不得外推|禁止外推/.test(pvbText));
