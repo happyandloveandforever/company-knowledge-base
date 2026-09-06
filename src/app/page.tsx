@@ -185,7 +185,7 @@ export default async function HomePage() {
                 </div>
                 <CardTitle className="text-base">仅内训库</CardTitle>
                 <CardDescription>
-                  培训教材 {stats.trnInternal} 条 + 内部原子库 {stats.atomInternal} 条 + 疗法叙事 {stats.rxInternal} 条，与对外资料硬隔离。
+                  培训教材 {stats.trnInternal} 条 + 内部原子库 {stats.atomInternal} 条 + 疗法叙事 {stats.rxInternal} 条 + 应用研发 {stats.rdInternal} 条，与对外资料硬隔离。
                   {stats.internalPending > 0
                     ? `其中 ${stats.internalPending} 条待裁定。`
                     : ""}
@@ -247,7 +247,7 @@ export default async function HomePage() {
               </div>
               <CardTitle className="text-base">公司专利库 · {patents.length} 条</CardTitle>
               <CardDescription>
-                六簇技术模块、两件母案（A 液/物理场，B 测量/安全/低刺激交互）。不设母案 3。第一件先写母案 A，交底书模板与采访清单见 PAT-WRITE-*。不进公开站，不进编排 PPT。
+                五个申请组，不按母案带子案。申请正文 PAT-DRAFT-028：通气孔分态 + 空舱气相处理。余光件暂停。不进公开站，不进编排 PPT。
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -392,6 +392,57 @@ export default async function HomePage() {
 
       {/* Export */}
       <section className="mt-8 space-y-4">
+        <div className="rounded-xl border border-amber-200 bg-amber-50/60 p-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <div className="mb-1 flex items-center gap-2">
+                <h2 className="text-lg font-semibold text-slate-900">专利申请正文（仅内部）</h2>
+                <Badge className="bg-red-100 text-red-800">仅内部 · 禁止外发</Badge>
+              </div>
+              <p className="mt-1 text-sm text-slate-600">
+                按中国发明专利结构写的说明书、权利要求书、摘要。大按钮是申请正文。交底书给工程师核对零件。权要由代理师定稿。
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <a href="/api/download?file=shuomingshu.docx">
+                <Button>
+                  <Download className="h-4 w-4" />
+                  下载申请正文
+                </Button>
+              </a>
+              <a href="/api/download?file=jiaodishu.docx">
+                <Button variant="outline">交底书</Button>
+              </a>
+              <a href="/api/download?file=cabin-redesign.docx">
+                <Button variant="outline">怎么写</Button>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="rounded-xl border border-red-200 bg-red-50/60 p-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <div className="mb-1 flex items-center gap-2">
+                <h2 className="text-lg font-semibold text-slate-900">低刺激 × 迷走 · 应用研发文档</h2>
+                <Badge className="bg-red-100 text-red-800">仅内部 · 禁止外发</Badge>
+              </div>
+              <p className="mt-1 text-sm text-slate-600">
+                不写专利。默认深度 REST 全关、先测本底、共振呼吸每例必做。Word 可直接改。
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <a href="/api/download?file=rd-vagus-app.docx">
+                <Button>
+                  <Download className="h-4 w-4" />
+                  下载 Word
+                </Button>
+              </a>
+              <a href="/api/download?file=rd-vagus-app.md">
+                <Button variant="outline">下载 Markdown</Button>
+              </a>
+            </div>
+          </div>
+        </div>
         <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>

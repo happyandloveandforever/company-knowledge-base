@@ -685,5 +685,78 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "v5.0：信噪比架构不变；SPA/床/冥想舱模块平移全部打掉；打开自由漂浮流场与光路/投送可信度黄灯。产出 patent-drafts/专利整合方案-v5.md。"
+  },
+  {
+    "id": "SRC-PAT-RD-APP-MERGE",
+    "filename": "低刺激迷走-应用研发两库合并",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-05T09:20:00.000Z",
+    "patentIds": [
+      "PAT-MAP-009",
+      "PAT-XREF-002"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "应用层研发已在知识库 KP-RD-001~012。专利库只收对照入口 PAT-MAP-009 与两库对照 PAT-XREF-002，不新写权要，不改申请组。"
+  },
+  {
+    "id": "SRC-PAT-WRITE-NO-EXP",
+    "filename": "无需实验即可撰写的专利方案",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-06T02:30:00.000Z",
+    "patentIds": [
+      "PAT-WRITE-007"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "用户要求不测也能写。菜单卡 PAT-WRITE-007：首选空舱三态（028 结构联锁），可选时变余光（041），备选液面热流（034）。046 两张表未做，不作第一件独权。交底书在 patent-drafts/。"
+  },
+  {
+    "id": "SRC-PAT-WRITE-HW-GATE",
+    "filename": "工程师确认-空舱现状与改判",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-06T03:50:00.000Z",
+    "patentIds": [],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "用户确认：有通气孔、臭氧接液体、无光催化涂层、冲水不结盐、舱内紫外灯、无臭氧探头。原空舱三态按现状不递。WRITE-007 改为现行第一件=占用态余光+通气孔。"
+  },
+  {
+    "id": "SRC-PAT-CABIN-SAN-GATE",
+    "filename": "舱体消杀-现机可写点",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-06T04:20:00.000Z",
+    "patentIds": [],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "用户暂停余光件。舱体消杀：现机冲壁/紫外/臭氧进液/排空均为公开标配，028 零件不齐，无独立成件点。唯一待问：冲洗水去向。"
+  },
+  {
+    "id": "SRC-PAT-CABIN-REDESIGN",
+    "filename": "舱体消杀-改机撰写方案",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-06T08:00:00.000Z",
+    "patentIds": [],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "用户愿意改机器。现机仍不递 028。改机后只写一件：通气孔分态 + 空舱气相处理。余光仍暂停。"
+  },
+  {
+    "id": "SRC-PAT-DRAFT-CABIN-GAS",
+    "filename": "申请文件底稿-空舱气相消杀",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-06T09:00:00.000Z",
+    "patentIds": [
+      "PAT-DRAFT-028"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "用户确认新机已改齐。按专利法结构写出说明书+权利要求书+摘要底稿。权要由代理师定稿。不编杀菌率。"
   }
 ]

@@ -139,10 +139,15 @@ check("可外发页不含仅内训卡", publicOnly.every((p) => p.internalOnly !
 check("仅内训卡都是 training", internal.every((p) => p.usage === "training"));
 check("可外发数量 = 总量 - 仅内训", publicOnly.length === points.length - internal.length, `${publicOnly.length} vs ${points.length}-${internal.length}`);
 function isInternalPrefix(id) {
-  return id.startsWith("KP-TRN-") || id.startsWith("KP-ATOM-") || id.startsWith("KP-RX-");
+  return (
+    id.startsWith("KP-TRN-") ||
+    id.startsWith("KP-ATOM-") ||
+    id.startsWith("KP-RX-") ||
+    id.startsWith("KP-RD-")
+  );
 }
 check(
-  "仅内训全是 KP-TRN 或 KP-ATOM 或 KP-RX",
+  "仅内训全是 KP-TRN 或 KP-ATOM 或 KP-RX 或 KP-RD",
   internal.every((p) => isInternalPrefix(p.id)),
   internal.filter((p) => !isInternalPrefix(p.id)).map((p) => p.id).join(",")
 );
@@ -182,6 +187,24 @@ check(
     publicOnly.filter((p) => p.id.startsWith("KP-CIS-")).length === 18 &&
     publicOnly.filter((p) => p.id.startsWith("KP-VNSMAP-")).length === 16
 );
+
+const rd = points.filter((p) => p.id.startsWith("KP-RD-"));
+check("应用研发 KP-RD 至少 12 条", rd.length >= 12, String(rd.length));
+check("应用研发全部 usage=training", rd.every((p) => p.usage === "training"));
+check("应用研发全部 internalOnly", rd.every((p) => p.internalOnly === true));
+check("应用研发全部 approved", rd.every((p) => p.status === "approved"));
+check("应用研发全部公司层", rd.every((p) => p.layer === "company"));
+check(
+  "来源 SRC-RD-VAGUS-APP 已记录",
+  sources.some((s) => s.id === "SRC-RD-VAGUS-APP" && s.status === "done")
+);
+const rdText = rd.map((p) => `${p.title}\n${p.summary}\n${p.body}`).join("\n");
+check("应用研发声明不写专利", /不写专利|不是专利/.test(rdText));
+check("应用研发声明默认深度 REST 全关", /深度 REST/.test(rdText) && /全关/.test(rdText));
+check("应用研发声明 40Hz 不要做", /40Hz/.test(rdText));
+check("KP-RD 不进可外发", publicOnly.every((p) => !p.id.startsWith("KP-RD-")));
+check("KP-RD-001 已挂专利库对照入口", /PAT-MAP-009/.test(points.find((p) => p.id === "KP-RD-001")?.body ?? ""));
+check("KP-RD-012 声明不把本系列拆进专利 IDEA", /PAT-XREF-002/.test(points.find((p) => p.id === "KP-RD-012")?.body ?? ""));
 
 if (failed) {
   console.log(`\n${failed} failed`);

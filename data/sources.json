@@ -897,5 +897,28 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "CCS-12804 / 30min周转 / 臭氧 / F462 / A112.19.17 拆为 8 条通识卡 KP-WEB-013~020。直接批准。不覆盖 WEB-001~012。"
+  },
+  {
+    "id": "SRC-RD-VAGUS-APP",
+    "filename": "internal/低刺激迷走-应用研发思考.md",
+    "fileType": "md",
+    "uploadedAt": "2026-09-05T08:50:00.000Z",
+    "knowledgePointIds": [
+      "KP-RD-001",
+      "KP-RD-002",
+      "KP-RD-003",
+      "KP-RD-004",
+      "KP-RD-005",
+      "KP-RD-006",
+      "KP-RD-007",
+      "KP-RD-008",
+      "KP-RD-009",
+      "KP-RD-010",
+      "KP-RD-011",
+      "KP-RD-012"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "低刺激×迷走应用研发思考 12 条仅内训卡。不写专利、不进 /open。直接批准。"
   }
 ]

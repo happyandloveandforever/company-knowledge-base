@@ -54,9 +54,15 @@ check(
 );
 check(
   "交底书撰写包齐全",
-  ["PAT-WRITE-001", "PAT-WRITE-002", "PAT-WRITE-003", "PAT-WRITE-004", "PAT-WRITE-005", "PAT-WRITE-006"].every((id) =>
-    patents.some((p) => p.id === id)
-  )
+  [
+    "PAT-WRITE-001",
+    "PAT-WRITE-002",
+    "PAT-WRITE-003",
+    "PAT-WRITE-004",
+    "PAT-WRITE-005",
+    "PAT-WRITE-006",
+    "PAT-WRITE-007",
+  ].every((id) => patents.some((p) => p.id === id))
 );
 check("第一件明确选母案A", /第一件写母案A/.test(patents.find((p) => p.id === "PAT-WRITE-001")?.title ?? ""));
 check(
@@ -69,6 +75,18 @@ check(
   existsSync(path.join(process.cwd(), "patent-drafts", "申请文件底稿-多气源安全互锁.md"))
 );
 check("A4底稿状态卡存在", patents.some((p) => p.id === "PAT-DRAFT-A4"));
+check(
+  "空舱气相申请正文底稿存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "申请文件底稿-空舱气相消杀.md"))
+);
+check(
+  "空舱气相申请正文状态卡存在",
+  patents.some((p) => p.id === "PAT-DRAFT-028" && p.lifecycle === "active")
+);
+check(
+  "申请正文 Word 导出存在",
+  existsSync(path.join(process.cwd(), "exports", "漂浮方舟_申请文件_空舱气相消杀.docx"))
+);
 check("绝对新颖性规则卡存在", patents.some((p) => p.id === "PAT-RULE-002"));
 check("立项闸门卡存在", patents.some((p) => p.id === "PAT-RULE-003"));
 check(
@@ -472,6 +490,109 @@ check(
 // 整合方案 v5.0：当前对外交付件，先案与红灯必须列全
 check("整合方案v5来源已记录", patentSources.some((s) => s.id === "SRC-PAT-REPORT-V5" && s.status === "done"));
 check("整合方案v5卡存在", patents.some((p) => p.id === "PAT-MAP-008"));
+check("应用研发对照入口存在", patents.some((p) => p.id === "PAT-MAP-009" && p.lifecycle === "active"));
+check(
+  "应用研发对照声明不新写权要",
+  /不新写权要|不写新专利/.test(patents.find((p) => p.id === "PAT-MAP-009")?.title ?? "") &&
+    /KP-RD/.test(patents.find((p) => p.id === "PAT-MAP-009")?.body ?? "")
+);
+check("两库对照表存在", patents.some((p) => p.id === "PAT-XREF-002" && p.lifecycle === "active"));
+check(
+  "入口卡已指向应用研发对照",
+  /PAT-MAP-009/.test(patents.find((p) => p.id === "PAT-INDEX-001")?.body ?? "") &&
+    /PAT-XREF-002/.test(patents.find((p) => p.id === "PAT-INDEX-001")?.body ?? "")
+);
+check(
+  "MAP-008 仍为对外交付且未被应用文档取代",
+  patents.find((p) => p.id === "PAT-MAP-008")?.lifecycle === "active"
+);
+check(
+  "应用研发两库合并来源已记录",
+  patentSources.some((s) => s.id === "SRC-PAT-RD-APP-MERGE" && s.status === "done")
+);
+check("无需实验撰写菜单卡存在", patents.some((p) => p.id === "PAT-WRITE-007" && p.lifecycle === "active"));
+check(
+  "无需实验菜单不把046当无实验第一件",
+  /046/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.body ?? "") &&
+    /空舱/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.title ?? "") &&
+    /不要拿本底两张表当第一件/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.title ?? "")
+);
+check(
+  "现机过闸后空舱三态按现机不递",
+  /按现机不递/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.title ?? "") &&
+    /通气孔/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.body ?? "") &&
+    /接到液体/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.body ?? "")
+);
+check(
+  "现机过闸纪要文件存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "工程师确认-空舱现状与改判.md"))
+);
+check(
+  "现机过闸来源已记录",
+  patentSources.some((s) => s.id === "SRC-PAT-WRITE-HW-GATE" && s.status === "done")
+);
+check(
+  "余光件已暂停且改机后写气相消杀",
+  /暂停/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.title ?? "") &&
+    /改机后写气相消杀/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.title ?? "") &&
+    /PAT-PRI-070/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.body ?? "") &&
+    /舱体消杀现机无独立件/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.body ?? "")
+);
+check(
+  "舱体消杀结论文件存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "舱体消杀-现机可写点.md"))
+);
+check(
+  "舱体消杀过闸来源已记录",
+  patentSources.some((s) => s.id === "SRC-PAT-CABIN-SAN-GATE" && s.status === "done")
+);
+check(
+  "改机撰写方案与交底书文件存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "舱体消杀-改机撰写方案.md")) &&
+    existsSync(path.join(process.cwd(), "patent-drafts", "交底书-空舱气相消杀-改机.md"))
+);
+check(
+  "改机撰写来源已记录",
+  patentSources.some((s) => s.id === "SRC-PAT-CABIN-REDESIGN" && s.status === "done")
+);
+check(
+  "入口卡已指向改机撰写",
+  /舱体消杀改机/.test(patents.find((p) => p.id === "PAT-INDEX-001")?.body ?? "")
+);
+check(
+  "028 已指向改机撰写交底书",
+  /改机后作为唯一舱体消杀件/.test(patents.find((p) => p.id === "PAT-IDEA-028")?.body ?? "")
+);
+check(
+  "改机方案 Word 导出存在",
+  existsSync(path.join(process.cwd(), "exports", "漂浮方舟_舱体消杀_改机撰写方案.docx")) &&
+    existsSync(path.join(process.cwd(), "exports", "漂浮方舟_交底书_空舱气相消杀_改机.docx"))
+);
+check(
+  "交底书下载文件存在",
+  existsSync(path.join(process.cwd(), "exports", "漂浮方舟_交底书.docx")) &&
+    existsSync(path.join(process.cwd(), "exports", "漂浮方舟_交底书.md"))
+);
+check(
+  "入口卡已指向无需实验撰写菜单",
+  /PAT-WRITE-007/.test(patents.find((p) => p.id === "PAT-INDEX-001")?.body ?? "")
+);
+check(
+  "无需实验撰写来源已记录",
+  patentSources.some((s) => s.id === "SRC-PAT-WRITE-NO-EXP" && s.status === "done")
+);
+check(
+  "无需实验方案与交底书文件存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "无需实验即可撰写的专利方案.md")) &&
+    existsSync(path.join(process.cwd(), "patent-drafts", "交底书-空舱三态消杀装置.md")) &&
+    existsSync(path.join(process.cwd(), "patent-drafts", "交底书-时变余光限制装置.md")) &&
+    existsSync(path.join(process.cwd(), "patent-drafts", "交底书-液面热流归零装置.md"))
+);
+check(
+  "无需实验方案 Word 导出存在",
+  existsSync(path.join(process.cwd(), "exports", "漂浮方舟_无需实验即可撰写的专利方案.docx")) &&
+    existsSync(path.join(process.cwd(), "exports", "漂浮方舟_交底书_空舱三态消杀装置.docx"))
+);
 check("整合方案v5源稿存在", existsSync(path.join(process.cwd(), "patent-drafts", "专利整合方案-v5.md")));
 check(
   "整合方案v5 docx 存在",

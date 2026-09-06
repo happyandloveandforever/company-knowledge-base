@@ -78,6 +78,22 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/import-vagus-three-reports.mjs` | 迷走机制/综合干预专业版/VNS手段地图（幂等，直接批准） |
 | `scripts/import-atom-library.mjs` | combined.md 内部原子库 ~1300 条主题合并为 20 条仅内训卡（幂等） |
 | `scripts/import-therapy-os.mjs` | 漂浮疗法说明.pdf 五维叙事脊柱 13 条仅内训卡（幂等） |
+| `scripts/import-rd-vagus-app.mjs` | 低刺激×迷走应用研发思考 12 条仅内训卡（幂等，不写专利） |
+| `scripts/apply-rd-two-library-merge.mjs` | 两库合并：KP-RD 注脚 + 专利对照 PAT-MAP-009 / PAT-XREF-002（幂等，不新写权要） |
+| `scripts/apply-patent-write-no-exp.mjs` | 无需实验撰写菜单 PAT-WRITE-007（幂等，已被现机过闸改判） |
+| `scripts/apply-patent-write-hw-gate.mjs` | 现机过闸：空舱三态不递（幂等） |
+| `scripts/apply-patent-cabin-sanitation-gate.mjs` | 余光暂停；舱体消杀现机无独立件（幂等；改机后勿重跑覆盖 WRITE-007） |
+| `scripts/apply-patent-cabin-redesign.mjs` | 改机后写通气孔分态 + 空舱气相消杀（幂等，补注 WRITE-007 / INDEX / 028） |
+| `scripts/apply-patent-draft-cabin-gas.mjs` | 空舱气相消杀申请正文底稿 PAT-DRAFT-028（幂等） |
+| `patent-drafts/申请文件底稿-空舱气相消杀.md` | 发明专利说明书+权利要求书+摘要；首页「下载申请正文」 |
+| `patent-drafts/舱体消杀-现机可写点.md` | 舱体消杀现机结论：冲壁/紫外/臭氧进液不能主张 |
+| `patent-drafts/舱体消杀-改机撰写方案.md` | 愿意改机器后只写这一件 |
+| `patent-drafts/交底书-空舱气相消杀-改机.md` | 改机件可填空交底书（1–6 全勾「做」再交代理师） |
+| `patent-drafts/无需实验即可撰写的专利方案.md` | 给用户勾选的撰写菜单；Word 在首页下载 |
+| `patent-drafts/交底书-空舱三态消杀装置.md` | 现机件1 底稿，不交代理师 |
+| `patent-drafts/交底书-时变余光限制装置.md` | 件2 底稿，已暂停 |
+| `internal/低刺激迷走-应用研发思考.md` | 应用层研发底稿：默认深度 REST、本底三态表、四条通路落地（不进 /open） |
+| `exports/漂浮方舟_低刺激迷走_应用研发思考.docx` | 同上 Word 版，首页「下载 Word」；`/api/download?file=rd-vagus-app.docx` |
 | `scripts/import-nsf-standards-qa.mjs` | 标准五问拆为 KP-WEB-013~020（幂等，通识，直接批准） |
 | `docs/漂浮舱卫生安全标准五问.md` | NSF CCS-12804 / 周转率 / 臭氧 / ASTM F462 / ASME A112.19.17 问答底稿 |
 | `scripts/import-patent-landscape.mjs` | 四簇专利全景矩阵主题合并为 PAT-* 仅内部卡（幂等，独立 JSON；已入库后勿重跑） |

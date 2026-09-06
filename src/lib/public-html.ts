@@ -29,6 +29,7 @@ export const PREFIX_LABEL: Record<string, string> = {
   "KP-TRN": "漂浮培训（仅内训）",
   "KP-ATOM": "内部原子库（仅内训）",
   "KP-RX": "疗法叙事脊柱（仅内训）",
+  "KP-RD": "低刺激迷走应用研发（仅内训）",
   "KP-MAN": "产品手册运营",
   "KP-VGMECH": "迷走机制报告",
   "KP-CIS": "综合干预专业版",
@@ -192,7 +193,7 @@ footer{color:#6b7280;font-size:.8rem;margin:2rem 0;text-align:center}
 <h1>公司知识库来源清单（已合并）</h1>
 <p>总库已经合并进 Git，不是没合并。可外发页故意不收仅内训卡。</p>
 <nav>${PUBLIC_NAV}</nav>
-<p class="stats">总库 ${all.length} 条已合并 · 可外发 ${external.length} 条 · 仅内训 ${internal} 条（KP-TRN / KP-ATOM / KP-RX）不进 /open</p>
+<p class="stats">总库 ${all.length} 条已合并 · 可外发 ${external.length} 条 · 仅内训 ${internal} 条（KP-TRN / KP-ATOM / KP-RX / KP-RD）不进 /open</p>
 ${inventoryTable(all)}
 <p>完整正文：<a href="/open">/open</a>。迷走三份新稿：VGMECH / CIS / VNSMAP，都在可外发里。</p>
 <footer>公开只读镜像 · 仅内训卡未收录</footer>

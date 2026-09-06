@@ -1,6 +1,6 @@
 # 新对话交接文档
 
-> **最后更新：2026-09-04**
+> **最后更新：2026-09-06**
 >
 > 换对话时把「第一步」那段话复制粘贴到新对话里，就能接着干。
 
@@ -10,7 +10,7 @@
 
 > 先读 `CONTEXT-HANDOFF.md` 和 `PROJECT.md`，不要重建项目、不要换框架。
 >
-> 确认三件事再开始：`data/knowledge-points.json` 有 580 条、`data/patents.json` 有 229 条、`git branch` 在当前专利工作分支。
+> 确认三件事再开始：`data/knowledge-points.json` 有 592 条、`data/patents.json` 有 233 条、`git branch` 在当前工作分支。
 >
 > 我现在要做的是：【在这里写你这次想干什么】
 
@@ -19,8 +19,8 @@
 ## 第二步：先确认环境（Agent 执行）
 
 ```bash
-node -e "console.log('知识点', require('./data/knowledge-points.json').length)"   # 应为 580
-node -e "console.log('专利卡', require('./data/patents.json').length)"            # 应为 229
+node -e "console.log('知识点', require('./data/knowledge-points.json').length)"   # 应为 592
+node -e "console.log('专利卡', require('./data/patents.json').length)"            # 应为 233
 node scripts/test-patent-library.mjs | tail -2                                    # 应全通过
 node scripts/test-knowledge-layers.mjs | tail -2
 git branch --show-current                                                          # cursor/patent-library-3c23
@@ -51,11 +51,14 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 数据。两个**物理隔�
 
 | 库 | 文件 | 数量 | 对外 |
 |---|---|---|---|
-| 知识点总库 | `data/knowledge-points.json` | **580** | 公开站不含仅内训 |
-| **独立专利库** | `data/patents.json` | **229** | **不进 `/open`**；网页 https://company-knowledge-base-nine.vercel.app/patents |
+| 知识点总库 | `data/knowledge-points.json` | **592** | 公开站不含仅内训 |
+| **独立专利库** | `data/patents.json` | **233** | **不进 `/open`**；网页 https://company-knowledge-base-nine.vercel.app/patents |
 
 网页：`http://127.0.0.1:43123`（`npm run build && npm run serve`）
 专利库页面：https://company-knowledge-base-nine.vercel.app/patents （本机 `http://127.0.0.1:43123/patents`）
+
+应用研发（不写专利）：`internal/低刺激迷走-应用研发思考.md` + Word `exports/漂浮方舟_低刺激迷走_应用研发思考.docx`（首页可下载）+ 仅内训卡 `KP-RD-001~012`（不进 `/open`）。专利对照：`PAT-MAP-009`、`PAT-XREF-002`。
+无需实验撰写菜单：`PAT-WRITE-007`。新机申请正文：`PAT-DRAFT-028`，`patent-drafts/申请文件底稿-空舱气相消杀.md`。首页「下载申请正文」。余光件暂停。
 
 ---
 
