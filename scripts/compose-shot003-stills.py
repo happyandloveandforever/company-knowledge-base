@@ -194,6 +194,194 @@ class ImageEnhanceDummy:
         return Image.alpha_composite(im.convert("RGBA"), overlay)
 
 
+def rounded_rect_card(size, fill, outline, width=1, radius=14):
+    im = Image.new("RGBA", size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rounded_rectangle((0, 0, size[0] - 1, size[1] - 1), radius=radius, fill=fill, outline=outline, width=width)
+    return im
+
+
+def naming_event_still(bg: Image.Image):
+    """Historically checkable still: 1980 monograph + 1983 conference. Not a fake archive photo."""
+    base = bg.convert("RGBA")
+    shade = Image.new("RGBA", (W, H), (0, 0, 0, 110))
+    base = Image.alpha_composite(base, shade)
+    d = ImageDraw.Draw(base)
+    f_kicker = font(LATIN, 22)
+    f_title = font(CN, 44)
+    f_year = font(LATIN_B, 22)
+    f_en = font(LATIN, 22)
+    f_en_b = font(LATIN_B, 24)
+    f_cn = font(CN, 26)
+    f_small = font(CN, 22)
+    f_foot = font(CN, 24)
+
+    center_text(d, "1970–80s", 70, f_kicker, TEAL, letter=4)
+    center_text(d, "被定名为 REST", 108, f_title, WHITE)
+    center_text(d, "不是一场开会起名的仪式，是专著和会议把这个名字立住", 172, f_small, MUTED)
+
+    card_w, card_h = 760, 520
+    gap = 48
+    y0 = 230
+    x1 = (W - (2 * card_w + gap)) // 2
+    x2 = x1 + card_w + gap
+
+    def draw_doc(x, badge, badge_cn, lines):
+        card = rounded_rect_card((card_w, card_h), (12, 16, 20, 210), TEAL, 2, 16)
+        base.alpha_composite(card, (x, y0))
+        dd = ImageDraw.Draw(base)
+        dd.rectangle((x + 36, y0 + 36, x + 36 + 8, y0 + 36 + 28), fill=TEAL)
+        dd.text((x + 56, y0 + 36), badge, font=f_year, fill=TEAL)
+        dd.text((x + 56, y0 + 68), badge_cn, font=f_cn, fill=WHITE)
+        yy = y0 + 130
+        for kind, text in lines:
+            fnt = f_en_b if kind == "b" else (f_cn if kind == "cn" else f_en)
+            fill = WHITE if kind in ("b", "cn") else MUTED
+            dd.text((x + 56, yy), text, font=fnt, fill=fill)
+            yy += 42 if kind == "b" else 36
+
+    draw_doc(
+        x1,
+        "1980  ·  MONOGRAPH",
+        "专著把名字写进书名",
+        [
+            ("b", "Peter Suedfeld"),
+            ("en", "Restricted Environmental Stimulation:"),
+            ("en", "Research and Clinical Applications"),
+            ("en", "Wiley, New York, 1980"),
+            ("cn", "REST 从此成为可引用的方法名"),
+        ],
+    )
+    draw_doc(
+        x2,
+        "1983  ·  CONFERENCE",
+        "国际会议开始用这个名字开会",
+        [
+            ("b", "1st International Conference on"),
+            ("en", "REST and Self-Regulation"),
+            ("en", "Fine, T.H. & Turner, J.W. (Eds.)"),
+            ("en", "Proceedings, Toledo, 1983"),
+            ("cn", "漂浮 REST 的早期生理研究在此发表"),
+        ],
+    )
+
+    d = ImageDraw.Draw(base)
+    center_text(d, "限制性环境刺激疗法  ·  先有方法，后有舱", 990, f_foot, MUTED)
+    save(base, "003d-naming-events.jpg")
+    return crop_16x9(Image.open(OUT / "003d-naming-events.jpg"))
+
+
+def clinical_imaging_still(bg: Image.Image):
+    """2018 open-label clinical paper + 2021 first fMRI. Not a fake lab photo."""
+    base = bg.convert("RGBA")
+    shade = Image.new("RGBA", (W, H), (0, 0, 0, 110))
+    base = Image.alpha_composite(base, shade)
+    d = ImageDraw.Draw(base)
+    f_kicker = font(LATIN, 22)
+    f_title = font(CN, 44)
+    f_year = font(LATIN_B, 22)
+    f_en = font(LATIN, 22)
+    f_en_b = font(LATIN_B, 22)
+    f_cn = font(CN, 26)
+    f_small = font(CN, 22)
+    f_foot = font(CN, 24)
+
+    center_text(d, "2010s–", 70, f_kicker, TEAL, letter=4)
+    center_text(d, "临床与影像研究", 108, f_title, WHITE)
+    center_text(d, "不是气氛实验室，是可核验的两篇论文：一次临床观察，一次首次 fMRI", 172, f_small, MUTED)
+
+    card_w, card_h = 760, 520
+    gap = 48
+    y0 = 230
+    x1 = (W - (2 * card_w + gap)) // 2
+    x2 = x1 + card_w + gap
+
+    def draw_doc(x, badge, badge_cn, lines):
+        card = rounded_rect_card((card_w, card_h), (12, 16, 20, 210), TEAL, 2, 16)
+        base.alpha_composite(card, (x, y0))
+        dd = ImageDraw.Draw(base)
+        dd.rectangle((x + 36, y0 + 36, x + 36 + 8, y0 + 36 + 28), fill=TEAL)
+        dd.text((x + 56, y0 + 36), badge, font=f_year, fill=TEAL)
+        dd.text((x + 56, y0 + 68), badge_cn, font=f_cn, fill=WHITE)
+        yy = y0 + 128
+        for kind, text in lines:
+            fnt = f_en_b if kind == "b" else (f_cn if kind == "cn" else f_en)
+            fill = WHITE if kind in ("b", "cn") else MUTED
+            dd.text((x + 56, yy), text, font=fnt, fill=fill)
+            yy += 40 if kind == "b" else 34
+
+    draw_doc(
+        x1,
+        "2018  ·  CLINICAL",
+        "开放标签临床观察（不是 RCT）",
+        [
+            ("b", "Feinstein, Khalsa, Yeh et al."),
+            ("en", "Examining the short-term anxiolytic"),
+            ("en", "and antidepressant effect of"),
+            ("en", "Floatation-REST"),
+            ("en", "PLoS ONE  2018  ·  NCT03051074"),
+            ("cn", "Laureate 研究所 · 50 人 · 状态焦虑下降"),
+        ],
+    )
+    draw_doc(
+        x2,
+        "2021  ·  fMRI",
+        "首次漂浮功能影像研究",
+        [
+            ("b", "Al Zoubi, Misaki, Bodurka,"),
+            ("en", "Feinstein et al."),
+            ("en", "Taking the body off the mind"),
+            ("en", "Human Brain Mapping  2021"),
+            ("en", "DOI 10.1002/hbm.25429"),
+            ("cn", "漂浮前后静息态 fMRI · DMN 连接变化"),
+        ],
+    )
+
+    d = ImageDraw.Draw(base)
+    center_text(d, "限制性环境刺激疗法  ·  先有方法，后有舱", 990, f_foot, MUTED)
+    save(base, "003e-clinical-imaging.jpg")
+    return crop_16x9(Image.open(OUT / "003e-clinical-imaging.jpg"))
+
+
+def compact_event_still(bg, kicker, title, left, right, filename):
+    """Readable timeline thumb: two big year blocks, not a squeezed document page."""
+    base = bg.convert("RGBA")
+    shade = Image.new("RGBA", (W, H), (0, 0, 0, 100))
+    base = Image.alpha_composite(base, shade)
+    d = ImageDraw.Draw(base)
+    f_kicker = font(LATIN, 22)
+    f_title = font(CN, 48)
+    f_year = font(LATIN_B, 56)
+    f_cn = font(CN, 32)
+    f_en = font(LATIN, 24)
+    center_text(d, kicker, 80, f_kicker, TEAL, letter=4)
+    center_text(d, title, 124, f_title, WHITE)
+    card_w, card_h = 700, 420
+    gap = 56
+    y0 = 280
+    x1 = (W - (2 * card_w + gap)) // 2
+    x2 = x1 + card_w + gap
+    f_foot = font(CN, 24)
+
+    def block(x, year, cn, en):
+        card = rounded_rect_card((card_w, card_h), (12, 16, 20, 210), TEAL, 2, 16)
+        base.alpha_composite(card, (x, y0))
+        dd = ImageDraw.Draw(base)
+        tw, _ = text_size(dd, year, f_year)
+        dd.text((x + (card_w - tw) // 2, y0 + 90), year, font=f_year, fill=TEAL)
+        tw, _ = text_size(dd, cn, f_cn)
+        dd.text((x + (card_w - tw) // 2, y0 + 190), cn, font=f_cn, fill=WHITE)
+        tw, _ = text_size(dd, en, f_en)
+        dd.text((x + (card_w - tw) // 2, y0 + 250), en, font=f_en, fill=MUTED)
+
+    block(x1, *left)
+    block(x2, *right)
+    d = ImageDraw.Draw(base)
+    center_text(d, "限制性环境刺激疗法  ·  先有方法，后有舱", 990, f_foot, MUTED)
+    save(base, filename)
+    return crop_16x9(Image.open(OUT / filename))
+
+
 def full_node(photo: Image.Image, year: str, label: str, name: str):
     base = crop_16x9(photo).convert("RGBA")
     grad = Image.new("RGBA", (W, H), (0, 0, 0, 0))
@@ -247,12 +435,32 @@ def main():
         crop_16x9(Image.open(source_dir / src_name)).save(plate_dir / dst, "JPEG", quality=92)
 
     chapter_card(void)
+    naming = naming_event_still(void)
+    clinical = clinical_imaging_still(void)
+    naming_thumb = compact_event_still(
+        void,
+        "1970–80s",
+        "被定名为 REST",
+        ("1980", "Suedfeld 专著", "Wiley"),
+        ("1983", "REST 国际会议", "Fine & Turner"),
+        "003d-naming-compact.jpg",
+    )
+    clinical_thumb = compact_event_still(
+        void,
+        "2010s–",
+        "临床与影像研究",
+        ("2018", "PLoS ONE 临床", "Feinstein / open-label"),
+        ("2021", "首次 fMRI", "Human Brain Mapping"),
+        "003e-imaging-compact.jpg",
+    )
+    thumbs = [t1950, naming_thumb, clinical_thumb]
     timeline(void, thumbs, 1, "003b-timeline-01.jpg")
     timeline(void, thumbs, 2, "003b-timeline-02.jpg")
     timeline(void, thumbs, 3, "003b-timeline-03.jpg")
     full_node(t1950, "1950s", "隔离舱实验", "003c-1950s.jpg")
-    full_node(t1970, "1970–80s", "被定名为 REST", "003d-1970s.jpg")
-    full_node(t2010, "2010s–", "临床与影像研究", "003e-2010s.jpg")
+    full_node(t1970, "1970–80s", "被定名为 REST", "003d-1970s-broll.jpg")
+    full_node(t2010, "2010s–", "临床与影像研究", "003e-2010s-broll.jpg")
+    _ = naming, clinical
 
 
 if __name__ == "__main__":
