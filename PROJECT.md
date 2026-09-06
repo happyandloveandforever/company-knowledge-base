@@ -183,12 +183,12 @@ https://company-knowledge-base-nine.vercel.app/open
 
 | 指标 | 数值 |
 |------|------|
-| 知识点总数 | **595**（577 `approved` + 18 `draft`） |
+| 知识点总数 | **596**（578 `approved` + 18 `draft`） |
 | 通识层 `commons` | **172** 条：公开科学/政策/卫生/证据边界 + 迷走/VNS 通识 + NSF 标准五问 + 罗森堡读本主题合并 15 条 |
-| 公司自有层 `company` | **423** 条：产品、SOP、报价、案例、财务、内训教材、综合干预专业版、内部原子库、疗法叙事脊柱、罗森堡对接口径 |
-| 用途 `usage` | `pitch` 302 · `training` 158 · `ops` 62 · `both` 73 |
+| 公司自有层 `company` | **424** 条：产品、SOP、报价、案例、财务、内训教材、综合干预专业版、内部原子库、疗法叙事脊柱、罗森堡对接口径、宣传片第一章分镜 |
+| 用途 `usage` | `pitch` 303 · `training` 158 · `ops` 62 · `both` 73 |
 | **仅内训 `internalOnly`** | **127** 条（`KP-TRN-*` 94 + `KP-ATOM-*` 20 + `KP-RX-*` 13），编排 PPT 默认排除 |
-| 已导入文件 | **35** |
+| 已导入文件 | **36** |
 | 待 Claude 拆分队列 | 0 |
 | 结构判断 | 两层已切开；内训 127 条；迷走三套 56 条已批准；罗森堡读本 **15 条主题合并**（可用地图 + 红线；停拆 201 页后）；原子库零件箱 20 + 疗法五维脊柱 13；NSF 标准五问 8 条通识卡。仍缺锁数字与真实案例 |
 | **独立专利库 `PAT-*`** | **229** 条（全部 `internal`，不进 `/open`、不进编排）。**入口先读 `PAT-INDEX-001`**（现行 170 / 已取代 21 / 已打掉 25 / 待重估 13）。**对外交付：`patent-drafts/专利整合方案-v5.md` + docx（`PAT-MAP-008`，含全部 97 条先案与 25 条红灯）**。技术总图：`patent-drafts/信噪比架构.md`（`PAT-MAP-006`）。申请策略：`PAT-BATCH-002`。本轮过闸：`PAT-EXT-004`、`PAT-EXT-005`。新思路入库：`patent-drafts/新思路入库流程.md`（`PAT-RULE-008`）。网页：https://company-knowledge-base-nine.vercel.app/patents |
@@ -379,6 +379,7 @@ https://company-knowledge-base-nine.vercel.app/open
 | 增强背景 1–40 / 41–80.pdf | SRC-BG2-ENHANCE(-B) | KP-BG2-*（去重后） | 39 | done，已批准 | claude-agent |
 | 冠军系列产品配置说明.pdf | SRC-CHAMPION-CFG | KP-CHAMP-001 ~ 023 | 23 | done，已批准 | claude-agent |
 | 宣讲设计稿·构想与通识框架 v1 | SRC-SPEECH-CRAFT | KP-CRAFT-001 ~ 025 | 25 | done，已批准 | 构想/通识设计 |
+| 宣传片第一章国际研究基础分镜改写 | SRC-VID-CH1-RESEARCH | KP-CRAFT-026 | 1 | done，已批准 | 分镜改写（谱系+地标试验+综述地图） |
 | 建立医用失重舱进行康复治疗的思考.docx | SRC-MED-WEIGHTLESS | KP-MEDW-001 ~ 014 | 14 | done，已批准 | claude-agent |
 | 100个论文原子.md | SRC-MEV-100-ATOMS | KP-MEV-021 + 101–103 + 201–216 | 20 | done，已批准 | 主题合并 |
 | 消杀.pptx | SRC-SANITIZE-PPT | KP-SAN-*（缺 015） | 14 | done，已批准 | claude-agent |
@@ -617,6 +618,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 
 | 日期 | 变更 |
 |------|------|
+| 2026-09-06 | **宣传片第一章「国际研究基础」分镜 003–005 改写**：原片期刊封面闪现 + 机制占 25 秒 + 10 秒数字墙，撑不住研究基础。改为谱系（兑现六十年）→ 三座可点名试验（2018 开放标签 / 2024 可行性 RCT / 2023 柳叶子刊）→ 2025 综述地图与限度。机制旁白挪出本章。源稿 `exports/宣传片_第一章_国际研究基础_分镜003-005.md`，入库 `KP-CRAFT-026`。 |
 | 2026-08-22 | 初始搭建：导入/总库/编排/PPT/冲突检测 |
 | 2026-08-22 | Claude 导入：杨浦财务 54 条 + B端定稿 50 条 |
 | 2026-08-22 | 新增来源管理、删除按钮、keep-alive 服务 |

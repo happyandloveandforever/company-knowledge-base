@@ -1053,5 +1053,17 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "用户要求停拆后续页，把 1–200 页 100 条过程卡主题合并为 15 条能用的地图+红线。不覆盖 VGMECH/CIS/VNSMAP。"
+  },
+  {
+    "id": "SRC-VID-CH1-RESEARCH",
+    "filename": "exports/宣传片_第一章_国际研究基础_分镜003-005.md",
+    "fileType": "md",
+    "uploadedAt": "2026-09-06T06:20:00.000Z",
+    "knowledgePointIds": [
+      "KP-CRAFT-026"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "宣传片第一章国际研究基础分镜 003–005 改写。1 条宣讲结构卡，直接批准。不覆盖已有知识点。"
   }
 ]
