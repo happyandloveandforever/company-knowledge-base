@@ -247,7 +247,7 @@ export default async function HomePage() {
               </div>
               <CardTitle className="text-base">公司专利库 · {patents.length} 条</CardTitle>
               <CardDescription>
-                五个申请组，不按母案带子案。撰写菜单 PAT-WRITE-007：现机不递空舱三态；愿意改机器后写气相消杀与通气孔分态；余光件暂停。不进公开站，不进编排 PPT。
+                五个申请组，不按母案带子案。申请正文 PAT-DRAFT-028：通气孔分态 + 空舱气相处理。余光件暂停。不进公开站，不进编排 PPT。
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -396,25 +396,25 @@ export default async function HomePage() {
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <div className="mb-1 flex items-center gap-2">
-                <h2 className="text-lg font-semibold text-slate-900">交底书（仅内部）</h2>
+                <h2 className="text-lg font-semibold text-slate-900">专利申请正文（仅内部）</h2>
                 <Badge className="bg-red-100 text-red-800">仅内部 · 禁止外发</Badge>
               </div>
               <p className="mt-1 text-sm text-slate-600">
-                现在交代理师的只有这一份交底书。左边大按钮是 Word。右边「怎么写」是说明，不是交底书。
+                按中国发明专利结构写的说明书、权利要求书、摘要。大按钮是申请正文。交底书给工程师核对零件。权要由代理师定稿。
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
-              <a href="/api/download?file=jiaodishu.docx">
+              <a href="/api/download?file=shuomingshu.docx">
                 <Button>
                   <Download className="h-4 w-4" />
-                  下载交底书
+                  下载申请正文
                 </Button>
               </a>
-              <a href="/api/download?file=jiaodishu.md">
-                <Button variant="outline">交底书 Markdown</Button>
+              <a href="/api/download?file=jiaodishu.docx">
+                <Button variant="outline">交底书</Button>
               </a>
               <a href="/api/download?file=cabin-redesign.docx">
-                <Button variant="outline">怎么写（不是交底书）</Button>
+                <Button variant="outline">怎么写</Button>
               </a>
             </div>
           </div>

@@ -75,6 +75,18 @@ check(
   existsSync(path.join(process.cwd(), "patent-drafts", "申请文件底稿-多气源安全互锁.md"))
 );
 check("A4底稿状态卡存在", patents.some((p) => p.id === "PAT-DRAFT-A4"));
+check(
+  "空舱气相申请正文底稿存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "申请文件底稿-空舱气相消杀.md"))
+);
+check(
+  "空舱气相申请正文状态卡存在",
+  patents.some((p) => p.id === "PAT-DRAFT-028" && p.lifecycle === "active")
+);
+check(
+  "申请正文 Word 导出存在",
+  existsSync(path.join(process.cwd(), "exports", "漂浮方舟_申请文件_空舱气相消杀.docx"))
+);
 check("绝对新颖性规则卡存在", patents.some((p) => p.id === "PAT-RULE-002"));
 check("立项闸门卡存在", patents.some((p) => p.id === "PAT-RULE-003"));
 check(

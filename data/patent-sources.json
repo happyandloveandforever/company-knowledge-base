@@ -745,5 +745,18 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "用户愿意改机器。现机仍不递 028。改机后只写一件：通气孔分态 + 空舱气相处理。余光仍暂停。"
+  },
+  {
+    "id": "SRC-PAT-DRAFT-CABIN-GAS",
+    "filename": "申请文件底稿-空舱气相消杀",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-06T09:00:00.000Z",
+    "patentIds": [
+      "PAT-DRAFT-028"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "用户确认新机已改齐。按专利法结构写出说明书+权利要求书+摘要底稿。权要由代理师定稿。不编杀菌率。"
   }
 ]

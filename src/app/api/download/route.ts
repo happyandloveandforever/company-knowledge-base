@@ -151,6 +151,18 @@ const ALLOWED: Record<string, { file: string; type: string }> = {
     file: "漂浮方舟_交底书.docx",
     type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
   },
+  "shuomingshu.docx": {
+    file: "漂浮方舟_申请文件_空舱气相消杀.docx",
+    type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  },
+  "shuomingshu.md": {
+    file: "漂浮方舟_申请文件_空舱气相消杀.md",
+    type: "text/markdown; charset=utf-8",
+  },
+  "说明书.docx": {
+    file: "漂浮方舟_申请文件_空舱气相消杀.docx",
+    type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  },
 };
 
 export async function GET(request: NextRequest) {

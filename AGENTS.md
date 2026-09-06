@@ -84,6 +84,8 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/apply-patent-write-hw-gate.mjs` | 现机过闸：空舱三态不递（幂等） |
 | `scripts/apply-patent-cabin-sanitation-gate.mjs` | 余光暂停；舱体消杀现机无独立件（幂等；改机后勿重跑覆盖 WRITE-007） |
 | `scripts/apply-patent-cabin-redesign.mjs` | 改机后写通气孔分态 + 空舱气相消杀（幂等，补注 WRITE-007 / INDEX / 028） |
+| `scripts/apply-patent-draft-cabin-gas.mjs` | 空舱气相消杀申请正文底稿 PAT-DRAFT-028（幂等） |
+| `patent-drafts/申请文件底稿-空舱气相消杀.md` | 发明专利说明书+权利要求书+摘要；首页「下载申请正文」 |
 | `patent-drafts/舱体消杀-现机可写点.md` | 舱体消杀现机结论：冲壁/紫外/臭氧进液不能主张 |
 | `patent-drafts/舱体消杀-改机撰写方案.md` | 愿意改机器后只写这一件 |
 | `patent-drafts/交底书-空舱气相消杀-改机.md` | 改机件可填空交底书（1–6 全勾「做」再交代理师） |
