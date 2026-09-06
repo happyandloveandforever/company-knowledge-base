@@ -55,7 +55,7 @@ const comBodies = com.map((p) => `${p.title}\n${p.summary}\n${p.body}`).join("\n
 check("通识新卡不写疗效承诺数字", !/治愈率\s*\d|治疗率\s*\d/.test(comBodies));
 check("通识新卡包含 WHO 2025", /WHO 2025|World mental health today/.test(comBodies));
 check("通识新卡包含 Garland 可行性培训", /可行性RCT/.test(comBodies));
-check("库总量不少于 539", points.length >= 539, String(points.length));
+check("库总量不少于 595", points.length >= 595, String(points.length));
 
 // ── 培训教材隔离 ─────────────────────────────────────
 const trn = points.filter((p) => p.id.startsWith("KP-TRN-"));
@@ -182,6 +182,56 @@ check(
     publicOnly.filter((p) => p.id.startsWith("KP-CIS-")).length === 18 &&
     publicOnly.filter((p) => p.id.startsWith("KP-VNSMAP-")).length === 16
 );
+const pvb = points.filter((p) => p.id.startsWith("KP-PVB-"));
+check("罗森堡读本主题合并为 15 条", pvb.length === 15, String(pvb.length));
+check("罗森堡读本全部 approved", pvb.every((p) => p.status === "approved"));
+check("罗森堡读本全部可外发", pvb.every((p) => p.internalOnly !== true));
+check("罗森堡读本停在 KP-PVB-015", pvb.every((p) => Number(p.id.slice(7)) <= 15));
+check(
+  "来源 SRC-PVB-ROSENBERG-MERGED 已记录",
+  sources.some((s) => s.id === "SRC-PVB-ROSENBERG-MERGED" && s.status === "done")
+);
+check(
+  "来源 SRC-PVB-ROSENBERG-1-40 已记录",
+  sources.some((s) => s.id === "SRC-PVB-ROSENBERG-1-40" && s.status === "done")
+);
+check(
+  "来源 SRC-PVB-ROSENBERG-41-80 已记录",
+  sources.some((s) => s.id === "SRC-PVB-ROSENBERG-41-80" && s.status === "done")
+);
+check(
+  "来源 SRC-PVB-ROSENBERG-81-120 已记录",
+  sources.some((s) => s.id === "SRC-PVB-ROSENBERG-81-120" && s.status === "done")
+);
+check(
+  "来源 SRC-PVB-ROSENBERG-121-160 已记录",
+  sources.some((s) => s.id === "SRC-PVB-ROSENBERG-121-160" && s.status === "done")
+);
+check(
+  "来源 SRC-PVB-ROSENBERG-161-200 已记录",
+  sources.some((s) => s.id === "SRC-PVB-ROSENBERG-161-200" && s.status === "done")
+);
+const pvbText = pvb.map((p) => `${p.title}\n${p.summary}\n${p.body}`).join("\n");
+check("罗森堡读本声明不是漂浮试验", /不是漂浮|不得外推|禁止外推/.test(pvbText));
+check("罗森堡读本写出三回路", /腹侧迷走/.test(pvbText) && /背侧迷走/.test(pvbText) && /交感/.test(pvbText));
+check("罗森堡读本点名五对颅神经", /三叉/.test(pvbText) && /副神经/.test(pvbText));
+check("罗森堡读本禁止把病名当适应症", /慢阻肺|COPD/.test(pvbText) && /适应症/.test(pvbText));
+check("罗森堡合并含九头蛇", /九头蛇/.test(pvbText));
+check("罗森堡合并含新迷走或腹侧器官图", /新迷走|食道上/.test(pvbText));
+check("罗森堡合并含金发女孩三态", /金发女孩/.test(pvbText));
+check("罗森堡合并禁止症状清单当适应症", /禁止把清单/.test(pvbText));
+check("罗森堡合并含五态或混合回路", /五态|无恐惧的动员|玩耍是动员/.test(pvbText));
+check("罗森堡合并含神经觉", /神经觉/.test(pvbText));
+check("罗森堡合并含迷走煞车或梯子", /迷走煞车|自律梯子|梯子/.test(pvbText));
+check("罗森堡合并禁止 POTS 当适应症", /POTS|纤维肌痛/.test(pvbText) && /适应症/.test(pvbText));
+check("罗森堡合并含咽部或发啊观察", /咽部|软腭|悬雍垂/.test(pvbText));
+check("罗森堡合并含面部观察", /中脸|微表情/.test(pvbText));
+check("罗森堡合并含裂孔疝", /裂孔疝/.test(pvbText) && /食道上/.test(pvbText));
+check("罗森堡合并含斜方肌", /斜方肌/.test(pvbText));
+check("罗森堡合并禁止捏测当诊断", /百分之百/.test(pvbText) && /诊断金标准|不是诊断|不能诊断/.test(pvbText));
+check("罗森堡合并禁止失智当适应症", /阿尔茨海默|失智/.test(pvbText) && /适应症/.test(pvbText));
+check("罗森堡合并禁止 COPD 叙事当证据", /纤维化/.test(pvbText) && /适应症/.test(pvbText));
+check("罗森堡合并声明停拆", /停拆|不再拆|主题合并/.test(pvbText));
 
 if (failed) {
   console.log(`\n${failed} failed`);

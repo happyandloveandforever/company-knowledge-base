@@ -20,7 +20,7 @@ mkdirSync(docsDir, { recursive: true });
 const points = JSON.parse(readFileSync(path.join(root, "data/knowledge-points.json"), "utf-8"));
 const sources = JSON.parse(readFileSync(path.join(root, "data/sources.json"), "utf-8"));
 const external = points.filter((p) => p.internalOnly !== true);
-const vagus = points.filter((p) => /^(KP-VGMECH|KP-CIS|KP-VNSMAP|KP-MECH|KP-V7)-/.test(p.id) && p.internalOnly !== true);
+const vagus = points.filter((p) => /^(KP-VGMECH|KP-CIS|KP-VNSMAP|KP-PVB|KP-MECH|KP-V7)-/.test(p.id) && p.internalOnly !== true);
 
 writeFileSync(path.join(publicSite, "knowledge-points.json"), JSON.stringify(points));
 writeFileSync(path.join(publicSite, "knowledge-external.json"), JSON.stringify(external));
@@ -76,6 +76,7 @@ const PREFIX_LABEL = {
   "KP-VGMECH": "迷走机制报告",
   "KP-CIS": "综合干预专业版",
   "KP-VNSMAP": "VNS手段地图",
+  "KP-PVB": "罗森堡迷走读本",
 };
 
 function pointPrefix(id) {
