@@ -247,7 +247,7 @@ export default async function HomePage() {
               </div>
               <CardTitle className="text-base">公司专利库 · {patents.length} 条</CardTitle>
               <CardDescription>
-                五个申请组，不按母案带子案。现在就能写、不必先做实验的菜单见 PAT-WRITE-007：首选空舱三态一件。不进公开站，不进编排 PPT。
+                五个申请组，不按母案带子案。现在就能写的菜单见 PAT-WRITE-007：现机过闸后空舱三态不递，先写占用态余光与通气孔。不进公开站，不进编排 PPT。
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -400,7 +400,7 @@ export default async function HomePage() {
                 <Badge className="bg-red-100 text-red-800">仅内部 · 禁止外发</Badge>
               </div>
               <p className="mt-1 text-sm text-slate-600">
-                首选一件：空舱三态消杀装置。可选再加时变余光。交底书把「填」换成工程师原话，不要编数字。
+                现机过闸后只写一件：关门、呼吸通气孔、舱内紫外、占用态余光。原空舱三态按现状不递。
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -410,11 +410,11 @@ export default async function HomePage() {
                   下载方案 Word
                 </Button>
               </a>
-              <a href="/api/download?file=disclosure-empty-cabin.docx">
-                <Button variant="outline">件1 交底书</Button>
-              </a>
               <a href="/api/download?file=disclosure-residual-light.docx">
-                <Button variant="outline">件2 交底书</Button>
+                <Button variant="outline">现行交底书</Button>
+              </a>
+              <a href="/api/download?file=disclosure-empty-cabin.docx">
+                <Button variant="outline">原件1否决留痕</Button>
               </a>
               <a href="/api/download?file=no-exp-patents.md">
                 <Button variant="outline">Markdown</Button>

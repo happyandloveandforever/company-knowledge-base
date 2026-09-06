@@ -712,5 +712,16 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "用户要求不测也能写。菜单卡 PAT-WRITE-007：首选空舱三态（028 结构联锁），可选时变余光（041），备选液面热流（034）。046 两张表未做，不作第一件独权。交底书在 patent-drafts/。"
+  },
+  {
+    "id": "SRC-PAT-WRITE-HW-GATE",
+    "filename": "工程师确认-空舱现状与改判",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-06T03:50:00.000Z",
+    "patentIds": [],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "用户确认：有通气孔、臭氧接液体、无光催化涂层、冲水不结盐、舱内紫外灯、无臭氧探头。原空舱三态按现状不递。WRITE-007 改为现行第一件=占用态余光+通气孔。"
   }
 ]

@@ -506,6 +506,20 @@ check(
     /不要拿本底两张表当第一件/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.title ?? "")
 );
 check(
+  "现机过闸后空舱三态按现状不递",
+  /按现状不递/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.title ?? "") &&
+    /通气孔/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.body ?? "") &&
+    /接到液体/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.body ?? "")
+);
+check(
+  "现机过闸纪要文件存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "工程师确认-空舱现状与改判.md"))
+);
+check(
+  "现机过闸来源已记录",
+  patentSources.some((s) => s.id === "SRC-PAT-WRITE-HW-GATE" && s.status === "done")
+);
+check(
   "入口卡已指向无需实验撰写菜单",
   /PAT-WRITE-007/.test(patents.find((p) => p.id === "PAT-INDEX-001")?.body ?? "")
 );
