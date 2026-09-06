@@ -55,7 +55,7 @@ const comBodies = com.map((p) => `${p.title}\n${p.summary}\n${p.body}`).join("\n
 check("通识新卡不写疗效承诺数字", !/治愈率\s*\d|治疗率\s*\d/.test(comBodies));
 check("通识新卡包含 WHO 2025", /WHO 2025|World mental health today/.test(comBodies));
 check("通识新卡包含 Garland 可行性培训", /可行性RCT/.test(comBodies));
-check("库总量不少于 660", points.length >= 660, String(points.length));
+check("库总量不少于 680", points.length >= 680, String(points.length));
 
 // ── 培训教材隔离 ─────────────────────────────────────
 const trn = points.filter((p) => p.id.startsWith("KP-TRN-"));
@@ -183,7 +183,7 @@ check(
     publicOnly.filter((p) => p.id.startsWith("KP-VNSMAP-")).length === 16
 );
 const pvb = points.filter((p) => p.id.startsWith("KP-PVB-"));
-check("罗森堡读本 KP-PVB 至少 80 条", pvb.length >= 80, String(pvb.length));
+check("罗森堡读本 KP-PVB 至少 100 条", pvb.length >= 100, String(pvb.length));
 check("罗森堡读本全部 approved", pvb.every((p) => p.status === "approved"));
 check("罗森堡读本全部可外发", pvb.every((p) => p.internalOnly !== true));
 check(
@@ -218,6 +218,16 @@ check(
 check("罗森堡121-160含咽部或发啊检测", /咽部|软腭|悬雍垂/.test(pvbText));
 check("罗森堡121-160含面部观察", /中脸|微表情|眼轮匝肌/.test(pvbText));
 check("罗森堡121-160禁止COPD当适应症", /KP-PVB-079/.test(pvb.map((p) => p.id).join(" ")) && /COPD|慢阻肺/.test(pvbText) && /适应症/.test(pvbText));
+check(
+  "来源 SRC-PVB-ROSENBERG-161-200 已记录",
+  sources.some((s) => s.id === "SRC-PVB-ROSENBERG-161-200" && s.status === "done")
+);
+check("罗森堡161-200含裂孔疝", /裂孔疝/.test(pvbText) && /食道上/.test(pvbText));
+check("罗森堡161-200含副神经或斜方肌", /副神经/.test(pvbText) && /斜方肌/.test(pvbText));
+check("罗森堡161-200禁止捏测当诊断", /KP-PVB-095/.test(pvb.map((p) => p.id).join(" ")) && /百分之百/.test(pvbText) && /诊断金标准|不是诊断/.test(pvbText));
+check("罗森堡161-200禁止前倾头当失智适应症", /KP-PVB-097/.test(pvb.map((p) => p.id).join(" ")) && /阿尔茨海默|失智/.test(pvbText) && /适应症/.test(pvbText));
+check("罗森堡161-200禁止COPD当适应症", /KP-PVB-086/.test(pvb.map((p) => p.id).join(" ")) && /纤维化/.test(pvbText) && /适应症/.test(pvbText));
+check("罗森堡161-200偏头痛待续", /KP-PVB-100/.test(pvb.map((p) => p.id).join(" ")) && /201/.test(pvbText));
 
 if (failed) {
   console.log(`\n${failed} failed`);

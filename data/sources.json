@@ -1021,5 +1021,36 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "扫描件 121–160 页。第3章收束 + 第4章检测启发式 + 第5章 COPD 开头。20 条摘要卡。HRV/气喘自闭/百分百/COPD 个案不得外推为漂浮适应症。"
+  },
+  {
+    "id": "SRC-PVB-ROSENBERG-161-200",
+    "filename": "迷走神經的自我檢測與治癒_161-200.pdf",
+    "fileType": "pdf",
+    "uploadedAt": "2026-09-06T04:30:00.000Z",
+    "knowledgePointIds": [
+      "KP-PVB-081",
+      "KP-PVB-082",
+      "KP-PVB-083",
+      "KP-PVB-084",
+      "KP-PVB-085",
+      "KP-PVB-086",
+      "KP-PVB-087",
+      "KP-PVB-088",
+      "KP-PVB-089",
+      "KP-PVB-090",
+      "KP-PVB-091",
+      "KP-PVB-092",
+      "KP-PVB-093",
+      "KP-PVB-094",
+      "KP-PVB-095",
+      "KP-PVB-096",
+      "KP-PVB-097",
+      "KP-PVB-098",
+      "KP-PVB-099",
+      "KP-PVB-100"
+    ],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "扫描件 161–200 页。第5章后半：裂孔疝、呼吸、副神经、捏测、前倾头、偏头痛开篇。20 条摘要卡。COPD/疝自助/自闭/百分之百捏测/失智提问/偏头痛不得外推为漂浮适应症或门店SOP。"
   }
 ]
