@@ -30,6 +30,7 @@ function extractVo(heading) {
 const vo003 = extractVo("## 分镜003（改）");
 const vo004 = extractVo("## 分镜004（改）");
 const vo005 = extractVo("## 分镜005（改）");
+const vo006 = extractVo("## 分镜006（新）");
 
 function chineseLen(s) {
   return [...s.replace(/[A-Za-z0-9.,;:()（）、，。；：\s>·]/g, "")].length;
@@ -39,6 +40,7 @@ const budgets = [
   ["003", vo003, 70],
   ["004", vo004, 150],
   ["005", vo005, 85],
+  ["006", vo006, 120],
 ];
 for (const [id, vo, max] of budgets) {
   const n = chineseLen(vo);
@@ -47,7 +49,7 @@ for (const [id, vo, max] of budgets) {
   if (n > max) errors.push(`${id} 旁白过长：${n} > ${max}`);
 }
 
-const spoken = [vo003, vo004, vo005].join("\n");
+const spoken = [vo003, vo004, vo005, vo006].join("\n");
 const forbidden = [
   [/治疗厌食/, "治疗厌食"],
   [/治疗GAD|治疗焦虑症|治疗抑郁症/, "治疗病种"],
@@ -80,6 +82,15 @@ if (!md.includes("一次有结果，多次也显著，完成疗程无不良，�
 if (!md.includes("先有漂浮疗法，后有中式漂浮")) {
   errors.push("004 底部未改为「先有漂浮疗法，后有中式漂浮」");
 }
+if (!vo006.includes("中式漂浮")) errors.push("006 旁白未点名中式漂浮");
+if (!vo006.includes("疼痛") || !vo006.includes("睡眠")) {
+  errors.push("006 旁白未承接疼痛与睡眠");
+}
+if (!vo006.includes("收集研究数据")) errors.push("006 旁白未落到收集研究数据");
+if (/治疗失眠|治疗慢性疼痛/.test(vo006)) {
+  errors.push("006 旁白写成治疗病种");
+}
+if (!md.includes("006c-chinese.jpg")) errors.push("006 未指定中式漂浮画面文件");
 if (!vo004.includes("开放标签")) errors.push("004 旁白未说开放标签");
 if (!vo004.includes("一次")) errors.push("004 旁白未从「一次」起钩");
 if (!md.includes("Kjellgren")) errors.push("004 未加入功效论文 Kjellgren 2014");
@@ -142,9 +153,15 @@ else {
   if (!craft.body.includes("使人舒适的安全疗法")) {
     errors.push("KP-CRAFT-026 未写入 2024 卡正面口径");
   }
+  if (!craft.body.includes("006") || !craft.body.includes("中式漂浮扩大内涵")) {
+    errors.push("KP-CRAFT-026 未写入 006 承接中式漂浮");
+  }
 }
 
-const stillDir = path.join(root, "exports/video-assets/shot003");
+const stillDir006 = path.join(root, "exports/video-assets/shot006");
+for (const f of ["006a-watch.jpg", "006b-gap.jpg", "006c-chinese.jpg"]) {
+  if (!existsSync(path.join(stillDir006, f))) errors.push(`缺少画面文件：shot006/${f}`);
+}
 const stillDir004 = path.join(root, "exports/video-assets/shot004");
 for (const f of [
   "004a-once.jpg",
@@ -159,6 +176,7 @@ for (const f of [
 ]) {
   if (!existsSync(path.join(stillDir004, f))) errors.push(`缺少画面文件：shot004/${f}`);
 }
+const stillDir = path.join(root, "exports/video-assets/shot003");
 for (const f of [
   "user-source/lilly-early-tank.jpg",
   "user-source/suedfeld-1980-cover.jpg",
@@ -178,6 +196,6 @@ for (const id of required) {
   }
 }
 
-const out = { ok: errors.length === 0, errors, notes, vo003, vo004, vo005 };
+const out = { ok: errors.length === 0, errors, notes, vo003, vo004, vo005, vo006 };
 console.log(JSON.stringify(out, null, 2));
 if (!out.ok) process.exit(1);
