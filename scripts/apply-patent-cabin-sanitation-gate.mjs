@@ -3,10 +3,16 @@
  * 幂等：正文已含标记则跳过。
  * 运行：node scripts/apply-patent-cabin-sanitation-gate.mjs
  */
-import { openStore } from "./lib/patent-store.mjs";
+import { openStore, readPatents } from "./lib/patent-store.mjs";
 
 const now = "2026-09-06T04:20:00.000Z";
 const MARK = "【2026-09-06 舱体消杀过闸】";
+
+const current = readPatents().find((p) => p.id === "PAT-WRITE-007");
+if (current?.title.includes("改机后写气相消杀")) {
+  console.log("舱体消杀现机过闸：WRITE-007 已被改机撰写覆盖，跳过以免回退。");
+  process.exit(0);
+}
 
 const BATCH = {
   batchId: "SRC-PAT-CABIN-SAN-GATE",

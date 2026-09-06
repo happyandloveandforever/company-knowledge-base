@@ -247,7 +247,7 @@ export default async function HomePage() {
               </div>
               <CardTitle className="text-base">公司专利库 · {patents.length} 条</CardTitle>
               <CardDescription>
-                五个申请组，不按母案带子案。撰写菜单 PAT-WRITE-007：空舱三态不递，余光件暂停，舱体消杀现机无独立件。不进公开站，不进编排 PPT。
+                五个申请组，不按母案带子案。撰写菜单 PAT-WRITE-007：现机不递空舱三态；愿意改机器后写气相消杀与通气孔分态；余光件暂停。不进公开站，不进编排 PPT。
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -400,21 +400,24 @@ export default async function HomePage() {
                 <Badge className="bg-red-100 text-red-800">仅内部 · 禁止外发</Badge>
               </div>
               <p className="mt-1 text-sm text-slate-600">
-                空舱三态不递。余光件已暂停。舱体消杀按现机没有独立成件的点。Word 是给内部看的结论，不是交代理师的稿。
+                现机不递。愿意改机器后只写一件：通气孔分态 + 空舱气相处理。余光仍暂停。交底书给工程师勾 1–6，勾齐再交代理师。
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
-              <a href="/api/download?file=cabin-sanitation.docx">
+              <a href="/api/download?file=disclosure-cabin-redesign.docx">
                 <Button>
                   <Download className="h-4 w-4" />
-                  舱体消杀结论
+                  改机交底书
                 </Button>
               </a>
-              <a href="/api/download?file=no-exp-patents.docx">
-                <Button variant="outline">撰写菜单 Word</Button>
+              <a href="/api/download?file=cabin-redesign.docx">
+                <Button variant="outline">改机方案 Word</Button>
               </a>
-              <a href="/api/download?file=cabin-sanitation.md">
-                <Button variant="outline">Markdown</Button>
+              <a href="/api/download?file=cabin-sanitation.docx">
+                <Button variant="outline">现机结论</Button>
+              </a>
+              <a href="/api/download?file=no-exp-patents.docx">
+                <Button variant="outline">撰写菜单</Button>
               </a>
             </div>
           </div>

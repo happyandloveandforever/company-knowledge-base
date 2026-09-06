@@ -734,5 +734,16 @@
     "status": "done",
     "splitMode": "claude-agent",
     "note": "用户暂停余光件。舱体消杀：现机冲壁/紫外/臭氧进液/排空均为公开标配，028 零件不齐，无独立成件点。唯一待问：冲洗水去向。"
+  },
+  {
+    "id": "SRC-PAT-CABIN-REDESIGN",
+    "filename": "舱体消杀-改机撰写方案",
+    "cluster": "cross",
+    "fileType": "other",
+    "uploadedAt": "2026-09-06T08:00:00.000Z",
+    "patentIds": [],
+    "status": "done",
+    "splitMode": "claude-agent",
+    "note": "用户愿意改机器。现机仍不递 028。改机后只写一件：通气孔分态 + 空舱气相处理。余光仍暂停。"
   }
 ]

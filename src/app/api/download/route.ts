@@ -123,6 +123,22 @@ const ALLOWED: Record<string, { file: string; type: string }> = {
     file: "漂浮方舟_舱体消杀_现机可写点.docx",
     type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
   },
+  "cabin-redesign.md": {
+    file: "漂浮方舟_舱体消杀_改机撰写方案.md",
+    type: "text/markdown; charset=utf-8",
+  },
+  "cabin-redesign.docx": {
+    file: "漂浮方舟_舱体消杀_改机撰写方案.docx",
+    type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  },
+  "disclosure-cabin-redesign.md": {
+    file: "漂浮方舟_交底书_空舱气相消杀_改机.md",
+    type: "text/markdown; charset=utf-8",
+  },
+  "disclosure-cabin-redesign.docx": {
+    file: "漂浮方舟_交底书_空舱气相消杀_改机.docx",
+    type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  },
 };
 
 export async function GET(request: NextRequest) {

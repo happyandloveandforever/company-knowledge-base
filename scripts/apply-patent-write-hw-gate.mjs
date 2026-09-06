@@ -3,10 +3,16 @@
  * 幂等：正文已含标记则跳过。
  * 运行：node scripts/apply-patent-write-hw-gate.mjs
  */
-import { openStore } from "./lib/patent-store.mjs";
+import { openStore, readPatents } from "./lib/patent-store.mjs";
 
 const now = "2026-09-06T03:50:00.000Z";
 const MARK = "【2026-09-06 现机过闸】";
+
+const current = readPatents().find((p) => p.id === "PAT-WRITE-007");
+if (current?.title.includes("改机后写气相消杀") || current?.title.includes("余光件暂停")) {
+  console.log("现机过闸：WRITE-007 已被后续改判覆盖，跳过以免回退到余光件。");
+  process.exit(0);
+}
 
 const BATCH = {
   batchId: "SRC-PAT-WRITE-HW-GATE",

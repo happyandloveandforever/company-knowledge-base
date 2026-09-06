@@ -506,8 +506,8 @@ check(
     /不要拿本底两张表当第一件/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.title ?? "")
 );
 check(
-  "现机过闸后空舱三态按现状不递",
-  /按现状不递/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.title ?? "") &&
+  "现机过闸后空舱三态按现机不递",
+  /按现机不递/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.title ?? "") &&
     /通气孔/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.body ?? "") &&
     /接到液体/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.body ?? "")
 );
@@ -520,10 +520,11 @@ check(
   patentSources.some((s) => s.id === "SRC-PAT-WRITE-HW-GATE" && s.status === "done")
 );
 check(
-  "余光件已暂停且舱体消杀无独立件",
+  "余光件已暂停且改机后写气相消杀",
   /暂停/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.title ?? "") &&
-    /舱体消杀现机无独立件/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.title ?? "") &&
-    /PAT-PRI-070/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.body ?? "")
+    /改机后写气相消杀/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.title ?? "") &&
+    /PAT-PRI-070/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.body ?? "") &&
+    /舱体消杀现机无独立件/.test(patents.find((p) => p.id === "PAT-WRITE-007")?.body ?? "")
 );
 check(
   "舱体消杀结论文件存在",
@@ -532,6 +533,28 @@ check(
 check(
   "舱体消杀过闸来源已记录",
   patentSources.some((s) => s.id === "SRC-PAT-CABIN-SAN-GATE" && s.status === "done")
+);
+check(
+  "改机撰写方案与交底书文件存在",
+  existsSync(path.join(process.cwd(), "patent-drafts", "舱体消杀-改机撰写方案.md")) &&
+    existsSync(path.join(process.cwd(), "patent-drafts", "交底书-空舱气相消杀-改机.md"))
+);
+check(
+  "改机撰写来源已记录",
+  patentSources.some((s) => s.id === "SRC-PAT-CABIN-REDESIGN" && s.status === "done")
+);
+check(
+  "入口卡已指向改机撰写",
+  /舱体消杀改机/.test(patents.find((p) => p.id === "PAT-INDEX-001")?.body ?? "")
+);
+check(
+  "028 已指向改机撰写交底书",
+  /改机后作为唯一舱体消杀件/.test(patents.find((p) => p.id === "PAT-IDEA-028")?.body ?? "")
+);
+check(
+  "改机方案 Word 导出存在",
+  existsSync(path.join(process.cwd(), "exports", "漂浮方舟_舱体消杀_改机撰写方案.docx")) &&
+    existsSync(path.join(process.cwd(), "exports", "漂浮方舟_交底书_空舱气相消杀_改机.docx"))
 );
 check(
   "入口卡已指向无需实验撰写菜单",

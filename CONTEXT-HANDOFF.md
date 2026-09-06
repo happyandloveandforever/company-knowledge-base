@@ -58,7 +58,7 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 数据。两个**物理隔�
 专利库页面：https://company-knowledge-base-nine.vercel.app/patents （本机 `http://127.0.0.1:43123/patents`）
 
 应用研发（不写专利）：`internal/低刺激迷走-应用研发思考.md` + Word `exports/漂浮方舟_低刺激迷走_应用研发思考.docx`（首页可下载）+ 仅内训卡 `KP-RD-001~012`（不进 `/open`）。专利对照：`PAT-MAP-009`、`PAT-XREF-002`。
-无需实验撰写菜单：`PAT-WRITE-007`。空舱三态不递，余光件暂停，舱体消杀现机无独立件。结论 `patent-drafts/舱体消杀-现机可写点.md`。
+无需实验撰写菜单：`PAT-WRITE-007`。现机不递空舱三态；愿意改机器后写气相消杀与通气孔分态；余光件暂停。交底书 `patent-drafts/交底书-空舱气相消杀-改机.md`。现机结论仍见 `patent-drafts/舱体消杀-现机可写点.md`。
 
 ---
 
