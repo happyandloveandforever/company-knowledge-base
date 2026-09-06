@@ -81,7 +81,8 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/import-rosenberg-vagus-book-81-120.mjs` | 同书 81–120 页（已主题合并，勿再跑） |
 | `scripts/import-rosenberg-vagus-book-121-160.mjs` | 同书 121–160 页（已主题合并，勿再跑） |
 | `scripts/import-rosenberg-vagus-book-161-200.mjs` | 同书 161–200 页（已主题合并，勿再跑） |
-| `scripts/apply-rosenberg-vagus-merge.mjs` | 罗森堡读本 100→15 主题合并（幂等；停拆 201 页后） |
+| `scripts/apply-rosenberg-vagus-merge.mjs` | 罗森堡读本 100→15 主题合并（幂等；只动 001~015，须保留 016 起） |
+| `scripts/import-rosenberg-vagus-book-201-240.mjs` | 同书 201–240 页续拆 KP-PVB-016~035（幂等；须先有合并包） |
 | `scripts/import-atom-library.mjs` | combined.md 内部原子库 ~1300 条主题合并为 20 条仅内训卡（幂等） |
 | `scripts/import-therapy-os.mjs` | 漂浮疗法说明.pdf 五维叙事脊柱 13 条仅内训卡（幂等） |
 | `scripts/import-nsf-standards-qa.mjs` | 标准五问拆为 KP-WEB-013~020（幂等，通识，直接批准） |
