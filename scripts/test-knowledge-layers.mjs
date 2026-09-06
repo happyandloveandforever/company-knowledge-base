@@ -55,7 +55,7 @@ const comBodies = com.map((p) => `${p.title}\n${p.summary}\n${p.body}`).join("\n
 check("通识新卡不写疗效承诺数字", !/治愈率\s*\d|治疗率\s*\d/.test(comBodies));
 check("通识新卡包含 WHO 2025", /WHO 2025|World mental health today/.test(comBodies));
 check("通识新卡包含 Garland 可行性培训", /可行性RCT/.test(comBodies));
-check("库总量不少于 615", points.length >= 615, String(points.length));
+check("库总量不少于 665", points.length >= 665, String(points.length));
 
 // ── 培训教材隔离 ─────────────────────────────────────
 const trn = points.filter((p) => p.id.startsWith("KP-TRN-"));
@@ -183,10 +183,10 @@ check(
     publicOnly.filter((p) => p.id.startsWith("KP-VNSMAP-")).length === 16
 );
 const pvb = points.filter((p) => p.id.startsWith("KP-PVB-"));
-check("罗森堡读本为 35 条（15 合并 + 20 续拆）", pvb.length === 35, String(pvb.length));
+check("罗森堡读本为 85 条（15 合并 + 70 续拆）", pvb.length === 85, String(pvb.length));
 check("罗森堡读本全部 approved", pvb.every((p) => p.status === "approved"));
 check("罗森堡读本全部可外发", pvb.every((p) => p.internalOnly !== true));
-check("罗森堡读本停在 KP-PVB-035", pvb.every((p) => Number(p.id.slice(7)) <= 35));
+check("罗森堡读本停在 KP-PVB-085", pvb.every((p) => Number(p.id.slice(7)) <= 85));
 check("罗森堡合并包 KP-PVB-001 仍在", points.some((p) => p.id === "KP-PVB-001" && /主题合并/.test(`${p.title}\n${p.body}`)));
 check(
   "来源 SRC-PVB-ROSENBERG-MERGED 已记录",
@@ -216,6 +216,18 @@ check(
   "来源 SRC-PVB-ROSENBERG-201-240 已记录",
   sources.some((s) => s.id === "SRC-PVB-ROSENBERG-201-240" && s.status === "done")
 );
+check(
+  "来源 SRC-PVB-ROSENBERG-241-280 已记录",
+  sources.some((s) => s.id === "SRC-PVB-ROSENBERG-241-280" && s.status === "done")
+);
+check(
+  "来源 SRC-PVB-ROSENBERG-281-320 已记录",
+  sources.some((s) => s.id === "SRC-PVB-ROSENBERG-281-320" && s.status === "done")
+);
+check(
+  "来源 SRC-PVB-ROSENBERG-321-352 已记录",
+  sources.some((s) => s.id === "SRC-PVB-ROSENBERG-321-352" && s.status === "done")
+);
 const pvbText = pvb.map((p) => `${p.title}\n${p.summary}\n${p.body}`).join("\n");
 check("罗森堡读本声明不是漂浮试验", /不是漂浮|不得外推|禁止外推/.test(pvbText));
 check("罗森堡读本写出三回路", /腹侧迷走/.test(pvbText) && /背侧迷走/.test(pvbText) && /交感/.test(pvbText));
@@ -241,7 +253,13 @@ check("罗森堡续拆含激痛点或特拉维尔", /激痛点|特拉维尔|Trav
 check("罗森堡续拆含回盲瓣", /回盲|迴盲/.test(pvbText));
 check("罗森堡续拆含 PTSD 或创伤", /PTSD|创伤/.test(pvbText));
 check("罗森堡续拆含社会性参与", /社会性参与/.test(pvbText));
-check("罗森堡续拆待续 241", /241/.test(pvbText));
+check("罗森堡续拆含 241 至全书末", /241/.test(pvbText) && /352|附录/.test(pvbText));
+check("罗森堡续拆含第七章或泛自闭", /第七章|泛自闭/.test(pvbText));
+check("罗森堡续拆含第二部", /第二部/.test(pvbText));
+check("罗森堡续拆含火蜥蜴", /火蜥蜴/.test(pvbText));
+check("罗森堡续拆含神经筋膜", /神经筋膜/.test(pvbText));
+check("罗森堡续拆含听音乐计划或 SSP", /听音乐计划|SSP/.test(pvbText));
+check("罗森堡禁止宣称治愈自闭", /治好自闭/.test(pvbText));
 
 if (failed) {
   console.log(`\n${failed} failed`);
