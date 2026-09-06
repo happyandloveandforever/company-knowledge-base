@@ -618,7 +618,7 @@ npm run serve          # 或 PORT=43123 bash scripts/keep-alive-server.sh
 
 | 日期 | 变更 |
 |------|------|
-| 2026-09-06 | **宣传片第一章分镜 003 画面**：补 16:9 原创静帧。第二节点改为可核验事件卡（1980 Suedfeld 专著 + 1983 REST 国际会议）；第三节点改为 2018 Feinstein PLoS ONE 临床（开放标签）+ 2021 Al Zoubi 等 Human Brain Mapping 首次 fMRI。目录 `exports/video-assets/shot003/`。 |
+| 2026-09-06 | **分镜 003 谱系三张指定图**：① Lilly 早期箱式舱；② Suedfeld 1980 Wiley 书封（contain，不裁 REST）；③ 研究视频首帧＝漂浮中脑电/生理监测，不写成 2021 fMRI。解释文字写入分镜稿与 `KP-CRAFT-026` v1.1。 |
 | 2026-08-22 | 初始搭建：导入/总库/编排/PPT/冲突检测 |
 | 2026-08-22 | Claude 导入：杨浦财务 54 条 + B端定稿 50 条 |
 | 2026-08-22 | 新增来源管理、删除按钮、keep-alive 服务 |

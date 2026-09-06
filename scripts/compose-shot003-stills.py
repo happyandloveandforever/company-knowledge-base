@@ -55,6 +55,18 @@ def crop_16x9(im: Image.Image) -> Image.Image:
     return im.resize((W, H), Image.Resampling.LANCZOS)
 
 
+def contain_16x9(im: Image.Image, fill=(10, 14, 18), scale=0.78) -> Image.Image:
+    """Letterbox a portrait (or any) still onto 16:9. Do not crop book covers."""
+    im = im.convert("RGB")
+    canvas = Image.new("RGB", (W, H), fill)
+    w, h = im.size
+    fit = min((W * scale) / w, (H * scale) / h)
+    nw, nh = max(1, int(w * fit)), max(1, int(h * fit))
+    im = im.resize((nw, nh), Image.Resampling.LANCZOS)
+    canvas.paste(im, ((W - nw) // 2, (H - nh) // 2))
+    return canvas
+
+
 def rounded(im: Image.Image, size, radius=18):
     im = im.copy().resize(size, Image.Resampling.LANCZOS)
     mask = Image.new("L", size, 0)
@@ -133,6 +145,7 @@ def timeline(bg: Image.Image, thumbs, lit: int, name: str):
     f_title = font(CN, 40)
     f_year = font(LATIN_B, 22)
     f_label = font(CN, 26)
+    f_cap = font(CN, 20)
     f_foot = font(CN, 24)
 
     center_text(d, "Floatation-REST", 72, f_kicker, TEAL, letter=3)
@@ -145,11 +158,11 @@ def timeline(bg: Image.Image, thumbs, lit: int, name: str):
     y_card = 220
     nodes = []
     labels = [
-        ("1950s", "隔离舱实验"),
-        ("1970–80s", "被定名为 REST"),
-        ("2010s–", "临床与影像研究"),
+        ("1950s", "隔离舱实验", "John C. Lilly 与早期箱式舱"),
+        ("1970–80s", "被定名为 REST", "Suedfeld 1980 专著"),
+        ("2010s–", "临床与影像研究", "漂浮中脑电监测"),
     ]
-    for i, (thumb, (year, label)) in enumerate(zip(thumbs, labels)):
+    for i, (thumb, (year, label, cap)) in enumerate(zip(thumbs, labels)):
         x = x0 + i * (card_w + gap)
         on = i < lit
         photo = rounded(thumb, (card_w, card_h), 16)
@@ -172,9 +185,12 @@ def timeline(bg: Image.Image, thumbs, lit: int, name: str):
         fill_y = TEAL if on else DIM
         fill_l = WHITE if on else DIM
         tw, _ = text_size(d, year, f_year)
-        d.text((x + (card_w - tw) // 2, y_card + card_h + 22), year, font=f_year, fill=fill_y)
+        d.text((x + (card_w - tw) // 2, y_card + card_h + 18), year, font=f_year, fill=fill_y)
         tw, _ = text_size(d, label, f_label)
-        d.text((x + (card_w - tw) // 2, y_card + card_h + 54), label, font=f_label, fill=fill_l)
+        d.text((x + (card_w - tw) // 2, y_card + card_h + 46), label, font=f_label, fill=fill_l)
+        fill_c = MUTED if on else DIM
+        tw, _ = text_size(d, cap, f_cap)
+        d.text((x + (card_w - tw) // 2, y_card + card_h + 82), cap, font=f_cap, fill=fill_c)
         nodes.append((x + card_w // 2, 920))
 
     d = ImageDraw.Draw(base)
@@ -382,20 +398,25 @@ def compact_event_still(bg, kicker, title, left, right, filename):
     return crop_16x9(Image.open(OUT / filename))
 
 
-def full_node(photo: Image.Image, year: str, label: str, name: str):
-    base = crop_16x9(photo).convert("RGBA")
+def full_node(photo: Image.Image, year: str, label: str, caption: str, name: str):
+    fitted = photo.convert("RGB")
+    if fitted.size != (W, H):
+        fitted = crop_16x9(fitted)
+    base = fitted.convert("RGBA")
     grad = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     gd = ImageDraw.Draw(grad)
-    for y in range(720, H):
-        a = int(210 * ((y - 720) / (H - 720)) ** 1.15)
-        gd.line((0, y, W, y), fill=(0, 0, 0, min(a, 210)))
+    for y in range(680, H):
+        a = int(230 * ((y - 680) / (H - 680)) ** 1.05)
+        gd.line((0, y, W, y), fill=(0, 0, 0, min(a, 230)))
     base = Image.alpha_composite(base, grad)
     d = ImageDraw.Draw(base)
-    f_year = font(LATIN_B, 28)
-    f_label = font(CN, 48)
-    f_foot = font(CN, 24)
-    d.text((96, 860), year, font=f_year, fill=TEAL)
-    d.text((96, 900), label, font=f_label, fill=WHITE)
+    f_year = font(LATIN_B, 26)
+    f_label = font(CN, 46)
+    f_cap = font(CN, 26)
+    f_foot = font(CN, 22)
+    d.text((96, 820), year, font=f_year, fill=TEAL)
+    d.text((96, 860), label, font=f_label, fill=WHITE)
+    d.text((96, 924), caption, font=f_cap, fill=MUTED)
     tw, _ = text_size(d, "限制性环境刺激疗法  ·  先有方法，后有舱", f_foot)
     d.text((W - 96 - tw, 990), "限制性环境刺激疗法  ·  先有方法，后有舱", font=f_foot, fill=MUTED)
     save(base, name)
@@ -417,49 +438,55 @@ def main():
         if src.resolve() != dst.resolve():
             dst.write_bytes(src.read_bytes())
 
+    user = OUT / "user-source"
+    lilly_path = user / "lilly-early-tank.jpg"
+    book_path = user / "suedfeld-1980-cover.jpg"
+    eeg_path = user / "eeg-video-frame0.jpg"
+    for p in (lilly_path, book_path, eeg_path):
+        if not p.exists():
+            raise FileNotFoundError(p)
+
     void = crop_16x9(Image.open(source_dir / "shot003-bg-void.png"))
-    t1950 = crop_16x9(Image.open(source_dir / "shot003-node-1950s-tank.png"))
-    t1970 = crop_16x9(Image.open(source_dir / "shot003-node-1970s-rest.png"))
-    t2010 = crop_16x9(Image.open(source_dir / "shot003-node-2010s-clinical.png"))
+    t1950 = crop_16x9(Image.open(lilly_path))
+    t1970 = contain_16x9(Image.open(book_path), scale=0.78)
+    t2010 = crop_16x9(Image.open(eeg_path))
     thumbs = [t1950, t1970, t2010]
 
     plate_dir = OUT / "plates"
     plate_dir.mkdir(parents=True, exist_ok=True)
-    for src_name, dst in [
-        ("shot003-bg-void.png", "plate-bg-void.jpg"),
-        ("shot003-node-1950s-tank.png", "plate-1950s.jpg"),
-        ("shot003-node-1970s-rest.png", "plate-1970s.jpg"),
-        ("shot003-node-2010s-clinical.png", "plate-2010s.jpg"),
-        ("shot003-timeline-plate.png", "plate-timeline-raw.jpg"),
-    ]:
-        crop_16x9(Image.open(source_dir / src_name)).save(plate_dir / dst, "JPEG", quality=92)
+    t1950.save(plate_dir / "plate-1950s.jpg", "JPEG", quality=92)
+    t1970.save(plate_dir / "plate-1970s.jpg", "JPEG", quality=92)
+    t2010.save(plate_dir / "plate-2010s.jpg", "JPEG", quality=92)
+    void.save(plate_dir / "plate-bg-void.jpg", "JPEG", quality=92)
 
     chapter_card(void)
     naming = naming_event_still(void)
     clinical = clinical_imaging_still(void)
-    naming_thumb = compact_event_still(
-        void,
-        "1970–80s",
-        "被定名为 REST",
-        ("1980", "Suedfeld 专著", "Wiley"),
-        ("1983", "REST 国际会议", "Fine & Turner"),
-        "003d-naming-compact.jpg",
-    )
-    clinical_thumb = compact_event_still(
-        void,
-        "2010s–",
-        "临床与影像研究",
-        ("2018", "PLoS ONE 临床", "Feinstein / open-label"),
-        ("2021", "首次 fMRI", "Human Brain Mapping"),
-        "003e-imaging-compact.jpg",
-    )
-    thumbs = [t1950, naming_thumb, clinical_thumb]
     timeline(void, thumbs, 1, "003b-timeline-01.jpg")
     timeline(void, thumbs, 2, "003b-timeline-02.jpg")
     timeline(void, thumbs, 3, "003b-timeline-03.jpg")
-    full_node(t1950, "1950s", "隔离舱实验", "003c-1950s.jpg")
-    full_node(t1970, "1970–80s", "被定名为 REST", "003d-1970s-broll.jpg")
-    full_node(t2010, "2010s–", "临床与影像研究", "003e-2010s-broll.jpg")
+    full_node(
+        t1950,
+        "1950s",
+        "隔离舱实验",
+        "John C. Lilly 与早期箱式漂浮舱",
+        "003c-1950s.jpg",
+    )
+    full_node(
+        t1970,
+        "1970–80s",
+        "被定名为 REST",
+        "Suedfeld 1980 专著把 REST 写进书名",
+        "003d-1980-book.jpg",
+    )
+    full_node(
+        t2010,
+        "2010s–",
+        "临床与影像研究",
+        "漂浮中的脑电与生理监测（γ / β / α / θ）",
+        "003e-eeg-frame.jpg",
+    )
+    # keep old generated plates as optional extras, not timeline thumbs
     _ = naming, clinical
 
 

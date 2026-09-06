@@ -1,14 +1,22 @@
 # 分镜 003 画面（16:9）
 
-给剪辑用。第二、第三节点用可核验文献事件卡，不要用假实验室照片冒充历史现场。
+时间轴三张图用指定素材，不要换成期刊封面或假实验室照片。
+
+源文件在 `user-source/`：
+
+1. `lilly-early-tank.jpg` — 早期箱式隔离舱（图一）
+2. `suedfeld-1980-cover.jpg` — Suedfeld 1980 Wiley 书封（图二，contain 不裁 REST）
+3. `eeg-video-frame0.jpg` — 研究视频首帧：漂浮中脑电/生理监测（图三）
 
 建议顺序：
 
 1. `003a-chapter-card.jpg` 约 2.5 秒
 2. `003b-timeline-01.jpg` → `02` → `03` 三点依次点亮
-3. 第二节点全幅：`003d-naming-events.jpg`（1980 专著 + 1983 会议）
-4. 第三节点全幅：`003e-clinical-imaging.jpg`（2018 临床 + 2021 首次 fMRI）
+3. 需要体量时切全幅解释卡：
+   - `003c-1950s.jpg` — 1950s　隔离舱实验／John C. Lilly 与早期箱式漂浮舱
+   - `003d-1980-book.jpg` — 1970–80s　被定名为 REST／Suedfeld 1980 专著把 REST 写进书名
+   - `003e-eeg-frame.jpg` — 2010s–　临床与影像研究／漂浮中的脑电与生理监测
 
-气氛垫底（不是事件本身）：`003d-1970s-broll.jpg`、`003e-2010s-broll.jpg`
+附录（不要替代上面三张）：`003d-naming-events.jpg`、`003e-clinical-imaging.jpg`
 
 重新出图：`python3 scripts/compose-shot003-stills.py`

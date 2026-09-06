@@ -2,7 +2,7 @@
  * 校验宣传片第一章改写稿：时长可念完、红线未破、口径卡在库里。
  * 运行：node scripts/test-video-ch1-research.mjs
  */
-import { readFileSync } from "fs";
+import { existsSync, readFileSync } from "fs";
 import path from "path";
 
 const root = process.cwd();
@@ -73,12 +73,34 @@ if (!md.includes("柳叶子刊") && !md.includes("eClinicalMedicine")) {
 }
 if (!md.includes("六十余年")) errors.push("003 未兑现方法史「六十余年」");
 if (!md.includes("浮力卸载")) errors.push("机制备用镜丢失");
+if (!md.includes("John C. Lilly")) errors.push("003 图一未写 Lilly / 早期箱式舱");
+if (!md.includes("Suedfeld 1980")) errors.push("003 图二未写 Suedfeld 1980 专著");
+if (!md.includes("脑电")) errors.push("003 图三未写脑电监测");
+if (!md.includes("这就是 Feinstein 2018")) {
+  errors.push("003 图三未禁止冒充 2018 论文图");
+}
 
 const craft = kps.find((p) => p.id === "KP-CRAFT-026");
 if (!craft) errors.push("库中缺少 KP-CRAFT-026");
 else {
   if (craft.status !== "approved") errors.push("KP-CRAFT-026 未批准");
   if (craft.layer !== "company") errors.push("KP-CRAFT-026 分层错误");
+  if (!craft.body.includes("Lilly") || !craft.body.includes("脑电")) {
+    errors.push("KP-CRAFT-026 未写入三张指定图口径");
+  }
+}
+
+const stillDir = path.join(root, "exports/video-assets/shot003");
+for (const f of [
+  "user-source/lilly-early-tank.jpg",
+  "user-source/suedfeld-1980-cover.jpg",
+  "user-source/eeg-video-frame0.jpg",
+  "003c-1950s.jpg",
+  "003d-1980-book.jpg",
+  "003e-eeg-frame.jpg",
+  "003b-timeline-03.jpg",
+]) {
+  if (!existsSync(path.join(stillDir, f))) errors.push(`缺少画面文件：${f}`);
 }
 
 const required = ["KP-WEB-001", "KP-WEB-002", "KP-WEB-003", "KP-COM-014"];

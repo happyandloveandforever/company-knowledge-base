@@ -9,7 +9,7 @@
 import { readFileSync, writeFileSync } from "fs";
 import path from "path";
 
-const now = "2026-09-06T06:20:00.000Z";
+const now = "2026-09-06T07:20:00.000Z";
 const sourceId = "SRC-VID-CH1-RESEARCH";
 const sourceFile = "exports/宣传片_第一章_国际研究基础_分镜003-005.md";
 
@@ -29,7 +29,7 @@ const raw = [
     body:
       "原片为什么不够：003 只闪 PLoS/BMC 刊名，六十年没有谱系；004 用 25 秒讲浮力卸载/感官降噪/状态转换，那是机理不是研究基础；005 把 63 项与五条信号塞进 10 秒，旁白念不完，综述像附录。\n\n" +
       "改写后一条线（总长仍 0:30–1:20）：\n" +
-      "003 0:30–0:42 谱系：1950s 隔离舱 → 1970–80s REST 命名 → 2010s 临床与影像。旁白：Floatation-REST 不是近年体验概念，是二十世纪中叶实验室走出来的方法，已有六十余年研究积累。六十年=方法史，不是六十年临床试验。\n" +
+      "003 0:30–0:42 谱系三张指定图：① 1950s 隔离舱实验＝John C. Lilly 与早期箱式漂浮舱（不要写成 1954 某日现场）；② 1970–80s 被定名为 REST＝Suedfeld 1980 Wiley 专著把 REST 写进书名（不是开会起名仪式；1983 会议不写进封面字）；③ 2010s– 临床与影像＝漂浮中脑电与生理监测（视频首帧；不要写成 Feinstein 2018 或 2021 首次 fMRI）。旁白：Floatation-REST 不是近年体验概念，是二十世纪中叶实验室走出来的方法，已有六十余年研究积累。六十年=方法史，不是六十年临床试验。\n" +
       "004 0:42–1:07 三座地标：① Feinstein 2018 PLoS ONE，Laureate，开放标签（禁止写成 RCT），n=50，单次后状态焦虑显著下降；② Garland 2024 PLoS ONE 可行性 RCT，75 人约 6 次，无严重不良事件，只证明能做完较安全；③ Choquette 2023 柳叶子刊 eClinicalMedicine RCT，状态焦虑与身体意象、含随访信号。禁止写成治疗厌食或我方适应症。\n" +
       "005 1:07–1:20 全景：2025 BMC 系统综述，六十余项、约两千人量级、1960–2024。画面可列压力/焦虑、疼痛、心理福祉、运动恢复、自主神经相关指标；旁白只抓压力焦虑疼痛 + 方案差异大、不足以对所有人群形成统一疗效结论。不要口播锁死 1838。\n\n" +
       "机制三词（浮力卸载、感官降噪、状态转换）整段移出本章，放到「方法/机理」备用镜。\n" +
@@ -47,11 +47,6 @@ const dataDir = path.join(process.cwd(), "data");
 const kpPath = path.join(dataDir, "knowledge-points.json");
 const sourcesPath = path.join(dataDir, "sources.json");
 const existing = JSON.parse(readFileSync(kpPath, "utf-8"));
-
-if (existing.some((p) => p.id === "KP-CRAFT-026")) {
-  console.log("KP-CRAFT-026 已存在，跳过。总数:", existing.length);
-  process.exit(0);
-}
 
 const required = ["KP-WEB-001", "KP-WEB-002", "KP-WEB-003", "KP-COM-014", "KP-CRAFT-006"];
 const missing = required.filter((id) => !existing.some((p) => p.id === id));
@@ -78,17 +73,31 @@ const points = raw.map((p) => ({
   },
   scenarios: p.scenarios,
   durationMin: p.min,
-  version: "1.0",
+  version: "1.1",
   status: "approved",
   createdAt: now,
   updatedAt: now,
   conflictNote:
-    "宣讲/分镜结构。试验事实以 WEB-001/002/003、COM-014 为准；不是本公司临床试验。",
+    "宣讲/分镜结构。试验事实以 WEB-001/002/003、COM-014 为准；不是本公司临床试验。谱系三张图：Lilly 早期舱、Suedfeld 1980 书封、漂浮中脑电首帧（不是 2021 fMRI 论文图）。",
   layer: "company",
   usage: p.usage,
 }));
 
-const merged = [...existing, ...points];
+const idx = existing.findIndex((p) => p.id === "KP-CRAFT-026");
+let merged;
+if (idx >= 0) {
+  const prev = existing[idx];
+  existing[idx] = {
+    ...prev,
+    ...points[0],
+    createdAt: prev.createdAt || now,
+    updatedAt: now,
+    version: "1.1",
+  };
+  merged = existing;
+} else {
+  merged = [...existing, ...points];
+}
 writeFileSync(kpPath, JSON.stringify(merged, null, 2) + "\n");
 
 const sources = JSON.parse(readFileSync(sourcesPath, "utf-8"));
