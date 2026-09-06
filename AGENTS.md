@@ -85,6 +85,8 @@ Next.js 知识库 Web 应用 + Git 持久化的 JSON 知识点总库。
 | `scripts/import-atom-library.mjs` | combined.md 内部原子库 ~1300 条主题合并为 20 条仅内训卡（幂等） |
 | `scripts/import-therapy-os.mjs` | 漂浮疗法说明.pdf 五维叙事脊柱 13 条仅内训卡（幂等） |
 | `scripts/import-nsf-standards-qa.mjs` | 标准五问拆为 KP-WEB-013~020（幂等，通识，直接批准） |
+| `exports/宣传片_第一章_国际研究基础_分镜003-005.md` | 宣传片第一章改写：谱系 + 三座地标试验 + 综述地图（`KP-CRAFT-026`） |
+| `scripts/import-video-ch1-research.mjs` | 同上入库（幂等，已入库后勿重跑） |
 | `docs/漂浮舱卫生安全标准五问.md` | NSF CCS-12804 / 周转率 / 臭氧 / ASTM F462 / ASME A112.19.17 问答底稿 |
 | `scripts/import-patent-landscape.mjs` | 四簇专利全景矩阵主题合并为 PAT-* 仅内部卡（幂等，独立 JSON；已入库后勿重跑） |
 | `scripts/apply-patent-six-modules.mjs` | 重构版：四簇升六簇、两母案、不设母案3（幂等） |
